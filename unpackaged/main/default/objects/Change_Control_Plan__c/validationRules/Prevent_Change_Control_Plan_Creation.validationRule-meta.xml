@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Prevent_Change_Control_Plan_Creation</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISNEW() &amp;&amp;  Change_Control__r.Change_Control_Review_Completed__c</errorConditionFormula>
+        <errorMessage>No change control plans can be added after Complete Review Change Control.</errorMessage>
+    </ValidationRule>

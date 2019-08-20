@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <caseValues>
+        <plural>false</plural>
+        <value>Extension Request CAPA</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Extension Requests CAPA</value>
+    </caseValues>
+    <startsWith>Vowel</startsWith>
+    <layouts>
+        <layout>Extension Request CAPA Layout</layout>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- Proposed Due Date cannot be in the past. --></errorMessage>
+        <name>Proposed_Due_Date_cannot_be_in_the_past</name>
+    </validationRules>
+    <workflowTasks>
+        <name>Extension_Request_for_CAPA</name>
+        <subject><!-- Extension Request for CAPA --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

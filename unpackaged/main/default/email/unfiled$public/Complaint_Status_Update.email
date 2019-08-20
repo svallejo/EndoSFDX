@@ -1,0 +1,19 @@
+Greetings, 
+
+Complaint {!CMPL123CME__Complaint__c.Name} has entered stage "{!CMPL123CME__Complaint__c.CMPL123CME__CMPL123_WF_Status__c}" and requires your attention. Details of the Complaint can be found below: 
+
+Complaint description: {!CMPL123CME__Complaint__c.CMPL123CME__Event_Description__c} 
+
+Complaint title: {!CMPL123CME__Complaint__c.CMPL123CME__Short_Description__c} 
+
+Date Created: {!CMPL123CME__Complaint__c.CreatedDate} 
+
+Status: {!CMPL123CME__Complaint__c.CMPL123CME__CMPL123_WF_Status__c} 
+
+Customer Feedback desired:{!CMPL123CME__Complaint__c.C2_Customer_feedback_desired__c} 
+
+Please log in to view the details of the Complaint by clicking the link below : 
+
+{!CMPL123CME__Complaint__c.Link} 
+
+Thank you.

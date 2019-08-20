@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Lot Number --></label>
+        <name>Lot_Number__c</name>
+        <picklistValues>
+            <masterLabel>10023</masterLabel>
+            <translation><!-- 10023 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>45008</masterLabel>
+            <translation><!-- 45008 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>48997</masterLabel>
+            <translation><!-- 48997 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>54003</masterLabel>
+            <translation><!-- 54003 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>98007</masterLabel>
+            <translation><!-- 98007 --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

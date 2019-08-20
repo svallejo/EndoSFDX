@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Response_should_not_be_blank</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED(CMPL123_WF_Action__c)&amp;&amp; CMPL123_WF_Action__c =="Submit Response" &amp;&amp; ISBLANK( Response__c )</errorConditionFormula>
+        <errorMessage>Please fill the Response field before performing the Submit response action.</errorMessage>
+    </ValidationRule>

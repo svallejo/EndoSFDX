@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    <caseValues>
+        <plural>false</plural>
+        <value>CC Related Location</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>CC Related Locations</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- New_Referenced_Location_Audit --></label>
+        <name>New_Referenced_Location_Audit</name>
+    </webLinks>
+</CustomObjectTranslation>

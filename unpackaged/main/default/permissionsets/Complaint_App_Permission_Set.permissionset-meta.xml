@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Complaint App Permission Set for Admin (other than default system admin profile)</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Complaint App Permission Set (Admin) custom</label>
+    <license>Salesforce</license>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Field_Observation__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <recordTypeVisibilities>
+        <recordType>Field_Observation__c.New_Field_Observation</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+</PermissionSet>

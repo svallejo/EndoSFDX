@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Print_QE</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Print QE</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>openWindow = window.open("/apex/CMPL123__X123ReportTemplate?id={!Quality_Event_Investigation__c.Id}","","width=1024, height=768, top=40, left=300");</url>
+    </WebLink>

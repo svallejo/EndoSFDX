@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?><Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplications>
+        <label><!-- Complaints --></label>
+        <name>Complaint</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- DMS --></label>
+        <name>DMS</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- EQMS --></label>
+        <name>EQMS</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Trackwise Digital TMS --></label>
+        <name>TMS</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- 123Compliance --></label>
+        <name>X123Compliance</name>
+    </customApplications>
+    <customLabels>
+        <label><!-- Audit Plan Record Type Id --></label>
+        <name>Audit_Plan_Record_Type_Id</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Audit plan field Id --></label>
+        <name>Audit_plan_field_Id</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Change Control Record Type Id --></label>
+        <name>Change_Control_Record_Type_Id</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Change control field Id --></label>
+        <name>Change_control_field_Id</name>
+    </customLabels>
+    <customPageWebLinks>
+        <label><!-- Configure Compliance App --></label>
+        <name>Configure_Compliance_App</name>
+    </customPageWebLinks>
+    <customTabs>
+        <label><!-- Audit Setup --></label>
+        <name>Audit_Setup</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Dashboard --></label>
+        <name>Dashboard</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- EMDR Mandatory Fields Setup --></label>
+        <name>EMDRMandatoryFieldsSetup</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- MDC Ticket Dashboard --></label>
+        <name>MDC_Ticket_Dashboard</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Setup --></label>
+        <name>Setup</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- TMSDashboard --></label>
+        <name>TMSDashboard</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- 123 Task Dashboard --></label>
+        <name>X123_Task_Dashboard</name>
+    </customTabs>
+    <quickActions>
+        <label><!-- NewAccount --></label>
+        <name>NewAccount</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewEvent --></label>
+        <name>NewEvent</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewGroup --></label>
+        <name>NewGroup</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewLead --></label>
+        <name>NewLead</name>
+    </quickActions>
+    <reportTypes>
+        <description><!-- QualEvents --></description>
+        <label><!-- QualEvents --></label>
+        <name>QualEvents</name>
+        <sections>
+            <label><!-- Quality Events --></label>
+            <name>Quality Events</name>
+        </sections>
+    </reportTypes>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Effe_Check_for_CAPA-2</fullName>
+        </flows>
+        <fullName>Create_Effe_Check_for_CAPA</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Change_Control_from_Action_Required-1</fullName>
+        </flows>
+        <fullName>Create_Change_Control_from_Action_Required</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Junk2-2</fullName>
+        </flows>
+        <fullName>Junk2</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_a_Workflow_History-1</fullName>
+        </flows>
+        <fullName>Create_a_Workflow_History</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>DMS_WFH_Insertion_Notification-1</fullName>
+        </flows>
+        <fullName>DMS_WFH_Insertion_Notification</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>DMS_Corporate_Document_Notification-8</fullName>
+        </flows>
+        <fullName>DMS_Corporate_Document_Notification</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_a_complaint_from_Inquiry-4</fullName>
+        </flows>
+        <fullName>Create_a_complaint_from_Inquiry</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>POC_on_Automate_Complaint_workflow_step-11</fullName>
+        </flows>
+        <fullName>POC_on_Automate_Complaint_workflow_step</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>DMS_WFH_Updation_Notification-2</fullName>
+        </flows>
+        <fullName>DMS_WFH_Updation_Notification</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Investigation_from_Inquiry-3</fullName>
+        </flows>
+        <fullName>Create_Investigation_from_Inquiry</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Assessement_from_Complaint-3</fullName>
+        </flows>
+        <fullName>Create_Assessement_from_Complaint</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>POC_on_testing_of-15</fullName>
+        </flows>
+        <fullName>POC_on_testing_of</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Update_Due_Date-1</fullName>
+        </flows>
+        <fullName>Update_Due_Date</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Investigation_for_CAPA-2</fullName>
+        </flows>
+        <fullName>Investigation_for_CAPA</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Investigation_from_Complaint-8</fullName>
+        </flows>
+        <fullName>Create_Investigation_from_Complaint</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Action_plan_for_CAPA-2</fullName>
+        </flows>
+        <fullName>Create_Action_plan_for_CAPA</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Junk1-2</fullName>
+        </flows>
+        <fullName>Junk1</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Assessment_for_Audit-1</fullName>
+        </flows>
+        <fullName>Create_Assessment_for_Audit</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_CAPA_from_Action_Required-1</fullName>
+        </flows>
+        <fullName>Create_CAPA_from_Action_Required</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Complaint_for_Inquiry_with_out_Classification-2</fullName>
+        </flows>
+        <fullName>Complaint_for_Inquiry_with_out_Classification</fullName>
+    </flowDefinitions>
+</Translations>

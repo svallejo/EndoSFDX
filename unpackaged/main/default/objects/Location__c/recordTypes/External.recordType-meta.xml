@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>External</fullName>
+        <active>true</active>
+        <label>External</label>
+        <picklistValues>
+            <picklist>Location_Type__c</picklist>
+            <values>
+                <fullName>CMO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing Plant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Packaging</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Supplier</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </RecordType>

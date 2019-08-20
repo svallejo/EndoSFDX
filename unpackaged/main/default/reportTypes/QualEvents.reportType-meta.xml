@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>CMPL123QMS__Deviation__c</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Shows Quality events</description>
+    <label>QualEvents</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Name</field>
+            <table>CMPL123QMS__Deviation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CMPL123QMS__Description__c</field>
+            <table>CMPL123QMS__Deviation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CMPL123QMS__Investigation_Summary__c</field>
+            <table>CMPL123QMS__Deviation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Investigation_Summary_Rich_Text__c</field>
+            <table>CMPL123QMS__Deviation__c</table>
+        </columns>
+        <masterLabel>Quality Events</masterLabel>
+    </sections>
+</ReportType>

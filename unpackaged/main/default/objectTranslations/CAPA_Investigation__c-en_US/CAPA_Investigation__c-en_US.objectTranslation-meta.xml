@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    <caseValues>
+        <plural>false</plural>
+        <value>CAPA Investigation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>CAPA Investigations</value>
+    </caseValues>
+    <startsWith>Consonant</startsWith>
+    <layouts>
+        <layout>CAPA Investigation Layout</layout>
+        <sections>
+            <label><!-- Work flow --></label>
+            <section>Work flow</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- You cannot add new Investigation under this record --></errorMessage>
+        <name>CAPA_Complete_Review</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Record Locked --></errorMessage>
+        <name>Prevent_Edit_CAPA</name>
+    </validationRules>
+</CustomObjectTranslation>

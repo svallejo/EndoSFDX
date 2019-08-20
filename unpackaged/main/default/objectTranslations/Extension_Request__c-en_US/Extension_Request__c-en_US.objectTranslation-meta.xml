@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <caseValues>
+        <plural>false</plural>
+        <value>Extension Request Audit Findings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Extension Requests Audit Findings</value>
+    </caseValues>
+    <startsWith>Vowel</startsWith>
+    <layouts>
+        <layout>Extension Request Layout</layout>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- Proposed Due Date cannot be in the past. --></errorMessage>
+        <name>Proposed_Due_Date_cannot_be_in_the_past</name>
+    </validationRules>
+    <workflowTasks>
+        <name>Extension_Request_for_Audit_Findings</name>
+        <subject><!-- Extension Request for Audit Findings --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Extension_Request_for_Quality_Events</name>
+        <subject><!-- Extension Request for Quality Events --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

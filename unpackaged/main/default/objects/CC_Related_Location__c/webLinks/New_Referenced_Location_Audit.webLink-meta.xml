@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>New_Referenced_Location_Audit</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Referenced Location</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/{!$ObjectType.CC_Related_Location__c}/e?CF{!$Label.Audit_plan_field_Id}={!Audit_Plan__c.Name}&amp;{!Audit_Plan__c.Id}_lkid={!Audit_Plan__c.Id}&amp;retURL=%2F{!Audit_Plan__c.Id}&amp;RecordType={!$Label.Audit_Plan_Record_Type_Id}</url>
+    </WebLink>

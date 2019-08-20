@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Finding_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Finding Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>OOS</fullName>
+                    <default>false</default>
+                    <label>OOS</label>
+                </value>
+                <value>
+                    <fullName>Non conformance</fullName>
+                    <default>false</default>
+                    <label>Non conformance</label>
+                </value>
+                <value>
+                    <fullName>OOT</fullName>
+                    <default>false</default>
+                    <label>OOT</label>
+                </value>
+                <value>
+                    <fullName>Clinical</fullName>
+                    <default>false</default>
+                    <label>Clinical</label>
+                </value>
+                <value>
+                    <fullName>Deviation</fullName>
+                    <default>false</default>
+                    <label>Deviation</label>
+                </value>
+                <value>
+                    <fullName>Process</fullName>
+                    <default>false</default>
+                    <label>Process</label>
+                </value>
+                <value>
+                    <fullName>EHS/Facilities</fullName>
+                    <default>false</default>
+                    <label>EHS/Facilities</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

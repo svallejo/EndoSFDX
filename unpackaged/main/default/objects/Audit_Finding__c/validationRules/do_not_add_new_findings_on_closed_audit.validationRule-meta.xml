@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>do_not_add_new_findings_on_closed_audit</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( Audit__r.CMPL123_WF_Action__c == "Close" , ISNEW() )</errorConditionFormula>
+        <errorMessage>Cannot Add a New Audit Findings for the Closed Audit</errorMessage>
+    </ValidationRule>

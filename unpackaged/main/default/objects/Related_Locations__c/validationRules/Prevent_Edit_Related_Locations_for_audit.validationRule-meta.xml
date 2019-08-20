@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Prevent_Edit_Related_Locations_for_audit</fullName>
+        <active>true</active>
+        <errorConditionFormula>Internal_Audit__r.CMPL123_WF_Status__c =="Canceled - Audit"</errorConditionFormula>
+        <errorMessage>Record Locked</errorMessage>
+    </ValidationRule>

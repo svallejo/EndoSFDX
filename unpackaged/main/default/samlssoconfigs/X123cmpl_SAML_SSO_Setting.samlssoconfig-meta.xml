@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SamlSsoConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <errorUrl>https://123compliancesparta-5970.cloudforce.com?login=1</errorUrl>
+    <identityLocation>SubjectNameId</identityLocation>
+    <identityMapping>UserId</identityMapping>
+    <issuer>https://123cmpl.my.salesforce.com</issuer>
+    <loginUrl>https://123cmpl.my.salesforce.com/idp/endpoint/HttpPost</loginUrl>
+    <name>123cmpl SAML SSO Setting</name>
+    <oauthTokenEndpoint>https://spartasupppharma--JoanTest.cs34.my.salesforce.com/services/oauth2/token?so=00D2f0000000TKB</oauthTokenEndpoint>
+    <redirectBinding>false</redirectBinding>
+    <salesforceLoginUrl>https://spartasupppharma--JoanTest.cs34.my.salesforce.com?so=00D2f0000000TKB</salesforceLoginUrl>
+    <samlEntityId>https://saml.salesforce.com/00D36000000vJHsEAM</samlEntityId>
+    <samlVersion>SAML2_0</samlVersion>
+    <userProvisioning>false</userProvisioning>
+    <validationCert>MIIErDCCA5SgAwIBAgIOAUdvrA9QAAAAAFZyQkwwDQYJKoZIhvcNAQEFBQAwgZAxKDAmBgNVBAMMH1NlbGZTaWduZWRDZXJ0XzI1SnVsMjAxNF8yMjM3MzIxGDAWBgNVBAsMDzAwRDQwMDAwMDAwTXhBMzEXMBUGA1UECgwOU2FsZXNmb3JjZS5jb20xFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xCzAJBgNVBAgMAkNBMQwwCgYDVQQGEwNVU0EwHhcNMTQwNzI1MjIzNzMyWhcNMTYwNzI0MjIzNzMyWjCBkDEoMCYGA1UEAwwfU2VsZlNpZ25lZENlcnRfMjVKdWwyMDE0XzIyMzczMjEYMBYGA1UECwwPMDBENDAwMDAwMDBNeEEzMRcwFQYDVQQKDA5TYWxlc2ZvcmNlLmNvbTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzELMAkGA1UECAwCQ0ExDDAKBgNVBAYTA1VTQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALvtJKUmpemHvxT91cCaN4UeGr5gX2qDXaXT+QyULFacCvhkD1tvHCWsvlsGp7MVrwT+mAkjoptAJ0MrCFFiuxAapXW4j10tjV/tWFR08hgFoUvYiUi9E1GLiF1PmZdV36F6Evx6v/0O64QMPP+ajO/mwiitXNJXXe7zskmvJYjJm9CjrefsZ0loHetw02AskfYkngG2m9i1x7KcF0P5qlDcqJbChG9xNzZ9N+A/ZbiXXyZds6BnJIAOQDsWsKYIH1e7EvQ5+YyIUdfifCq+GjUzbaxj+v5c57qcIyp6+9Bqy7tUEUCbb/gsvBhhXk7htkyF6sdyYSvtfZKsJ7dJuvsCAwEAAaOCAQAwgf0wHQYDVR0OBBYEFDeS4KOQ+J/P6BpNjQ5+uq1HGtcsMIHKBgNVHSMEgcIwgb+AFDeS4KOQ+J/P6BpNjQ5+uq1HGtcsoYGWpIGTMIGQMSgwJgYDVQQDDB9TZWxmU2lnbmVkQ2VydF8yNUp1bDIwMTRfMjIzNzMyMRgwFgYDVQQLDA8wMEQ0MDAwMDAwME14QTMxFzAVBgNVBAoMDlNhbGVzZm9yY2UuY29tMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQswCQYDVQQIDAJDQTEMMAoGA1UEBhMDVVNBgg4BR2+sD14AAAAAVnJCTDAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQApsUfAabAxhZUF8XMO2tC9XRcSJaMfw5T8uztM5VXw3GKnsmaFa9v1QM2CcWbXRn9nUUzbXCbiMNLHWfDezLBwd0N867EY2OCS74wcphWX4As9Ii1jGFkoeYDdbuLD3olNM19YbPaTAYH5CoNWu5Rkbvxm5IRtCShpgRxkbkelWI+F/5sxczHP0m/DcxqqG+kXPXvqhMKlLCBwf6o3STgrPQnc3Q6rpW4Q540s3sXRCmzEqEWDabWrWS3GmMQsCNl9qM1HWOLIZLG0AEfazz5j0a5f6riH2edWdTr1vhX0iyVIJfTac5Ho4Bg4mdz6DVTchtWhVlQapO67c+OWioIv</validationCert>
+</SamlSsoConfig>
