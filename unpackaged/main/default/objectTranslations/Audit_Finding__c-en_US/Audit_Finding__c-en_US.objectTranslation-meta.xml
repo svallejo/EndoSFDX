@@ -11,6 +11,17 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <caseValues>
         <plural>false</plural>
         <value>Audit Finding</value>
@@ -20,6 +31,10 @@
         <value>Audit Findings</value>
     </caseValues>
     <startsWith>Vowel</startsWith>
+    <fieldSets>
+        <label><!-- Audit Finding FS --></label>
+        <name>Audit_Finding_FS</name>
+    </fieldSets>
     <layouts>
         <layout>Audit Finding Layout</layout>
         <sections>

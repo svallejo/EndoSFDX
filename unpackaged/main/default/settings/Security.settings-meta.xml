@@ -6,7 +6,7 @@
         <expiration>NinetyDays</expiration>
         <historyRestriction>3</historyRestriction>
         <lockoutInterval>FifteenMinutes</lockoutInterval>
-        <maxLoginAttempts>TenAttempts</maxLoginAttempts>
+        <maxLoginAttempts>ThreeAttempts</maxLoginAttempts>
         <minimumPasswordLength>8</minimumPasswordLength>
         <minimumPasswordLifetime>false</minimumPasswordLifetime>
         <obscureSecretAnswer>false</obscureSecretAnswer>
@@ -19,7 +19,7 @@
         <enableCSRFOnPost>true</enableCSRFOnPost>
         <enableCacheAndAutocomplete>true</enableCacheAndAutocomplete>
         <enableClickjackNonsetupSFDC>true</enableClickjackNonsetupSFDC>
-        <enableClickjackNonsetupUser>false</enableClickjackNonsetupUser>
+        <enableClickjackNonsetupUser>true</enableClickjackNonsetupUser>
         <enableClickjackNonsetupUserHeaderless>false</enableClickjackNonsetupUserHeaderless>
         <enableClickjackSetup>true</enableClickjackSetup>
         <enableContentSniffingProtection>false</enableContentSniffingProtection>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123__NPI_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>National Provider Identifier</description>
+        <externalId>false</externalId>
+        <label>NPI #</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

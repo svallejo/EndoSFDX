@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?><Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <label><!-- Audit Plan Record Type Id --></label>
+        <name>Audit_Plan_Record_Type_Id</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Audit plan field Id --></label>
+        <name>Audit_plan_field_Id</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Change Control Record Type Id --></label>
+        <name>Change_Control_Record_Type_Id</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Change control field Id --></label>
+        <name>Change_control_field_Id</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Inconceivable --></label>
+        <name>Inconceivable</name>
+    </customLabels>
+    <quickActions>
+        <label><!-- LogACall --></label>
+        <name>LogACall</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewAccount --></label>
+        <name>NewAccount</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewCase --></label>
+        <name>NewCase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewContact --></label>
+        <name>NewContact</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewEvent --></label>
+        <name>NewEvent</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewGroup --></label>
+        <name>NewGroup</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewLead --></label>
+        <name>NewLead</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewNote --></label>
+        <name>NewNote</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewOpportunity --></label>
+        <name>NewOpportunity</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewTask --></label>
+        <name>NewTask</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- SendEmail --></label>
+        <name>SendEmail</name>
+    </quickActions>
+    <reportTypes>
+        <description><!-- QualEvents --></description>
+        <label><!-- QualEvents --></label>
+        <name>QualEvents</name>
+        <sections>
+            <label><!-- Quality Events --></label>
+            <name>Quality Events</name>
+        </sections>
+    </reportTypes>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Effe_Check_for_CAPA-2</fullName>
+        </flows>
+        <fullName>Create_Effe_Check_for_CAPA</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Change_Control_from_Action_Required-1</fullName>
+        </flows>
+        <fullName>Create_Change_Control_from_Action_Required</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Junk2-2</fullName>
+        </flows>
+        <fullName>Junk2</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_a_complaint_from_Inquiry-4</fullName>
+        </flows>
+        <fullName>Create_a_complaint_from_Inquiry</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>POC_on_Automate_Complaint_workflow_step-11</fullName>
+        </flows>
+        <fullName>POC_on_Automate_Complaint_workflow_step</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Investigation_from_Inquiry-3</fullName>
+        </flows>
+        <fullName>Create_Investigation_from_Inquiry</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Assessement_from_Complaint-3</fullName>
+        </flows>
+        <fullName>Create_Assessement_from_Complaint</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>POC_on_testing_of-15</fullName>
+        </flows>
+        <fullName>POC_on_testing_of</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Update_Due_Date-1</fullName>
+        </flows>
+        <fullName>Update_Due_Date</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Investigation_for_CAPA-2</fullName>
+        </flows>
+        <fullName>Investigation_for_CAPA</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Investigation_from_Complaint-8</fullName>
+        </flows>
+        <fullName>Create_Investigation_from_Complaint</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Action_plan_for_CAPA-2</fullName>
+        </flows>
+        <fullName>Create_Action_plan_for_CAPA</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Junk1-2</fullName>
+        </flows>
+        <fullName>Junk1</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_Assessment_for_Audit-1</fullName>
+        </flows>
+        <fullName>Create_Assessment_for_Audit</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Create_CAPA_from_Action_Required-1</fullName>
+        </flows>
+        <fullName>Create_CAPA_from_Action_Required</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>Complaint_for_Inquiry_with_out_Classification-2</fullName>
+        </flows>
+        <fullName>Complaint_for_Inquiry_with_out_Classification</fullName>
+    </flowDefinitions>
+</Translations>

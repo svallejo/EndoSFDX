@@ -6,9 +6,9 @@
     <issuer>https://123cmpl.my.salesforce.com</issuer>
     <loginUrl>https://123cmpl.my.salesforce.com/idp/endpoint/HttpPost</loginUrl>
     <name>123cmpl SAML SSO Setting</name>
-    <oauthTokenEndpoint>https://spartasupppharma--JoanTest.cs34.my.salesforce.com/services/oauth2/token?so=00D2f0000000TKB</oauthTokenEndpoint>
+    <oauthTokenEndpoint>https://spartasupppharma--Scotty.cs37.my.salesforce.com/services/oauth2/token?so=00D2i0000000dbC</oauthTokenEndpoint>
     <redirectBinding>false</redirectBinding>
-    <salesforceLoginUrl>https://spartasupppharma--JoanTest.cs34.my.salesforce.com?so=00D2f0000000TKB</salesforceLoginUrl>
+    <salesforceLoginUrl>https://spartasupppharma--Scotty.cs37.my.salesforce.com?so=00D2i0000000dbC</salesforceLoginUrl>
     <samlEntityId>https://saml.salesforce.com/00D36000000vJHsEAM</samlEntityId>
     <samlVersion>SAML2_0</samlVersion>
     <userProvisioning>false</userProvisioning>

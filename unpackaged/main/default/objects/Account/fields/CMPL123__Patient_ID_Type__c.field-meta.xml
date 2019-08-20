@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123__Patient_ID_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Type of patient ID.</description>
+        <externalId>false</externalId>
+        <label>Patient ID Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SSN</fullName>
+                    <default>false</default>
+                    <label>SSN</label>
+                </value>
+                <value>
+                    <fullName>SIN</fullName>
+                    <default>false</default>
+                    <label>SIN</label>
+                </value>
+                <value>
+                    <fullName>Patient Declined</fullName>
+                    <default>false</default>
+                    <label>Patient Declined</label>
+                </value>
+                <value>
+                    <fullName>Unable to Obtain</fullName>
+                    <default>false</default>
+                    <label>Unable to Obtain</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

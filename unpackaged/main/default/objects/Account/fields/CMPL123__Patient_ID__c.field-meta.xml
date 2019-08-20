@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123__Patient_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unique identifier for the patient.  For example the social security number.</description>
+        <externalId>false</externalId>
+        <label>Patient ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>
