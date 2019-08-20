@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Allow Adhoc Assignment --></help>
+        <label><!-- Allow Adhoc Assignment --></label>
+        <name>CMPL123TMS__Allow_Adhoc_Assignment__c</name>
+    </CustomFieldTranslation>

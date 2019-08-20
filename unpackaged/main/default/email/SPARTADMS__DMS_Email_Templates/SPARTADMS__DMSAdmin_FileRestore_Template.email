@@ -1,0 +1,8 @@
+Hello,<br/><br/>
+The DMS Admin restored the file on the following document and as a result the document was rejected:<br/>
+Document Name: {0}<br/>
+Document Number: {1}<br/>
+Rejected by: {2}<br/><br/>
+Please login to the Document Management System using this link to take further action.<br/>
+LINK: {3}<br/><br/>
+Thank you!<br/><br/>

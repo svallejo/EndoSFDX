@@ -1,0 +1,19 @@
+<messaging:emailTemplate subject="{!$Label.cmpl123tms__tms_course_cancellation_notification}" 
+    recipientType="User" 
+    relatedToType="CMPL123TMS__Training_Record__c"
+    language="{!recipient.LanguageLocaleKey}">
+    <messaging:htmlEmailBody >
+        <html>
+            <body>
+                <p>{!$Label.cmpl123tms__tms_notification_salutation},</p>
+                <p>{!$Label.cmpl123tms__tms_course_cancellation_notification_label_1}</p>
+                
+                <p>{!relatedTo.CMPL123TMS__Training_Name__c}, {!relatedTo.CMPL123TMS__Training_Number__c}, {!$Label.cmpl123tms__tms_notification_common_label_2} {!relatedTo.CMPL123TMS__Version__c}.</p> 
+    
+                <p>{!$Label.cmpl123tms__tms_notification_signature}<br/>
+                </p>
+                <p><c:TMSLogoComponent /></p>
+            </body>
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__ValidateCheckOut</fullName>
+        <active>true</active>
+        <description>Validate CheckOut Process</description>
+        <errorConditionFormula>AND(ISCHANGED(SPARTADMS__Checkin_Status__c) ,ISPICKVAL(SPARTADMS__Checkin_Status__c, 'Checked Out') ,
+NOT(ISPICKVAL(SPARTADMS__Document_Status__c, 'EFFECTIVE')))</errorConditionFormula>
+        <errorMessage>Check out operation can only applied to effective documents.</errorMessage>
+    </ValidationRule>

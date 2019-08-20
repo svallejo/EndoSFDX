@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Catalogue number --></help>
+        <label><!-- Catalogue number --></label>
+        <name>CMPL123CME__Catalogue_Number__c</name>
+    </CustomFieldTranslation>

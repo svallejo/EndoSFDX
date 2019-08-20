@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Patient history (co-morbidities and medication): --></help>
+        <label><!-- Patient history (co-morbidities/medica.) --></label>
+        <name>CMPL123CME__Patient_history_co_morbidities__c</name>
+    </CustomFieldTranslation>

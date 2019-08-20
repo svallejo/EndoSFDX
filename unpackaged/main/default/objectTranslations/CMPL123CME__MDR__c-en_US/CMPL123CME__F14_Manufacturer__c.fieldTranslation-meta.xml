@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- F14 Manufacturer --></label>
+        <name>CMPL123CME__F14_Manufacturer__c</name>
+        <relationshipLabel><!-- MDR (F14 Manufacturer) --></relationshipLabel>
+    </CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- C1 - #2 Lot # --></help>
+        <label><!-- C1 - #2 Lot # --></label>
+        <name>CMPL123CME__C1_Lot_Number2__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Condition --></label>
+        <name>CMPL123__Condition__c</name>
+        <picklistValues>
+            <masterLabel>Custom</masterLabel>
+            <translation><!-- Custom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Value changed</masterLabel>
+            <translation><!-- Value changed --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

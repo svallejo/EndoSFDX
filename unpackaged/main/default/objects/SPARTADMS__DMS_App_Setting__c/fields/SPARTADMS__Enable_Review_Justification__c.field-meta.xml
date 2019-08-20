@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Enable_Review_Justification__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>True - Enable Justification
+False- Disable Justification</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check- Enable Justification
+Uncheck- Disable Justification</inlineHelpText>
+        <label>Enable Justification</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </CustomField>

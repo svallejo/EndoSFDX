@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Usage of the medical device --></label>
+        <name>CMPL123CME__Usage_of_the_medical_device__c</name>
+        <picklistValues>
+            <masterLabel>Initial use</masterLabel>
+            <translation><!-- Initial use --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reuse of a single use medical device</masterLabel>
+            <translation><!-- Reuse of a single use medical device --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>other</masterLabel>
+            <translation><!-- other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>problem noted prior use</masterLabel>
+            <translation><!-- problem noted prior use --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>re-serviced/refurbished</masterLabel>
+            <translation><!-- re-serviced/refurbished --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>reuse of a reusable medical device</masterLabel>
+            <translation><!-- reuse of a reusable medical device --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

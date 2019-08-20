@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Occupation of Initial Reporter --></help>
+        <label><!-- Occupation --></label>
+        <name>CMPL123CME__Occupation_Of_Initial_Reporter__c</name>
+        <picklistValues>
+            <masterLabel>Administrator/Supervisor</masterLabel>
+            <translation><!-- Administrator/Supervisor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biomedical Engineer</masterLabel>
+            <translation><!-- Biomedical Engineer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dentist</masterLabel>
+            <translation><!-- Dentist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation><!-- NA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nurse</masterLabel>
+            <translation><!-- Nurse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nurse Practitioner</masterLabel>
+            <translation><!-- Nurse Practitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Healthcare Professional</masterLabel>
+            <translation><!-- Other Healthcare Professional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmacist</masterLabel>
+            <translation><!-- Pharmacist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Physician</masterLabel>
+            <translation><!-- Physician --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk Manager</masterLabel>
+            <translation><!-- Risk Manager --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

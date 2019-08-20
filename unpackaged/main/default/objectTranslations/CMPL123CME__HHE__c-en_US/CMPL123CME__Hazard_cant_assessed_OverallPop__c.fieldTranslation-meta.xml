@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Hazard cannot be assessed with the data currently available --></help>
+        <label><!-- UnuseHazard cannot assessed with current --></label>
+        <name>CMPL123CME__Hazard_cant_assessed_OverallPop__c</name>
+    </CustomFieldTranslation>

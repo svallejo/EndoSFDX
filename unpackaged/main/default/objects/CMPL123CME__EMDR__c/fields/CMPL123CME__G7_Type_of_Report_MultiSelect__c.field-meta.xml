@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__G7_Type_of_Report_MultiSelect__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Type of the report based on MDR requirements.</description>
+        <externalId>false</externalId>
+        <label>G7 - Type of Report</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>5-day</fullName>
+                    <default>false</default>
+                    <label>5-day</label>
+                </value>
+                <value>
+                    <fullName>Periodic</fullName>
+                    <default>false</default>
+                    <label>Periodic</label>
+                </value>
+                <value>
+                    <fullName>Initial</fullName>
+                    <default>false</default>
+                    <label>Initial</label>
+                </value>
+                <value>
+                    <fullName>Follow Up</fullName>
+                    <default>false</default>
+                    <label>Follow Up</label>
+                </value>
+                <value>
+                    <fullName>Test</fullName>
+                    <default>false</default>
+                    <label>Test</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </CustomField>

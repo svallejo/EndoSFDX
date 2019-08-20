@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__D5_Operator_of_Device__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Type of person operating/using the device on the patient at the time of the event.</description>
+        <externalId>false</externalId>
+        <label>D5 - Operator of Device</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Attorney</fullName>
+                    <default>false</default>
+                    <label>Attorney</label>
+                </value>
+                <value>
+                    <fullName>Audiologist</fullName>
+                    <default>false</default>
+                    <label>Audiologist</label>
+                </value>
+                <value>
+                    <fullName>Biomedical Engineer</fullName>
+                    <default>false</default>
+                    <label>Biomedical Engineer</label>
+                </value>
+                <value>
+                    <fullName>Dental Assistant</fullName>
+                    <default>false</default>
+                    <label>Dental Assistant</label>
+                </value>
+                <value>
+                    <fullName>Dental Hygienist</fullName>
+                    <default>false</default>
+                    <label>Dental Hygienist</label>
+                </value>
+                <value>
+                    <fullName>Dentist</fullName>
+                    <default>false</default>
+                    <label>Dentist</label>
+                </value>
+                <value>
+                    <fullName>Device Unattended</fullName>
+                    <default>false</default>
+                    <label>Device Unattended</label>
+                </value>
+                <value>
+                    <fullName>Dietician</fullName>
+                    <default>false</default>
+                    <label>Dietician</label>
+                </value>
+                <value>
+                    <fullName>Emergency Medical Technician</fullName>
+                    <default>false</default>
+                    <label>Emergency Medical Technician</label>
+                </value>
+                <value>
+                    <fullName>Health Professional</fullName>
+                    <default>false</default>
+                    <label>Health Professional</label>
+                </value>
+                <value>
+                    <fullName>Home Health Aide</fullName>
+                    <default>false</default>
+                    <label>Home Health Aide</label>
+                </value>
+                <value>
+                    <fullName>Hospital Service Technician</fullName>
+                    <default>false</default>
+                    <label>Hospital Service Technician</label>
+                </value>
+                <value>
+                    <fullName>Lay User/Patient</fullName>
+                    <default>false</default>
+                    <label>Lay User/Patient</label>
+                </value>
+                <value>
+                    <fullName>Medical Assistant</fullName>
+                    <default>false</default>
+                    <label>Medical Assistant</label>
+                </value>
+                <value>
+                    <fullName>Medical Equip Company Techn/Rep</fullName>
+                    <default>false</default>
+                    <label>Medical Equip Company Techn/Rep</label>
+                </value>
+                <value>
+                    <fullName>Medical Technologist</fullName>
+                    <default>false</default>
+                    <label>Medical Technologist</label>
+                </value>
+                <value>
+                    <fullName>Nuclear Medicine Technologist</fullName>
+                    <default>false</default>
+                    <label>Nuclear Medicine Technologist</label>
+                </value>
+                <value>
+                    <fullName>Nurse</fullName>
+                    <default>false</default>
+                    <label>Nurse</label>
+                </value>
+                <value>
+                    <fullName>Nursing Assistant</fullName>
+                    <default>false</default>
+                    <label>Nursing Assistant</label>
+                </value>
+                <value>
+                    <fullName>Occupational Therapist</fullName>
+                    <default>false</default>
+                    <label>Occupational Therapist</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Other Caregivers</fullName>
+                    <default>false</default>
+                    <label>Other Caregivers</label>
+                </value>
+                <value>
+                    <fullName>Other Health Care Professional</fullName>
+                    <default>false</default>
+                    <label>Other Health Care Professional</label>
+                </value>
+                <value>
+                    <fullName>Paramedic</fullName>
+                    <default>false</default>
+                    <label>Paramedic</label>
+                </value>
+                <value>
+                    <fullName>Patient</fullName>
+                    <default>false</default>
+                    <label>Patient</label>
+                </value>
+                <value>
+                    <fullName>Patient Family Member/Friend</fullName>
+                    <default>false</default>
+                    <label>Patient Family Member/Friend</label>
+                </value>
+                <value>
+                    <fullName>Personal Care Assistant</fullName>
+                    <default>false</default>
+                    <label>Personal Care Assistant</label>
+                </value>
+                <value>
+                    <fullName>Pharmacist</fullName>
+                    <default>false</default>
+                    <label>Pharmacist</label>
+                </value>
+                <value>
+                    <fullName>Phlebotomist</fullName>
+                    <default>false</default>
+                    <label>Phlebotomist</label>
+                </value>
+                <value>
+                    <fullName>Physical Therapist</fullName>
+                    <default>false</default>
+                    <label>Physical Therapist</label>
+                </value>
+                <value>
+                    <fullName>Physician</fullName>
+                    <default>false</default>
+                    <label>Physician</label>
+                </value>
+                <value>
+                    <fullName>Physician Assistant</fullName>
+                    <default>false</default>
+                    <label>Physician Assistant</label>
+                </value>
+                <value>
+                    <fullName>Physicist</fullName>
+                    <default>false</default>
+                    <label>Physicist</label>
+                </value>
+                <value>
+                    <fullName>Radiologic Technologist</fullName>
+                    <default>false</default>
+                    <label>Radiologic Technologist</label>
+                </value>
+                <value>
+                    <fullName>Respiratory Therapist</fullName>
+                    <default>false</default>
+                    <label>Respiratory Therapist</label>
+                </value>
+                <value>
+                    <fullName>Risk Manager</fullName>
+                    <default>false</default>
+                    <label>Risk Manager</label>
+                </value>
+                <value>
+                    <fullName>Service And Testing Personnel</fullName>
+                    <default>false</default>
+                    <label>Service And Testing Personnel</label>
+                </value>
+                <value>
+                    <fullName>Service Personnel</fullName>
+                    <default>false</default>
+                    <label>Service Personnel</label>
+                </value>
+                <value>
+                    <fullName>Speech Therapist</fullName>
+                    <default>false</default>
+                    <label>Speech Therapist</label>
+                </value>
+                <value>
+                    <fullName>NA</fullName>
+                    <default>false</default>
+                    <label>NA</label>
+                </value>
+                <value>
+                    <fullName>NI</fullName>
+                    <default>false</default>
+                    <label>NI</label>
+                </value>
+                <value>
+                    <fullName>ASKU</fullName>
+                    <default>false</default>
+                    <label>ASKU</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

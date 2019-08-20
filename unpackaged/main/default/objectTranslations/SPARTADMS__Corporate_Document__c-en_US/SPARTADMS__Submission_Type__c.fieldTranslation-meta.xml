@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- The corporate document record submission type --></help>
+        <label><!-- Submission Type --></label>
+        <name>SPARTADMS__Submission_Type__c</name>
+        <picklistValues>
+            <masterLabel>Checkout Submission</masterLabel>
+            <translation><!-- Checkout Submission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Effective Submission</masterLabel>
+            <translation><!-- Effective Submission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Obsolete Submission</masterLabel>
+            <translation><!-- Obsolete Submission --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

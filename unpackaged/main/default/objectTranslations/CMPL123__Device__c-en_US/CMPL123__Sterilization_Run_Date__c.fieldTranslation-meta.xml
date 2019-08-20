@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Sterilization Run Date --></help>
+        <label><!-- Sterilization Run Date --></label>
+        <name>CMPL123__Sterilization_Run_Date__c</name>
+    </CustomFieldTranslation>

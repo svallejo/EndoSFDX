@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Courier Tracking Number --></label>
+        <name>CMPL123__Courier_Tracking_Number__c</name>
+    </CustomFieldTranslation>

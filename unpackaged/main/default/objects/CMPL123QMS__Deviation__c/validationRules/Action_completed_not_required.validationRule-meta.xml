@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Action_completed_not_required</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED( CMPL123_WF_Action__c ) &amp;&amp; CMPL123_WF_Action__c =="Submit Final Review - No Action Required" &amp;&amp;  Action_Completed__c ==True</errorConditionFormula>
+        <errorMessage>"Submit Final Review - No Action Required" action cannot be performed if Action Completed checkbox is checked.</errorMessage>
+    </ValidationRule>

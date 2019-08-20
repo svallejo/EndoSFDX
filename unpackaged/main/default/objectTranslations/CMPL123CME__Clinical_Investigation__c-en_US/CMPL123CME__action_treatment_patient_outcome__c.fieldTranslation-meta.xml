@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- action/ treatment/patient outcome --></help>
+        <label><!-- action/ treatment/patient outcome --></label>
+        <name>CMPL123CME__action_treatment_patient_outcome__c</name>
+    </CustomFieldTranslation>

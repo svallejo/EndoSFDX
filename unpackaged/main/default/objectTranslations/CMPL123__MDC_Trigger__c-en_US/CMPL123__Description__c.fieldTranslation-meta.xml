@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Don&apos;t add more than 30000 characters. --></help>
+        <label><!-- Description --></label>
+        <name>CMPL123__Description__c</name>
+    </CustomFieldTranslation>

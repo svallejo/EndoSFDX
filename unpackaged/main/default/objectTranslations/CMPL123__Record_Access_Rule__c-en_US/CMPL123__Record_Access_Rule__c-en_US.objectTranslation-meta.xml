@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Record Access Rule Layout</layout>
+        <sections>
+            <label><!-- ** This feature is restricted to TrackWise Digital only. No standard objects. ** --></label>
+            <section>** This feature is restricted to TrackWise Digital only. No standard objects. **</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Parameters --></label>
+            <section>Parameters</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

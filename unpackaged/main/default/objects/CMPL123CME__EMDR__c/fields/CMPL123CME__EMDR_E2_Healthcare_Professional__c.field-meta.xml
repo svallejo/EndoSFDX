@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__EMDR_E2_Healthcare_Professional__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>CASE(TEXT(CMPL123CME__E3_Occupation__c), "Dental Assistant", "Y","Dental Hygienist","Y","Dentist","Y","Dietician","Y","Emergency Medical Technician","Y","Health Professional","Y","Home Health Aide","Y","Medical Assistant","Y","Nurse","Y","Nursing Assistant","Y","Occupational Therapist","Y","Other Health Care Professional","Y","Paramedic","Y","Physical Therapist","Y","Physician","Y","Physician Assistant","Y","Respiratory Therapist","Y","N")</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>EMDR E2 - Healthcare Professional</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

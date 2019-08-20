@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Type of Manufacturer --></label>
+        <name>CMPL123CME__Type_of_Manufacturer__c</name>
+        <picklistValues>
+            <masterLabel>Original Equipment Manufacturer</masterLabel>
+            <translation><!-- Original Equipment Manufacturer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reprocessor</masterLabel>
+            <translation><!-- Reprocessor --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Identity of all other Regulatory Authorities, Notified Bodies, etc., where this report was also sent. --></help>
+        <label><!-- Other Regulatory Authorities Reported --></label>
+        <name>CMPL123CME__Other_Regulatory_Authorities_Reported__c</name>
+    </CustomFieldTranslation>

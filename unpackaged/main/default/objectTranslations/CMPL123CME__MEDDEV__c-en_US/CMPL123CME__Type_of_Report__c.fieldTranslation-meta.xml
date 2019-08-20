@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Type of report --></help>
+        <label><!-- Type of report --></label>
+        <name>CMPL123CME__Type_of_Report__c</name>
+        <picklistValues>
+            <masterLabel>Combined initial and final report</masterLabel>
+            <translation><!-- Combined initial and final report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final report</masterLabel>
+            <translation><!-- Final report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Follow-up report</masterLabel>
+            <translation><!-- Follow-up report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initial report</masterLabel>
+            <translation><!-- Initial report --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

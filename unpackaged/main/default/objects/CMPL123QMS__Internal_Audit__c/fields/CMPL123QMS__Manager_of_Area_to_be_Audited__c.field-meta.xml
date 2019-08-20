@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123QMS__Manager_of_Area_to_be_Audited__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Manager of Area to be Audited</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Internal Audits (Manager of Area to be Audited)</relationshipLabel>
+        <relationshipName>Internal_Audits1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </CustomField>

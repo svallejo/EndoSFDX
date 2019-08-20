@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Prevent_Edit_Change_control_on_closed_QE</fullName>
+        <active>false</active>
+        <errorConditionFormula>Quality_Event__r.CMPL123_WF_Status__c  =="Closed - Quality Event"</errorConditionFormula>
+        <errorMessage>Record Locked</errorMessage>
+    </ValidationRule>

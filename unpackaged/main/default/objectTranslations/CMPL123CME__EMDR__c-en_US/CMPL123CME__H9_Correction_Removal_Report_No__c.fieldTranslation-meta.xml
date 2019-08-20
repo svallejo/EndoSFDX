@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Corrective action number assigned by FDA or the reporting firm. --></help>
+        <label><!-- H9 - Corrective Action Number --></label>
+        <name>CMPL123CME__H9_Correction_Removal_Report_No__c</name>
+    </CustomFieldTranslation>

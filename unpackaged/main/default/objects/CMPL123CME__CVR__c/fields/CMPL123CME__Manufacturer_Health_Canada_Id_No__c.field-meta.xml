@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Manufacturer_Health_Canada_Id_No__c</fullName>
+        <deprecated>false</deprecated>
+        <description>. Health Canada assigned
+company identification number
+(if known)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Health Canada assigned
+company identification number
+(if known)</inlineHelpText>
+        <label>Manufacturer Health Canada Id No.</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

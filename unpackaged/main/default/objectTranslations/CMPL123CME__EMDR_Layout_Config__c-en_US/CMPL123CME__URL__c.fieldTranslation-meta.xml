@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Specify Button URL (Ex: for any apex pages start with /apex/&lt;pagename&gt;)
+or specify related lookup field Id (normally starts with 00N) --></help>
+        <label><!-- Button URL / Field Id --></label>
+        <name>CMPL123CME__URL__c</name>
+    </CustomFieldTranslation>

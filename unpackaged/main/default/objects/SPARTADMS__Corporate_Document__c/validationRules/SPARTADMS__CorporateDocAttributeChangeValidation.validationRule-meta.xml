@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__CorporateDocAttributeChangeValidation</fullName>
+        <active>true</active>
+        <description>Document Type or Department can not be updated once a Corporate Document record is created.</description>
+        <errorConditionFormula>OR( ISCHANGED(  SPARTADMS__Document_Type__c ), ISCHANGED(  SPARTADMS__Document_Department__c ) )</errorConditionFormula>
+        <errorMessage>Document Type or Department can not be updated once a Corporate Document record is created.</errorMessage>
+    </ValidationRule>

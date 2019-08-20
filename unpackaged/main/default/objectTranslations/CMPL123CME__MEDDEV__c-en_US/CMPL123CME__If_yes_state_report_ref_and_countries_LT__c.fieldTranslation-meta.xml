@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If yes, state in which countries and the report reference numbers of the incidents. --></help>
+        <label><!-- If yes, state report ref and countries --></label>
+        <name>CMPL123CME__If_yes_state_report_ref_and_countries_LT__c</name>
+    </CustomFieldTranslation>

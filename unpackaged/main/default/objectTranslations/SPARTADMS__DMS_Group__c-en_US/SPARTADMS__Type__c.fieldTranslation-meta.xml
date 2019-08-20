@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Type --></help>
+        <label><!-- Type --></label>
+        <name>SPARTADMS__Type__c</name>
+        <picklistValues>
+            <masterLabel>Approver</masterLabel>
+            <translation><!-- Approver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Author</masterLabel>
+            <translation><!-- Author --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reviewer</masterLabel>
+            <translation><!-- Reviewer --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- New Hire Training Days controls training record due date assignment --></help>
+        <label><!-- New Hire Training Days --></label>
+        <name>CMPL123TMS__New_Hire_Training_Days__c</name>
+    </CustomFieldTranslation>

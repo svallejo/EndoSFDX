@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>CAPA Layout</layout>
+        <sections>
+            <label><!-- CAPA Closure --></label>
+            <section>CAPA Closure</section>
+        </sections>
+        <sections>
+            <label><!-- CAPA Effectiveness Check --></label>
+            <section>CAPA Effectiveness Check</section>
+        </sections>
+        <sections>
+            <label><!-- CAPA Identification --></label>
+            <section>CAPA Identification</section>
+        </sections>
+        <sections>
+            <label><!-- CAPA Plan --></label>
+            <section>CAPA Plan</section>
+        </sections>
+        <sections>
+            <label><!-- CAPA Risk Analysis --></label>
+            <section>CAPA Risk Analysis</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- Effectiveness check Required? must be answered before proceeding further. --></errorMessage>
+        <name>Effec_Check_is_None</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot perform Verify Effectiveness - CAPA Action Plan action while Effectiveness Check Required? field is set to No. Please change it to Yes and perform action again. --></errorMessage>
+        <name>Effect_Check_Required_is_No</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Record Locked --></errorMessage>
+        <name>Prevent_Edit_CAPA_when_QE_is_closed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill all the required fields before proceeding. --></errorMessage>
+        <name>fill_all_the_required_fields</name>
+    </validationRules>
+</CustomObjectTranslation>

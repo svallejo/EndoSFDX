@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123__Question_30_Score__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( ISPICKVAL(  CMPL123__Question30_Answer__c  , 'N/A') || ISPICKVAL(CMPL123__Question30_Answer__c , 'No') || ISBLANK( TEXT(CMPL123__Question30_Answer__c) ) ,0,CMPL123__Weight30__c )</formula>
+        <label>Question 30 Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </CustomField>

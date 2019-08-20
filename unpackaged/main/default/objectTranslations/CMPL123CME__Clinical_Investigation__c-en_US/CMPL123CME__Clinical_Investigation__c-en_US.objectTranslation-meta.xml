@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Clinical Investigation Layout</layout>
+        <sections>
+            <label><!-- Serious Adverse Event Reporting --></label>
+            <section>Serious Adverse Event Reporting</section>
+        </sections>
+    </layouts>
+    <webLinks>
+        <label><!-- Download_in_Excel_Format --></label>
+        <name>CMPL123CME__Download_in_Excel_Format</name>
+    </webLinks>
+</CustomObjectTranslation>

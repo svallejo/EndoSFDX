@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Registered Site Layout</layout>
+        <sections>
+            <label><!-- Manufacturer Contact Office --></label>
+            <section>Manufacturer Contact Office</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- Sequence No needs to contain 5 digits --></errorMessage>
+        <name>CMPL123CME__Check_Sequence_No_Size</name>
+    </validationRules>
+</CustomObjectTranslation>

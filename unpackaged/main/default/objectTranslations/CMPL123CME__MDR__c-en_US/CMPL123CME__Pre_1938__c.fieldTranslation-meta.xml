@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Pre 1938 --></label>
+        <name>CMPL123CME__Pre_1938__c</name>
+    </CustomFieldTranslation>

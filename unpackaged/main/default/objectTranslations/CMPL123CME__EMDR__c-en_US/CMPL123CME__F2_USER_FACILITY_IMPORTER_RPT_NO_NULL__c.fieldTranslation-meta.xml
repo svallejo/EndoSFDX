@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- F2 - User Fac / Imp Report No Null --></label>
+        <name>CMPL123CME__F2_USER_FACILITY_IMPORTER_RPT_NO_NULL__c</name>
+        <picklistValues>
+            <masterLabel>ASKU</masterLabel>
+            <translation><!-- ASKU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation><!-- NA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NI</masterLabel>
+            <translation><!-- NI --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

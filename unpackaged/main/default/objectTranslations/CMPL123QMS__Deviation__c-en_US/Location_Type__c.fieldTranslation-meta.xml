@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Location Type --></label>
+        <name>Location_Type__c</name>
+        <picklistValues>
+            <masterLabel>Chemical</masterLabel>
+            <translation><!-- Chemical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clean Room</masterLabel>
+            <translation><!-- Clean Room --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laboratory</masterLabel>
+            <translation><!-- Laboratory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office Space</masterLabel>
+            <translation><!-- Office Space --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shop Floor / Manufacturing</masterLabel>
+            <translation><!-- Shop Floor / Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Storage</masterLabel>
+            <translation><!-- Storage --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

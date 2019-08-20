@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- B2 - Outcomes Attributed to AE --></label>
+        <name>CMPL123CME__B2_Outcomes_attributed_to_AE__c</name>
+        <picklistValues>
+            <masterLabel>ASKU</masterLabel>
+            <translation><!-- ASKU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Congenital Anomaly/Birth Defect</masterLabel>
+            <translation><!-- Congenital Anomaly/Birth Defect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Death</masterLabel>
+            <translation><!-- Death --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disability or Permanent Damage</masterLabel>
+            <translation><!-- Disability or Permanent Damage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospitalization-initial or prolonged</masterLabel>
+            <translation><!-- Hospitalization-initial or prolonged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Life-threatening</masterLabel>
+            <translation><!-- Life-threatening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation><!-- NA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NI</masterLabel>
+            <translation><!-- NI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Serious</masterLabel>
+            <translation><!-- Other Serious --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Required Intervention</masterLabel>
+            <translation><!-- Required Intervention --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

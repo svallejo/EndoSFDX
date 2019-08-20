@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Change Control Layout</layout>
+        <sections>
+            <label><!-- Change Control Detail --></label>
+            <section>Change Control Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Change Control Information --></label>
+            <section>Change Control Information</section>
+        </sections>
+        <sections>
+            <label><!-- Change Details --></label>
+            <section>Change Details</section>
+        </sections>
+        <sections>
+            <label><!-- Workflow --></label>
+            <section>Workflow</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- Record Locked --></errorMessage>
+        <name>Prevent_Edit_Change_control_on_closed_QE</name>
+    </validationRules>
+</CustomObjectTranslation>

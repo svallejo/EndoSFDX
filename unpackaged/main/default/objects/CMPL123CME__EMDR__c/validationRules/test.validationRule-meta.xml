@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>test</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(CMPL123CME__D3_City__c = '', CMPL123CME__CMPL123_WF_Action__c ='Open')</errorConditionFormula>
+        <errorMessage>City Mandatory</errorMessage>
+    </ValidationRule>

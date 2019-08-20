@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- F3 - Country --></label>
+        <name>CMPL123CME__F3_Country__c</name>
+        <relationshipLabel><!-- EMDR (F3 - Country) --></relationshipLabel>
+    </CustomFieldTranslation>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- C3 - #2 Frequency Units --></help>
+        <label><!-- C3 - #2 Frequency Units --></label>
+        <name>CMPL123CME__C3_Frequency_Units2__c</name>
+        <picklistValues>
+            <masterLabel>ASKU</masterLabel>
+            <translation><!-- ASKU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation><!-- NA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NI</masterLabel>
+            <translation><!-- NI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>per day</masterLabel>
+            <translation><!-- per day --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>per hour</masterLabel>
+            <translation><!-- per hour --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>per minute</masterLabel>
+            <translation><!-- per minute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>per month</masterLabel>
+            <translation><!-- per month --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>per second</masterLabel>
+            <translation><!-- per second --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>per week</masterLabel>
+            <translation><!-- per week --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>per year</masterLabel>
+            <translation><!-- per year --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__ACK1RejectMessage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Reject message from FDA, if exists one.</description>
+        <externalId>false</externalId>
+        <label>ACK1 Reject Message</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </CustomField>

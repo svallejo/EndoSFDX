@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SYMPTOM CODE</fullName>
+                    <default>false</default>
+                    <label>SYMPTOM CODE</label>
+                </value>
+                <value>
+                    <fullName>ANALYSIS CODE</fullName>
+                    <default>false</default>
+                    <label>ANALYSIS CODE</label>
+                </value>
+                <value>
+                    <fullName>PATIENT CODE</fullName>
+                    <default>false</default>
+                    <label>PATIENT CODE</label>
+                </value>
+                <value>
+                    <fullName>DEVICE CODE</fullName>
+                    <default>false</default>
+                    <label>DEVICE CODE</label>
+                </value>
+                <value>
+                    <fullName>EVAL METHOD CODE</fullName>
+                    <default>false</default>
+                    <label>EVAL METHOD CODE</label>
+                </value>
+                <value>
+                    <fullName>EVAL RESULT CODE</fullName>
+                    <default>false</default>
+                    <label>EVAL RESULT CODE</label>
+                </value>
+                <value>
+                    <fullName>EVAL CONCLUSION CODE</fullName>
+                    <default>false</default>
+                    <label>EVAL CONCLUSION CODE</label>
+                </value>
+                <value>
+                    <fullName>COMPLAINT CODE</fullName>
+                    <default>false</default>
+                    <label>COMPLAINT CODE</label>
+                </value>
+                <value>
+                    <fullName>ROOT CAUSE CODE</fullName>
+                    <default>false</default>
+                    <label>ROOT CAUSE CODE</label>
+                </value>
+                <value>
+                    <fullName>FINDING CODE</fullName>
+                    <default>false</default>
+                    <label>FINDING CODE</label>
+                </value>
+                <value>
+                    <fullName>MEDDRA CODE</fullName>
+                    <default>false</default>
+                    <label>MEDDRA CODE</label>
+                </value>
+                <value>
+                    <fullName>COMPONENT CODE</fullName>
+                    <default>false</default>
+                    <label>COMPONENT CODE</label>
+                </value>
+                <value>
+                    <fullName>COUNTRY CODE</fullName>
+                    <default>false</default>
+                    <label>COUNTRY CODE</label>
+                </value>
+                <value>
+                    <fullName>STATE CODE</fullName>
+                    <default>false</default>
+                    <label>STATE CODE</label>
+                </value>
+                <value>
+                    <fullName>PRO CODE</fullName>
+                    <default>false</default>
+                    <label>PRO CODE</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

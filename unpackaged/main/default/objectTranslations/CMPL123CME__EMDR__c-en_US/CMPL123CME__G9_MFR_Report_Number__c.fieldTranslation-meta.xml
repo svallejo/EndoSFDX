@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Mfr Report# --></help>
+        <label><!-- G9 - Mfr Report# --></label>
+        <name>CMPL123CME__G9_MFR_Report_Number__c</name>
+    </CustomFieldTranslation>

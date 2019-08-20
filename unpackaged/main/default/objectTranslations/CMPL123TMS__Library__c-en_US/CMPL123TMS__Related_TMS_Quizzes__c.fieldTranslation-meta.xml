@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Related TMS Quizzes --></label>
+        <name>CMPL123TMS__Related_TMS_Quizzes__c</name>
+        <relationshipLabel><!-- Library Items --></relationshipLabel>
+    </CustomFieldTranslation>

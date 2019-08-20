@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Translated Label (English). --></help>
+        <label><!-- Translated Label (English) --></label>
+        <name>CMPL123__Translated_Label__c</name>
+    </CustomFieldTranslation>

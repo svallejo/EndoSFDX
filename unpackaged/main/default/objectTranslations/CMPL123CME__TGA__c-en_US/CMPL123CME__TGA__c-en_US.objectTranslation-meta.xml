@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>TGA Layout</layout>
+        <sections>
+            <label><!-- Administrative Information --></label>
+            <section>Administrative Information</section>
+        </sections>
+        <sections>
+            <label><!-- Authorised Representative Information --></label>
+            <section>Authorised Representative Information</section>
+        </sections>
+        <sections>
+            <label><!-- Clinical Event Information --></label>
+            <section>Clinical Event Information</section>
+        </sections>
+        <sections>
+            <label><!-- General Device Information --></label>
+            <section>General Device Information</section>
+        </sections>
+        <sections>
+            <label><!-- Healthcare Facilty Information --></label>
+            <section>Healthcare Facilty Information</section>
+        </sections>
+        <sections>
+            <label><!-- Other Reporting Information --></label>
+            <section>Other Reporting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Patient Information --></label>
+            <section>Patient Information</section>
+        </sections>
+        <sections>
+            <label><!-- Results of Mfr’s Investigation --></label>
+            <section>Results of Mfr’s Investigation</section>
+        </sections>
+        <sections>
+            <label><!-- Specific Device Information --></label>
+            <section>Specific Device Information</section>
+        </sections>
+    </layouts>
+    <webLinks>
+        <label><!-- Print --></label>
+        <name>CMPL123CME__Print</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_TGA --></label>
+        <name>CMPL123CME__Print_TGA</name>
+    </webLinks>
+</CustomObjectTranslation>

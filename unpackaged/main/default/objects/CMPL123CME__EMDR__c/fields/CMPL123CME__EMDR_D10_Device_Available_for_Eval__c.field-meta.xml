@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__EMDR_D10_Device_Available_for_Eval__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>CASE(TEXT( CMPL123CME__D10_Device_available_for_Eval__c )
+,"Yes",IF (NOT ISNULL(CMPL123CME__D10_Date_returned_to_MFG__c ),"Y Return Date: " + 
+LPAD(TEXT(MONTH( CMPL123CME__D10_Date_returned_to_MFG__c )),2,'0') 
+&amp; "/" &amp; LPAD(TEXT(DAY(CMPL123CME__D10_Date_returned_to_MFG__c)),2,'0') 
+&amp; "/" &amp; TEXT(YEAR(CMPL123CME__D10_Date_returned_to_MFG__c)),"Y Return Date: NA")
+,"No","N"
+,TEXT( CMPL123CME__D10_Device_available_for_Eval__c ))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>EMDR D10 Device Available for Eval</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

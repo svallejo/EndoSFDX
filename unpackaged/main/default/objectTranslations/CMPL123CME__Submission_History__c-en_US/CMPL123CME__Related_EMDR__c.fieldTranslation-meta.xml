@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Related EMDR --></help>
+        <label><!-- Related EMDR --></label>
+        <name>CMPL123CME__Related_EMDR__c</name>
+        <relationshipLabel><!-- Submission History --></relationshipLabel>
+    </CustomFieldTranslation>

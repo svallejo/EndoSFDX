@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Device_Mfr_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Device Mfr Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Device Mfr Date</inlineHelpText>
+        <label>Device Manufactured Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </CustomField>

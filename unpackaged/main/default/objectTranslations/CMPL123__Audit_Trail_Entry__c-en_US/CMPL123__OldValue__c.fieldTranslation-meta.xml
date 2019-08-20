@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Audit Old value --></help>
+        <label><!-- Old Value --></label>
+        <name>CMPL123__OldValue__c</name>
+    </CustomFieldTranslation>

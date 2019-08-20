@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If action reported to FDA under 21 USC 360i(f) list Correction/Removal Report No --></help>
+        <label><!-- Correction/Removal Report No --></label>
+        <name>CMPL123CME__Correction_Removal_Report_No__c</name>
+    </CustomFieldTranslation>

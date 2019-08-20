@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Salesforce Login Url --></help>
+        <label><!-- Salesforce Login Url --></label>
+        <name>SPARTADMS__Salesforce_Login_Url__c</name>
+    </CustomFieldTranslation>

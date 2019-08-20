@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Can Device Failure Recognized By User --></help>
+        <label><!-- unused Failure Easily Recognized --></label>
+        <name>CMPL123CME__Can_Device_Failure_Recognized_By_User__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Document_Auto_Effective_Days__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Document Auto Effective Days</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Document Auto Effective Days</inlineHelpText>
+        <label>Document Auto Effective Days</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123__Sterilization_Run_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Sterilization Run Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sterilization Run Date</inlineHelpText>
+        <label>Sterilization Run Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </CustomField>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- C5 - #2 Diagnosis for Use --></help>
+        <label><!-- C5 - #2 Diagnosis for Use --></label>
+        <name>CMPL123CME__C5_Diagnosis_for_Use2__c</name>
+    </CustomFieldTranslation>

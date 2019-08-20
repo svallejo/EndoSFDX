@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Reviewer GroupId --></help>
+        <label><!-- Reviewer GroupId --></label>
+        <name>SPARTADMS__Reviewer_GroupId__c</name>
+    </CustomFieldTranslation>

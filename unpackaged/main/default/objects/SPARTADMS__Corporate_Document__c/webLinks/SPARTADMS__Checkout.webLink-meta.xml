@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Checkout</fullName>
+        <availability>online</availability>
+        <description>To checkout  a corporate document.</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Checkout</masterLabel>
+        <openType>replace</openType>
+        <page>SPARTADMS__DMSDocCheckout</page>
+        <protected>false</protected>
+    </WebLink>

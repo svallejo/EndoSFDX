@@ -1,0 +1,9 @@
+Hello,<br/><br/>
+The following document was rejected for Obsolete Approval.<br/>
+Document Name: {0}<br/>
+Document Number: {1}<br/>
+Rejected by: {2}<br/>
+Comments (if any): {3}<br/><br/>
+Please login to the Document Management System using this link to take further action.<br/>
+LINK: {4}<br/><br/>
+Thank you!<br/><br/>

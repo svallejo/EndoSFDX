@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Contact person within the facility --></help>
+        <label><!-- Healthcare Facility Contact --></label>
+        <name>CMPL123CME__Contact_Person_in_Facility__c</name>
+    </CustomFieldTranslation>

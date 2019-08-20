@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Enable Controlled Printing? --></help>
+        <label><!-- Enable Controlled Printing? --></label>
+        <name>SPARTADMS__Enable_Controlled_Printing__c</name>
+    </CustomFieldTranslation>

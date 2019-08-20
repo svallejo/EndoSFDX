@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Is Created Before Vacation with out  user vacation end date --></help>
+        <label><!-- Is Created Before Vacation --></label>
+        <name>CMPL123TMS__Is_Created_Before_Vacation__c</name>
+    </CustomFieldTranslation>

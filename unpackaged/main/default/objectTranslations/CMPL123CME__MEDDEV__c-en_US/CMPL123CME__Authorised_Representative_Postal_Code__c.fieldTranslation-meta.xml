@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Authorised Representative Postal Code --></help>
+        <label><!-- Authorised Rep Postcode --></label>
+        <name>CMPL123CME__Authorised_Representative_Postal_Code__c</name>
+    </CustomFieldTranslation>

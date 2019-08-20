@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__MDR_Clock_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( CMPL123CME__MDR_Clock__c &lt;0,"Late", 
+IF (CMPL123CME__MDR_Clock__c &gt;=0 &amp;&amp; CMPL123CME__MDR_Clock__c  &lt;4,  "Due in 0-3 Days",
+IF (CMPL123CME__MDR_Clock__c &gt;=4 &amp;&amp; CMPL123CME__MDR_Clock__c  &lt;11, "Due in 4-10 Days",
+IF (CMPL123CME__MDR_Clock__c &gt;=11, "Due &gt; 10 Days","") ) ))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

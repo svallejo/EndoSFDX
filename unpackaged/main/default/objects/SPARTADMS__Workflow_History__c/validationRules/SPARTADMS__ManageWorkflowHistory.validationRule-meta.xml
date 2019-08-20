@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__ManageWorkflowHistory</fullName>
+        <active>false</active>
+        <description>Manage workflow history</description>
+        <errorConditionFormula>AND(
+OR(
+ISPICKVAL( SPARTADMS__Document__r.SPARTADMS__Version_Status__c , 'Approved'),
+ISPICKVAL( SPARTADMS__Document__r.SPARTADMS__Version_Status__c , 'Effective'),
+ISPICKVAL( SPARTADMS__Document__r.SPARTADMS__Version_Status__c , 'Obsolete'),
+ISCHANGED( SPARTADMS__Document__c )
+),
+ISCHANGED( SPARTADMS__Deactivated__c )
+)</errorConditionFormula>
+        <errorMessage>Workflow history is locked.</errorMessage>
+    </ValidationRule>

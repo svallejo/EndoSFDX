@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__C9_Evt_Abated_After_Use_Stopped1__c</fullName>
+        <deprecated>false</deprecated>
+        <description>C9 - #1 Evt Abated After Use Stopped?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>C9 - #1 Evt Abated After Use Stopped?</inlineHelpText>
+        <label>C9 - #1 Evt Abated After Use Stopped?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>true</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Doesn't Apply</fullName>
+                    <default>false</default>
+                    <label>Doesn't Apply</label>
+                </value>
+                <value>
+                    <fullName>NI</fullName>
+                    <default>false</default>
+                    <label>NI</label>
+                </value>
+                <value>
+                    <fullName>ASKU</fullName>
+                    <default>false</default>
+                    <label>ASKU</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

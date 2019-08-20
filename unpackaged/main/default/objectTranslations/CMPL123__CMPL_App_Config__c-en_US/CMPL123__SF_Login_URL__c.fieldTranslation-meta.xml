@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- For Ex: 
+Prod/Dev: https://login.salesforce.com
+Sandbox: https://test.salesforce.com
+Custom Login: https://&lt;mydomain&gt;.salesforce.com --></help>
+        <label><!-- Salesforce Login URL --></label>
+        <name>CMPL123__SF_Login_URL__c</name>
+    </CustomFieldTranslation>

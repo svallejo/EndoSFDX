@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Document Department --></help>
+        <label><!-- Document Department --></label>
+        <name>SPARTADMS__Document_Department__c</name>
+    </CustomFieldTranslation>

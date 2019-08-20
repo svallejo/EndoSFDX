@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Salesforce Remote App Client Id --></help>
+        <label><!-- Consumer Key --></label>
+        <name>CMPL123__Client_Id__c</name>
+    </CustomFieldTranslation>

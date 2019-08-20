@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Document_Number_CD_Formula__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(SPARTADMS__Alphanumeric_Sequence__c),
+IF(ISBLANK(SPARTADMS__Document_Sequence_Number__c),LPAD(SPARTADMS__Document_Auto_Number__c,6,'0'),LPAD(TEXT(SPARTADMS__Document_Sequence_Number__c),6,'0'))
+, 
+IF( ISPICKVAL(SPARTADMS__Document_Status__c, "EFFECTIVE"), 
+       SPARTADMS__Approved_Document_Number__c,
+
+CASE(
+$Setup.SPARTADMS__DMS_App_Protected_Setting__c.SPARTADMS__Document_Number_Position__c,1,LPAD(TEXT(SPARTADMS__Document_Sequence_Number__c),6,'0')+ "-" + SPARTADMS__Alphanumeric_Sequence__c, 
+
+2,IF(FIND("-", SPARTADMS__Alphanumeric_Sequence__c)=0,
+SPARTADMS__Alphanumeric_Sequence__c+"-"+ LPAD(TEXT(SPARTADMS__Document_Sequence_Number__c),6,'0')
+,
+    LEFT(SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c))&amp;LPAD(TEXT(SPARTADMS__Document_Sequence_Number__c),6,'0') &amp; MID(SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c),LEN(SPARTADMS__Alphanumeric_Sequence__c))
+),
+3,IF(
+       FIND("-", SPARTADMS__Alphanumeric_Sequence__c)=0,
+              SPARTADMS__Alphanumeric_Sequence__c+"-"+ LPAD(TEXT(SPARTADMS__Document_Sequence_Number__c),6,'0'),   
+              IF(FIND("-",SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c)+1)=0,
+              
+              SPARTADMS__Alphanumeric_Sequence__c+"-"+ LPAD(TEXT(SPARTADMS__Document_Sequence_Number__c),6,'0'),
+              LEFT(SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c)+1))+LPAD(TEXT(SPARTADMS__Document_Sequence_Number__c),6,'0')+  MID(SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c)+1),LEN(SPARTADMS__Alphanumeric_Sequence__c))
+              )
+),
+4,
+IF(
+              FIND("-", SPARTADMS__Alphanumeric_Sequence__c)=0,
+              SPARTADMS__Alphanumeric_Sequence__c+"-"+ LPAD(TEXT(SPARTADMS__Document_Sequence_Number__c),6,'0'),   
+              IF(FIND("-",SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c)+1)=0,
+              
+              SPARTADMS__Alphanumeric_Sequence__c+"-"+ LPAD(TEXT(SPARTADMS__Document_Sequence_Number__c),6,'0'),
+              
+                     IF(FIND("-",SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c)+1)+1)=0,
+                     
+                     SPARTADMS__Alphanumeric_Sequence__c+"-"+ LPAD(TEXT(SPARTADMS__Document_Sequence_Number__c),6,'0'),
+                     LEFT(SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c)+1)+1))+LPAD(TEXT(SPARTADMS__Document_Sequence_Number__c),6,'0') + MID(SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c,FIND("-",SPARTADMS__Alphanumeric_Sequence__c)+1)+1),LEN(SPARTADMS__Alphanumeric_Sequence__c))
+                     )
+              )
+),
+5,SPARTADMS__Alphanumeric_Sequence__c +"-"+ LPAD(TEXT(SPARTADMS__Document_Sequence_Number__c),6,'0'),
+SPARTADMS__Document_Auto_Number__c
+)
+)
+)</formula>
+        <label>Full Document Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

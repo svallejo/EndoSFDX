@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Total_Weight__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total Weight</label>
+        <summarizedField>CMPL123CME__Questionnaire_Items__c.CMPL123CME__Weight__c</summarizedField>
+        <summaryForeignKey>CMPL123CME__Questionnaire_Items__c.CMPL123CME__Questionnaire__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </CustomField>

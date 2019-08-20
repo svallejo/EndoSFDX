@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Locked_Datetime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Document Locked Datetime</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Document Locked Datetime</inlineHelpText>
+        <label>Locked Datetime</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </CustomField>

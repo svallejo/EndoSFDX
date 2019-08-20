@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__C3_Frequency_Units2__c</fullName>
+        <deprecated>false</deprecated>
+        <description>C3 - #2 Frequency Units</description>
+        <externalId>false</externalId>
+        <inlineHelpText>C3 - #2 Frequency Units</inlineHelpText>
+        <label>C3 - #2 Frequency Units</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>per second</fullName>
+                    <default>false</default>
+                    <label>per second</label>
+                </value>
+                <value>
+                    <fullName>per minute</fullName>
+                    <default>false</default>
+                    <label>per minute</label>
+                </value>
+                <value>
+                    <fullName>per hour</fullName>
+                    <default>false</default>
+                    <label>per hour</label>
+                </value>
+                <value>
+                    <fullName>per day</fullName>
+                    <default>false</default>
+                    <label>per day</label>
+                </value>
+                <value>
+                    <fullName>per week</fullName>
+                    <default>false</default>
+                    <label>per week</label>
+                </value>
+                <value>
+                    <fullName>per month</fullName>
+                    <default>false</default>
+                    <label>per month</label>
+                </value>
+                <value>
+                    <fullName>per year</fullName>
+                    <default>false</default>
+                    <label>per year</label>
+                </value>
+                <value>
+                    <fullName>NA</fullName>
+                    <default>false</default>
+                    <label>NA</label>
+                </value>
+                <value>
+                    <fullName>NI</fullName>
+                    <default>false</default>
+                    <label>NI</label>
+                </value>
+                <value>
+                    <fullName>ASKU</fullName>
+                    <default>false</default>
+                    <label>ASKU</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

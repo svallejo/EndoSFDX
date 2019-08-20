@@ -1,0 +1,10 @@
+Hello,<br/><br/>
+The following document is rejected by DMS Admin during Submit for Approval.<br/>
+Document Name: {0}<br/>
+Document Number: {1}<br/>
+Author: {2}<br/>
+Rejected by: {3}<br/>
+Comments (if any): {4}<br/><br/>
+Please login to the Document Management System using this link to take further action.<br/>
+LINK: {5}<br/><br/>
+Thank you!<br/><br/>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>fill_all_the_required_fields</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED( CMPL123_WF_Action__c ) &amp;&amp;  CMPL123_WF_Action__c =="Submit for Review - CAPA" &amp;&amp;  Description__c ==""</errorConditionFormula>
+        <errorMessage>Please fill all the required fields before proceeding.</errorMessage>
+    </ValidationRule>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Patient_Outcome__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Patient outcome (Deprecated)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Patient outcome</inlineHelpText>
+        <label>Patient outcome (Deprecated)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </CustomField>

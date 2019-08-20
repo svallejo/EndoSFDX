@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- SSO Certificate Name used to sign the SAML Request --></help>
+        <label><!-- SSO Certificate Name --></label>
+        <name>CMPL123__SAML_Request_Certificate_Name__c</name>
+    </CustomFieldTranslation>

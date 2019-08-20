@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If “update/final”, date the previous report was submitted to Health Canada --></help>
+        <label><!-- If &apos;Update/final&apos;, Previous Report Date --></label>
+        <name>CMPL123CME__If_Update_Final_Previous_Date__c</name>
+    </CustomFieldTranslation>

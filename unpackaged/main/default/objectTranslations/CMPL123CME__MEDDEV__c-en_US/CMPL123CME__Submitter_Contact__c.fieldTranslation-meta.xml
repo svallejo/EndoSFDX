@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Submitter&apos;s Contact --></help>
+        <label><!-- Submitter Contact --></label>
+        <name>CMPL123CME__Submitter_Contact__c</name>
+    </CustomFieldTranslation>

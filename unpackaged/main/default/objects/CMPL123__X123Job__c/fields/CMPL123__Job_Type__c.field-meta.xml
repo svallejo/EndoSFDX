@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123__Job_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Job Type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Job Type</inlineHelpText>
+        <label>Job Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Workflow Step by KeyValue</fullName>
+                    <default>false</default>
+                    <label>Workflow Step by KeyValue</label>
+                </value>
+                <value>
+                    <fullName>Set Parent Field by KeyValue</fullName>
+                    <default>false</default>
+                    <label>Set Parent Field by KeyValue</label>
+                </value>
+                <value>
+                    <fullName>Set Child Field by KeyValue</fullName>
+                    <default>false</default>
+                    <label>Set Child Field by KeyValue</label>
+                </value>
+                <value>
+                    <fullName>Create Child Record by KeyValue</fullName>
+                    <default>false</default>
+                    <label>Create Child Record by KeyValue</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Device_Disposition_Current_Location__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Device Disposition/Current Location</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Device Disposition/Current Location</inlineHelpText>
+        <label>Device Disposition/Current Location</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </CustomField>

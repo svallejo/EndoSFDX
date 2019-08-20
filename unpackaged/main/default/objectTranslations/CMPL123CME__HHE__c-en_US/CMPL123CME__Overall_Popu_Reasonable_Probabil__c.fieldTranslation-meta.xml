@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Medically reversible or Transient Adverse Health Consequences - Overall Population, Reasonable Probability that Use will cause --></help>
+        <label><!-- Unused Overall Popu. Reasonable Prob. --></label>
+        <name>CMPL123CME__Overall_Popu_Reasonable_Probabil__c</name>
+    </CustomFieldTranslation>

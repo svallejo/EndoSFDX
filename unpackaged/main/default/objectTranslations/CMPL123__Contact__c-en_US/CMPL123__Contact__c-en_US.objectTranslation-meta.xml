@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Contact Layout</layout>
+        <sections>
+            <label><!-- Workflow Pannel --></label>
+            <section>Workflow Pannel</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Record type is Patient --></description>
+        <label><!-- Patient --></label>
+        <name>CMPL123__Patient</name>
+    </recordTypes>
+</CustomObjectTranslation>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__ValidateAutoEffectiveDays</fullName>
+        <active>true</active>
+        <description>This validation rule will throw an error, if the Auto effective days are defined less than zero.</description>
+        <errorConditionFormula>SPARTADMS__Document_Auto_Effective_Days__c &lt; 0</errorConditionFormula>
+        <errorDisplayField>SPARTADMS__Document_Auto_Effective_Days__c</errorDisplayField>
+        <errorMessage>Document Auto Effective Days cannot be less than zero.</errorMessage>
+    </ValidationRule>

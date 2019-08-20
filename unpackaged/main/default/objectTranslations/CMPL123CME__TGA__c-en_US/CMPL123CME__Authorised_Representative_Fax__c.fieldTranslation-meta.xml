@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Authorised Representative Fax --></help>
+        <label><!-- Fax --></label>
+        <name>CMPL123CME__Authorised_Representative_Fax__c</name>
+    </CustomFieldTranslation>

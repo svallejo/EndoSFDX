@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Upload_File</fullName>
+        <availability>online</availability>
+        <description>Upload File</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Upload File</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>openWindow = window.open("/apex/SPARTADMS__DMSUpload?id={!SPARTADMS__Corporate_Document__c.Id}&amp;source=btn","_self");</url>
+    </WebLink>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If “preliminary” only, anticipated date for the final report --></help>
+        <label><!-- If Preliminary, Expected Final Rpt Date --></label>
+        <name>CMPL123CME__If_Preliminary_final_report_date__c</name>
+    </CustomFieldTranslation>

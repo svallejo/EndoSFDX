@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Health Canada File No. (if applicable) --></help>
+        <label><!-- Health Canada File No. (if applicable) --></label>
+        <name>CMPL123CME__Health_Canada_File_No__c</name>
+    </CustomFieldTranslation>

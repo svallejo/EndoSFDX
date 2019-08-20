@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Specify Record Type Name(s) with comma separated (Ex: Initial,Supplemental) --></help>
+        <label><!-- Record Type --></label>
+        <name>CMPL123CME__Record_Type__c</name>
+    </CustomFieldTranslation>

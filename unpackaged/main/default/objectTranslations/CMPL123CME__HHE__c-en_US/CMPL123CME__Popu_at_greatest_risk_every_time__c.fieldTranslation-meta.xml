@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Serious Adverse Health Consequences - (Death, Life Threatening, Results
+in Permanent Impairment) - Population At Greatest Risk Every Time --></help>
+        <label><!-- Unused Popu. At Greatest Risk Every --></label>
+        <name>CMPL123CME__Popu_at_greatest_risk_every_time__c</name>
+    </CustomFieldTranslation>

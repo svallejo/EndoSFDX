@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>prevent_edit_invest_for_closed_inquiry</fullName>
+        <active>true</active>
+        <errorConditionFormula>Inquiry__r.CMPL123_WF_Status__c =="Closed - Complaint"</errorConditionFormula>
+        <errorMessage>Record Locked</errorMessage>
+    </ValidationRule>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Provide field API names with comma separated. --></help>
+        <label><!-- EMDR Read Only Fields --></label>
+        <name>CMPL123CME__Read_Only_Fields__c</name>
+    </CustomFieldTranslation>

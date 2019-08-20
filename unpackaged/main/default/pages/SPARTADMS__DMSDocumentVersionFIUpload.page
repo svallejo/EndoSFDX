@@ -1,0 +1,175 @@
+<apex:page controller="SPARTADMS.DMSDocumentVersionFIUploadController" showHeader="false" standardStylesheets="false">
+   <!-- <apex:stylesheet value="/resource/SPARTADMS__DMS123/lib/Bootstrap/css/bootstrap.min.css" /> -->
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Jquery/js/jquery.js')}"/> 
+   <!-- <apex:includeScript value="/resource/SPARTADMS__DMS123/lib/Bootstrap/js/bootstrap.min.js" /> -->
+    <style>
+         .alert {
+            padding: 24px;
+            border: 1px solid transparent;
+            font-size:15px;
+            text-align:center;
+        
+        }
+        body {
+            padding:0;
+            margin: 0;
+        }
+        
+       .loading{
+            position:relative;
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            line-height:60px;
+            font-weight:bold;
+            margin:auto;
+            display:inline-block;
+            font-size: 20px;
+            text-align:center;
+            color:rgba(100, 100, 100, 0.5);
+            animation: spin 2s linear infinite;
+            -webkit-animation:spin 2s linear infinite;
+           
+        }
+       
+        @-moz-keyframes spin {
+            from { -moz-transform: rotate(0deg); }
+            to { -moz-transform: rotate(360deg); }
+        }
+        @-webkit-keyframes spin {
+            from { -webkit-transform: rotate(0deg); }
+            to { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spin {
+             0% { transform: rotate(0deg); }
+             100% { transform: rotate(360deg); }
+        }
+       
+    </style>
+    <script>
+   
+    var accessToken = '{!JSENCODE(accessToken)}';
+    var filedownLoadURL =  '{!JSENCODE(filedownLoadURL)}';
+    var fileName =  '{!JSENCODE(fileName)}';
+    var docVersionId = "{!$CurrentPage.parameters.id}";
+    var baseURL = '{!JSENCODE(baseUrl)}';
+    var printSource = '{!JSENCODE(printLoc)}';
+    var headers = {
+        "Authorization": 'Bearer '+accessToken
+    };
+    
+    var req = new XMLHttpRequest();
+    req.open('GET', filedownLoadURL, true);
+    req.responseType = 'arraybuffer';
+    req.onload = function(e) {
+        if (this.status == 200) {
+            var strings = [], chunksize = 0xffff;
+            var uInt8Array = new Uint8Array(this.response);
+            var len = uInt8Array.length;
+            for (var i = 0; i * chunksize < len; i++){
+                strings.push(String.fromCharCode.apply(null, uInt8Array.subarray(i * chunksize, (i + 1) * chunksize)));
+            }
+            var b64encoded = btoa(strings.join(''));
+            uploadAttachment('',b64encoded,fileName,docVersionId);
+        }
+    }
+    req.send();
+    
+    function uploadAttachment (jsonData,base64EncodedData,fileName,cdId) {
+        // var baseURL = 'https://123edmsdev2-dev-ed.my.salesforce.com';
+        
+        jsonData = 
+            {
+            "feedElementType" : "FeedItem"
+        };
+        jsonData.subjectId = cdId;
+        jsonData.capabilities =
+            {
+            "content" :
+            {
+                "title": fileName
+            }
+        };
+        var boundary = 'boundary_string_' + Date.now().toString();
+        var attachmentContentType = 'application/octet-stream';
+        // Serialize the object, excluding the body, which will be placed in the second partition of the multipart/form-data request
+        var serializedObject = JSON.stringify(jsonData);
+        
+        var requestBodyBeginning = '--' + boundary
+        + '\r\n'
+        + 'Content-Disposition: form-data; name="json";'
+        + '\r\n'
+        + 'Content-Type: application/json'
+        + '\r\n\r\n'
+        + serializedObject
+        + '\r\n\r\n' +
+            '--' + boundary
+        + '\r\n'
+        + 'Content-Type: ' + attachmentContentType
+        + '\r\n'
+        + 'Content-Disposition: form-data; name="feedElementFileUpload"; filename="'+fileName+'"'
+        + '\r\n\r\n';
+        
+        var requestBodyEnd =
+            '\r\n\r\n'
+        + '--' + boundary + '--';
+        
+        // The atob function will decode a base64-encoded string into a new string with a character for each byte of the binary data.
+        var byteCharacters = atob(base64EncodedData);
+        
+        // Each character's code point (charCode) will be the value of the byte.
+        // We can create an array of byte values by applying .charCodeAt for each character in the string.
+        var byteNumbers = new Array(byteCharacters.length);
+        
+        for (var i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        
+        // Convert into a real typed byte array. (Represents an array of 8-bit unsigned integers)
+        var byteArray = new Uint8Array(byteNumbers);
+        
+        var totalRequestSize = requestBodyBeginning.length + byteArray.byteLength + requestBodyEnd.length;
+        
+        var uint8array = new Uint8Array(totalRequestSize);
+        var i;
+        
+        // Append the beginning of the request
+        for (i = 0; i < requestBodyBeginning.length; i++) {
+            uint8array[i] = requestBodyBeginning.charCodeAt(i) & 0xff;
+        }
+        
+        // Append the binary attachment
+        for (var j = 0; j < byteArray.byteLength; i++, j++) {
+            uint8array[i] = byteArray[j]; 
+        }
+        
+        // Append the end of the request
+        for (var j = 0; j < requestBodyEnd.length; i++, j++) {
+            uint8array[i] = requestBodyEnd.charCodeAt(j) & 0xff;
+        }
+        
+        var uploadUrl = baseURL+'/services/data/v35.0/chatter/feed-elements';
+        var headers = {
+            "Authorization": 'OAuth {!$Api.Session_Id}'
+        }; 
+        
+        $.ajax({
+            url: uploadUrl,
+            headers: headers,
+            type: 'POST',
+            // This prevents JQuery from trying to append the form as a querystring
+            processData: false,
+            contentType: 'multipart/form-data' + "; boundary=\"" + boundary + "\"",
+            data: uint8array
+        }).complete(function ( data ) { 
+            var feedItemId = JSON.parse(data.responseText).id; 
+            window.open('/apex/SPARTADMS__DMSPrint?id='+docVersionId+'&fId='+feedItemId+'&prntLoc='+printSource,'_parent');
+        });
+    }
+    </script>
+    <div class="alert no-print" id="info-msg">
+            <div class="loading" id="loadingAnim"> </div>
+    </div>
+</apex:page>

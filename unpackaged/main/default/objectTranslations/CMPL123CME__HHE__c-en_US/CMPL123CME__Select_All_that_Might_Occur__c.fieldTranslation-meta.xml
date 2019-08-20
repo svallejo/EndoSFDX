@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Select All that Might Occur --></help>
+        <label><!-- Select All that Might Occur --></label>
+        <name>CMPL123CME__Select_All_that_Might_Occur__c</name>
+        <picklistValues>
+            <masterLabel>Hazard cannot be assessed currently</masterLabel>
+            <translation><!-- Hazard cannot be assessed currently --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Life-threatening(death has/could occur)</masterLabel>
+            <translation><!-- Life-threatening(death has/could occur) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Limited</masterLabel>
+            <translation><!-- Limited --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Necessitates med./surgical intervention</masterLabel>
+            <translation><!-- Necessitates med./surgical intervention --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No adverse health consequences</masterLabel>
+            <translation><!-- No adverse health consequences --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Permanent impairment of body function</masterLabel>
+            <translation><!-- Permanent impairment of body function --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Temporary or reversible</masterLabel>
+            <translation><!-- Temporary or reversible --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Required_field_final_comments_from_manuf</fullName>
+        <active>true</active>
+        <description>Required field final comments from manufacturer</description>
+        <errorConditionFormula>if((ISPICKVAL( CMPL123CME__Type_of_Report__c ,'Combined initial and final report') || ISPICKVAL( CMPL123CME__Type_of_Report__c ,'Final report')) &amp;&amp; (CMPL123CME__Final_Comments_of_Manufacturer__c = null || CMPL123CME__Final_Comments_of_Manufacturer__c = ''),true,false)</errorConditionFormula>
+        <errorDisplayField>CMPL123CME__Final_Comments_of_Manufacturer__c</errorDisplayField>
+        <errorMessage>This field value cannot be blank for this report type</errorMessage>
+    </ValidationRule>

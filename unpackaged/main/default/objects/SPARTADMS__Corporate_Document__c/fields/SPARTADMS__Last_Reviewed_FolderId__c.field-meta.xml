@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Last_Reviewed_FolderId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used to hold the box folder Id of last reviewed document when the last reviewer completes review</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to hold the box folder Id of last reviewed document when the last reviewer completes review</inlineHelpText>
+        <label>Last Reviewed FolderId</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

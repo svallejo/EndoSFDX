@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Investigation Layout</layout>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- ROOT CAUSE ANALYSIS --></label>
+            <section>ROOT CAUSE ANALYSIS</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- Record Locked --></errorMessage>
+        <name>Prevent_Edit_Investigation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Record Locked --></errorMessage>
+        <name>prevent_edit_invest_for_closed_inquiry</name>
+    </validationRules>
+</CustomObjectTranslation>

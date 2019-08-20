@@ -1,0 +1,33 @@
+<apex:page showHeader="false" standardController="SPARTADMS__Corporate_Document__c" extensions="SPARTADMS.DMSMainController" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">   
+   <script>
+        window.onload = function(){loadDMSApp()};
+      
+        function loadDMSApp(){
+            window.location.href = '/SPARTADMS/DMS.app?docId='+'{!$CurrentPage.parameters.id}';
+        }  
+   </script>
+    <!-- <apex:includeScript value="{!URLFOR($Resource.DMS123, '/lib/jquery-ui-1.8.20/js/jquery-1.7.2.min.js')}"/>
+    <apex:includeLightning />
+       <div id="Esign" /><br/>
+
+    <script>
+        var recId,url,st='obsolete';
+        $(document).ready(function() {
+            var id= {!$CurrentPage.parameters}
+            url = window.location.href.toString();
+            if(url.indexOf('id') != -1){
+                recId = url.substr(url.indexOf('id')+3,18);
+            }
+        });
+        $Lightning.use("SPARTADMS:DMSEsignature",function(){
+            $Lightning.createComponent("SPARTADMS:DMSEsign",'',"Esign",function(component){
+                if(myExternalEvent = $A.get("e.SPARTADMS:DMSRestoreEvent")) {
+                    myExternalEvent.setParams({recordId:recId, status:st});
+                    myExternalEvent.fire();
+                }
+            
+            });
+       });        
+    </script> -->
+
+</apex:page>

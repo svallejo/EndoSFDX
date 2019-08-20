@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Reason for Timeliness --></label>
+        <name>CMPL123QMS__Reason_for_Timeline__c</name>
+    </CustomFieldTranslation>

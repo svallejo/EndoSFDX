@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Related_Document__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Parent Document</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Parent Document</inlineHelpText>
+        <label>Parent Document</label>
+        <referenceTo>SPARTADMS__Corporate_Document__c</referenceTo>
+        <relationshipLabel>Related Documents</relationshipLabel>
+        <relationshipName>Corporate_Documents</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </CustomField>

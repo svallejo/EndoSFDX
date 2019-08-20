@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Document Review Complete Template</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Document Review Complete Template</name>
+    <style>none</style>
+    <subject>Document Review Completed</subject>
+    <textOnly>Hello Author,
+
+The review for the following document is completed by all reviewers.
+Document Name: {0}
+Document Number: {1}
+Author: {2}
+
+Please login to the Document Management System using this link to take further action.
+LINK: {3}
+
+Thank you!</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

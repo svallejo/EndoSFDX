@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- F3 - Address 2 --></label>
+        <name>CMPL123CME__F3_Address2__c</name>
+    </CustomFieldTranslation>

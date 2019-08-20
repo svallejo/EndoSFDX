@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Factors_May_Contribute_to_Product_Risk__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Factors That May Contribute to Product Risk (i.e. Device Design, Manufacturing Problems or User Error)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Factors That May Contribute to Product Risk (i.e. Device Design, Manufacturing Problems or User Error)</inlineHelpText>
+        <label>Factors That May Contribute to Risk</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </CustomField>

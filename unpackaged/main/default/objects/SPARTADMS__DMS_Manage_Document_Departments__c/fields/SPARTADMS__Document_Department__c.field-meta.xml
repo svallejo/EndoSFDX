@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Document_Department__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Document Department</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Document Department</inlineHelpText>
+        <label>Document Department</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Weight in Kgs --></label>
+        <name>CMPL123CME__Weight_in_Kgs__c</name>
+    </CustomFieldTranslation>

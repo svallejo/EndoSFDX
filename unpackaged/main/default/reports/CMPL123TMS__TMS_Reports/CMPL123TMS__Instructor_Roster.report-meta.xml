@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CMPL123TMS__Training_Record__c.CMPL123TMS__Training_Name__c</field>
+    </columns>
+    <columns>
+        <field>CMPL123TMS__Training_Record__c.CMPL123TMS__Training_Number__c</field>
+    </columns>
+    <columns>
+        <field>FK_$CMPL123TMS__Course_Offering__c.CMPL123TMS__Schedule_Date_Time__c</field>
+    </columns>
+    <columns>
+        <field>CMPL123TMS__Training_Record__c.CMPL123TMS__Related_User__c</field>
+    </columns>
+    <columns>
+        <field>FK_$CMPL123TMS__Course_Offering__c.CMPL123TMS__Instructor__c</field>
+    </columns>
+    <description>Instructor Roster</description>
+    <filter>
+        <criteriaItems>
+            <column>CMPL123TMS__Training_Record__c.CMPL123TMS__Is_Logged_In_User__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>Instructor Roster</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$CMPL123TMS__Training_Record__c@CMPL123TMS__Training_Record__c.CMPL123TMS__Related_Course_Offering__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>false</showGrandTotal>
+    <showSubTotals>false</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CMPL123TMS__Training_Record__c.CMPL123TMS__Completed_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

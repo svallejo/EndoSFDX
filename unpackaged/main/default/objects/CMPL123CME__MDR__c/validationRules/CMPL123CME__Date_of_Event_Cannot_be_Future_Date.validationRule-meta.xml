@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Date_of_Event_Cannot_be_Future_Date</fullName>
+        <active>true</active>
+        <description>Date of event cannot be greater than today's date</description>
+        <errorConditionFormula>if(CMPL123CME__Date_of_Event__c &gt;  TODAY(),true,false )</errorConditionFormula>
+        <errorDisplayField>CMPL123CME__Date_of_Event__c</errorDisplayField>
+        <errorMessage>Date cannot be greater than today's date</errorMessage>
+    </ValidationRule>

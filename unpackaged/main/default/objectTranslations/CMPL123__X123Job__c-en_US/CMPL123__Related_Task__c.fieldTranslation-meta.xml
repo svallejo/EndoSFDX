@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Related Task --></help>
+        <label><!-- Related Task --></label>
+        <name>CMPL123__Related_Task__c</name>
+        <relationshipLabel><!-- 123 Jobs --></relationshipLabel>
+    </CustomFieldTranslation>

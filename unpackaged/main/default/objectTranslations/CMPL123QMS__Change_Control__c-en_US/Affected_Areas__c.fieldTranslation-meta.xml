@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Affected Areas --></label>
+        <name>Affected_Areas__c</name>
+        <picklistValues>
+            <masterLabel>Area 1</masterLabel>
+            <translation><!-- Area 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Area 2</masterLabel>
+            <translation><!-- Area 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Area 3</masterLabel>
+            <translation><!-- Area 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Area 4</masterLabel>
+            <translation><!-- Area 4 --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

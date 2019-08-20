@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Check if you want to lock (no edit/delete) the record --></help>
+        <label><!-- Lock Record? --></label>
+        <name>CMPL123__Is_Record_Lock_Required__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123__Last_Modified_DateTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Last Modified Date Time</description>
+        <externalId>false</externalId>
+        <formula>CMPL123__Date_Updated__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Last Modified Date Time</inlineHelpText>
+        <label>Last Modified Date Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </CustomField>

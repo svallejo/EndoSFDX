@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Box Effective Document Id --></help>
+        <label><!-- Box Effective Document Id --></label>
+        <name>SPARTADMS__Box_Effective_Document_Id__c</name>
+    </CustomFieldTranslation>

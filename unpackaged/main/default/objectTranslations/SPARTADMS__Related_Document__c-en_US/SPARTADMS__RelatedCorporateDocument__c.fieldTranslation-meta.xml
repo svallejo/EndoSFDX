@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Related Corporate document --></help>
+        <label><!-- Related Corporate Document --></label>
+        <name>SPARTADMS__RelatedCorporateDocument__c</name>
+        <relationshipLabel><!-- Related Corporate Documents --></relationshipLabel>
+    </CustomFieldTranslation>

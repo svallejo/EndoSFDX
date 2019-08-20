@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Validation_Rule_Test_H6</fullName>
+        <active>false</active>
+        <errorConditionFormula>ISBLANK( CMPL123CME__H6_Evaluation_Codes__c ) &amp;&amp; CMPL123CME__CMPL123_WF_Status__c = "Closed"</errorConditionFormula>
+        <errorMessage>HEY</errorMessage>
+    </ValidationRule>

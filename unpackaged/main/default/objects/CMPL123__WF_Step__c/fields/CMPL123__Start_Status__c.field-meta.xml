@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123__Start_Status__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Start Status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select Start Status</inlineHelpText>
+        <label>Start Status</label>
+        <referenceTo>CMPL123__WF_Status__c</referenceTo>
+        <relationshipLabel>Workflow Start Steps</relationshipLabel>
+        <relationshipName>WF_Start_Steps</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </CustomField>

@@ -1,0 +1,99 @@
+<apex:page docType="html-5.0" applyHtmlTag="false"  showHeader="false" controller="CMPL123TMS.TMSDocumentViewerController">
+    <apex:includeScript value="{!URLFOR($Resource.CMPL123TMS__TMS123, '/lib/Jquery/js/jQuery.js')}"/>
+    <style>
+        .divContainer{
+            margin: 1% auto;
+            width:70%;
+           
+        }
+        .hideDiv{
+            height:0;
+            overflow:hidden;
+        }
+        .showDiv{
+            height:auto;
+            overflow:none;
+        }
+        .publishercontainer{
+            padding-top:0;
+        }
+        .publishercontainer .customPanel{
+            background-image : none;
+            
+        }
+        .panel{
+            border:1px solid #c7ccce;
+        }
+         .zen .zen-highlightBtn{
+            color: #fff;
+            background-color: #337ab7;
+            border-color: #2e6da4;
+            background-image: -ms-linear-gradient(top,#337ab7 0,#337ab7 100%);
+            background-image: -moz-linear-gradient(top,#337ab7 0,#337ab7 100%);
+            background-image: -webkit-linear-gradient(top,#337ab7 0,#337ab7 100%);
+            background-image: linear-gradient(top,#337ab7 0,#337ab7 100%);
+            cursor:pointer;
+        }
+        #publishersharebutton:enabled:hover{
+            color: #fff;
+            background-color: #337ab7;
+            border-color: #2e6da4;
+            background-image: -ms-linear-gradient(top,#337ab7 0,#337ab7 100%);
+            background-image: -moz-linear-gradient(top,#337ab7 0,#337ab7 100%);
+            background-image: -webkit-linear-gradient(top,#337ab7 0,#337ab7 100%);
+            background-image: linear-gradient(top,#337ab7 0,#337ab7 100%);
+            cursor:pointer;
+        }
+    </style>
+     
+     <div class="divContainer hideDiv">
+        <div id="file" title="{!$Label.TMS_Previous_Attachment}"></div>
+        <div id="fileinputs">
+            <chatter:feed entityId="{!$CurrentPage.parameters.Id}" feedItemType="ContentPost" onComplete="jq('.container').addClass('hideDiv');updateLibrary();" />
+        </div>
+    </div>
+    <script>
+      var jq = $.noConflict();
+      jq(function(){
+            jq("#file").html("");
+            var fileName = "{!JSENCODE($CurrentPage.parameters.file)}";
+            jq("#file").html(fileName);
+            jq(".divContainer").addClass("hideDiv");
+            jq("#publisherAttachContentPost").trigger("click");
+            jq("#chatterUploadFileAction").trigger("click");
+            jq(".contentPublisherSlideDown.customPanel.alignTop").css("border", "0");
+            jq(".clearContentPanelButtonContainer").hide();
+            jq(".publisherFeedItemTypeChoices").hide();  
+            jq(".iconParent").hide();      
+            jq(".cxfeedinnerwrapper").hide();  
+            jq(".divContainer").addClass("showDiv");
+            jq(".publisherTextAreaPlaceholder.alignCenter").hide();
+            jq("#publishersharebutton").val("{!$Label.cmpl123tms__tms_upload}");
+            jq("#publishersharebutton").attr("title","{!$Label.cmpl123tms__tms_upload}");
+            jq(".bottomBarLeft").hide();
+            jq("#publishersharebutton").val("{!$Label.cmpl123tms__tms_upload}");
+            jq("#publishersharebutton").attr("title","{!$Label.cmpl123tms__tms_upload}");
+            jq("#chatterFile").attr("title","{!$Label.cmpl123tms__tms_select_a_file}");
+            
+      });
+     
+      function updateLibrary(){
+                var fileName = jq("#chatterFile")[0].files[0].name;
+                jq(".TextPost").hide();
+                jq(".publisherTextAreaInner").hide();
+                jq("#file").html("");
+               Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.TMSDocumentViewerController.updateLibraryFeed}','','{!$CurrentPage.parameters.Id}',function(result, event){
+               if (event.status) {
+                    alert('{!$Label.cmpl123tms__tms_successfully}'+" "+fileName+" "+'{!$Label.cmpl123tms__tms_file_uploaded}'+".");
+                    window.location.reload();
+                   
+                }else{
+                  
+                }
+              },{escape: true});
+             
+         };
+       
+     
+  </script>
+</apex:page>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- If follow up, What Type --></label>
+        <name>CMPL123CME__If_follow_up_What_Type__c</name>
+        <picklistValues>
+            <masterLabel>Additional Information</masterLabel>
+            <translation><!-- Additional Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Device Evaluation</masterLabel>
+            <translation><!-- Device Evaluation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Response to FDA Request</masterLabel>
+            <translation><!-- Response to FDA Request --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

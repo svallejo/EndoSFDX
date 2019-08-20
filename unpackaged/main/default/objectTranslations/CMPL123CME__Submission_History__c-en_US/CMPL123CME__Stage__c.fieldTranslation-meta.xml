@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Submission Statge --></help>
+        <label><!-- Stage --></label>
+        <name>CMPL123CME__Stage__c</name>
+        <picklistValues>
+            <masterLabel>ACK1</masterLabel>
+            <translation><!-- ACK1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ACK2</masterLabel>
+            <translation><!-- ACK2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ACK3</masterLabel>
+            <translation><!-- ACK3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiated</masterLabel>
+            <translation><!-- Initiated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted</masterLabel>
+            <translation><!-- Submitted --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

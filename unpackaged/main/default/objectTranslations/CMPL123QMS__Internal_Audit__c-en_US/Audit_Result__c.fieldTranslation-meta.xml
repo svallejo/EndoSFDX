@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Audit Result --></label>
+        <name>Audit_Result__c</name>
+        <picklistValues>
+            <masterLabel>Excellent</masterLabel>
+            <translation><!-- Excellent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major Findings</masterLabel>
+            <translation><!-- Major Findings --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minor Findings</masterLabel>
+            <translation><!-- Minor Findings --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moderate Findings</masterLabel>
+            <translation><!-- Moderate Findings --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unsatisfactory</masterLabel>
+            <translation><!-- Unsatisfactory --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

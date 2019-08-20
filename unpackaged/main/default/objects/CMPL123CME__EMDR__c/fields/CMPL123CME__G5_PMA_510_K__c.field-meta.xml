@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__G5_PMA_510_K__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Pre-market application (PMA) or pre-market notification (510K) submission number.</description>
+        <externalId>false</externalId>
+        <label>G5 - PMA/510(k) #</label>
+        <length>12</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

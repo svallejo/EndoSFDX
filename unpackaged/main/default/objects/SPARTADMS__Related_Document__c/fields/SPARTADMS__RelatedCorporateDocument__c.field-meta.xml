@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__RelatedCorporateDocument__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Related Corporate document</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Related Corporate document</inlineHelpText>
+        <label>Related Corporate Document</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>SPARTADMS__Corporate_Document__c.SPARTADMS__Document_Status__c</field>
+                <operation>equals</operation>
+                <value>EFFECTIVE</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>SPARTADMS__Corporate_Document__c</referenceTo>
+        <relationshipLabel>Related Corporate Documents</relationshipLabel>
+        <relationshipName>Related_Documents1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </CustomField>

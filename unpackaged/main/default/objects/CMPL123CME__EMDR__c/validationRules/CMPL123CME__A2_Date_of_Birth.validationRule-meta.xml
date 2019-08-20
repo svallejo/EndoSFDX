@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__A2_Date_of_Birth</fullName>
+        <active>false</active>
+        <description>A2 - Date of Birth is required or Select a Null Option.</description>
+        <errorConditionFormula>AND(RecordType.Name = "Initial", ISBLANK(CMPL123CME__A2_DOB__c),ISBLANK( TEXT(CMPL123CME__A2_DOB_Null__c) ))</errorConditionFormula>
+        <errorDisplayField>CMPL123CME__A2_DOB__c</errorDisplayField>
+        <errorMessage>A2 - Date of Birth is required or Select a Null Option.</errorMessage>
+    </ValidationRule>

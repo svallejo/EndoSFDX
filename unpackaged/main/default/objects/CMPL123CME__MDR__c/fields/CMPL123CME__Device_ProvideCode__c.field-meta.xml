@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Device_ProvideCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Device Provide Code</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Device Provide Code</inlineHelpText>
+        <label>Device Provide Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01 Device received in a condition which made analysis impossible</fullName>
+                    <default>false</default>
+                    <label>01 Device received in a condition which made analysis impossible</label>
+                </value>
+                <value>
+                    <fullName>02 Device evaluation anticipated, but not yet begun</fullName>
+                    <default>false</default>
+                    <label>02 Device evaluation anticipated, but not yet begun</label>
+                </value>
+                <value>
+                    <fullName>03 Device not made by company</fullName>
+                    <default>false</default>
+                    <label>03 Device not made by company</label>
+                </value>
+                <value>
+                    <fullName>04 Device problem already known, no evaluation necessary</fullName>
+                    <default>false</default>
+                    <label>04 Device problem already known, no evaluation necessary</label>
+                </value>
+                <value>
+                    <fullName>81 Other (code unspecified, describe in H10)</fullName>
+                    <default>false</default>
+                    <label>81 Other (code unspecified, describe in H10)</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

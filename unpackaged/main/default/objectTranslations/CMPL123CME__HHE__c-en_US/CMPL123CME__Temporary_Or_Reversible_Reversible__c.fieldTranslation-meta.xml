@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Temporary or reversible (without medical intervention) --></help>
+        <label><!-- Unused Temporary/Reversible --></label>
+        <name>CMPL123CME__Temporary_Or_Reversible_Reversible__c</name>
+    </CustomFieldTranslation>

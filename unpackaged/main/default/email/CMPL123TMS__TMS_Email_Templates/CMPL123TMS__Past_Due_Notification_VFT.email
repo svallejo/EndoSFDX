@@ -1,0 +1,30 @@
+<messaging:emailTemplate subject="{!$Label.cmpl123tms__tms_past_due_notification}" 
+    recipientType="User" 
+    relatedToType="CMPL123TMS__Training_Record__c" 
+    language="{!recipient.LanguageLocaleKey}">
+    <messaging:htmlEmailBody >
+        <html>
+            <body>
+            <p>{!$Label.cmpl123tms__tms_notification_salutation},</p>
+            <p>{!$Label.cmpl123tms__tms_past_due_notification_label_1}</p>
+
+            <p>{!relatedTo.CMPL123TMS__Training_Name__c}, {!relatedTo.CMPL123TMS__Training_Number__c}, {!$Label.cmpl123tms__tms_notification_common_label_2} {!relatedTo.CMPL123TMS__Version__c}.
+                {!$Label.cmpl123tms__tms_notification_common_label} <b>{!$Label.cmpl123tms__tms_notification_common_label_1}</b>
+                 <b><apex:outputText value="{0, date, MM-dd-yyyy}">
+                     <apex:Param value="{!relatedTo.CMPL123TMS__Due_Date__c}" />
+                 </apex:outputText>.</b>
+            </p>  
+
+            <p>
+            <a href="{!$Setup.CMPL123__CMPL_App_Config__c.CMPL123__SF_Base_Url__c}/CMPL123TMS/TMS.app?trainingId={!relatedTo.Id}">
+                {!$Setup.CMPL123__CMPL_App_Config__c.CMPL123__SF_Base_Url__c}/CMPL123TMS/TMS.app?trainingId={!relatedTo.Id}
+            </a> 
+            </p>
+            
+            <p>{!$Label.cmpl123tms__tms_notification_signature}<br/>
+            </p>
+            <p><c:TMSLogoComponent /></p>
+            </body>
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

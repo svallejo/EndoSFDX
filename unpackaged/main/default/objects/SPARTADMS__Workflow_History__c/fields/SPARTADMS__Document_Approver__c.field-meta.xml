@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Document_Approver__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Document Approver</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Document Approver</inlineHelpText>
+        <label>Document Approver</label>
+        <referenceTo>SPARTADMS__Document_Approvers__c</referenceTo>
+        <relationshipLabel>Workflow History</relationshipLabel>
+        <relationshipName>Workflow_History</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </CustomField>

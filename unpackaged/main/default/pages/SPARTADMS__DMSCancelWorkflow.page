@@ -1,0 +1,9 @@
+<apex:page showHeader="false" standardController="SPARTADMS__Corporate_Document__c" extensions="SPARTADMS.DMSMainController" standardStylesheets="false" sidebar="false" applyHtmlTag="false">
+    <script>
+        window.onload = function(){loadDMSApp()};
+      
+        function loadDMSApp(){
+			window.location.href = '/SPARTADMS/DMS.app?corpDocId='+'{!$CurrentPage.parameters.id}';
+        }  		
+   </script>
+</apex:page>

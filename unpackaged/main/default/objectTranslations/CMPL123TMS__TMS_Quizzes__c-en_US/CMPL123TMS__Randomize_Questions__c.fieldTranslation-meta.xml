@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Please select this if you want to randomize questions. --></help>
+        <label><!-- Randomize Questions --></label>
+        <name>CMPL123TMS__Randomize_Questions__c</name>
+    </CustomFieldTranslation>

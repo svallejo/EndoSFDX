@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Approval_Completed_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Approved Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Approved Date</inlineHelpText>
+        <label>Approval Completed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </CustomField>

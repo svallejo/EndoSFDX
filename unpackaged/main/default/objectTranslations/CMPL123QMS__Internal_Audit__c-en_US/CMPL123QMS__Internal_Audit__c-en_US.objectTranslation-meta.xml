@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <caseValues>
+        <plural>false</plural>
+        <value>Audit</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Audits</value>
+    </caseValues>
+    <nameFieldLabel>Audit Number</nameFieldLabel>
+    <startsWith>Vowel</startsWith>
+    <layouts>
+        <layout>External Audit Layout</layout>
+        <sections>
+            <label><!-- Audit Execution --></label>
+            <section>Audit Execution</section>
+        </sections>
+        <sections>
+            <label><!-- Audit Report --></label>
+            <section>Audit Report</section>
+        </sections>
+        <sections>
+            <label><!-- Details --></label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label><!-- Next Steps --></label>
+            <section>Next Steps</section>
+        </sections>
+        <sections>
+            <label><!-- Work Flow --></label>
+            <section>Work Flow</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Internal Audit Layout</layout>
+        <sections>
+            <label><!-- Audit Execution --></label>
+            <section>Audit Execution</section>
+        </sections>
+        <sections>
+            <label><!-- Audit Report --></label>
+            <section>Audit Report</section>
+        </sections>
+        <sections>
+            <label><!-- Details --></label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label><!-- Next Steps --></label>
+            <section>Next Steps</section>
+        </sections>
+        <sections>
+            <label><!-- Work Flow --></label>
+            <section>Work Flow</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- External --></label>
+        <name>External</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Internal --></label>
+        <name>Internal</name>
+    </recordTypes>
+</CustomObjectTranslation>

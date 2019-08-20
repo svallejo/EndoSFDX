@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__EMDR_IsEmpty_Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK(CMPL123CME__D11_Start_Date__c),
+TEXT( CMPL123CME__D11_Start_Date_Null__c) ,
+IF(LEN(TEXT(MONTH(CMPL123CME__D11_Start_Date__c))) = 2,  TEXT(MONTH(CMPL123CME__D11_Start_Date__c)),'0'&amp; TEXT(MONTH(CMPL123CME__D11_Start_Date__c))) 
+&amp;'/'&amp;
+IF(LEN(TEXT(DAY(CMPL123CME__D11_Start_Date__c))) = 2, TEXT(DAY(CMPL123CME__D11_Start_Date__c)),'0'&amp; 
+TEXT(DAY(CMPL123CME__D11_Start_Date__c))) 
+&amp;'/'&amp;
+TEXT(YEAR(CMPL123CME__D11_Start_Date__c)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>EMDR IsEmpty Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

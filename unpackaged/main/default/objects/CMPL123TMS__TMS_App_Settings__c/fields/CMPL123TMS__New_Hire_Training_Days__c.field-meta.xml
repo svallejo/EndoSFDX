@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123TMS__New_Hire_Training_Days__c</fullName>
+        <deprecated>false</deprecated>
+        <description>New Hire Training Days controls training record due date assignment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>New Hire Training Days controls training record due date assignment</inlineHelpText>
+        <label>New Hire Training Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </CustomField>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Therapy End date 2 --></label>
+        <name>CMPL123CME__Therapy_End_date_2__c</name>
+    </CustomFieldTranslation>

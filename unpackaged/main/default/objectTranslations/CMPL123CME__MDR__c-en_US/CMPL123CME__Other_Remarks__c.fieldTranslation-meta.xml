@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Other Remarks --></help>
+        <label><!-- Other Remarks --></label>
+        <name>CMPL123CME__Other_Remarks__c</name>
+    </CustomFieldTranslation>

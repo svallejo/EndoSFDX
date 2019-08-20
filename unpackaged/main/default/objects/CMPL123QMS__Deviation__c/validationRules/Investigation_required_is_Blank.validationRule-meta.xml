@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Investigation_required_is_Blank</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED( CMPL123_WF_Action__c ) &amp;&amp;CMPL123_WF_Action__c=="Complete Investigation - Quality Event"&amp;&amp; ISPICKVAL( Investigation_Required__c , "")</errorConditionFormula>
+        <errorMessage>Investigation Required? field should not be blank to perform the action Complete Investigation - Quality Event</errorMessage>
+    </ValidationRule>

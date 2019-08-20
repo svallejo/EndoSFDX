@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Specify &quot;Button&quot; or &quot;List&quot; --></help>
+        <label><!-- Type --></label>
+        <name>CMPL123CME__Type__c</name>
+    </CustomFieldTranslation>

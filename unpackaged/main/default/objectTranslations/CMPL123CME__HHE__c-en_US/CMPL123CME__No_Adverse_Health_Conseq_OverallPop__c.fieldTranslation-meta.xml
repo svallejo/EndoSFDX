@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- No adverse health consequences --></help>
+        <label><!-- Unused No Adverse Health Conseq. --></label>
+        <name>CMPL123CME__No_Adverse_Health_Conseq_OverallPop__c</name>
+    </CustomFieldTranslation>

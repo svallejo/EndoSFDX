@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Part Disposition --></label>
+        <name>CMPL123QMS__Part_Disposition__c</name>
+        <picklistValues>
+            <masterLabel>1 - Use Existing</masterLabel>
+            <translation><!-- 1 - Use Existing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 - Rework</masterLabel>
+            <translation><!-- 2 - Rework --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 - Scrap</masterLabel>
+            <translation><!-- 3 - Scrap --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

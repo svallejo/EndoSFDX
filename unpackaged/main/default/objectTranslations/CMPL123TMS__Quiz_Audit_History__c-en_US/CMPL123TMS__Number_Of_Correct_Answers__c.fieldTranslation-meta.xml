@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Number of questions answered correctly in a quiz. --></help>
+        <label><!-- Number Of Correct Answers --></label>
+        <name>CMPL123TMS__Number_Of_Correct_Answers__c</name>
+    </CustomFieldTranslation>

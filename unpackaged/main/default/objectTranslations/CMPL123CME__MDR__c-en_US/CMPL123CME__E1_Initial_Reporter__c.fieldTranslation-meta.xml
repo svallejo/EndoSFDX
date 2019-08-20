@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Initial Reporter --></label>
+        <name>CMPL123CME__E1_Initial_Reporter__c</name>
+        <relationshipLabel><!-- MDR (E1. Initial Reporter) --></relationshipLabel>
+    </CustomFieldTranslation>

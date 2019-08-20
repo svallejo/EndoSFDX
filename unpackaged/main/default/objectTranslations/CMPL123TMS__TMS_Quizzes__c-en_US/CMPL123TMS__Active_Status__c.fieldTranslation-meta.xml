@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Please check this if you want record to be active. --></help>
+        <label><!-- Active Status --></label>
+        <name>CMPL123TMS__Active_Status__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    <layouts>
+        <layout>Related Document Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- Cannot add same document to itself as a related document --></errorMessage>
+        <name>SPARTADMS__Check_for_Same_Related_document</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Related document is locked. --></errorMessage>
+        <name>SPARTADMS__ManageRelatedDocument</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- C1 - #2 NDC # or Unique ID --></help>
+        <label><!-- C1 - #2 NDC # or Unique ID --></label>
+        <name>CMPL123CME__C1_NDC_or_Unique_ID2__c</name>
+    </CustomFieldTranslation>

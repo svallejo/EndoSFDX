@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Investigative_Actions_and_Timeline__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Investigative Actions and Timeline</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Investigative Actions and Timeline</inlineHelpText>
+        <label>Investigative Actions and Timeline</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </CustomField>

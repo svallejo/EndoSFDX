@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Device Class --></label>
+        <name>CMPL123CME__Device_Class__c</name>
+        <picklistValues>
+            <masterLabel>AIMD Active implants</masterLabel>
+            <translation><!-- AIMD Active implants --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IVD Annex II List A</masterLabel>
+            <translation><!-- IVD Annex II List A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IVD Annex II List B</masterLabel>
+            <translation><!-- IVD Annex II List B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IVD Devices for self-testing</masterLabel>
+            <translation><!-- IVD Devices for self-testing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IVD General</masterLabel>
+            <translation><!-- IVD General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MDD Class I</masterLabel>
+            <translation><!-- MDD Class I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MDD Class III</masterLabel>
+            <translation><!-- MDD Class III --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MDD Class IIa</masterLabel>
+            <translation><!-- MDD Class IIa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MDD Class IIb</masterLabel>
+            <translation><!-- MDD Class IIb --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

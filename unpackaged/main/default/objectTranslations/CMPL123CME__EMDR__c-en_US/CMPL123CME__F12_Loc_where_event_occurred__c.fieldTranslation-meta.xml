@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- F12 - Location Where Event Occurred --></label>
+        <name>CMPL123CME__F12_Loc_where_event_occurred__c</name>
+        <picklistValues>
+            <masterLabel>ASKU</masterLabel>
+            <translation><!-- ASKU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ambulatory Health Care Facility</masterLabel>
+            <translation><!-- Ambulatory Health Care Facility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ambulatory Surgical Center</masterLabel>
+            <translation><!-- Ambulatory Surgical Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ambulatory Surgical Facility</masterLabel>
+            <translation><!-- Ambulatory Surgical Facility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blood Bank</masterLabel>
+            <translation><!-- Blood Bank --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bloodmobile</masterLabel>
+            <translation><!-- Bloodmobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Catheterization Lab - Free Standing</masterLabel>
+            <translation><!-- Catheterization Lab - Free Standing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Catheterization Suite</masterLabel>
+            <translation><!-- Catheterization Suite --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chemotherapy Center</masterLabel>
+            <translation><!-- Chemotherapy Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinic - Walk In, Other</masterLabel>
+            <translation><!-- Clinic - Walk In, Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Critical Care Unit</masterLabel>
+            <translation><!-- Critical Care Unit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dialysis Center</masterLabel>
+            <translation><!-- Dialysis Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dialysis Unit</masterLabel>
+            <translation><!-- Dialysis Unit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Drug Clinic</masterLabel>
+            <translation><!-- Drug Clinic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emergency Room</masterLabel>
+            <translation><!-- Emergency Room --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Examination Room</masterLabel>
+            <translation><!-- Examination Room --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home</masterLabel>
+            <translation><!-- Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospice</masterLabel>
+            <translation><!-- Hospice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital</masterLabel>
+            <translation><!-- Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Imaging Center - Mobile</masterLabel>
+            <translation><!-- Imaging Center - Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Imaging Center - Stationary</masterLabel>
+            <translation><!-- Imaging Center - Stationary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Transit To User/Medical Facility</masterLabel>
+            <translation><!-- In Transit To User/Medical Facility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invalid Data</masterLabel>
+            <translation><!-- Invalid Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laboratory</masterLabel>
+            <translation><!-- Laboratory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laboratory/Pathology Department</masterLabel>
+            <translation><!-- Laboratory/Pathology Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Long-Term Care Facility</masterLabel>
+            <translation><!-- Long-Term Care Facility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maternity Ward - Nursery</masterLabel>
+            <translation><!-- Maternity Ward - Nursery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile Health Unit</masterLabel>
+            <translation><!-- Mobile Health Unit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mri Centers</masterLabel>
+            <translation><!-- Mri Centers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation><!-- NA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NI</masterLabel>
+            <translation><!-- NI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Information</masterLabel>
+            <translation><!-- No Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Applicable</masterLabel>
+            <translation><!-- Not Applicable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nursing Home</masterLabel>
+            <translation><!-- Nursing Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operating Room</masterLabel>
+            <translation><!-- Operating Room --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outdoors</masterLabel>
+            <translation><!-- Outdoors --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outpatient Diagnostic Facility</masterLabel>
+            <translation><!-- Outpatient Diagnostic Facility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Park</masterLabel>
+            <translation><!-- Park --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient's Room Or Ward</masterLabel>
+            <translation><!-- Patient&apos;s Room Or Ward --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Playground</masterLabel>
+            <translation><!-- Playground --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Psychiatric Center - Walk In, Other</masterLabel>
+            <translation><!-- Psychiatric Center - Walk In, Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Psychiatric Facility</masterLabel>
+            <translation><!-- Psychiatric Facility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public Building</masterLabel>
+            <translation><!-- Public Building --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public Venue</masterLabel>
+            <translation><!-- Public Venue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radiology Department</masterLabel>
+            <translation><!-- Radiology Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rehabilitation Center</masterLabel>
+            <translation><!-- Rehabilitation Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retirement Home</masterLabel>
+            <translation><!-- Retirement Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>School</masterLabel>
+            <translation><!-- School --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Street</masterLabel>
+            <translation><!-- Street --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuberculosis Clinic</masterLabel>
+            <translation><!-- Tuberculosis Clinic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Urgent Care Center</masterLabel>
+            <translation><!-- Urgent Care Center --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

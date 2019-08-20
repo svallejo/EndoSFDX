@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Deactivate Approver</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Deactivate Approver</name>
+    <style>none</style>
+    <subject>Deactivate Approver</subject>
+    <textOnly>Hello Approver, 
+
+You no longer need to approve the following document: 
+Document Name: {0} 
+Document Number: {1} 
+Author: {2} 
+
+Thank you!</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

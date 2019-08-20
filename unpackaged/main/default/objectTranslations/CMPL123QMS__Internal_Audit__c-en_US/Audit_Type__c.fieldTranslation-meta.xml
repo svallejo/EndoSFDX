@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Audit Type --></label>
+        <name>Audit_Type__c</name>
+        <picklistValues>
+            <masterLabel>GCP</masterLabel>
+            <translation><!-- GCP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLP</masterLabel>
+            <translation><!-- GLP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GMP</masterLabel>
+            <translation><!-- GMP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

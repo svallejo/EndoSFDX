@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Submit for Admin Approval</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Submit for Admin Approval</name>
+    <style>none</style>
+    <subject>Submit for Admin Approval</subject>
+    <textOnly>Hello,
+
+The following document is now available for you to Submit for Approval.
+Document Name: {0}
+Document Number: {1}
+Author: {2}
+Comments (if any): {3}
+
+Please login to the Document Management System using this link to take further action.
+LINK: {4}
+
+Thank you!</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

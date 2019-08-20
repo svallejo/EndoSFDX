@@ -1,0 +1,25 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false">
+    <apex:includeScript value="{!URLFOR($Resource.CMPL123TMS__TMS123, '/lib/Jquery/js/flash.js')}"/>
+    <apex:outputPanel id="panel">
+    <div class="chatterFileViewerPanel" id="chatterFileViewerPanel" style="height:800px;">
+        <embed src="/_swf/192001/sfc/flex/DocViewer.swf"  type="application/x-shockwave-flash"  />
+    </div>
+    <script>
+        var id= "{!JSENCODE($CurrentPage.Parameters.id)}";
+      
+        insertFlexComponent(
+            '/_swf/192001/sfc/flex/DocViewer', 
+            'shepherd_prefix=/sfc/servlet.shepherd&v='+id+'&mode=chatterfilepreview&in_tests=false', //relatedId  06828000000CgRu
+            '100%', '100%', '#f3f3f3', 'chatterFileViewerPanel', 
+            'renditionExtraLarge',
+            true, 
+            { adobeFlashVersionLbl : '{!$Label.CMPL123TMS__TMS_Enable_Adobe_Flash_Player}'+'{!$Label.TMS_later_to_use_this_feature}', downloadAdobeLbl : '{!$Label.CMPL123TMS__TMS_Download_Adobe_Flash_Player}', downloadAdobeLinkLbl : '{!$Label.CMPL123TMS__TMS_Click_Link_to_download}', closeDialogLbl : '{!$Label.CMPL123TMS__TMS_Cancel}'}
+        );
+        
+
+         document.getElementById("chatterFileViewerPanel").style.display = 'block';
+       
+       
+     </script>
+    </apex:outputPanel> 
+</apex:page>

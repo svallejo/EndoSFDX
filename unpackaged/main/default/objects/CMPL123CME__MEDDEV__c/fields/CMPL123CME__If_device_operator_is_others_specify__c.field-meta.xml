@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__If_device_operator_is_others_specify__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If device operator is others, please specify name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If device operator is others, please specify name</inlineHelpText>
+        <label>If device operator is others, specify</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

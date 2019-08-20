@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- C8 - #2 Exp. Date --></help>
+        <label><!-- C8 - #2 Exp. Date --></label>
+        <name>CMPL123CME__C8_Exp_Date2__c</name>
+    </CustomFieldTranslation>

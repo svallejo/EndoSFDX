@@ -1,0 +1,179 @@
+<apex:page showHeader="false" standardController="SPARTADMS__Corporate_Document__c" extensions="SPARTADMS.DMSUploadController"  sidebar="false" applyHtmlTag="false" >
+    <apex:stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Bootstrap/css/bootstrap.min.css')}"/>
+    <apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Bootstrap/css/spartabootstrap.min.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Jquery/js/jquery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Bootstrap/js/bootstrap.min.js')}"/>
+    <style>
+          #actionProgressPanel #progressIcon {
+              float: right;
+          }
+          .hideDiv{
+              height:0;
+              overflow:hidden;
+          }
+          .showDiv{
+              height:auto;
+              overflow:none;
+          }
+          .publishercontainer{
+              padding-top:0;
+          }
+          .publishercontainer .customPanel{
+              background-image : none;  
+          }
+          .contentPublisherSlideDown .panelBody {
+              font-size: 15px;
+          }
+          .panel{
+              border:1px solid #c7ccce;
+          }
+          
+          #publisherBottomBarPlaceholder {
+               color: #fff;
+               background-color: #fff;
+               border-color: #fff;
+          }
+          .panel{
+              margin-bottom: 0px;
+          }
+          .publishercontainer {
+              padding-bottom: 0px;
+          }
+          .zen .zen-highlightBtn{
+              color: #fff;
+              background-color: #337ab7;
+              border-color: #2e6da4;
+              background-image: -ms-linear-gradient(top,#337ab7 0,#337ab7 100%);
+              background-image: -moz-linear-gradient(top,#337ab7 0,#337ab7 100%);
+              background-image: -webkit-linear-gradient(top,#337ab7 0,#337ab7 100%);
+              background-image: linear-gradient(top,#337ab7 0,#337ab7 100%);
+              cursor:pointer;
+          }
+         #publishersharebutton:enabled:hover{
+              color: #fff;
+              background-color: #337ab7;
+              border-color: #2e6da4;
+              background-image: -ms-linear-gradient(top,#337ab7 0,#337ab7 100%);
+              background-image: -moz-linear-gradient(top,#337ab7 0,#337ab7 100%);
+              background-image: -webkit-linear-gradient(top,#337ab7 0,#337ab7 100%);
+              background-image: linear-gradient(top,#337ab7 0,#337ab7 100%);
+              cursor:pointer;
+          }
+          #chatterFile{
+              width:100%;
+          }
+         .contentPublisherSlideDown .requiredInput input[type='file'] {
+             max-width:350px;
+          }
+         .publishercontainer .bottomBar {
+              padding: 9px;
+              height: 30px;
+              line-height: 30px;
+              background: #fff;
+              border: 1px solid #fff;
+              border-top: none;
+              -moz-border-radius: 3px;
+              border-radius: 3px;
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+         }
+         #uploadProgressDialog_buttons{
+             display:none;
+         }
+         #uploadProgressDialogFocusPoint{
+             display:none;
+         }
+         .h4{
+            font-family: inherit;
+            font-weight: 500;
+            color: inherit;
+         }
+    </style>
+     
+     <div id="uploadDoc" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                   <input type="button" value="x" onclick="closepopup()" class="sparta-btn sparta-btn-default" style="border: none; background-color:transparent;float: right;"/>                           
+                    <h4 class="modal-title" style="font-size: 18px; line-height: 1.42857143;">{!$Label.SPARTADMS__DMS_UPLOAD_FILE}</h4>
+                 </div>
+                  <div class="modal-body">
+                       <div class="divContainer hideDiv">
+                            <div id="StatusMsgs"><strong><span class="glyphicon glyphicon-info-sign" style="font-size:20px;vertical-align:-4px;">
+                            </span></strong>&nbsp;&nbsp;{!statusMsg}</div>
+                            <div id="fileinputs">
+                                  <chatter:feed entityId="{!$CurrentPage.parameters.Id}" showPublisher="true" id="custom-file-input" feedItemType="ContentPost" onComplete="jq('.container').addClass('hideDiv');onCompleteRecordtypeUpload()" />          
+                            </div>                                
+                        </div>
+                  </div>
+                  <div class="modal-footer">
+                      <input type="button" value="{!$Label.SPARTADMS__dms_close}" onclick="closepopup()" class="sparta-btn sparta-btn-default"/>
+                  </div>
+             </div>
+           </div>
+      </div>                                                                                        
+
+    <script>
+        var jq = $.noConflict();
+        var recordId;
+        jq(function(){
+            var url = window.location.href.toString();
+            var isFileUploaded = "{!isRecTypeUploaded}";
+            if(url.indexOf('id') != -1){
+                var idWithBtn = url.substr(url.indexOf('id') + 3 , 18);
+                var currentpageparameters = idWithBtn.split("&");
+                recordId = currentpageparameters[0];
+            }  
+            jq("#uploadDoc").modal("show");
+            jq("#uploadDoc").modal({backdrop: "static"});
+            jq("#StatusMsgs").attr("style", "display:none;");  
+            jq(".divContainer").addClass("hideDiv");
+            jq("#publisherAttachContentPost").trigger("click");
+            jq("#chatterUploadFileAction").trigger("click");
+            jq(".contentPublisherSlideDown.customPanel.alignTop").css("border", "0");
+            jq(".clearContentPanelButtonContainer").hide();
+            jq(".publisherFeedItemTypeChoices").hide();  
+            jq(".iconParent").hide();   
+            jq("#publishersharebutton").val("{!$Label.DMS_UPLOAD}");
+            jq("#publishersharebutton").attr("title","{!$Label.DMS_UPLOAD}");
+            jq(".cxfeedinnerwrapper").hide();  
+            jq(".divContainer").addClass("showDiv");
+            jq(".publisherTextAreaPlaceholder.alignCenter").hide();
+            jq(".bottomBarLeft").hide();
+            if (isFileUploaded == "true") {
+                jq("#StatusMsgs").attr("style", "display:block;"); 
+                jq("#fileinputs").attr("style", "display:none;"); 
+                jq("#StatusMsgs").attr("class","alert alert-info");   
+            } else {
+                jq("#StatusMsgs").attr("style", "display:none;"); 
+                jq("#fileinputs").attr("style", "display:block;");    
+            }
+        });
+     
+        function onCompleteRecordtypeUpload(){
+          var fileName = jq("#chatterFile")[0].files[0].name;
+          Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.DMSUploadController.updateUploadInformation}',
+                recordId,fileName,function(result, event) {
+                    if (event.status) {
+                        jq("#StatusMsgs").attr("style", "display:block;"); 
+                        jq("#fileinputs").attr("style", "display:none;");
+                        jq("#StatusMsgs").attr("class","alert alert-info");
+                    } else {
+                        jq("#StatusMsgs").attr("style", "display:block;");
+                        jq("#StatusMsgs").attr("class","alert alert-danger"); 
+                    } 
+                }, 
+                {escape: true}
+            );
+          jq(".TextPost").hide();
+          jq("#publisherTextArea").hide();                    
+        };
+         
+        function closepopup(){
+          var recordid = '{!$CurrentPage.parameters.Id}';
+          window.location.href = '/'+recordid; 
+        }
+         
+  </script>
+</apex:page>

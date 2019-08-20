@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Notes_to_Reviewer__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Notes to Reviewer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Notes to Reviewer</inlineHelpText>
+        <label>Notes to Reviewer</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </CustomField>

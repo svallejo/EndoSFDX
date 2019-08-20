@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Device evaluation by manufacturer --></help>
+        <label><!-- Device evaluation by manufacturer --></label>
+        <name>CMPL123CME__Device_evaluation_by_manufacturer__c</name>
+        <picklistValues>
+            <masterLabel>Evaluation Summary Attached</masterLabel>
+            <translation><!-- Evaluation Summary Attached --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Returned to Manufacturer</masterLabel>
+            <translation><!-- Not Returned to Manufacturer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

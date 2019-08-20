@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Submission_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The corporate document record submission type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The corporate document record submission type</inlineHelpText>
+        <label>Submission Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Effective Submission</fullName>
+                    <default>false</default>
+                    <label>Effective Submission</label>
+                </value>
+                <value>
+                    <fullName>Checkout Submission</fullName>
+                    <default>false</default>
+                    <label>Checkout Submission</label>
+                </value>
+                <value>
+                    <fullName>Obsolete Submission</fullName>
+                    <default>false</default>
+                    <label>Obsolete Submission</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

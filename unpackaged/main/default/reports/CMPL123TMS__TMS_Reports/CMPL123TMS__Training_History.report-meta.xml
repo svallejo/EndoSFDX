@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CMPL123TMS__Training_Record__c.CMPL123TMS__Training_Name__c</field>
+    </columns>
+    <columns>
+        <field>CMPL123TMS__Training_Record__c.CMPL123TMS__Training_Number__c</field>
+    </columns>
+    <columns>
+        <field>CMPL123TMS__Training_Record__c.CMPL123TMS__Version__c</field>
+    </columns>
+    <columns>
+        <field>CMPL123TMS__Training_Record__c.CMPL123TMS__Due_Date__c</field>
+    </columns>
+    <columns>
+        <field>CMPL123TMS__Training_Record__c.CMPL123TMS__Completed_Date__c</field>
+    </columns>
+    <columns>
+        <field>CMPL123TMS__Training_Record__c.CMPL123TMS__Training_Status__c</field>
+    </columns>
+    <columns>
+        <field>CMPL123TMS__Training_Record__c.CMPL123TMS__Timeliness_Clock__c</field>
+    </columns>
+    <description>Training History</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CMPL123TMS__Training_Record__c.CMPL123TMS__Related_User__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Training History</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$CMPL123TMS__Training_Record__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>false</showGrandTotal>
+    <showSubTotals>false</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CMPL123TMS__Training_Record__c.CMPL123TMS__Completed_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

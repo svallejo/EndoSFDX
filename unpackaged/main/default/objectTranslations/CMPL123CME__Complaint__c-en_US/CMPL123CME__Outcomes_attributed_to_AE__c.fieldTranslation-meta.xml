@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Outcomes attributed to AE --></label>
+        <name>CMPL123CME__Outcomes_attributed_to_AE__c</name>
+    </CustomFieldTranslation>

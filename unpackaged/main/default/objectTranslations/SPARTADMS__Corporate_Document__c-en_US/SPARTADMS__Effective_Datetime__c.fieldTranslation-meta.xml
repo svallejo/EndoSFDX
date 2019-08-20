@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Effective Datetime to be (calculated as per the custom settings # of days of approved happens) --></help>
+        <label><!-- Effective Datetime (Formula) --></label>
+        <name>SPARTADMS__Effective_Datetime__c</name>
+    </CustomFieldTranslation>

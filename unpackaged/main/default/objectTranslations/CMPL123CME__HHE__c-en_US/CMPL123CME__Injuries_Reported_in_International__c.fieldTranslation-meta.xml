@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Injuries Reported in International --></help>
+        <label><!-- Injuries Reported in International --></label>
+        <name>CMPL123CME__Injuries_Reported_in_International__c</name>
+    </CustomFieldTranslation>

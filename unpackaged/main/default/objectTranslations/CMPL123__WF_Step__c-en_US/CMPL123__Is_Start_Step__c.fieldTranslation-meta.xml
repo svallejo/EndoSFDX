@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Check, if it is the first step --></help>
+        <label><!-- Is Start Step? --></label>
+        <name>CMPL123__Is_Start_Step__c</name>
+    </CustomFieldTranslation>

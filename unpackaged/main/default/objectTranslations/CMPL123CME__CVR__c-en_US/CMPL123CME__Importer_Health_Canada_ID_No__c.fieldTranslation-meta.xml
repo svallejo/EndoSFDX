@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Importer : Health Canada assigned
+company identification number
+(if known) --></help>
+        <label><!-- Importer Health Canada ID No --></label>
+        <name>CMPL123CME__Importer_Health_Canada_ID_No__c</name>
+    </CustomFieldTranslation>

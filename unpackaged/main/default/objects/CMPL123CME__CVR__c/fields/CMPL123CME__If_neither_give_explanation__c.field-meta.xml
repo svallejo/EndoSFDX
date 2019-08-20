@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__If_neither_give_explanation__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If Availability of device for evaluation is neither give explanation</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If Availability of device for evaluation is neither give explanation</inlineHelpText>
+        <label>If neither give explanation</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

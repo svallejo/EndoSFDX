@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Description of the Defect, Malfunction or Error in Use of the Device: --></help>
+        <label><!-- Description of the Defect, Malfunction --></label>
+        <name>CMPL123CME__Description_of_the_Defect_Malfunction_o__c</name>
+    </CustomFieldTranslation>

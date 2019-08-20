@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__If_yes_state_report_ref_and_countries_LT__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If yes, state in which countries and the report reference numbers of the incidents.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If yes, state in which countries and the report reference numbers of the incidents.</inlineHelpText>
+        <label>If yes, state report ref and countries</label>
+        <length>2000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </CustomField>

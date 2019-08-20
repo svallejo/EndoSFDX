@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__MS_NCA_Reference_Numbers_for_all_partic__c</fullName>
+        <deprecated>false</deprecated>
+        <description>MS+NCA Reference Numbers for all participating Countries</description>
+        <externalId>false</externalId>
+        <inlineHelpText>MS+NCA Reference Numbers for all participating Countries</inlineHelpText>
+        <label>MS+NCA Ref. Numbers</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

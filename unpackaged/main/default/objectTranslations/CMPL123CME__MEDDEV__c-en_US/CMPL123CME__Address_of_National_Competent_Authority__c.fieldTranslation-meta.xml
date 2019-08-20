@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Address of National Competent Authority --></help>
+        <label><!-- NCA Address --></label>
+        <name>CMPL123CME__Address_of_National_Competent_Authority__c</name>
+    </CustomFieldTranslation>

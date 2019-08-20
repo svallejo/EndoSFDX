@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Total Number Of Devices In Distribution iN Forign --></help>
+        <label><!-- Total Devices In Distribution In Foreign --></label>
+        <name>CMPL123CME__Total_Devices_In_Distribution_In_Foreign__c</name>
+    </CustomFieldTranslation>

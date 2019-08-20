@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Serial_Numbers__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Serial numbers</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Serial numbers</inlineHelpText>
+        <label>Serial number(s) (if applicable)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

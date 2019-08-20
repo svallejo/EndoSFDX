@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Investigation_Completed_check</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( ISPICKVAL( Investigation_Required__c , "Yes") ,ISCHANGED( CMPL123_WF_Action__c ) &amp;&amp; CMPL123_WF_Action__c = "Complete Investigation - Quality Event" &amp;&amp; ISPICKVAL( Investigation_Completed__c , ""))</errorConditionFormula>
+        <errorMessage>Please fill the field investigation completed? after completing investigation</errorMessage>
+    </ValidationRule>

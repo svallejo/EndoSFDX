@@ -1,0 +1,229 @@
+<apex:page controller="SPARTADMS.DMSAuditController" showHeader="false" standardStylesheets="false">
+    <apex:stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Bootstrap/css/bootstrap.min.css')}" />  
+    <apex:stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/datatable/css/responsive.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/datatable/css/datatable.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Jquery/js/jquery.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/datatable/js/datatable.js')}" /> 
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Bootstrap/js/bootstrap.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/datatable/js/responsive.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/datatable/js/moment.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/datatable/js/dateTimeMoment.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/datatable/js/timezone.js')}"/>  
+    
+    <Style>
+        .workflow-cont{
+        margin:auto;
+        width:80%;
+        }
+        .paginate_button{
+            padding:10px;
+            border:1px solid #ddd;
+            text-decoration:none; 
+            cursor:pointer;
+        }
+        a:hover{
+        	  cursor:pointer;
+        }
+    </Style>
+    <script type="text/javascript">
+    var recordid='';
+    var isAdmin = false;
+    var isCustomSettingEnabled = false;
+    var docStatus = '{!JSENCODE(docStatus)}';
+    var verStatus = '{!JSENCODE(versionStatus)}';
+    var translatedValue= {!translatedStatus};
+    $(function(){     
+        isAdmin='{!$currentPage.parameters.isAdmin}'; //As per checkmarx it shows as high priority stored XSS issue but it is a boolean type value. Its a false positive issue so did not make any changes to the code.             
+        recordid='{!$currentPage.parameters.id}';  
+        isCustomSettingEnabled = '{!$Setup.SPARTADMS__DMS_App_Setting__c.SPARTADMS__Enable_Audit_Trail_Report__c}'; //As per checkmarx it shows as high priority stored XSS issue but it is a boolean type value. Its a false positive issue so did not make changes to the code.
+        if(isAdmin == 'true' && isCustomSettingEnabled == 'true'){
+            if (docStatus == 'EXPIRED') {
+                var expiredMessage = '{!JSENCODE($Label.DMS_AUDIT_HISTORY_EXPIRED_MSG)}';
+                expiredMessage =  expiredMessage.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+                document.getElementById("AuditHistory").innerHTML = '<div class="alert alert-info"><strong><span class="glyphicon glyphicon-info-sign" style="font-size:20px;vertical-align:-4px;"></span></strong>&nbsp;&nbsp;'+expiredMessage+'</div>';
+            } else {
+                $('#auditTab li:eq(1) a').css("display","block");
+                var auditFrame = document.getElementById("auditFrame");
+                auditFrame.src="/apex/CMPL123__AuditTrail?id="+recordid;
+            }
+           
+        }else{
+            $('#auditTab li:eq(1) a').css("display","none");
+        }
+        
+        getRemoteWorkflowHistory();
+        
+    });
+    
+    function getRemoteWorkflowHistory() { 
+        
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.DMSAuditController.getWorkflowHistoryList}',
+            recordid, 
+            function(result, event){
+                
+                if (event.status) {
+                    var timeZone = result.timeZoneOffset;                    
+                    var obj =  result.WorkflowHistory; 
+                    
+                    $('#createTable').DataTable( {
+                        "language":{
+                            "zeroRecords":     "{!$Label.DMS_NO_MATCHING_RECORDS_TO_DISPLAY}",
+                            "sEmptyTable":     "{!$Label.DMS_NO_DATA_AVAILABLE_IN_TABLE}",
+                            "sInfo":           "{!$Label.DMS_SHOWING} _START_ {!$Label.DMS_TO} _END_ {!$Label.DMS_OF} _TOTAL_ {!$Label.DMS_ENTRIES}",
+                            "sInfoEmpty":      "{!$Label.DMS_SHOWING} _START_ {!$Label.DMS_TO} _END_ {!$Label.DMS_OF} _TOTAL_ {!$Label.DMS_ENTRIES}",
+                            "sSearch":         "{!$Label.DMS_SEARCH}",
+                            "sLengthMenu":     "{!$Label.DMS_SHOW} _MENU_ {!$Label.DMS_ENTRIES}",
+                            "paginate": {
+                                "first":       "{!$Label.DMS_FIRST}",
+                                "previous":    "{!$Label.DMS_PREVIOUS}",
+                                "next":        "{!$Label.DMS_NEXT}",
+                                "last":        "{!$Label.DMS_LAST}"
+                            },
+                        },
+                        "pagingType": "full_numbers",
+                        responsive:true,
+                        "data": obj,
+                         "aoColumns": [                            
+                            { "mDataProp": "Name",sDefaultContent:'',"width": "5%"}, 
+                            { "mDataProp": "SPARTADMS__Major_Version__c",sDefaultContent:'',"width": "5%"},
+                            { "mDataProp": "SPARTADMS__Approval_Step__c",sDefaultContent:'',"width": "12%"},
+                            { "mDataProp": "SPARTADMS__Document_Reviewer__r.SPARTADMS__Related_Box_User__r.Name",sDefaultContent:'',"width": "15%"},      
+                            { "mDataProp": "SPARTADMS__Comments__c",sDefaultContent:''},
+                            { "mDataProp": "LastModifiedDate",sDefaultContent:'',"width": "16%"},                             
+                            { "mDataProp": "LastModifiedBy.Name",sDefaultContent:'',"width": "10%"},                              
+                        ],
+                        "order": [[0,'desc'],[1, 'desc'],[5,'desc']],
+                        "columnDefs":[
+                        {
+                            targets :5,
+                            "render": function ( data, type, full, meta ) {
+                            if(data != null && data != '')
+                                return moment(data).zone(timeZone).format('MM-D-YYYY, h:mm a'); 
+                             }
+                        },
+                        {
+                            targets :4,
+                            "render": function ( data, type, full, meta ) {
+                            if(data != null && data != '')
+                                var comments = full.SPARTADMS__Comments__c;
+                                if(comments != null && comments != ''){
+                                    if (comments.contains('Owner changed to ')) {
+                                        comments = translatedValue['Owner changed to'] + ' ' + comments.replace('Owner changed to ','')
+                                    } else {
+                                        comments = translatedValue[comments];
+                                    }
+                                    
+                                    if (comments == undefined) {
+                                        comments = full.SPARTADMS__Comments__c;
+                                    }
+                                }
+                                return comments; 
+                             }
+                        },
+                        {
+                            targets :2,
+                            "render": function ( data, type, full, meta ) {
+                            if(data != null && data != '')
+                                var WFStep = full.SPARTADMS__Approval_Step__c;
+                                if(WFStep != null && WFStep != ''){
+                                    if (WFStep.contains('Canceled workflow in')) {;
+                                        var cancelWorkflow = 'Canceled workflow in ';
+                                        var lenOfStr = cancelWorkflow.length;
+                                        var vStats = WFStep.substring(lenOfStr, WFStep.length);
+                                        WFStep = translatedValue['Canceled workflow in'] + ' ' + translatedValue[vStats];
+                                    } else {
+                                        WFStep = translatedValue[WFStep];
+                                    }
+                                    
+                                    if (WFStep == undefined) {
+                                        WFStep = full.SPARTADMS__Approval_Step__c;
+                                    }
+                                }
+                                return WFStep; 
+                             }
+                        },
+                        {
+                            targets :3,
+                            "render": function ( data, type, full, meta ) {
+                        		  if(data != null && data != "")
+                                  	return data;
+                        		  if(full.SPARTADMS__Document_Approver__r != null &&  full.SPARTADMS__Document_Approver__r != ""){
+                                      if(full.SPARTADMS__Document_Approver__r.SPARTADMS__Related_Box_User__r != null && full.SPARTADMS__Document_Approver__r.SPARTADMS__Related_Box_User__r != '')
+                                     	 return full.SPARTADMS__Document_Approver__r.SPARTADMS__Related_Box_User__r.Name;
+                                   }  
+                             }
+                        }
+                      ]  
+                                                });   
+                   
+                    $("input[type='search']").addClass("form-control");     
+                    $(".dataTables_length select").addClass("form-control");                    
+                } else if (event.type === 'exception') {
+                    document.getElementById("responseErrors").innerHTML = event.message + "<br/>\n<pre>" + event.where + "</pre>";
+                } else {
+                    document.getElementById("responseErrors").innerHTML = event.message;
+                }
+            }, 
+            {escape: true}
+        );         
+    }
+    function removeQuote(result){        
+        var div = $("<div />");
+        div.html(result);
+        return JSON.parse(div.text());        
+    }
+    $("#workflowhistorytab").click(function () {
+        $('#createTable').reload();
+    });  
+    String.prototype.contains = function(contains) {
+		return this.lastIndexOf(contains) >= 0;
+	};
+    </script>
+    <style>
+        
+        a {
+        color: #337ab7;
+        text-decoration: none;
+        padding-left: 10px;         
+        }     
+        
+    </style> 
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <span class="navbar-brand" >
+                    {!$Label.DMS_AUDIT_REPORT}-{!corporateDocumentName}
+                </span>
+            </div>            
+        </div>
+    </nav>
+    <div class="workflow-cont" style="margin-bottom:10em;">               
+        <ul class="nav nav-pills nav-justified" id="auditTab">
+            <li class="active" ><a href="#workflowhistorytab" data-toggle="tab">{!$Label.DMS_WFH}</a></li>
+            <li><a href="#AuditHistory" data-toggle="tab">{!$Label.DMS_AH}</a></li> 
+        </ul>
+        <div class="tab-content" style="margin-top:2%">
+            <div id="workflowhistorytab" class="tab-pane fade in active" style="margin-top:1%;padding: 10px;color: black;padding: 20px;border: 1px solid #e7e7e7 ;">           
+                <table id="createTable" class="table table-striped table-bordered dt-responsive" cellspacing="0"  width="100%">
+                    <thead style="background:#54698D;color:white;">
+                        <tr>                
+                        	<th>{!$Label.DMS_WFH_ID}</th>                           
+                            <th>{!$Label.DMS_WFH_VERSION}</th>                            
+                            <th>{!$Label.DMS_WFH_STATUS}</th>
+                            <th>{!$Label.DMS_WFH_REVIEWER_APPROVER}</th>                          
+                            <th>{!$Label.DMS_WFH_COMMENT}</th>
+                            <th>{!$Label.DMS_WFH_CREATEDDATE}</th>
+                            <th>{!$Label.DMS_WFH_CREATEDBY}</th>                                                                                   
+                        </tr>                           
+                    </thead>
+                </table> 
+                <div id="responseErrors">
+                </div>
+            </div>
+            <div id="AuditHistory" class="tab-pane fade">
+                <iframe id="auditFrame" style="width:87%;min-height:800px;border:0;" /> 
+            </div>
+        </div>  
+    </div>
+</apex:page>

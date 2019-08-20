@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123__Total_Weight_1__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( CMPL123__Question1_Text__c) ,0 , CMPL123__Weight1__c ) +
+IF( ISBLANK( CMPL123__Question2_Text__c) ,0 , CMPL123__Weight2__c ) +
+IF( ISBLANK( CMPL123__Question3_Text__c) ,0 , CMPL123__Weight3__c ) +
+IF( ISBLANK( CMPL123__Question4_Text__c) ,0 , CMPL123__Weight4__c ) +
+IF( ISBLANK( CMPL123__Question5_Text__c) ,0 , CMPL123__Weight5__c ) +
+IF( ISBLANK( CMPL123__Question6_Text__c) ,0 , CMPL123__Weight6__c ) +
+IF( ISBLANK( CMPL123__Question7_Text__c) ,0 , CMPL123__Weight7__c ) +
+IF( ISBLANK( CMPL123__Question8_Text__c) ,0 , CMPL123__Weight8__c ) +
+IF( ISBLANK( CMPL123__Question9_Text__c) ,0 , CMPL123__Weight9__c ) +
+IF( ISBLANK( CMPL123__Question10_Text__c) ,0 , CMPL123__Weight10__c ) +
+IF( ISBLANK( CMPL123__Question11_Text__c) ,0 , CMPL123__Weight11__c ) +
+IF( ISBLANK( CMPL123__Question12_Text__c) ,0 , CMPL123__Weight12__c ) +
+IF( ISBLANK( CMPL123__Question13_Text__c) ,0 , CMPL123__Weight13__c ) +
+IF( ISBLANK( CMPL123__Question14_Text__c) ,0 , CMPL123__Weight14__c ) +
+IF( ISBLANK( CMPL123__Question15_Text__c) ,0 , CMPL123__Weight15__c ) +
+IF( ISBLANK( CMPL123__Question16_Text__c) ,0 , CMPL123__Weight16__c ) +
+IF( ISBLANK( CMPL123__Question17_Text__c) ,0 , CMPL123__Weight17__c ) +
+IF( ISBLANK( CMPL123__Question18_Text__c) ,0 , CMPL123__Weight18__c ) +
+IF( ISBLANK( CMPL123__Question19_Text__c) ,0 , CMPL123__Weight19__c ) +
+IF( ISBLANK( CMPL123__Question20_Text__c) ,0 , CMPL123__Weight20__c ) +
+IF( ISBLANK( CMPL123__Question21_Text__c) ,0 , CMPL123__Weight21__c ) +
+IF( ISBLANK( CMPL123__Question22_Text__c) ,0 , CMPL123__Weight22__c ) +
+IF( ISBLANK( CMPL123__Question23_Text__c) ,0 , CMPL123__Weight23__c ) +
+IF( ISBLANK( CMPL123__Question24_Text__c) ,0 , CMPL123__Weight24__c ) +
+IF( ISBLANK( CMPL123__Question25_Text__c) ,0 , CMPL123__Weight25__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Weight 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </CustomField>

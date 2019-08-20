@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Assertion Consumer Service (ACS) URL. A public site or a URL where SAML IDP can post the response. --></help>
+        <label><!-- ACS URL --></label>
+        <name>CMPL123__ACS_URL__c</name>
+    </CustomFieldTranslation>

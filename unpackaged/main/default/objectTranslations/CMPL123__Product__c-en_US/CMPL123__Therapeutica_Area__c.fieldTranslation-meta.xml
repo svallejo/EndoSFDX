@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Therapeutica Area --></label>
+        <name>CMPL123__Therapeutica_Area__c</name>
+        <picklistValues>
+            <masterLabel>Customer Specific</masterLabel>
+            <translation><!-- Customer Specific --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

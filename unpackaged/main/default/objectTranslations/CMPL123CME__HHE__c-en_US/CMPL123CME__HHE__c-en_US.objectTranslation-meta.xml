@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>HHE</layout>
+        <sections>
+            <label><!-- Assess Medically Reversible or Transient Adverse Health Consequences --></label>
+            <section>Assess Medically Reversible or Transient Adverse Health Consequences</section>
+        </sections>
+        <sections>
+            <label><!-- Assess Serious Adverse Health Consequences --></label>
+            <section>Assess Serious Adverse Health Consequences</section>
+        </sections>
+        <sections>
+            <label><!-- Assess the hazards associated with use of the defective product --></label>
+            <section>Assess the hazards associated with use of the defective product</section>
+        </sections>
+        <sections>
+            <label><!-- Basic Information --></label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Electronic Signatures --></label>
+            <section>Electronic Signatures</section>
+        </sections>
+        <sections>
+            <label><!-- I. Product Data --></label>
+            <section>I. Product Data</section>
+        </sections>
+        <sections>
+            <label><!-- II. Problem Definition and Analysis --></label>
+            <section>II. Problem Definition and Analysis</section>
+        </sections>
+        <sections>
+            <label><!-- III. Health Risks - Immediate and Long Range Health Consequences --></label>
+            <section>III. Health Risks - Immediate and Long Range Health Consequences</section>
+        </sections>
+        <sections>
+            <label><!-- Incidents that may be Related to the Device Defect: --></label>
+            <section>Incidents that may be Related to the Device Defect:</section>
+        </sections>
+        <sections>
+            <label><!-- Manufacturer’s CAPA Investigation (If Available): --></label>
+            <section>Manufacturer’s CAPA Investigation (If Available):</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Health Hazard Evaluation/Risk Assessment Layout</layout>
+        <sections>
+            <label><!-- Assess Medically Reversible or Transient Adverse Health Consequences --></label>
+            <section>Assess Medically Reversible or Transient Adverse Health Consequences</section>
+        </sections>
+        <sections>
+            <label><!-- Assess Serious Adverse Health Consequences --></label>
+            <section>Assess Serious Adverse Health Consequences</section>
+        </sections>
+        <sections>
+            <label><!-- Assess the hazards associated with use of the defective product --></label>
+            <section>Assess the hazards associated with use of the defective product</section>
+        </sections>
+        <sections>
+            <label><!-- Basic Information --></label>
+            <section>Basic Information</section>
+        </sections>
+        <sections>
+            <label><!-- Electronic Signatures --></label>
+            <section>Electronic Signatures</section>
+        </sections>
+        <sections>
+            <label><!-- I. Product Data --></label>
+            <section>I. Product Data</section>
+        </sections>
+        <sections>
+            <label><!-- II. Problem Definition and Analysis --></label>
+            <section>II. Problem Definition and Analysis</section>
+        </sections>
+        <sections>
+            <label><!-- III. Health Risks - Immediate and Long Range Health Consequences --></label>
+            <section>III. Health Risks - Immediate and Long Range Health Consequences</section>
+        </sections>
+        <sections>
+            <label><!-- Incidents that may be Related to the Device Defect: --></label>
+            <section>Incidents that may be Related to the Device Defect:</section>
+        </sections>
+        <sections>
+            <label><!-- Manufacturer’s CAPA Investigation (If Available): --></label>
+            <section>Manufacturer’s CAPA Investigation (If Available):</section>
+        </sections>
+    </layouts>
+    <webLinks>
+        <label><!-- Print --></label>
+        <name>CMPL123CME__Print</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Firm&apos;s estimate - Of Those Devices that Fail, How Many are Likely to Cause Injury if Used? --></help>
+        <label><!-- Amount likely to Cause Injury --></label>
+        <name>CMPL123CME__Devices_likely_to_cause_injury__c</name>
+    </CustomFieldTranslation>

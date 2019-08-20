@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Investigation_Completed__c</fullName>
+        <externalId>false</externalId>
+        <label>Investigation Completed?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Investigation_Required__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Investigation Not Required</fullName>
+                    <default>false</default>
+                    <label>Investigation Not Required</label>
+                </value>
+                <value>
+                    <fullName>Investigation Completed</fullName>
+                    <default>false</default>
+                    <label>Investigation Completed</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Investigation Completed</valueName>
+            </valueSettings>
+        </valueSet>
+    </CustomField>

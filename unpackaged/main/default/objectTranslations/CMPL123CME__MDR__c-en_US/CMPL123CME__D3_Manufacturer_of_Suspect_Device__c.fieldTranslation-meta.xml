@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- D3 Manufacturer of Suspect Device --></label>
+        <name>CMPL123CME__D3_Manufacturer_of_Suspect_Device__c</name>
+        <relationshipLabel><!-- MDR (D3 Manufacturer of Suspect Device) --></relationshipLabel>
+    </CustomFieldTranslation>

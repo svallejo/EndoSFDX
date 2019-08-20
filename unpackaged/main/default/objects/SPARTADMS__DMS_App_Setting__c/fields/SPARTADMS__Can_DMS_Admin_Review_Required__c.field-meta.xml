@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Can_DMS_Admin_Review_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Is DMS Admin Approval Required</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Is DMS Admin Approval Required</inlineHelpText>
+        <label>Is DMS Admin Approval Required</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </CustomField>

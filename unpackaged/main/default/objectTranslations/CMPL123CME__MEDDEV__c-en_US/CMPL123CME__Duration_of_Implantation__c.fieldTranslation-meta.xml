@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- To be filled if the exact implant and explant dates are unknown --></help>
+        <label><!-- Duration of Implantation --></label>
+        <name>CMPL123CME__Duration_of_Implantation__c</name>
+    </CustomFieldTranslation>

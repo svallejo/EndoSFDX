@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Assessment_of_Relationship_to_Procedure__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Assessment of Relationship
+to Procedure</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Assessment of Relationship
+to Procedure</inlineHelpText>
+        <label>Assessment of Relationship to Procedure</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Possibly</fullName>
+                    <default>false</default>
+                    <label>Possibly</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

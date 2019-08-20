@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <fieldSets>
+        <label><!-- Submission History --></label>
+        <name>CMPL123CME__Submission_History_EMDR_RL_FS</name>
+    </fieldSets>
+    <layouts>
+        <layout>Submission History Layout</layout>
+        <sections>
+            <label><!-- Submission Detail --></label>
+            <section>Submission Detail</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

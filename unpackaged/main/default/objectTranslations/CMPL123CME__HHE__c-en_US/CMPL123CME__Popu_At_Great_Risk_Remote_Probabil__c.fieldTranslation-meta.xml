@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Population Great Risk, Remote Probability that Use will cause --></help>
+        <label><!-- Unused Popu. At Great Risk Remote Prob --></label>
+        <name>CMPL123CME__Popu_At_Great_Risk_Remote_Probabil__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Describe the Complaints and Injuries Reported to Date: --></help>
+        <label><!-- Complaints and Injuries Reported to Date --></label>
+        <name>CMPL123CME__Complaints_and_Injuries_Reported_to_Date__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Audit_Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Audit Sub-Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Project Audit</fullName>
+                    <default>false</default>
+                    <label>Project Audit</label>
+                </value>
+                <value>
+                    <fullName>System Audit</fullName>
+                    <default>false</default>
+                    <label>System Audit</label>
+                </value>
+                <value>
+                    <fullName>Vendor Audit</fullName>
+                    <default>false</default>
+                    <label>Vendor Audit</label>
+                </value>
+                <value>
+                    <fullName>Clinical Operation</fullName>
+                    <default>false</default>
+                    <label>Clinical Operation</label>
+                </value>
+                <value>
+                    <fullName>Medical Writing</fullName>
+                    <default>false</default>
+                    <label>Medical Writing</label>
+                </value>
+                <value>
+                    <fullName>Study Management</fullName>
+                    <default>false</default>
+                    <label>Study Management</label>
+                </value>
+                <value>
+                    <fullName>Monitoring</fullName>
+                    <default>false</default>
+                    <label>Monitoring</label>
+                </value>
+                <value>
+                    <fullName>Data Management</fullName>
+                    <default>false</default>
+                    <label>Data Management</label>
+                </value>
+                <value>
+                    <fullName>Statistics</fullName>
+                    <default>false</default>
+                    <label>Statistics</label>
+                </value>
+                <value>
+                    <fullName>Pre-clinical Study Protocol</fullName>
+                    <default>false</default>
+                    <label>Pre-clinical Study Protocol</label>
+                </value>
+                <value>
+                    <fullName>Pre-clinical Study Report</fullName>
+                    <default>false</default>
+                    <label>Pre-clinical Study Report</label>
+                </value>
+                <value>
+                    <fullName>Study Conduct</fullName>
+                    <default>false</default>
+                    <label>Study Conduct</label>
+                </value>
+                <value>
+                    <fullName>Facility</fullName>
+                    <default>false</default>
+                    <label>Facility</label>
+                </value>
+                <value>
+                    <fullName>CRO</fullName>
+                    <default>false</default>
+                    <label>CRO</label>
+                </value>
+                <value>
+                    <fullName>Manufacturer</fullName>
+                    <default>false</default>
+                    <label>Manufacturer</label>
+                </value>
+                <value>
+                    <fullName>Warehouse</fullName>
+                    <default>false</default>
+                    <label>Warehouse</label>
+                </value>
+                <value>
+                    <fullName>Packaging</fullName>
+                    <default>false</default>
+                    <label>Packaging</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

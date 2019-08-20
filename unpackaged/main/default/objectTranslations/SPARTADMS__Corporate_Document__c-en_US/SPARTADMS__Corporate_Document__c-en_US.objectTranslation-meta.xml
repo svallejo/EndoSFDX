@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <fieldSets>
+        <label><!-- CDFieldSet --></label>
+        <name>SPARTADMS__CDFieldSet</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Scheduled Activities --></label>
+        <name>SPARTADMS__Scheduled_Activities</name>
+    </fieldSets>
+    <layouts>
+        <layout>Corporate Document Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- Template Type field should be blank for Document Type other than Template (TPT) --></errorMessage>
+        <name>SPARTADMS__Check_for_Template_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Template Type field should not be blank for Document Type  Template (TPT) --></errorMessage>
+        <name>SPARTADMS__Check_for_Template_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Document Type or Department can not be updated once a Corporate Document record is created. --></errorMessage>
+        <name>SPARTADMS__CorporateDocAttributeChangeValidation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Corporate document is locked. --></errorMessage>
+        <name>SPARTADMS__ManageCorporateDocument</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Document Auto Effective Days cannot be less than zero. --></errorMessage>
+        <name>SPARTADMS__ValidateAutoEffectiveDays</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Check out operation can only applied to effective documents. --></errorMessage>
+        <name>SPARTADMS__ValidateCheckOut</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Periodic Review Notification Days and Periodic Review Cycle Months cannot be less than zero. --></errorMessage>
+        <name>SPARTADMS__ValidatePeriodicReviewDaysAndMonths</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Cancel_Workflow --></label>
+        <name>SPARTADMS__Cancel_Workflow</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Checkout --></label>
+        <name>SPARTADMS__Checkout</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Obsolete --></label>
+        <name>SPARTADMS__Obsolete</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Preview --></label>
+        <name>SPARTADMS__Preview</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Upload_File --></label>
+        <name>SPARTADMS__Upload_File</name>
+    </webLinks>
+</CustomObjectTranslation>

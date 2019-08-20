@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- MDC Trigger Acknowledgment --></label>
+        <name>CMPL123__MDC_Trigger_Acknowledgment__c</name>
+        <relationshipLabel><!-- MDCAcknowledgementMappings --></relationshipLabel>
+    </CustomFieldTranslation>

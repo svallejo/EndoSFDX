@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__H8_Usage_of_Device__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the event occurred during initial or reuse of the device.</description>
+        <externalId>false</externalId>
+        <label>H8 - Usage of Device</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Initial Use of Device</fullName>
+                    <default>false</default>
+                    <label>Initial Use of Device</label>
+                </value>
+                <value>
+                    <fullName>Reuse</fullName>
+                    <default>false</default>
+                    <label>Reuse</label>
+                </value>
+                <value>
+                    <fullName>NA</fullName>
+                    <default>false</default>
+                    <label>NA</label>
+                </value>
+                <value>
+                    <fullName>NI</fullName>
+                    <default>false</default>
+                    <label>NI</label>
+                </value>
+                <value>
+                    <fullName>ASKU</fullName>
+                    <default>false</default>
+                    <label>ASKU</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

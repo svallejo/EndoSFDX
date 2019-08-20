@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Describe Any Clinical Factors That May Mitigate the Risk: --></help>
+        <label><!-- UnusedClinical Factors That May Mitigate --></label>
+        <name>CMPL123CME__Clinical_Factors_That_May_Mitigate_Risk__c</name>
+    </CustomFieldTranslation>

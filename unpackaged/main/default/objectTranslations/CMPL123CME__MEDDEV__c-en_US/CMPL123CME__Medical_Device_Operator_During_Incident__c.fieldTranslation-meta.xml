@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Operator of the medical device at the time of incident --></help>
+        <label><!-- Medical device operator during incident --></label>
+        <name>CMPL123CME__Medical_Device_Operator_During_Incident__c</name>
+        <picklistValues>
+            <masterLabel>Healthcare Professional</masterLabel>
+            <translation><!-- Healthcare Professional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Proffesional</masterLabel>
+            <translation><!-- Other Proffesional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient</masterLabel>
+            <translation><!-- Patient --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

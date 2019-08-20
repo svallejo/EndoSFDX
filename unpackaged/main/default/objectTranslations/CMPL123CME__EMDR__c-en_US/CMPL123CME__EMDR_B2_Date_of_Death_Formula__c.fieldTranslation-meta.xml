@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- EMDR B2 Date of Death --></label>
+        <name>CMPL123CME__EMDR_B2_Date_of_Death_Formula__c</name>
+    </CustomFieldTranslation>

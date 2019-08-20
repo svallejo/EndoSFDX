@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Commercial name/ brand name / make --></help>
+        <label><!-- Commercial name/ brand name / make --></label>
+        <name>CMPL123CME__Commercial_Name__c</name>
+    </CustomFieldTranslation>

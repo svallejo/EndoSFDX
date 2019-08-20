@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123TMS__Question_Bank__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Question Bank</label>
+        <referenceTo>CMPL123TMS__Question_Bank__c</referenceTo>
+        <relationshipLabel>Question Bank Items</relationshipLabel>
+        <relationshipName>Question_Bank_Items</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </CustomField>

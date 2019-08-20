@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Job Type --></help>
+        <label><!-- Job Type --></label>
+        <name>CMPL123__Job_Type__c</name>
+        <picklistValues>
+            <masterLabel>Create Child Record by KeyValue</masterLabel>
+            <translation><!-- Create Child Record by KeyValue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Set Child Field by KeyValue</masterLabel>
+            <translation><!-- Set Child Field by KeyValue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Set Parent Field by KeyValue</masterLabel>
+            <translation><!-- Set Parent Field by KeyValue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflow Step by KeyValue</masterLabel>
+            <translation><!-- Workflow Step by KeyValue --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

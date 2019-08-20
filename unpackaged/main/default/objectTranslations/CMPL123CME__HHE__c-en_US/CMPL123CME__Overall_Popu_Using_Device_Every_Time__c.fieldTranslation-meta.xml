@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Serious Adverse Health Consequences - (Death, Life Threatening, Results
+in Permanent Impairment) - Overall Population Using Device Every Time --></help>
+        <label><!-- Unused Overall Popu. Using Device --></label>
+        <name>CMPL123CME__Overall_Popu_Using_Device_Every_Time__c</name>
+    </CustomFieldTranslation>

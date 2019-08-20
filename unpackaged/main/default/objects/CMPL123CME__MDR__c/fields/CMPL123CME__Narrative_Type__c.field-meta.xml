@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Narrative_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Tell what naarative type you are providing, you can select both if you are providing both narratives</inlineHelpText>
+        <label>Narrative Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Additional Manufacturer Narrative</fullName>
+                    <default>false</default>
+                    <label>Additional Manufacturer Narrative</label>
+                </value>
+                <value>
+                    <fullName>Corrected Data</fullName>
+                    <default>false</default>
+                    <label>Corrected Data</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </CustomField>

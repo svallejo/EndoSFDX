@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__EMDR_Form_Version__c</fullName>
+        <deprecated>false</deprecated>
+        <description>EMDR Form Version</description>
+        <externalId>false</externalId>
+        <inlineHelpText>EMDR Form Version</inlineHelpText>
+        <label>EMDR Form Version</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>2015</fullName>
+                    <default>false</default>
+                    <label>2015</label>
+                </value>
+                <value>
+                    <fullName>2018</fullName>
+                    <default>false</default>
+                    <label>2018</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

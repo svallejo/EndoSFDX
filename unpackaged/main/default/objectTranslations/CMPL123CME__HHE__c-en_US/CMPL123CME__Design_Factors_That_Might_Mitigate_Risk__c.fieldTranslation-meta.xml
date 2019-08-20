@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Design Factors That Might Mitigate Risk --></help>
+        <label><!-- Design Factors That Might Mitigate Risk --></label>
+        <name>CMPL123CME__Design_Factors_That_Might_Mitigate_Risk__c</name>
+    </CustomFieldTranslation>

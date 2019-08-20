@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Submit for Approval Admin Reject</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Submit for Approval Admin Reject</name>
+    <style>none</style>
+    <subject>Admin Rejected Submit for Approval Action</subject>
+    <textOnly>Hello,
+
+The following document is rejected by DMS Admin during Submit for Approval.
+Document Name: {0}
+Document Number: {1}
+Author: {2}
+Rejected by: {3}
+Comments (if any): {4}
+
+Please login to the Document Management System using this link to take further action.
+LINK: {5}
+
+Thank you!</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

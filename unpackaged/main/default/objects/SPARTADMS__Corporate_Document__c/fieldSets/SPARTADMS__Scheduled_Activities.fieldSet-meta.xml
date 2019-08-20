@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Scheduled_Activities</fullName>
+        <description>Corporate document</description>
+        <displayedFields>
+            <field>SPARTADMS__Document_Auto_Effective_Days__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SPARTADMS__Retention_Period_Years__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SPARTADMS__Periodic_Review_Cycle_months__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SPARTADMS__To_Be_Retained_Until__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SPARTADMS__Periodic_Review_Notification_days__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Scheduled Activities</label>
+    </FieldSet>

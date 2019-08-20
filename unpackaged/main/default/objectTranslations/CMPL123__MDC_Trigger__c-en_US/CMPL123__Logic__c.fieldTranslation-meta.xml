@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Please Enter you logic for Filed Conditions Exp: 1 AND(2 OR 3) --></help>
+        <label><!-- Logic --></label>
+        <name>CMPL123__Logic__c</name>
+    </CustomFieldTranslation>

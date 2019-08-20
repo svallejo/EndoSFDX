@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- EMDR G1 Mfg Site Fax Number --></label>
+        <name>CMPL123CME__EMDR_G1_Mfg_Site_Fax_Number_Formula__c</name>
+    </CustomFieldTranslation>

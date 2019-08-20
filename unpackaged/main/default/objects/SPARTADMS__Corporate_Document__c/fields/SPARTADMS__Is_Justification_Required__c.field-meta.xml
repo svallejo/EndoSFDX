@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Is_Justification_Required__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>AND(ISPICKVAL(SPARTADMS__Document_Status__c, 'DRAFT') , ISPICKVAL(SPARTADMS__Version_Status__c , 'Working'),$Setup.SPARTADMS__DMS_App_Setting__c.SPARTADMS__Enable_Review_Justification__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is Justification Required</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </CustomField>

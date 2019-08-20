@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Medical device current location/disposition (if known) --></help>
+        <label><!-- Medical device current location --></label>
+        <name>CMPL123CME__Medical_Device_Current_Location__c</name>
+    </CustomFieldTranslation>

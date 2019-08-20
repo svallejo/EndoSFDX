@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If device operator is others, please specify name --></help>
+        <label><!-- If device operator is others, specify --></label>
+        <name>CMPL123CME__If_device_operator_is_others_specify__c</name>
+    </CustomFieldTranslation>

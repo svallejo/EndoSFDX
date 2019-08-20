@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Usage of Device --></help>
+        <label><!-- Usage of Device --></label>
+        <name>CMPL123CME__Usage_of_Device__c</name>
+        <picklistValues>
+            <masterLabel>Re-serviced/Refurbished</masterLabel>
+            <translation><!-- Re-serviced/Refurbished --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reuse of Reusable</masterLabel>
+            <translation><!-- Reuse of Reusable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reuse of Single Use</masterLabel>
+            <translation><!-- Reuse of Single Use --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Single Use</masterLabel>
+            <translation><!-- Single Use --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

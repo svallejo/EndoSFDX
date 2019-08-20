@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Patient_Consequences__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Patient Consequences</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Patient Consequences</inlineHelpText>
+        <label>Patient Consequences</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </CustomField>

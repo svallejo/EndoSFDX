@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__F12_Loc_where_event_occurred__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the physical location where the event or problem occurred.</description>
+        <externalId>false</externalId>
+        <label>F12 - Location Where Event Occurred</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ambulatory Health Care Facility</fullName>
+                    <default>false</default>
+                    <label>Ambulatory Health Care Facility</label>
+                </value>
+                <value>
+                    <fullName>Ambulatory Surgical Center</fullName>
+                    <default>false</default>
+                    <label>Ambulatory Surgical Center</label>
+                </value>
+                <value>
+                    <fullName>Ambulatory Surgical Facility</fullName>
+                    <default>false</default>
+                    <label>Ambulatory Surgical Facility</label>
+                </value>
+                <value>
+                    <fullName>Blood Bank</fullName>
+                    <default>false</default>
+                    <label>Blood Bank</label>
+                </value>
+                <value>
+                    <fullName>Bloodmobile</fullName>
+                    <default>false</default>
+                    <label>Bloodmobile</label>
+                </value>
+                <value>
+                    <fullName>Catheterization Lab - Free Standing</fullName>
+                    <default>false</default>
+                    <label>Catheterization Lab - Free Standing</label>
+                </value>
+                <value>
+                    <fullName>Catheterization Suite</fullName>
+                    <default>false</default>
+                    <label>Catheterization Suite</label>
+                </value>
+                <value>
+                    <fullName>Chemotherapy Center</fullName>
+                    <default>false</default>
+                    <label>Chemotherapy Center</label>
+                </value>
+                <value>
+                    <fullName>Clinic - Walk In, Other</fullName>
+                    <default>false</default>
+                    <label>Clinic - Walk In, Other</label>
+                </value>
+                <value>
+                    <fullName>Critical Care Unit</fullName>
+                    <default>false</default>
+                    <label>Critical Care Unit</label>
+                </value>
+                <value>
+                    <fullName>Dialysis Center</fullName>
+                    <default>false</default>
+                    <label>Dialysis Center</label>
+                </value>
+                <value>
+                    <fullName>Dialysis Unit</fullName>
+                    <default>false</default>
+                    <label>Dialysis Unit</label>
+                </value>
+                <value>
+                    <fullName>Drug Clinic</fullName>
+                    <default>false</default>
+                    <label>Drug Clinic</label>
+                </value>
+                <value>
+                    <fullName>Emergency Room</fullName>
+                    <default>false</default>
+                    <label>Emergency Room</label>
+                </value>
+                <value>
+                    <fullName>Examination Room</fullName>
+                    <default>false</default>
+                    <label>Examination Room</label>
+                </value>
+                <value>
+                    <fullName>Home</fullName>
+                    <default>false</default>
+                    <label>Home</label>
+                </value>
+                <value>
+                    <fullName>Hospice</fullName>
+                    <default>false</default>
+                    <label>Hospice</label>
+                </value>
+                <value>
+                    <fullName>Hospital</fullName>
+                    <default>false</default>
+                    <label>Hospital</label>
+                </value>
+                <value>
+                    <fullName>Imaging Center - Mobile</fullName>
+                    <default>false</default>
+                    <label>Imaging Center - Mobile</label>
+                </value>
+                <value>
+                    <fullName>Imaging Center - Stationary</fullName>
+                    <default>false</default>
+                    <label>Imaging Center - Stationary</label>
+                </value>
+                <value>
+                    <fullName>In Transit To User/Medical Facility</fullName>
+                    <default>false</default>
+                    <label>In Transit To User/Medical Facility</label>
+                </value>
+                <value>
+                    <fullName>Invalid Data</fullName>
+                    <default>false</default>
+                    <label>Invalid Data</label>
+                </value>
+                <value>
+                    <fullName>Laboratory</fullName>
+                    <default>false</default>
+                    <label>Laboratory</label>
+                </value>
+                <value>
+                    <fullName>Laboratory/Pathology Department</fullName>
+                    <default>false</default>
+                    <label>Laboratory/Pathology Department</label>
+                </value>
+                <value>
+                    <fullName>Long-Term Care Facility</fullName>
+                    <default>false</default>
+                    <label>Long-Term Care Facility</label>
+                </value>
+                <value>
+                    <fullName>Maternity Ward - Nursery</fullName>
+                    <default>false</default>
+                    <label>Maternity Ward - Nursery</label>
+                </value>
+                <value>
+                    <fullName>Mobile Health Unit</fullName>
+                    <default>false</default>
+                    <label>Mobile Health Unit</label>
+                </value>
+                <value>
+                    <fullName>Mri Centers</fullName>
+                    <default>false</default>
+                    <label>Mri Centers</label>
+                </value>
+                <value>
+                    <fullName>No Information</fullName>
+                    <default>false</default>
+                    <label>No Information</label>
+                </value>
+                <value>
+                    <fullName>Not Applicable</fullName>
+                    <default>false</default>
+                    <label>Not Applicable</label>
+                </value>
+                <value>
+                    <fullName>Nursing Home</fullName>
+                    <default>false</default>
+                    <label>Nursing Home</label>
+                </value>
+                <value>
+                    <fullName>Operating Room</fullName>
+                    <default>false</default>
+                    <label>Operating Room</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Outdoors</fullName>
+                    <default>false</default>
+                    <label>Outdoors</label>
+                </value>
+                <value>
+                    <fullName>Outpatient Diagnostic Facility</fullName>
+                    <default>false</default>
+                    <label>Outpatient Diagnostic Facility</label>
+                </value>
+                <value>
+                    <fullName>Park</fullName>
+                    <default>false</default>
+                    <label>Park</label>
+                </value>
+                <value>
+                    <fullName>Patient's Room Or Ward</fullName>
+                    <default>false</default>
+                    <label>Patient's Room Or Ward</label>
+                </value>
+                <value>
+                    <fullName>Playground</fullName>
+                    <default>false</default>
+                    <label>Playground</label>
+                </value>
+                <value>
+                    <fullName>Psychiatric Center - Walk In, Other</fullName>
+                    <default>false</default>
+                    <label>Psychiatric Center - Walk In, Other</label>
+                </value>
+                <value>
+                    <fullName>Psychiatric Facility</fullName>
+                    <default>false</default>
+                    <label>Psychiatric Facility</label>
+                </value>
+                <value>
+                    <fullName>Public Building</fullName>
+                    <default>false</default>
+                    <label>Public Building</label>
+                </value>
+                <value>
+                    <fullName>Public Venue</fullName>
+                    <default>false</default>
+                    <label>Public Venue</label>
+                </value>
+                <value>
+                    <fullName>Radiology Department</fullName>
+                    <default>false</default>
+                    <label>Radiology Department</label>
+                </value>
+                <value>
+                    <fullName>Rehabilitation Center</fullName>
+                    <default>false</default>
+                    <label>Rehabilitation Center</label>
+                </value>
+                <value>
+                    <fullName>Retirement Home</fullName>
+                    <default>false</default>
+                    <label>Retirement Home</label>
+                </value>
+                <value>
+                    <fullName>School</fullName>
+                    <default>false</default>
+                    <label>School</label>
+                </value>
+                <value>
+                    <fullName>Street</fullName>
+                    <default>false</default>
+                    <label>Street</label>
+                </value>
+                <value>
+                    <fullName>Tuberculosis Clinic</fullName>
+                    <default>false</default>
+                    <label>Tuberculosis Clinic</label>
+                </value>
+                <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                    <label>Unknown</label>
+                </value>
+                <value>
+                    <fullName>Urgent Care Center</fullName>
+                    <default>false</default>
+                    <label>Urgent Care Center</label>
+                </value>
+                <value>
+                    <fullName>ASKU</fullName>
+                    <default>false</default>
+                    <label>ASKU</label>
+                </value>
+                <value>
+                    <fullName>NA</fullName>
+                    <default>false</default>
+                    <label>NA</label>
+                </value>
+                <value>
+                    <fullName>NI</fullName>
+                    <default>false</default>
+                    <label>NI</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

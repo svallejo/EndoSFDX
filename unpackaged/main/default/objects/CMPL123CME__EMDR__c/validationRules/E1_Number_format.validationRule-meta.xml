@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>E1_Number_format</fullName>
+        <active>true</active>
+        <errorConditionFormula>(RecordType.Name ='Initial' &amp;&amp; 
+NOT(ISBLANK(CMPL123CME__E1_Phone__c )) &amp;&amp; 
+(  CMPL123CME__E1_Country__r.Name  = "USA") &amp;&amp; 
+AND(NOT(ISBLANK(CMPL123CME__CMPL123_WF_Action__c)), 
+NOT(ISBLANK(CMPL123CME__CMPL123_WF_Status__c)), 
+CMPL123CME__CMPL123_WF_Status__c &lt;&gt; 'S1', 
+CMPL123CME__CMPL123_WF_Action__c &lt;&gt; 'A1' 
+) &amp;&amp; 
+( 
+(NOT(OR(REGEX( CMPL123CME__E1_Phone__c ,"[+][1][(][0-9]{3}[)][0-9]{3}[-][0-9]{4}[x][0-9]{1,5}"), 
+REGEX( CMPL123CME__E1_Phone__c ,"[+][1][(][0-9]{3}[)][0-9]{3}[-][0-9]{4}[x][0-9]{1,4}"), 
+REGEX( CMPL123CME__E1_Phone__c ,"[+][1][(][0-9]{3}[)][0-9]{3}[-][0-9]{4}[x][0-9]{1,3}"), 
+REGEX( CMPL123CME__E1_Phone__c ,"[+][1][(][0-9]{3}[)][0-9]{3}[-][0-9]{4}")))) 
+) || 
+( CMPL123CME__E1_Country__r.Name  != "USA" &amp;&amp; 
+RecordType.Name ='Initial' &amp;&amp; 
+NOT(ISBLANK(CMPL123CME__E1_Phone__c )) &amp;&amp; 
+AND( 
+NOT(ISBLANK(CMPL123CME__CMPL123_WF_Status__c)), 
+NOT(ISBLANK(CMPL123CME__CMPL123_WF_Action__c)) , 
+CMPL123CME__CMPL123_WF_Status__c &lt;&gt; 'Opened', 
+CMPL123CME__CMPL123_WF_Action__c &lt;&gt; 'Cancel') &amp;&amp; 
+(NOT(OR(REGEX( CMPL123CME__E1_Phone__c ,"[+][0-9]{1,3}[(][0-9]{1,3}[)][0-9]{1,10}[x][0-9]{1,5}"), 
+REGEX( CMPL123CME__E1_Phone__c ,"[+][0-9]{1,3}[(][0-9]{1,3}[)][0-9]{1,10}[x][0-9]{1,4}"), 
+REGEX( CMPL123CME__E1_Phone__c ,"[+][0-9]{1,3}[(][0-9]{1,3}[)][0-9]{1,10}[x][0-9]{1,3}"), 
+REGEX( CMPL123CME__E1_Phone__c ,"[+][0-9]{1,3}[(][0-9]{1,3}[)][0-9]{1,10}"),
+REGEX( CMPL123CME__E1_Phone__c ,"[+][0-9]{1,3}[(][)][0-9]{1,10}[x][0-9]{1,5}"), 
+REGEX( CMPL123CME__E1_Phone__c ,"[+][0-9]{1,3}[(][)][0-9]{1,10}[x][0-9]{1,4}"), 
+REGEX( CMPL123CME__E1_Phone__c ,"[+][0-9]{1,3}[(][)][0-9]{1,10}[x][0-9]{1,3}"), 
+REGEX( CMPL123CME__E1_Phone__c ,"[+][0-9]{1,3}[(][)][0-9]{1,10}"))) 
+) 
+) 
+)</errorConditionFormula>
+        <errorDisplayField>CMPL123CME__E1_Phone__c</errorDisplayField>
+        <errorMessage>Test Error</errorMessage>
+    </ValidationRule>

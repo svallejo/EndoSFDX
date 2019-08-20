@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123__All</fullName>
+        <columns>NAME</columns>
+        <columns>CMPL123__Unique_Device_Identifier__c</columns>
+        <columns>CMPL123__Product__c</columns>
+        <columns>CMPL123__Disposition__c</columns>
+        <columns>CMPL123__Manufactured_Date__c</columns>
+        <columns>CMPL123__Product_Expiry_Date__c</columns>
+        <columns>CMPL123__Shipped_Date__c</columns>
+        <columns>CMPL123__Shipped_to_Account__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </ListView>

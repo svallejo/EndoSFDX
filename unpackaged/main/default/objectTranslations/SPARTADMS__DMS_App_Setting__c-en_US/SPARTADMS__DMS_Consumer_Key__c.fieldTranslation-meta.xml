@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- DMS Consumer Key --></help>
+        <label><!-- DMS Consumer Key --></label>
+        <name>SPARTADMS__DMS_Consumer_Key__c</name>
+    </CustomFieldTranslation>

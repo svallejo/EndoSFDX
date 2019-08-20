@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123TMS__Related_Library_Item__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Related Library Item</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Related Library Item</inlineHelpText>
+        <label>Related Library Item</label>
+        <referenceTo>CMPL123TMS__Library__c</referenceTo>
+        <relationshipLabel>Staged Training Records</relationshipLabel>
+        <relationshipName>Staged_Training_Records</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </CustomField>

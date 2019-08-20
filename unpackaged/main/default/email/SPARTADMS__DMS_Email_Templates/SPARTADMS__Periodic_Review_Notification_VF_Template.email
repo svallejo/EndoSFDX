@@ -1,0 +1,14 @@
+<messaging:emailTemplate subject="{!$Label.spartadms__dms_periodic_review_notification_template_subject}" recipientType="User" relatedToType="SPARTADMS__Corporate_Document__c">
+<messaging:htmlEmailBody >
+
+{!$Label.spartadms__dms_hello_author}<br/><br/>
+{!$Label.spartadms__dms_periodic_review_notification_template} <br/><br/>
+
+{!$Label.spartadms__dms_periodic_review_date}: {!relatedTo.SPARTADMS__Periodic_Review_Date__c}<br/>
+{!$Label.spartadms__dms_document_name}:{!relatedTo.Name}<br/>
+{!$Label.spartadms__dms_document_number}: {!IF(ISNULL(relatedTo.SPARTADMS__Document_Sequence_Number__c),relatedTo.SPARTADMS__Document_Auto_Number__c,relatedTo.SPARTADMS__Approved_Document_Number__c)}<br/><br/>
+
+{!$Label.spartadms__dms_retention_period_notification_doc_signature} 
+
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

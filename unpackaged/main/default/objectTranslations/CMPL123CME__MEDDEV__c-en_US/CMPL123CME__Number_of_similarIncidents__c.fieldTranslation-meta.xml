@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Number of similar incidents --></help>
+        <label><!-- Number of similar incidents --></label>
+        <name>CMPL123CME__Number_of_similarIncidents__c</name>
+    </CustomFieldTranslation>

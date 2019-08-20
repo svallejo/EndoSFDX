@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Event Status: --></help>
+        <label><!-- Event Status --></label>
+        <name>CMPL123CME__Event_Status__c</name>
+        <picklistValues>
+            <masterLabel>Ongoing/Death</masterLabel>
+            <translation><!-- Ongoing/Death --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resolved</masterLabel>
+            <translation><!-- Resolved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resolved with Sequelae</masterLabel>
+            <translation><!-- Resolved with Sequelae --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

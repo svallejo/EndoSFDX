@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Serious Adverse Health Consequences - (Death, Life Threatening, Results
+in Permanent Impairment) - Population Great Risk, Remote Probablity that Use will cause --></help>
+        <label><!-- Unused Popu. At Great Risk Remote Prob --></label>
+        <name>CMPL123CME__Popu_At_Great_Risk_Remote_Probability__c</name>
+    </CustomFieldTranslation>

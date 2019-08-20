@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- MDR Type --></label>
+        <name>CMPL123CME__MDR_Type__c</name>
+        <picklistValues>
+            <masterLabel>Initial</masterLabel>
+            <translation><!-- Initial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supplemental</masterLabel>
+            <translation><!-- Supplemental --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

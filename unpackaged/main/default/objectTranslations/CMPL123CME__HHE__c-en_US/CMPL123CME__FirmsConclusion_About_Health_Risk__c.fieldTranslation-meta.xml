@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Firm&apos;s Conclusion About Health Risk --></help>
+        <label><!-- Firm&apos;s Conclusion About Health Risk --></label>
+        <name>CMPL123CME__FirmsConclusion_About_Health_Risk__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Last Modified Date Time --></help>
+        <label><!-- Last Modified Date Time --></label>
+        <name>CMPL123__Last_Modified_DateTime__c</name>
+    </CustomFieldTranslation>

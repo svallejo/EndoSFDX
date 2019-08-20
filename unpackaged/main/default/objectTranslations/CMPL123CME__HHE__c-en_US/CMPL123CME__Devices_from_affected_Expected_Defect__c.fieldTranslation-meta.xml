@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- How Many Devices from the Affected Lots Are Expected to Have or Develop the Defect? --></help>
+        <label><!-- Defective Devices in Affected Lots --></label>
+        <name>CMPL123CME__Devices_from_affected_Expected_Defect__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Delivery Medium --></label>
+        <name>CMPL123TMS__Delivery_Medium__c</name>
+        <picklistValues>
+            <masterLabel>Instructor Led</masterLabel>
+            <translation><!-- Instructor Led --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self Paced On-line</masterLabel>
+            <translation><!-- Self Paced On-line --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Virtual Classroom</masterLabel>
+            <translation><!-- Virtual Classroom --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

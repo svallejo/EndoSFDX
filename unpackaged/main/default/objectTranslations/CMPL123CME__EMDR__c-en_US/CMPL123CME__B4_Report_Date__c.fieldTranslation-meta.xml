@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Date of this Report (Device only) --></help>
+        <label><!-- B4 - Report Date --></label>
+        <name>CMPL123CME__B4_Report_Date__c</name>
+    </CustomFieldTranslation>

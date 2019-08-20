@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Treatment_Arm__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Treatment Arm</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Treatment Arm</inlineHelpText>
+        <label>Treatment Arm</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Investigational Device</fullName>
+                    <default>false</default>
+                    <label>Investigational Device</label>
+                </value>
+                <value>
+                    <fullName>Control Group</fullName>
+                    <default>false</default>
+                    <label>Control Group</label>
+                </value>
+                <value>
+                    <fullName>Blinded</fullName>
+                    <default>false</default>
+                    <label>Blinded</label>
+                </value>
+                <value>
+                    <fullName>N.A.</fullName>
+                    <default>false</default>
+                    <label>N.A.</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

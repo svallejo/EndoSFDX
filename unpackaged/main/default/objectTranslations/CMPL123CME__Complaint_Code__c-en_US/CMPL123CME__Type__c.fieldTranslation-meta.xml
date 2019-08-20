@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Type --></label>
+        <name>CMPL123CME__Type__c</name>
+        <picklistValues>
+            <masterLabel>ANALYSIS CODE</masterLabel>
+            <translation><!-- ANALYSIS CODE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COMPLAINT CODE</masterLabel>
+            <translation><!-- COMPLAINT CODE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COMPONENT CODE</masterLabel>
+            <translation><!-- COMPONENT CODE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COUNTRY CODE</masterLabel>
+            <translation><!-- COUNTRY CODE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DEVICE CODE</masterLabel>
+            <translation><!-- DEVICE CODE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EVAL CONCLUSION CODE</masterLabel>
+            <translation><!-- EVAL CONCLUSION CODE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EVAL METHOD CODE</masterLabel>
+            <translation><!-- EVAL METHOD CODE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EVAL RESULT CODE</masterLabel>
+            <translation><!-- EVAL RESULT CODE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FINDING CODE</masterLabel>
+            <translation><!-- FINDING CODE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MEDDRA CODE</masterLabel>
+            <translation><!-- MEDDRA CODE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PATIENT CODE</masterLabel>
+            <translation><!-- PATIENT CODE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PRO CODE</masterLabel>
+            <translation><!-- PRO CODE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ROOT CAUSE CODE</masterLabel>
+            <translation><!-- ROOT CAUSE CODE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>STATE CODE</masterLabel>
+            <translation><!-- STATE CODE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SYMPTOM CODE</masterLabel>
+            <translation><!-- SYMPTOM CODE --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

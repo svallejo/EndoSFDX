@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>MDC Trigger Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- Select at least one Public group or user for Acknowledgement --></errorMessage>
+        <name>CMPL123__Acknowledgment_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Enter value must be equal or greater then 1. --></errorMessage>
+        <name>CMPL123__Equalto_1</name>
+    </validationRules>
+</CustomObjectTranslation>

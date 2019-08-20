@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Summary --></help>
+        <label><!-- Summary --></label>
+        <name>CMPL123CME__Summary_Latest_Field__c</name>
+    </CustomFieldTranslation>

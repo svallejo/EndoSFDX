@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- CAPA Type --></label>
+        <name>CMPL123QMS__CAPA_Type__c</name>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corrective Action</masterLabel>
+            <translation><!-- Corrective Action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preventive Action</masterLabel>
+            <translation><!-- Preventive Action --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

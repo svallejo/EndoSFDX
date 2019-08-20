@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Clinical_Factors_That_May_Mitigate_Risk__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Describe Any Clinical Factors That May Mitigate the Risk:</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe Any Clinical Factors That May Mitigate the Risk:</inlineHelpText>
+        <label>UnusedClinical Factors That May Mitigate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </CustomField>

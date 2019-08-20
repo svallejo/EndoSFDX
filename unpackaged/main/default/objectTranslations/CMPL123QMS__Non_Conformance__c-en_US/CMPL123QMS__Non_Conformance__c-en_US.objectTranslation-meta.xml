@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Non Conformance Layout</layout>
+        <sections>
+            <label><!-- APPROVALS --></label>
+            <section>APPROVALS</section>
+        </sections>
+        <sections>
+            <label><!-- GENERAL INFORMATION --></label>
+            <section>GENERAL INFORMATION</section>
+        </sections>
+        <sections>
+            <label><!-- INVESTIGATION --></label>
+            <section>INVESTIGATION</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

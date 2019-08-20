@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- G5 - PMA/510(k) # --></label>
+        <name>CMPL123CME__G5_PMA_510_K__c</name>
+    </CustomFieldTranslation>

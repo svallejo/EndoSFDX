@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Material(s) Affected? --></label>
+        <name>Material_s_Affected__c</name>
+        <picklistValues>
+            <masterLabel>Material 1</masterLabel>
+            <translation><!-- Material 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Material 2</masterLabel>
+            <translation><!-- Material 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Material 3</masterLabel>
+            <translation><!-- Material 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Material 4</masterLabel>
+            <translation><!-- Material 4 --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

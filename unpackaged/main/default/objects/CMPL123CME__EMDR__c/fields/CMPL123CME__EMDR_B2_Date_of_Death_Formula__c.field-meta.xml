@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__EMDR_B2_Date_of_Death_Formula__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If Date of Death is blank, display only Death Date Null value. If Date of Death Date is completed display date and do not display Death Date Null.</description>
+        <externalId>false</externalId>
+        <formula>IF( OR(ISNULL(CMPL123CME__B2_Date_of_Death__c),ISBLANK(CMPL123CME__B2_Date_of_Death__c)) , TEXT(CMPL123CME__B2_Death_Date_Null__c), LPAD(TEXT(MONTH( CMPL123CME__B2_Date_of_Death__c)),2,'0') 
+&amp; "/" &amp; LPAD(TEXT(DAY( CMPL123CME__B2_Date_of_Death__c)),2,'0') 
+&amp; "/" &amp; TEXT(YEAR( CMPL123CME__B2_Date_of_Death__c)))</formula>
+        <label>EMDR B2 Date of Death</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

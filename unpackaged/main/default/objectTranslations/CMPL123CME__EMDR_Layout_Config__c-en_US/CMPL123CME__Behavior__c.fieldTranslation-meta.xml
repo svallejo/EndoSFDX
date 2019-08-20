@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Behavior (Open in a same window) --></help>
+        <label><!-- Behavior (Open in a same window) --></label>
+        <name>CMPL123CME__Behavior__c</name>
+    </CustomFieldTranslation>

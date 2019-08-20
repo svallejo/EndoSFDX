@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__EMDR_D4_Expiration_Date_Formula__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If Expiration Date is blank, display only Expiration Date Null value. If Expiration Date is completed, do not display Expiration Date Null.</description>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(CMPL123CME__D4_Expiration_Date__c) , TEXT(CMPL123CME__D4_Expiration_Date_Null__c) , CMPL123CME__EMDR_D4_Expiration_Date__c)</formula>
+        <label>EMDR D4 Expiration Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

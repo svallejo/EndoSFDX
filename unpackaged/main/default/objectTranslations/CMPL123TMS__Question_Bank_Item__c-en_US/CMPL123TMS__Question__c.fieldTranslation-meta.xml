@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Question --></label>
+        <name>CMPL123TMS__Question__c</name>
+        <relationshipLabel><!-- Question Bank Items --></relationshipLabel>
+    </CustomFieldTranslation>

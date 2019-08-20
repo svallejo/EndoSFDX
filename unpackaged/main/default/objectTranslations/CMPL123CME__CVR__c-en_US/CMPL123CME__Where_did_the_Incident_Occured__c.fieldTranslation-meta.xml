@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Whether the incident occurred inside or outside Canada --></help>
+        <label><!-- Where did the Incident Occured --></label>
+        <name>CMPL123CME__Where_did_the_Incident_Occured__c</name>
+        <picklistValues>
+            <masterLabel>Canadian</masterLabel>
+            <translation><!-- Canadian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign</masterLabel>
+            <translation><!-- Foreign --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

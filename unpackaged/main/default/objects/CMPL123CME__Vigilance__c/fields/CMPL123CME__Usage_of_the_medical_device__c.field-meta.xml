@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Usage_of_the_medical_device__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Usage of the medical device</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Initial use</fullName>
+                    <default>false</default>
+                    <label>Initial use</label>
+                </value>
+                <value>
+                    <fullName>Reuse of a single use medical device</fullName>
+                    <default>false</default>
+                    <label>Reuse of a single use medical device</label>
+                </value>
+                <value>
+                    <fullName>reuse of a reusable medical device</fullName>
+                    <default>false</default>
+                    <label>reuse of a reusable medical device</label>
+                </value>
+                <value>
+                    <fullName>re-serviced/refurbished</fullName>
+                    <default>false</default>
+                    <label>re-serviced/refurbished</label>
+                </value>
+                <value>
+                    <fullName>other</fullName>
+                    <default>false</default>
+                    <label>other</label>
+                </value>
+                <value>
+                    <fullName>problem noted prior use</fullName>
+                    <default>false</default>
+                    <label>problem noted prior use</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

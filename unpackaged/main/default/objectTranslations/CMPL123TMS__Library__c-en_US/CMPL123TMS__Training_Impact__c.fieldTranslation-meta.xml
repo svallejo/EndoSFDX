@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Training Impact --></help>
+        <label><!-- Training Impact --></label>
+        <name>CMPL123TMS__Training_Impact__c</name>
+        <picklistValues>
+            <masterLabel>No Impact</masterLabel>
+            <translation><!-- No Impact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Required Training</masterLabel>
+            <translation><!-- Required Training --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

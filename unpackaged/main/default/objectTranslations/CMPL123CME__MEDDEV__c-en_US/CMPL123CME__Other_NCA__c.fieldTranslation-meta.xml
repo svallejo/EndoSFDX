@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Identify to what other NCA&apos;s this report was also sent --></help>
+        <label><!-- Other NCA&apos;s this report was sent to --></label>
+        <name>CMPL123CME__Other_NCA__c</name>
+    </CustomFieldTranslation>

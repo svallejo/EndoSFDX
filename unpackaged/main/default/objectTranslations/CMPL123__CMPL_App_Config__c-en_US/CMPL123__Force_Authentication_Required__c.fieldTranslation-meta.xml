@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Force Authentication Required? --></help>
+        <label><!-- Force Authentication Required? --></label>
+        <name>CMPL123__Force_Authentication_Required__c</name>
+    </CustomFieldTranslation>

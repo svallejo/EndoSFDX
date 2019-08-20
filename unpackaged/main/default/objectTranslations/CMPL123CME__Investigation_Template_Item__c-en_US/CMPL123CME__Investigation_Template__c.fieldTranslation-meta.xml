@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Investigation Template --></label>
+        <name>CMPL123CME__Investigation_Template__c</name>
+        <relationshipLabel><!-- Investigation Template Items --></relationshipLabel>
+    </CustomFieldTranslation>

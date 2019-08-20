@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>CMPL123TMS__TMSDashboard</defaultLandingTab>
+    <description>Training Management System</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Trackwise Digital TMS</label>
+    <tabs>CMPL123TMS__TMSDashboard</tabs>
+    <tabs>CMPL123TMS__Training_Plan__c</tabs>
+    <tabs>CMPL123TMS__Library__c</tabs>
+    <tabs>CMPL123TMS__Training_Record__c</tabs>
+    <tabs>CMPL123TMS__Staged_Training_Records__c</tabs>
+    <tabs>KnownAlias__c</tabs>
+    <tabs>POC__c</tabs>
+</CustomApplication>

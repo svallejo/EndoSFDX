@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Serial numbers --></help>
+        <label><!-- Serial number(s) (if applicable) --></label>
+        <name>CMPL123CME__Serial_Numbers__c</name>
+    </CustomFieldTranslation>

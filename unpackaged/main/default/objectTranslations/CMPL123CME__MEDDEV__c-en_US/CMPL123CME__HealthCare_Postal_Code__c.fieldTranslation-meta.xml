@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- HealthCare Postal code --></help>
+        <label><!-- Healthcare Facility Postcode --></label>
+        <name>CMPL123CME__HealthCare_Postal_Code__c</name>
+    </CustomFieldTranslation>

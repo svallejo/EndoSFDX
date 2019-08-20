@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__DMS_Group__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Related DMS Group</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Related DMS Group</inlineHelpText>
+        <label>DMS Group</label>
+        <referenceTo>SPARTADMS__DMS_Group__c</referenceTo>
+        <relationshipLabel>DMS Group Members</relationshipLabel>
+        <relationshipName>DMS_Group_Members</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </CustomField>

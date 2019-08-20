@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Reoccurrence Interval in Months --></help>
+        <label><!-- Reoccurrence Interval in Months --></label>
+        <name>CMPL123TMS__Reoccurrence_Interval_in_Months__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Popu_at_greatest_risk_every_time__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Serious Adverse Health Consequences - (Death, Life Threatening, Results
+in Permanent Impairment) - Population At Greatest Risk Every Time</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Serious Adverse Health Consequences - (Death, Life Threatening, Results
+in Permanent Impairment) - Population At Greatest Risk Every Time</inlineHelpText>
+        <label>Unused Popu. At Greatest Risk Every</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </CustomField>

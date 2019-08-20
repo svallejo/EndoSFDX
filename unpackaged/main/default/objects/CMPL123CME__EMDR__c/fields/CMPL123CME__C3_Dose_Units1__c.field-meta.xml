@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__C3_Dose_Units1__c</fullName>
+        <deprecated>false</deprecated>
+        <description>C3 - #1 Dose Units</description>
+        <externalId>false</externalId>
+        <inlineHelpText>C3 - #1 Dose Units</inlineHelpText>
+        <label>C3 - #1 Dose Units</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>kg kilogram</fullName>
+                    <default>false</default>
+                    <label>kg kilogram</label>
+                </value>
+                <value>
+                    <fullName>g gram</fullName>
+                    <default>false</default>
+                    <label>g gram</label>
+                </value>
+                <value>
+                    <fullName>mg milligram</fullName>
+                    <default>false</default>
+                    <label>mg milligram</label>
+                </value>
+                <value>
+                    <fullName>μg microgram</fullName>
+                    <default>false</default>
+                    <label>μg microgram</label>
+                </value>
+                <value>
+                    <fullName>ng nanogram</fullName>
+                    <default>false</default>
+                    <label>ng nanogram</label>
+                </value>
+                <value>
+                    <fullName>pg picogram</fullName>
+                    <default>false</default>
+                    <label>pg picogram</label>
+                </value>
+                <value>
+                    <fullName>mg/kg milligram/kilogram</fullName>
+                    <default>false</default>
+                    <label>mg/kg milligram/kilogram</label>
+                </value>
+                <value>
+                    <fullName>μg/kg microgram/kilogram</fullName>
+                    <default>false</default>
+                    <label>μg/kg microgram/kilogram</label>
+                </value>
+                <value>
+                    <fullName>mg/m2 milligram/sq. meter</fullName>
+                    <default>false</default>
+                    <label>mg/m2 milligram/sq. meter</label>
+                </value>
+                <value>
+                    <fullName>μg/m2 microgram/sq. meter</fullName>
+                    <default>false</default>
+                    <label>μg/m2 microgram/sq. meter</label>
+                </value>
+                <value>
+                    <fullName>l litre</fullName>
+                    <default>false</default>
+                    <label>l litre</label>
+                </value>
+                <value>
+                    <fullName>ml millilitre</fullName>
+                    <default>false</default>
+                    <label>ml millilitre</label>
+                </value>
+                <value>
+                    <fullName>μl microlitre</fullName>
+                    <default>false</default>
+                    <label>μl microlitre</label>
+                </value>
+                <value>
+                    <fullName>Bq becquerel</fullName>
+                    <default>false</default>
+                    <label>Bq becquerel</label>
+                </value>
+                <value>
+                    <fullName>GBq gigabecquerel</fullName>
+                    <default>false</default>
+                    <label>GBq gigabecquerel</label>
+                </value>
+                <value>
+                    <fullName>MBq megabecquerel</fullName>
+                    <default>false</default>
+                    <label>MBq megabecquerel</label>
+                </value>
+                <value>
+                    <fullName>Kbq kilobecquerel</fullName>
+                    <default>false</default>
+                    <label>Kbq kilobecquerel</label>
+                </value>
+                <value>
+                    <fullName>Ci curie</fullName>
+                    <default>false</default>
+                    <label>Ci curie</label>
+                </value>
+                <value>
+                    <fullName>mCi millicurie</fullName>
+                    <default>false</default>
+                    <label>mCi millicurie</label>
+                </value>
+                <value>
+                    <fullName>μCi microcurie</fullName>
+                    <default>false</default>
+                    <label>μCi microcurie</label>
+                </value>
+                <value>
+                    <fullName>nCi nanocurie</fullName>
+                    <default>false</default>
+                    <label>nCi nanocurie</label>
+                </value>
+                <value>
+                    <fullName>Mol mole</fullName>
+                    <default>false</default>
+                    <label>Mol mole</label>
+                </value>
+                <value>
+                    <fullName>mmol millimole</fullName>
+                    <default>false</default>
+                    <label>mmol millimole</label>
+                </value>
+                <value>
+                    <fullName>μmol micromole</fullName>
+                    <default>false</default>
+                    <label>μmol micromole</label>
+                </value>
+                <value>
+                    <fullName>Iu international unit</fullName>
+                    <default>false</default>
+                    <label>Iu international unit</label>
+                </value>
+                <value>
+                    <fullName>Kiu Iu (1000s)</fullName>
+                    <default>false</default>
+                    <label>Kiu Iu (1000s)</label>
+                </value>
+                <value>
+                    <fullName>Miu Iu (1,000,000s)</fullName>
+                    <default>false</default>
+                    <label>Miu Iu (1,000,000s)</label>
+                </value>
+                <value>
+                    <fullName>iu/kg iu/kilogram</fullName>
+                    <default>false</default>
+                    <label>iu/kg iu/kilogram</label>
+                </value>
+                <value>
+                    <fullName>Meq milliequivalent</fullName>
+                    <default>false</default>
+                    <label>Meq milliequivalent</label>
+                </value>
+                <value>
+                    <fullName>% percent</fullName>
+                    <default>false</default>
+                    <label>% percent</label>
+                </value>
+                <value>
+                    <fullName>Gtt drop</fullName>
+                    <default>false</default>
+                    <label>Gtt drop</label>
+                </value>
+                <value>
+                    <fullName>DF Dosage form</fullName>
+                    <default>false</default>
+                    <label>DF Dosage form</label>
+                </value>
+                <value>
+                    <fullName>NA</fullName>
+                    <default>false</default>
+                    <label>NA</label>
+                </value>
+                <value>
+                    <fullName>NI</fullName>
+                    <default>false</default>
+                    <label>NI</label>
+                </value>
+                <value>
+                    <fullName>ASKU</fullName>
+                    <default>false</default>
+                    <label>ASKU</label>
+                </value>
+                <value>
+                    <fullName>μg/ m2 microgram/sq. meter</fullName>
+                    <default>false</default>
+                    <label>μg/ m2 microgram/sq. meter</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

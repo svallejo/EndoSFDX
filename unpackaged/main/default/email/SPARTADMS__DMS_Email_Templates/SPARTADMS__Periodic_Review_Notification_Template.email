@@ -1,0 +1,9 @@
+Hello Author, 
+
+The following document is scheduled for periodic review. Please review it by the indicated date. 
+
+Periodic Review Date: {!SPARTADMS__Corporate_Document__c.SPARTADMS__Periodic_Review_Date__c} 
+Document Name: {!SPARTADMS__Corporate_Document__c.Name} 
+Document Number: {!IF(ISNULL(SPARTADMS__Corporate_Document__c.SPARTADMS__Document_Sequence_Number__c), SPARTADMS__Corporate_Document__c.SPARTADMS__Document_Auto_Number__c, SPARTADMS__Corporate_Document__c.SPARTADMS__Approved_Document_Number__c)} 
+
+Thank you!

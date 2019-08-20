@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Months to Flag Periodic Review --></help>
+        <label><!-- Months to Flag Periodic Review --></label>
+        <name>SPARTADMS__Months_to_Flag_Periodic_Review__c</name>
+    </CustomFieldTranslation>

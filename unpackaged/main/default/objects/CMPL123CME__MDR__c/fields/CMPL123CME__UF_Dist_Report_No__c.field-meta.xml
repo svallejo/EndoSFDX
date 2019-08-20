@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__UF_Dist_Report_No__c</fullName>
+        <deprecated>false</deprecated>
+        <description>UF/Dist Report No</description>
+        <externalId>false</externalId>
+        <label>UF/Dist Report No</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

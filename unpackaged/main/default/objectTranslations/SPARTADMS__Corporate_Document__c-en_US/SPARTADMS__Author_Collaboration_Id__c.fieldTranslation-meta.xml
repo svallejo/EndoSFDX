@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Author Collaboration Id --></help>
+        <label><!-- Author Collaboration Id --></label>
+        <name>SPARTADMS__Author_Collaboration_Id__c</name>
+    </CustomFieldTranslation>

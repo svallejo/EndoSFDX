@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Treatment Arm --></help>
+        <label><!-- Treatment Arm --></label>
+        <name>CMPL123CME__Treatment_Arm__c</name>
+        <picklistValues>
+            <masterLabel>Blinded</masterLabel>
+            <translation><!-- Blinded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Control Group</masterLabel>
+            <translation><!-- Control Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Investigational Device</masterLabel>
+            <translation><!-- Investigational Device --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N.A.</masterLabel>
+            <translation><!-- N.A. --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

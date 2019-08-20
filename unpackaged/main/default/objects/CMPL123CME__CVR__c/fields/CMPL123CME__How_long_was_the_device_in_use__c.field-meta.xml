@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__How_long_was_the_device_in_use__c</fullName>
+        <deprecated>false</deprecated>
+        <description>How long was the device in use</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How long was the device in use</inlineHelpText>
+        <label>How long was the device in use?</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

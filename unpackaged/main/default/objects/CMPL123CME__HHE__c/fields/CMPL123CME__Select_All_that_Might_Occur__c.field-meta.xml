@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Select_All_that_Might_Occur__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Select All that Might Occur</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select All that Might Occur</inlineHelpText>
+        <label>Select All that Might Occur</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Life-threatening(death has/could occur)</fullName>
+                    <default>false</default>
+                    <label>Life-threatening(death has/could occur)</label>
+                </value>
+                <value>
+                    <fullName>Permanent impairment of body function</fullName>
+                    <default>false</default>
+                    <label>Permanent impairment of body function</label>
+                </value>
+                <value>
+                    <fullName>Necessitates med./surgical intervention</fullName>
+                    <default>false</default>
+                    <label>Necessitates med./surgical intervention</label>
+                </value>
+                <value>
+                    <fullName>Temporary or reversible</fullName>
+                    <default>false</default>
+                    <label>Temporary or reversible</label>
+                </value>
+                <value>
+                    <fullName>Limited</fullName>
+                    <default>false</default>
+                    <label>Limited</label>
+                </value>
+                <value>
+                    <fullName>No adverse health consequences</fullName>
+                    <default>false</default>
+                    <label>No adverse health consequences</label>
+                </value>
+                <value>
+                    <fullName>Hazard cannot be assessed currently</fullName>
+                    <default>false</default>
+                    <label>Hazard cannot be assessed currently</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </CustomField>

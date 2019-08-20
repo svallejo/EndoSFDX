@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- BOX Admin Group Id --></help>
+        <label><!-- BOX Admin Group Id --></label>
+        <name>SPARTADMS__BOX_Admin_Group_Id__c</name>
+    </CustomFieldTranslation>

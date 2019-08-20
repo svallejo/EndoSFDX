@@ -1,0 +1,25 @@
+<apex:page sidebar="false" tabStyle="Dashboard__tab"> 
+
+    <apex:includeLightning />    
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Jquery/js/jquery.js')}"/>
+    
+    <div id="lightning" />
+
+    <script>    
+             
+	     $(function() {
+			
+			$("ul#tabBar > li > a").css({fontSize: "13px"});
+        });
+    
+        $Lightning.use("SPARTADMS:DMSDependencyApp", function() {
+          $Lightning.createComponent("SPARTADMS:DMSMain",
+          { id : '{!$CurrentPage.parameters.id}' },
+          "lightning",
+          function(cmp) {
+            
+          });
+        });
+    </script>
+    
+</apex:page>

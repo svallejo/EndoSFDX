@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Status of submitter --></help>
+        <label><!-- Status of submitter --></label>
+        <name>CMPL123CME__Status_of_Submitter__c</name>
+        <picklistValues>
+            <masterLabel>Authorised Representative within EEA, Switzerland and Turkey</masterLabel>
+            <translation><!-- Authorised Representative within EEA, Switzerland and Turkey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manufacturer</masterLabel>
+            <translation><!-- Manufacturer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others: (identify the role)</masterLabel>
+            <translation><!-- Others: (identify the role) --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

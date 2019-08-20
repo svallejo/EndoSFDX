@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__EMDR_D3_Fax_Formula__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If Fax Number is blank, display only Fax Number Null value. If Fax Number is completed, do not display Fax Number Null.</description>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( CMPL123CME__D3_Fax_Number__c ) ,  TEXT(CMPL123CME__D3_Fax_Number_Null__c) , CMPL123CME__D3_Fax_Number__c)</formula>
+        <label>EMDR D3 Fax</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

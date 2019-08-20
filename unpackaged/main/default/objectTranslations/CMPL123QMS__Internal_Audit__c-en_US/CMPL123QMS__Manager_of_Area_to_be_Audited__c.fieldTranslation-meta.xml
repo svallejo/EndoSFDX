@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Manager of Area to be Audited --></label>
+        <name>CMPL123QMS__Manager_of_Area_to_be_Audited__c</name>
+        <relationshipLabel><!-- Internal Audits (Manager of Area to be Audited) --></relationshipLabel>
+    </CustomFieldTranslation>

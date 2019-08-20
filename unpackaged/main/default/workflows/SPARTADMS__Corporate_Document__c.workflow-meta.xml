@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?><Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>SPARTADMS__Periodic_Review_Notification_Alert</fullName>
+        <description>Periodic Review Notification Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>SPARTADMS__DMS_Email_Templates/SPARTADMS__Periodic_Review_Notification_VF_Template</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>SPARTADMS__Update_Checkout_to_Null</fullName>
+        <description>Update Checkout to Null</description>
+        <field>SPARTADMS__Checkin_Status__c</field>
+        <name>Update Checkout to Null</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SPARTADMS__Update_Document_Status_to_Effective</fullName>
+        <field>SPARTADMS__Document_Status__c</field>
+        <literalValue>EFFECTIVE</literalValue>
+        <name>Update Document Status to Effective</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SPARTADMS__Update_Draft_version_status_to_Effective</fullName>
+        <description>Update Draft version status to Effective</description>
+        <field>SPARTADMS__Version_Status__c</field>
+        <literalValue>Effective</literalValue>
+        <name>Update Draft version status to Effective</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SPARTADMS__Update_Effective_Datetime</fullName>
+        <field>SPARTADMS__Effective_DT__c</field>
+        <formula>NOW()</formula>
+        <name>Update Effective Datetime</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SPARTADMS__Update_Feeditem_Id</fullName>
+        <description>Update Feed Item Id</description>
+        <field>SPARTADMS__FeedItemId__c</field>
+        <formula>SPARTADMS__New_Feed_Item_Id__c</formula>
+        <name>Update Feeditem Id</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SPARTADMS__Update_New_Feed_Item_Id_to_NULL</fullName>
+        <description>Update New Feed Item Id</description>
+        <field>SPARTADMS__New_Feed_Item_Id__c</field>
+        <name>Update New Feed Item Id to NULL</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Access Token Expire DateTime --></help>
+        <label><!-- Access Token Expire DateTime --></label>
+        <name>SPARTADMS__Access_Token_Expire_DateTime__c</name>
+    </CustomFieldTranslation>

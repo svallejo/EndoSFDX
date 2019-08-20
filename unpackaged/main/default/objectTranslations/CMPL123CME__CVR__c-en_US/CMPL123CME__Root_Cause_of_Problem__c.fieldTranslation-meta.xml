@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Root Cause of Problem --></help>
+        <label><!-- Root Cause of Problem --></label>
+        <name>CMPL123CME__Root_Cause_of_Problem__c</name>
+    </CustomFieldTranslation>

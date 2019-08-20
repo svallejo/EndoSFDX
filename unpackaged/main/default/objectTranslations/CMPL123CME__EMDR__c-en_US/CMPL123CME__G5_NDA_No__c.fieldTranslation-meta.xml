@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- New Drug Application (NDA) number --></help>
+        <label><!-- G5 - NDA # --></label>
+        <name>CMPL123CME__G5_NDA_No__c</name>
+    </CustomFieldTranslation>

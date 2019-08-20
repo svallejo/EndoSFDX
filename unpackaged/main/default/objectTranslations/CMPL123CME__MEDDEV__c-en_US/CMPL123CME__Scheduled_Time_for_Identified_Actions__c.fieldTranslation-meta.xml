@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Time schedule for the implementation of the identified actions --></help>
+        <label><!-- Schedule impl. of identified actions --></label>
+        <name>CMPL123CME__Scheduled_Time_for_Identified_Actions__c</name>
+    </CustomFieldTranslation>

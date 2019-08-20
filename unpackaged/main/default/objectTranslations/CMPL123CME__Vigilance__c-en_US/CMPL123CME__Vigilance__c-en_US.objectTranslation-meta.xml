@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>Vigilance Layout</layout>
+        <sections>
+            <label><!-- 1.  ADMINISTRATIVE INFORMATION --></label>
+            <section>1.  ADMINISTRATIVE INFORMATION</section>
+        </sections>
+        <sections>
+            <label><!-- 2.  INFORMATION ON SUBMITTED OF THE REPORT --></label>
+            <section>2.  INFORMATION ON SUBMITTED OF THE REPORT</section>
+        </sections>
+        <sections>
+            <label><!-- 3.  MANUFACTURER INFORMATION --></label>
+            <section>3.  MANUFACTURER INFORMATION</section>
+        </sections>
+        <sections>
+            <label><!-- 4.  AUTHORIZED REPRESENTATIVE INFORMATION --></label>
+            <section>4.  AUTHORIZED REPRESENTATIVE INFORMATION</section>
+        </sections>
+        <sections>
+            <label><!-- 5.  SUBMITTER&apos;S INFORMATION --></label>
+            <section>5.  SUBMITTER'S INFORMATION</section>
+        </sections>
+        <sections>
+            <label><!-- 6.  MEDICAL DEVICE INFORMATION --></label>
+            <section>6.  MEDICAL DEVICE INFORMATION</section>
+        </sections>
+        <sections>
+            <label><!-- 7.  INCIDENT INFORMATION --></label>
+            <section>7.  INCIDENT INFORMATION</section>
+        </sections>
+        <sections>
+            <label><!-- 8.  PATIENT INFORMATION --></label>
+            <section>8.  PATIENT INFORMATION</section>
+        </sections>
+        <sections>
+            <label><!-- 9.  HEALTHCARE FACILITY INFORMATION --></label>
+            <section>9.  HEALTHCARE FACILITY INFORMATION</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

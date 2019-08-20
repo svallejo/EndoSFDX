@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Contact name at site of event --></help>
+        <label><!-- Contact name at site of event --></label>
+        <name>CMPL123CME__Contact_name_at_site_of_event__c</name>
+    </CustomFieldTranslation>

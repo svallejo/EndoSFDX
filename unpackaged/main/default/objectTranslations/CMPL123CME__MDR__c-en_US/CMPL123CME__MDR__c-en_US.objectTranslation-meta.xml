@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>AASR</layout>
+        <sections>
+            <label><!-- B. ADVERSE EVENT OR PRODUCT PROBLEM --></label>
+            <section>B. ADVERSE EVENT OR PRODUCT PROBLEM</section>
+        </sections>
+        <sections>
+            <label><!-- D. SUSPECT MEDICAL DEVICE --></label>
+            <section>D. SUSPECT MEDICAL DEVICE</section>
+        </sections>
+        <sections>
+            <label><!-- G. ALL MANUFACTURERS --></label>
+            <section>G. ALL MANUFACTURERS</section>
+        </sections>
+        <sections>
+            <label><!-- H. DEVICE MANUFATURERS ONLY --></label>
+            <section>H. DEVICE MANUFATURERS ONLY</section>
+        </sections>
+        <sections>
+            <label><!-- MDR Codes --></label>
+            <section>MDR Codes</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>IASR</layout>
+        <sections>
+            <label><!-- B. ADVERSE EVENT OR PRODUCT PROBLEM --></label>
+            <section>B. ADVERSE EVENT OR PRODUCT PROBLEM</section>
+        </sections>
+        <sections>
+            <label><!-- D. SUSPECT MEDICAL DEVICE --></label>
+            <section>D. SUSPECT MEDICAL DEVICE</section>
+        </sections>
+        <sections>
+            <label><!-- G. ALL MANUFACTURERS --></label>
+            <section>G. ALL MANUFACTURERS</section>
+        </sections>
+        <sections>
+            <label><!-- H. DEVICE MANUFATURERS ONLY --></label>
+            <section>H. DEVICE MANUFATURERS ONLY</section>
+        </sections>
+        <sections>
+            <label><!-- MDR Codes --></label>
+            <section>MDR Codes</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MDR Layout</layout>
+        <sections>
+            <label><!-- A. PATIENT INFORMATION --></label>
+            <section>A. PATIENT INFORMATION</section>
+        </sections>
+        <sections>
+            <label><!-- B. ADVERSE EVENT OR PRODUCT PROBLEM --></label>
+            <section>B. ADVERSE EVENT OR PRODUCT PROBLEM</section>
+        </sections>
+        <sections>
+            <label><!-- C. SUSPECT PRODUCT(S) --></label>
+            <section>C. SUSPECT PRODUCT(S)</section>
+        </sections>
+        <sections>
+            <label><!-- D. SUSPECT MEDICAL DEVICE --></label>
+            <section>D. SUSPECT MEDICAL DEVICE</section>
+        </sections>
+        <sections>
+            <label><!-- E. INITIAL REPORTER --></label>
+            <section>E. INITIAL REPORTER</section>
+        </sections>
+        <sections>
+            <label><!-- F. FOR USE BY USER FACILITY/IMPORTER (Device only) --></label>
+            <section>F. FOR USE BY USER FACILITY/IMPORTER (Device only)</section>
+        </sections>
+        <sections>
+            <label><!-- G. ALL MANUFACTURERS --></label>
+            <section>G. ALL MANUFACTURERS</section>
+        </sections>
+        <sections>
+            <label><!-- H. DEVICE MANUFATURERS ONLY --></label>
+            <section>H. DEVICE MANUFATURERS ONLY</section>
+        </sections>
+        <sections>
+            <label><!-- MDR Codes --></label>
+            <section>MDR Codes</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- AASR --></label>
+        <name>CMPL123CME__AASR</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- IASR --></label>
+        <name>CMPL123CME__IASR</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Initial MDR Information --></description>
+        <label><!-- Initial --></label>
+        <name>CMPL123CME__Initial</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- If you are a manufacturer, when you obtain information required under this part that you did not provide because it was not known or was not available when you submitted the initial report, you must submit the supplemental information to us within 1 month --></description>
+        <label><!-- Supplemental --></label>
+        <name>CMPL123CME__Supplemental</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Common Device Name is a mandatory field. --></errorMessage>
+        <name>CMPL123CME__Common_Device_Name_is_a_mandatory_field</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date cannot be greater than today&apos;s date --></errorMessage>
+        <name>CMPL123CME__Date_of_Death_Cannot_be_Future_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date cannot be greater than today&apos;s date --></errorMessage>
+        <name>CMPL123CME__Date_of_Event_Cannot_be_Future_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date cannot be greater than today&apos;s date --></errorMessage>
+        <name>CMPL123CME__Date_of_Report_Cannot_be_Future_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Describe Event is a mandatory field. --></errorMessage>
+        <name>CMPL123CME__Describe_Event_is_a_mandatory_field</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date cannot be greater than today&apos;s date --></errorMessage>
+        <name>CMPL123CME__Device_Manuf_Date_Cannot_be_Future_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Due date date is greater than aware Date and opened date --></errorMessage>
+        <name>CMPL123CME__Due_Date_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date cannot be greater than today&apos;s date --></errorMessage>
+        <name>CMPL123CME__Explant_Date_Cannot_be_Future_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date cannot be greater than today&apos;s date --></errorMessage>
+        <name>CMPL123CME__Implant_Date_Cannot_be_Future_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Procode is a mandatory field. --></errorMessage>
+        <name>CMPL123CME__Procode_is_a_mandatory_field</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot select both Yes and No --></errorMessage>
+        <name>CMPL123CME__Restriction_to_Multiselect_Picklist</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Type of Reportable Event is a mandatory field. --></errorMessage>
+        <name>CMPL123CME__Type_of_Reportable_Event_is_a_mandatory</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Create_Supplemental_MDR --></label>
+        <name>CMPL123CME__Create_Supplemental_MDR</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- EMDR --></label>
+        <name>CMPL123CME__EMDR</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print --></label>
+        <name>CMPL123CME__Print</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_EMDR --></label>
+        <name>CMPL123CME__Print_EMDR</name>
+    </webLinks>
+</CustomObjectTranslation>

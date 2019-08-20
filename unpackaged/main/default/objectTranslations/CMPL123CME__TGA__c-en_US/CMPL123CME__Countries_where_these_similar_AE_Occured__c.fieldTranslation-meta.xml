@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Countries where these similar adverse events occurred --></help>
+        <label><!-- Countries where these similar AE occured --></label>
+        <name>CMPL123CME__Countries_where_these_similar_AE_Occured__c</name>
+    </CustomFieldTranslation>

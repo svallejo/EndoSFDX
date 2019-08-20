@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- GMDN Code --></help>
+        <label><!-- GMDN Code --></label>
+        <name>CMPL123CME__GMDN_Code__c</name>
+    </CustomFieldTranslation>

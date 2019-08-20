@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- EMDR F9 Approximate Age of Device --></label>
+        <name>CMPL123CME__EMDR_F9_Approxmate_Age_of_Device_Formula__c</name>
+    </CustomFieldTranslation>

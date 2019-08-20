@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Reporter File No. --></help>
+        <label><!-- Reporter File No. --></label>
+        <name>CMPL123CME__Reporter_File_No__c</name>
+    </CustomFieldTranslation>

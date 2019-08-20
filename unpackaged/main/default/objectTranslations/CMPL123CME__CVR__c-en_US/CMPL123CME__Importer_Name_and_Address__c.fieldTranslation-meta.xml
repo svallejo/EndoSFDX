@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Importer Name and Address --></help>
+        <label><!-- Importer Name and Address --></label>
+        <name>CMPL123CME__Importer_Name_and_Address__c</name>
+    </CustomFieldTranslation>

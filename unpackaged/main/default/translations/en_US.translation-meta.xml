@@ -144,6 +144,24 @@
     </flowDefinitions>
     <flowDefinitions>
         <flows>
+            <fullName>Create_a_Workflow_History-1</fullName>
+        </flows>
+        <fullName>Create_a_Workflow_History</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>DMS_WFH_Insertion_Notification-1</fullName>
+        </flows>
+        <fullName>DMS_WFH_Insertion_Notification</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>DMS_Corporate_Document_Notification-8</fullName>
+        </flows>
+        <fullName>DMS_Corporate_Document_Notification</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
             <fullName>Create_a_complaint_from_Inquiry-4</fullName>
         </flows>
         <fullName>Create_a_complaint_from_Inquiry</fullName>
@@ -153,6 +171,12 @@
             <fullName>POC_on_Automate_Complaint_workflow_step-11</fullName>
         </flows>
         <fullName>POC_on_Automate_Complaint_workflow_step</fullName>
+    </flowDefinitions>
+    <flowDefinitions>
+        <flows>
+            <fullName>DMS_WFH_Updation_Notification-2</fullName>
+        </flows>
+        <fullName>DMS_WFH_Updation_Notification</fullName>
     </flowDefinitions>
     <flowDefinitions>
         <flows>

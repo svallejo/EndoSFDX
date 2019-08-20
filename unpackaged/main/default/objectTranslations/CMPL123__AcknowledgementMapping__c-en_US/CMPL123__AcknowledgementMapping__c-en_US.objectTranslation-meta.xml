@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>AcknowledgmentMapping Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- Public Grouup Acknowledgement number field cannot be zero --></errorMessage>
+        <name>CMPL123__PublicGroupAcknowledgmentValidation</name>
+    </validationRules>
+</CustomObjectTranslation>

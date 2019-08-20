@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Type of Report Device only(Initial, Follow-Up) --></help>
+        <label><!-- Type of Report Device --></label>
+        <name>CMPL123CME__Type_of_Report_Device__c</name>
+    </CustomFieldTranslation>

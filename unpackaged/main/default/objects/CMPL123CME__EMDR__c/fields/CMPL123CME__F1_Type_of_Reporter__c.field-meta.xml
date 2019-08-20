@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__F1_Type_of_Reporter__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates who originated the report.</description>
+        <externalId>false</externalId>
+        <label>F1 - Type of Reporter</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>User Facility</fullName>
+                    <default>false</default>
+                    <label>User Facility</label>
+                </value>
+                <value>
+                    <fullName>Importer</fullName>
+                    <default>false</default>
+                    <label>Importer</label>
+                </value>
+                <value>
+                    <fullName>NA</fullName>
+                    <default>false</default>
+                    <label>NA</label>
+                </value>
+                <value>
+                    <fullName>NI</fullName>
+                    <default>false</default>
+                    <label>NI</label>
+                </value>
+                <value>
+                    <fullName>ASKU</fullName>
+                    <default>false</default>
+                    <label>ASKU</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

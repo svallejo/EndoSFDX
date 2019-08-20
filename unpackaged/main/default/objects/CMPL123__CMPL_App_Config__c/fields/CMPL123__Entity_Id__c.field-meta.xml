@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123__Entity_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Identity Provider (IDP) unique URL where SAML request can be validated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identity Provider (IDP) unique URL where SAML request can be validated.</inlineHelpText>
+        <label>Entity Id</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </CustomField>

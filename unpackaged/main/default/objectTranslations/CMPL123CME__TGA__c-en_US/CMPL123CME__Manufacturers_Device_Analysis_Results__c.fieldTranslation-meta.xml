@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Manufacturers Device Analysis Results --></help>
+        <label><!-- Manufacturers Device Analysis Results --></label>
+        <name>CMPL123CME__Manufacturers_Device_Analysis_Results__c</name>
+    </CustomFieldTranslation>

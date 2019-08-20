@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Due_Date_Validation</fullName>
+        <active>true</active>
+        <description>Due Date Validation</description>
+        <errorConditionFormula>DATEVALUE(CMPL123CME__Date_Due__c )   &gt;  CMPL123CME__ACK2_Date__c</errorConditionFormula>
+        <errorDisplayField>CMPL123CME__Date_Due__c</errorDisplayField>
+        <errorMessage>Due date date is greater than aware Date and opened date</errorMessage>
+    </ValidationRule>

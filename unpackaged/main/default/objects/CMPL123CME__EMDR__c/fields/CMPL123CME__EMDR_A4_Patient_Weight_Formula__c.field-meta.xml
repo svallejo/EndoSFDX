@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__EMDR_A4_Patient_Weight_Formula__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If Weight is blank, display only Weight Units (Patient) value. If Weight is completed, display both Weight and Weight Units (Patient) values.</description>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( CMPL123CME__A4_Weight__c ) ,  TEXT(CMPL123CME__A4_Weight_Units_Patient__c) ,  CMPL123CME__EMDR_A4_Patient_Weight__c  )</formula>
+        <label>EMDR A4 Patient Weight</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

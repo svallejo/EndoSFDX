@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- (Include 510(K) Or PMA Number, Specify If Class I Exempt From 510(K) --></help>
+        <label><!-- Marketing Status --></label>
+        <name>CMPL123CME__Marketing_Status__c</name>
+    </CustomFieldTranslation>

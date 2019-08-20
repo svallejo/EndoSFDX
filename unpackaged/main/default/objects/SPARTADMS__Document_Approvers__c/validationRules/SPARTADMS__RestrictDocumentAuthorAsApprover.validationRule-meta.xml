@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__RestrictDocumentAuthorAsApprover</fullName>
+        <active>false</active>
+        <description>Check if Corporate Document Author is adding as an approver.</description>
+        <errorConditionFormula>SPARTADMS__Related_Box_User__r.SPARTADMS__Related_Salesforce_User__c =  SPARTADMS__Related_Corporate_Document__r.OwnerId</errorConditionFormula>
+        <errorMessage>The author of the corporate document cannot be add as an approver.</errorMessage>
+    </ValidationRule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- G1 Compounding Outsourcing Facility 503B? --></help>
+        <label><!-- G1 Compounding Outsourcing Facility 503B --></label>
+        <name>CMPL123CME__G1_Compounding_Outsourcing_Facility_503B__c</name>
+        <picklistValues>
+            <masterLabel>None Selected</masterLabel>
+            <translation><!-- None Selected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

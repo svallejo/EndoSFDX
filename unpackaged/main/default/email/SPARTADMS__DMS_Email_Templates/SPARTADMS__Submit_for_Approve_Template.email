@@ -1,0 +1,12 @@
+Hello Approver, <br/><br/>
+The following document is now available for you to approve.<br/>
+Document Name: {0} <br/>
+Document Number: {1} <br/>
+Author: {2} <br/><br/>
+
+{!SPARTADMS__Document_Approvers__c.SPARTADMS__Notes_to_Approver__c}<br/><br/>
+
+
+Please login to the Document Management System using this link to take further action. <br/>
+LINK: {3} <br/><br/>
+Thank you! <br/><br/>

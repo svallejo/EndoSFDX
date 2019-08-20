@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Age of the patient at the time of incident, if applicable --></help>
+        <label><!-- Patient age at the time of incident --></label>
+        <name>CMPL123CME__Patient_age__c</name>
+    </CustomFieldTranslation>

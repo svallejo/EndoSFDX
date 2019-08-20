@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__BOX_Root_Folder_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>BOX Root Folder Id</description>
+        <externalId>false</externalId>
+        <inlineHelpText>BOX Root Folder Id</inlineHelpText>
+        <label>BOX Root Folder Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

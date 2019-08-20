@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Remedial action taken by the healthcare facility relevant to the care of the patient --></help>
+        <label><!-- Remedial action to care for patient --></label>
+        <name>CMPL123CME__Remedial_Action__c</name>
+    </CustomFieldTranslation>

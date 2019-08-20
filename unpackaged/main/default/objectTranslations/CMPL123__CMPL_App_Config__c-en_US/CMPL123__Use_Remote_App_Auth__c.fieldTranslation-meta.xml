@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Check if remote app authentication is needed. By default it will authenticate using SOAP API. --></help>
+        <label><!-- Use Remote App Auth --></label>
+        <name>CMPL123__Use_Remote_App_Auth__c</name>
+    </CustomFieldTranslation>

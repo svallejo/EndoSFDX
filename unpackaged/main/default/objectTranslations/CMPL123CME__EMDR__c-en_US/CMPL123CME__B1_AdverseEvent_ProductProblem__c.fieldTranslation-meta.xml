@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Adverse Event/Product Problem --></help>
+        <label><!-- B1 - Adverse Event/Product Problem --></label>
+        <name>CMPL123CME__B1_AdverseEvent_ProductProblem__c</name>
+        <picklistValues>
+            <masterLabel>Adverse Event</masterLabel>
+            <translation><!-- Adverse Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Problem</masterLabel>
+            <translation><!-- Product Problem --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

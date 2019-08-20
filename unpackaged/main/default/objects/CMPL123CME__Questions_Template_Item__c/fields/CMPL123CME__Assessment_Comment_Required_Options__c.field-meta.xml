@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Assessment_Comment_Required_Options__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Options to make assessment comment required</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Options to make assessment comment required. 
+Ex: All,Yes,No,N/A,Don't Know,None 
+Note: Can pass multiple values with , separated. Case in-sensitive. None: if no value specified</inlineHelpText>
+        <label>Assessment Comment Required Options</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

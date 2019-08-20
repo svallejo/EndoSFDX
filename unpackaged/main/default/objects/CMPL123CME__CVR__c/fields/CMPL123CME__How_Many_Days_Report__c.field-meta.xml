@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__How_Many_Days_Report__c</fullName>
+        <deprecated>false</deprecated>
+        <description>How Many Days Report</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the report is a 10 day or 30 day report, based on the seriousness of the incident associated with the medical device</inlineHelpText>
+        <label>How Many Days Report</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>10-Day</fullName>
+                    <default>false</default>
+                    <label>10-Day</label>
+                </value>
+                <value>
+                    <fullName>30-Day</fullName>
+                    <default>false</default>
+                    <label>30-Day</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

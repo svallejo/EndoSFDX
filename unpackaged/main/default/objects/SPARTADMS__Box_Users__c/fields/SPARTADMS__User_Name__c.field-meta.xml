@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__User_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Display the username of related salesforce user</description>
+        <externalId>false</externalId>
+        <formula>SPARTADMS__Related_Salesforce_User__r.Username</formula>
+        <inlineHelpText>Display the username of related salesforce user</inlineHelpText>
+        <label>User Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

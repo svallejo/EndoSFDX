@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Feed file Related Record Id(contentVersionId) --></help>
+        <label><!-- ContentVersion Id --></label>
+        <name>CMPL123TMS__ContentVersion_Id__c</name>
+    </CustomFieldTranslation>

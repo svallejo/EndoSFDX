@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Document_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( $Setup.SPARTADMS__DMS_App_Setting__c.SPARTADMS__Enable_Document_Type_Auto_Numbering__c , SPARTADMS__Document_Auto_Number__c ,(SUBSTITUTE(RIGHT( TEXT(SPARTADMS__Document_Department__c) , LEN(TEXT(SPARTADMS__Document_Department__c))- FIND("(",TEXT(SPARTADMS__Document_Department__c))),')','')) &amp; "-" &amp; SPARTADMS__Document_Auto_Number__c   &amp; "-" &amp; (SUBSTITUTE(RIGHT( TEXT(SPARTADMS__Document_Type__c) , LEN(TEXT(SPARTADMS__Document_Type__c))- FIND("(",TEXT(SPARTADMS__Document_Type__c))),')','')))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Document Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

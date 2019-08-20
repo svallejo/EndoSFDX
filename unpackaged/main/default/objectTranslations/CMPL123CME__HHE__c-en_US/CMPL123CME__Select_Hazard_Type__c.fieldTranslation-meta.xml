@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Select Hazard Type --></label>
+        <name>CMPL123CME__Select_Hazard_Type__c</name>
+        <picklistValues>
+            <masterLabel>Overall Population Using Device</masterLabel>
+            <translation><!-- Overall Population Using Device --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Population at Greatest Risk</masterLabel>
+            <translation><!-- Population at Greatest Risk --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

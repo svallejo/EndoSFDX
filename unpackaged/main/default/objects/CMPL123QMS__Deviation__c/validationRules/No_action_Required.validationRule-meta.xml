@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>No_action_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED( CMPL123_WF_Action__c ) &amp;&amp;  CMPL123_WF_Action__c =="Submit Final Review - No Action Required" &amp;&amp;   ISPICKVAL( Action_Required__c , "Yes")</errorConditionFormula>
+        <errorMessage>If Action Required? is Yes, should not select “Submit Final Review - No Action Required” action.</errorMessage>
+    </ValidationRule>

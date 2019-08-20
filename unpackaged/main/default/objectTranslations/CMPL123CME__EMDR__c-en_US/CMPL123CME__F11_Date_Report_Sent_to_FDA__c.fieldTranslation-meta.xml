@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- F11 - Date Report Sent to FDA --></label>
+        <name>CMPL123CME__F11_Date_Report_Sent_to_FDA__c</name>
+    </CustomFieldTranslation>

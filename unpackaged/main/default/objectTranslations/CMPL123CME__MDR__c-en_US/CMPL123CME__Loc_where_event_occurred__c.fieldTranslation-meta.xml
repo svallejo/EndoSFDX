@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Location Where Event Occurred --></label>
+        <name>CMPL123CME__Loc_where_event_occurred__c</name>
+        <picklistValues>
+            <masterLabel>Ambulatory Surgical Facility</masterLabel>
+            <translation><!-- Ambulatory Surgical Facility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home</masterLabel>
+            <translation><!-- Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital</masterLabel>
+            <translation><!-- Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nursing Home</masterLabel>
+            <translation><!-- Nursing Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outpatient Diagnostic Facility</masterLabel>
+            <translation><!-- Outpatient Diagnostic Facility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outpatient Treatment Facility</masterLabel>
+            <translation><!-- Outpatient Treatment Facility --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Unused Field Other Relevant History --></label>
+        <name>CMPL123CME__Other_Relevant_History__c</name>
+    </CustomFieldTranslation>

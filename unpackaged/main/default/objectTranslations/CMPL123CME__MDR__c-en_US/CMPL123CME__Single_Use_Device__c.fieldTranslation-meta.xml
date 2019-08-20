@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Single Use Device --></label>
+        <name>CMPL123CME__Single_Use_Device__c</name>
+    </CustomFieldTranslation>

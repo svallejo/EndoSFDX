@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- To store the file name --></help>
+        <label><!-- File Name --></label>
+        <name>SPARTADMS__File_Name__c</name>
+    </CustomFieldTranslation>

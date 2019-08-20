@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Last used sequence number --></help>
+        <label><!-- Last Used Sequence No --></label>
+        <name>CMPL123CME__Last_Used_Sequence_No__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>DMS Manage Document Department</description>
+    <enableFeeds>false</enableFeeds>
+    <label>DMS Manage Document Departments</label>
+    <visibility>Public</visibility>
+</CustomObject>

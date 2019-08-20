@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Results in permanent impairment of body function or
+permanent damage to a body structure --></help>
+        <label><!-- Unused Permanent Body Damage Results --></label>
+        <name>CMPL123CME__Pemanent_Body_Damage_Overallpop__c</name>
+    </CustomFieldTranslation>

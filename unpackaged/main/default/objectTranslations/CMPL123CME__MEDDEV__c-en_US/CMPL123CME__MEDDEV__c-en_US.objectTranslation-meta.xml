@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>MEDDEV Layout</layout>
+        <sections>
+            <label><!-- 1 Administrative information --></label>
+            <section>1 Administrative information</section>
+        </sections>
+        <sections>
+            <label><!-- 10 Manufacturer’s preliminary comments (Initial/Follow-up report) --></label>
+            <section>10 Manufacturer’s preliminary comments (Initial/Follow-up report)</section>
+        </sections>
+        <sections>
+            <label><!-- 11 Results of manufacturers final investigation (Final report) --></label>
+            <section>11 Results of manufacturers final investigation (Final report)</section>
+        </sections>
+        <sections>
+            <label><!-- 12 Comments --></label>
+            <section>12 Comments</section>
+        </sections>
+        <sections>
+            <label><!-- 2 Information on submitter of the report --></label>
+            <section>2 Information on submitter of the report</section>
+        </sections>
+        <sections>
+            <label><!-- 3 Manufacturer information --></label>
+            <section>3 Manufacturer information</section>
+        </sections>
+        <sections>
+            <label><!-- 4 Authorised Representative Information --></label>
+            <section>4 Authorised Representative Information</section>
+        </sections>
+        <sections>
+            <label><!-- 5 Submitter’s information --></label>
+            <section>5 Submitter’s information</section>
+        </sections>
+        <sections>
+            <label><!-- 6 Medical device information --></label>
+            <section>6 Medical device information</section>
+        </sections>
+        <sections>
+            <label><!-- 7 Incident Information --></label>
+            <section>7 Incident Information</section>
+        </sections>
+        <sections>
+            <label><!-- 8 Patient information --></label>
+            <section>8 Patient information</section>
+        </sections>
+        <sections>
+            <label><!-- 9 Healthcare facility information --></label>
+            <section>9 Healthcare facility information</section>
+        </sections>
+        <sections>
+            <label><!-- Electronic Signatures --></label>
+            <section>Electronic Signatures</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MEDDEV Optional Layout</layout>
+        <sections>
+            <label><!-- 1 Administrative information --></label>
+            <section>1 Administrative information</section>
+        </sections>
+        <sections>
+            <label><!-- 10 Manufacturer’s preliminary comments (Initial/Follow-up report) --></label>
+            <section>10 Manufacturer’s preliminary comments (Initial/Follow-up report)</section>
+        </sections>
+        <sections>
+            <label><!-- 11 Results of manufacturers final investigation (Final report) --></label>
+            <section>11 Results of manufacturers final investigation (Final report)</section>
+        </sections>
+        <sections>
+            <label><!-- 12 Comments --></label>
+            <section>12 Comments</section>
+        </sections>
+        <sections>
+            <label><!-- 2 Information on submitter of the report --></label>
+            <section>2 Information on submitter of the report</section>
+        </sections>
+        <sections>
+            <label><!-- 3 Manufacturer information --></label>
+            <section>3 Manufacturer information</section>
+        </sections>
+        <sections>
+            <label><!-- 4 Authorised Representative Information --></label>
+            <section>4 Authorised Representative Information</section>
+        </sections>
+        <sections>
+            <label><!-- 5 Submitter’s information --></label>
+            <section>5 Submitter’s information</section>
+        </sections>
+        <sections>
+            <label><!-- 6 Medical device information --></label>
+            <section>6 Medical device information</section>
+        </sections>
+        <sections>
+            <label><!-- 7 Incident Information --></label>
+            <section>7 Incident Information</section>
+        </sections>
+        <sections>
+            <label><!-- 8 Patient information --></label>
+            <section>8 Patient information</section>
+        </sections>
+        <sections>
+            <label><!-- 9 Healthcare facility information --></label>
+            <section>9 Healthcare facility information</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- This date cannot be on or before Device Mfr Date --></errorMessage>
+        <name>CMPL123CME__Expiry_Date_Device_MFR_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This date cannot be on or before Device Mfr Date --></errorMessage>
+        <name>CMPL123CME__Explant_Date_Device_MFR_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This date cannot be on or before Device Mfr Date --></errorMessage>
+        <name>CMPL123CME__Implant_Date_Device_MFR_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This date cannot be on or before Device Mfr Date and Implant date --></errorMessage>
+        <name>CMPL123CME__Incident_Date_Implant_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Permitted values: &quot;en&quot;, &quot;de&quot;, or blank. --></errorMessage>
+        <name>CMPL123CME__MEDDEV_Form_Language_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only numbers permitted in this field. --></errorMessage>
+        <name>CMPL123CME__No_of_medi_devices_involved</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only numbers permitted in this field. --></errorMessage>
+        <name>CMPL123CME__Number_of_patients_involved</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field value is required for this report type --></errorMessage>
+        <name>CMPL123CME__Required_field_Initial_CAPAS_by_MFG</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field value cannot be blank for this report type --></errorMessage>
+        <name>CMPL123CME__Required_field_Manuf_Device_analy_result</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field value cannot be blank for this report type --></errorMessage>
+        <name>CMPL123CME__Required_field_Manuf_Prelimnary_analysis</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field value cannot be blank for this report type --></errorMessage>
+        <name>CMPL123CME__Required_field_RC_CA_PA_FSCA</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field value cannot be balnk for this report type --></errorMessage>
+        <name>CMPL123CME__Required_field_Ref_Assign_by_NCA</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please choose the appropriate field value --></errorMessage>
+        <name>CMPL123CME__Required_field_Similar_incidents</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field value cannot be blank for this report type --></errorMessage>
+        <name>CMPL123CME__Required_field_final_comments_from_manuf</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- MEDDEV --></label>
+        <name>CMPL123CME__MEDDEV</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- MEDDEVRev7 --></label>
+        <name>CMPL123CME__MEDDEVRev7</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_XML_Data_by_Email --></label>
+        <name>CMPL123CME__Send_XML_Data_by_Email</name>
+    </webLinks>
+</CustomObjectTranslation>

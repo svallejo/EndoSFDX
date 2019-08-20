@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Further investigations --></help>
+        <label><!-- Further investigations --></label>
+        <name>CMPL123CME__Further_Investigations__c</name>
+    </CustomFieldTranslation>

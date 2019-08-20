@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__A2_Patient_Years_Old__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>YEAR(CMPL123CME__B3_Date_of_Event__c) - YEAR(CMPL123CME__A2_DOB__c) -
+IF( MONTH(CMPL123CME__B3_Date_of_Event__c) &gt; MONTH(CMPL123CME__A2_DOB__c), 
+	0 ,
+	IF( MONTH(CMPL123CME__B3_Date_of_Event__c) != MONTH(CMPL123CME__A2_DOB__c),
+		1 ,
+		IF( DAY(CMPL123CME__B3_Date_of_Event__c) &gt;= DAY(CMPL123CME__A2_DOB__c), 
+			0,
+			1
+		)
+	)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>A2 - Patient Years Old</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </CustomField>

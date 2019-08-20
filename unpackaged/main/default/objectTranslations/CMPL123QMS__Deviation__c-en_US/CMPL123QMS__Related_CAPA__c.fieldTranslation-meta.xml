@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Related CAPA --></label>
+        <name>CMPL123QMS__Related_CAPA__c</name>
+        <relationshipLabel><!-- Non Conformances --></relationshipLabel>
+    </CustomFieldTranslation>

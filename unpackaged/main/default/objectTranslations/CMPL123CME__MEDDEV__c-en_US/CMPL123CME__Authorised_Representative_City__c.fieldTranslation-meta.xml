@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Authorised Representative City --></help>
+        <label><!-- Authorised Rep City --></label>
+        <name>CMPL123CME__Authorised_Representative_City__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- For final reports only. The medical device has been distributed to the following countries: --></help>
+        <label><!-- Medical device distributed countries --></label>
+        <name>CMPL123CME__Medical_Device_Distributed_Countries__c</name>
+        <picklistValues>
+            <masterLabel>ABC</masterLabel>
+            <translation><!-- ABC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>All EEA, Candidate Countries, Switzerland and Turkey</masterLabel>
+            <translation><!-- All EEA, Candidate Countries, Switzerland and Turkey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Candidate Countries</masterLabel>
+            <translation><!-- Candidate Countries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New List of countries</masterLabel>
+            <translation><!-- New List of countries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Within the EEA, Switzerland and Turkey</masterLabel>
+            <translation><!-- Within the EEA, Switzerland and Turkey --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

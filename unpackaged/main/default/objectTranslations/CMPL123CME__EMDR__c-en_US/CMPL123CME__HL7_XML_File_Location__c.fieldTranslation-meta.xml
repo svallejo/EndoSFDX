@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Location of the HL7 XML File generated and submitted to the FDA. --></help>
+        <label><!-- HL7 XML File Location --></label>
+        <name>CMPL123CME__HL7_XML_File_Location__c</name>
+    </CustomFieldTranslation>

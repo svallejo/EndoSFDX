@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Date mfr aware --></help>
+        <label><!-- Date mfr aware --></label>
+        <name>CMPL123CME__Date_mfr_aware__c</name>
+    </CustomFieldTranslation>

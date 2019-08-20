@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Please check to enable multiple actions. It helps to use salesforce standard workflow rule, field updates. --></help>
+        <label><!-- Has Multiple Actions --></label>
+        <name>CMPL123__Has_Multiple_Actions__c</name>
+    </CustomFieldTranslation>

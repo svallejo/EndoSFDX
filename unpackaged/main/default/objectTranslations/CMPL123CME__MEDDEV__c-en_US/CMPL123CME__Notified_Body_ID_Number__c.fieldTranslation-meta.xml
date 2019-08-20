@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Notified Body (NB) ID-number --></help>
+        <label><!-- Notified Body (NB) ID-number --></label>
+        <name>CMPL123CME__Notified_Body_ID_Number__c</name>
+    </CustomFieldTranslation>

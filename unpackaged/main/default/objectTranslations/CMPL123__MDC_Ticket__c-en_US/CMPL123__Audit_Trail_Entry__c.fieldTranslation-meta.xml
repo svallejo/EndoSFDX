@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Audit Trail Entry --></label>
+        <name>CMPL123__Audit_Trail_Entry__c</name>
+        <relationshipLabel><!-- MDC Tickets --></relationshipLabel>
+    </CustomFieldTranslation>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Contributing Factors --></label>
+        <name>Contributing_Factors__c</name>
+        <picklistValues>
+            <masterLabel>Improper Machine Maintenance</masterLabel>
+            <translation><!-- Improper Machine Maintenance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operator Needed Additional Training</masterLabel>
+            <translation><!-- Operator Needed Additional Training --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Effec_Check_is_None</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED( CMPL123_WF_Action__c ) &amp;&amp; ( CMPL123_WF_Action__c =="Submit Final Review - Effectiveness Check Not Required"||CMPL123_WF_Action__c =="Verify Effectiveness - CAPA Action Plan") &amp;&amp; ISPICKVAL( Effectiveness_Check_Required__c,"")</errorConditionFormula>
+        <errorMessage>Effectiveness check Required? must be answered before proceeding further.</errorMessage>
+    </ValidationRule>

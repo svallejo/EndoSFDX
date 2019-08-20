@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Document Approver Rejected Template</name>
+    <style>none</style>
+    <subject>Document Rejected</subject>
+    <textOnly>Hello,
+
+The following document is rejected by an approver.
+Document Name: {0}
+Document Number: {1}
+Rejected by: {2}
+Comments (if any): {3}
+
+Please login to the Document Management System using this link to take further action.
+LINK: {4}
+
+Thank you!</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

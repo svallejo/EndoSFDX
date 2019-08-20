@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Other Relavat History, Including Preexisting Medical Conditions (e.g., allergies, race,pregnacy,
+smoking and alcohol use, hepatic/renal dysfunction, etc. ) Continuation Field Available in last section --></help>
+        <label><!-- Other Relevant History --></label>
+        <name>CMPL123CME__Other_RelevantHistory__c</name>
+    </CustomFieldTranslation>

@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <fieldSets>
+        <label><!-- GENERAL INFORMATION --></label>
+        <name>CMPL123CME__A_1_GENERAL_INFORMATION</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- A. PATIENT INFORMATION --></label>
+        <name>CMPL123CME__A_PATIENT_INFORMATION</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- B. ADVERSE EVENT OR PRODUCT PROBLEM --></label>
+        <name>CMPL123CME__B_ADVERSE_EVENT_OR_PRODUCT_PROBLEM</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- C. SUSPECT PRODUCTS --></label>
+        <name>CMPL123CME__C_SUSPECT_PRODUCTS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- D. SUSPECT MEDICAL DEVICE --></label>
+        <name>CMPL123CME__D_SUSPECT_MEDICAL_DEVICE</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- E. INITIAL REPORTER --></label>
+        <name>CMPL123CME__E_INITIAL_REPORTER</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- F. FOR USE BY USER FACILITY/IMPORTER --></label>
+        <name>CMPL123CME__F_FOR_USE_BY_USER_FACILITY_IMPORTER</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- F. FOR USE BY USER FACILITY/IMPORTER --></label>
+        <name>CMPL123CME__F_FOR_USE_BY_USER_FACILITY_IMPORTER_2018</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- G. ALL MANUFACTURERS --></label>
+        <name>CMPL123CME__G_ALL_MANUFACTURERS</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- H. DEVICE MANUFACTURERS ONLY --></label>
+        <name>CMPL123CME__H_DEVICE_MANUFACTURERS_ONLY</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Suplemental EMDR --></label>
+        <name>CMPL123CME__SUPLEMENTAL_EMDR_RL_FS</name>
+    </fieldSets>
+    <layouts>
+        <layout>EMDR Layout</layout>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Initial MDR Information --></description>
+        <label><!-- Initial --></label>
+        <name>CMPL123CME__Initial</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Initial - Awaiting ACK --></label>
+        <name>CMPL123CME__Initial_Awaiting_ACK</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Offline --></label>
+        <name>CMPL123CME__Offline</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- If you are a manufacturer, when you obtain information required under this part that you did not provide because it was not known or was not available when you submitted the initial report, you must submit the supplemental information to us within 1 month --></description>
+        <label><!-- Supplemental --></label>
+        <name>CMPL123CME__Supplemental</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Yo! --></errorMessage>
+        <name>Another_One</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A2 - Date of Birth is required or Select a Null Option. --></errorMessage>
+        <name>CMPL123CME__A2_Date_of_Birth</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A2 - Date cannot be greater than today&apos;s date --></errorMessage>
+        <name>CMPL123CME__A2_Date_of_Birth_Cannot_be_Future_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A4 - Weight Units is mandatory if Weight is provided --></errorMessage>
+        <name>CMPL123CME__A4_Weight_Units</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- B1 - Adverse Event/Product Problem is a mandatory field --></errorMessage>
+        <name>CMPL123CME__B1_Adverse_Event_Product_Problem</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- B2 - Date of Death cannot be prior to Date of Birth --></errorMessage>
+        <name>CMPL123CME__B2_DOD_Must_Be_Greater_Than_DOB</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- B2 - Date of Death Null is required if Outcome of Attributed to AE is Not Death. --></errorMessage>
+        <name>CMPL123CME__B2_DOD_Null_If_Outcome_Death</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- B2 - Date of Death is required if Outcome of Attributed to AE is Death. --></errorMessage>
+        <name>CMPL123CME__B2_DOD_Required_If_Outcome_Death</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date cannot be greater than today&apos;s date --></errorMessage>
+        <name>CMPL123CME__B2_Date_of_Death_Cannot_be_Future_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date of Birth Cannot be Greater than Date of Event --></errorMessage>
+        <name>CMPL123CME__B3_DOB_Must_Be_Less_Than_Date_of_Event</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- B3 Date of Event is a mandatory field. --></errorMessage>
+        <name>CMPL123CME__B3_Date_Of_Event</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date cannot be greater than today&apos;s date --></errorMessage>
+        <name>CMPL123CME__B3_Date_of_Event_Cannot_be_Future_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date cannot be greater than today&apos;s date --></errorMessage>
+        <name>CMPL123CME__B4_Date_of_Report_Cannot_be_Future_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- B5 Description of Event is a mandatory field. --></errorMessage>
+        <name>CMPL123CME__B5_Description_Of_Event</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Catalog number cannot be greater than 11 characters Catalog number cannot be greater than 11 characters Catalog number cannot be greater than 11 characters Catalog number cannot be greater than 11 characters --></errorMessage>
+        <name>CMPL123CME__CMPL123_TEST</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- G3 - Other Report Source max value is 40 --></errorMessage>
+        <name>CMPL123CME__G3_Other_Report_Source</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select an Initial EMDR. --></errorMessage>
+        <name>CMPL123CME__Supplemental_EMDR_Creation_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Test Error --></errorMessage>
+        <name>E1_Number_format</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- HEY --></errorMessage>
+        <name>Validation_Rule_Test_H6</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- City Mandatory --></errorMessage>
+        <name>test</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Multiple_EMDR_Print --></label>
+        <name>CMPL123CME__Multiple_EMDR_Print</name>
+    </webLinks>
+</CustomObjectTranslation>

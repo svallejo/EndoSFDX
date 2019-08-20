@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- D5 - Operator of Device --></label>
+        <name>CMPL123CME__D5_Operator_of_Device__c</name>
+        <picklistValues>
+            <masterLabel>ASKU</masterLabel>
+            <translation><!-- ASKU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Attorney</masterLabel>
+            <translation><!-- Attorney --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Audiologist</masterLabel>
+            <translation><!-- Audiologist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biomedical Engineer</masterLabel>
+            <translation><!-- Biomedical Engineer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dental Assistant</masterLabel>
+            <translation><!-- Dental Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dental Hygienist</masterLabel>
+            <translation><!-- Dental Hygienist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dentist</masterLabel>
+            <translation><!-- Dentist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Device Unattended</masterLabel>
+            <translation><!-- Device Unattended --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dietician</masterLabel>
+            <translation><!-- Dietician --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emergency Medical Technician</masterLabel>
+            <translation><!-- Emergency Medical Technician --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Professional</masterLabel>
+            <translation><!-- Health Professional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Health Aide</masterLabel>
+            <translation><!-- Home Health Aide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital Service Technician</masterLabel>
+            <translation><!-- Hospital Service Technician --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lay User/Patient</masterLabel>
+            <translation><!-- Lay User/Patient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Assistant</masterLabel>
+            <translation><!-- Medical Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Equip Company Techn/Rep</masterLabel>
+            <translation><!-- Medical Equip Company Techn/Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Technologist</masterLabel>
+            <translation><!-- Medical Technologist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation><!-- NA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NI</masterLabel>
+            <translation><!-- NI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nuclear Medicine Technologist</masterLabel>
+            <translation><!-- Nuclear Medicine Technologist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nurse</masterLabel>
+            <translation><!-- Nurse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nursing Assistant</masterLabel>
+            <translation><!-- Nursing Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Occupational Therapist</masterLabel>
+            <translation><!-- Occupational Therapist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Caregivers</masterLabel>
+            <translation><!-- Other Caregivers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Health Care Professional</masterLabel>
+            <translation><!-- Other Health Care Professional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paramedic</masterLabel>
+            <translation><!-- Paramedic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient</masterLabel>
+            <translation><!-- Patient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Family Member/Friend</masterLabel>
+            <translation><!-- Patient Family Member/Friend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Personal Care Assistant</masterLabel>
+            <translation><!-- Personal Care Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmacist</masterLabel>
+            <translation><!-- Pharmacist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phlebotomist</masterLabel>
+            <translation><!-- Phlebotomist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Physical Therapist</masterLabel>
+            <translation><!-- Physical Therapist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Physician</masterLabel>
+            <translation><!-- Physician --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Physician Assistant</masterLabel>
+            <translation><!-- Physician Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Physicist</masterLabel>
+            <translation><!-- Physicist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radiologic Technologist</masterLabel>
+            <translation><!-- Radiologic Technologist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respiratory Therapist</masterLabel>
+            <translation><!-- Respiratory Therapist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk Manager</masterLabel>
+            <translation><!-- Risk Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service And Testing Personnel</masterLabel>
+            <translation><!-- Service And Testing Personnel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Personnel</masterLabel>
+            <translation><!-- Service Personnel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Speech Therapist</masterLabel>
+            <translation><!-- Speech Therapist --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

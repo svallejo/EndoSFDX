@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Serious Adverse Health Consequences - (Death, Life Threatening, Results
+in Permanent Impairment) - Overall Population, Not Likely that Use will Cause Adverse Events --></help>
+        <label><!-- Unused Overall Popu,Not Likely,Cause AE --></label>
+        <name>CMPL123CME__Overall_Popu_Not_Likely_Cause_Adverse_Ev__c</name>
+    </CustomFieldTranslation>

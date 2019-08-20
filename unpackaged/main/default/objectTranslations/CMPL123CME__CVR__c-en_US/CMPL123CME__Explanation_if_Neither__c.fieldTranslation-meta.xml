@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- If Availability of device for evaluation is Neither, Please give appropriate explanation --></help>
+        <label><!-- Explanation if above is neither --></label>
+        <name>CMPL123CME__Explanation_if_Neither__c</name>
+    </CustomFieldTranslation>

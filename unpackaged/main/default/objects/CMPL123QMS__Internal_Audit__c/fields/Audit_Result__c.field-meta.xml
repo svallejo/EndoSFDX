@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Audit_Result__c</fullName>
+        <externalId>false</externalId>
+        <label>Audit Result</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Excellent</fullName>
+                    <default>false</default>
+                    <label>Excellent</label>
+                </value>
+                <value>
+                    <fullName>Minor Findings</fullName>
+                    <default>false</default>
+                    <label>Minor Findings</label>
+                </value>
+                <value>
+                    <fullName>Moderate Findings</fullName>
+                    <default>false</default>
+                    <label>Moderate Findings</label>
+                </value>
+                <value>
+                    <fullName>Major Findings</fullName>
+                    <default>false</default>
+                    <label>Major Findings</label>
+                </value>
+                <value>
+                    <fullName>Unsatisfactory</fullName>
+                    <default>false</default>
+                    <label>Unsatisfactory</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </CustomField>

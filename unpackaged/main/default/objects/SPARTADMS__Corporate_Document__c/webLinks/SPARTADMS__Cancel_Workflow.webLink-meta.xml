@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Cancel_Workflow</fullName>
+        <availability>online</availability>
+        <description>Used to cancel the workflow of document</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Cancel Workflow</masterLabel>
+        <openType>replace</openType>
+        <page>SPARTADMS__DMSCancelWorkflow</page>
+        <protected>false</protected>
+    </WebLink>

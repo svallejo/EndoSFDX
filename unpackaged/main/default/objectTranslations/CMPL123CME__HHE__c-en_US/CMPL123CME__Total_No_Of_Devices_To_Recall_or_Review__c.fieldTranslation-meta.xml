@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Total Number Of Devices Subject To Recall or Review --></help>
+        <label><!-- Total No. Of Devices To Recall or Review --></label>
+        <name>CMPL123CME__Total_No_Of_Devices_To_Recall_or_Review__c</name>
+    </CustomFieldTranslation>

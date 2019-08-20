@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__F3_Contact_Email__c</fullName>
+        <deprecated>false</deprecated>
+        <description>MDR contact person's email.</description>
+        <externalId>false</externalId>
+        <label>F3 - Contact Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </CustomField>

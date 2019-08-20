@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Is DMS Admin Approval Required --></help>
+        <label><!-- Is DMS Admin Approval Required --></label>
+        <name>SPARTADMS__Can_DMS_Admin_Review_Required__c</name>
+    </CustomFieldTranslation>

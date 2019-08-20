@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- C2 - Concom Med Prod and Therapy Dates --></label>
+        <name>CMPL123CME__C2_Concom_Med_Prod_and_Therapy_Dates__c</name>
+    </CustomFieldTranslation>

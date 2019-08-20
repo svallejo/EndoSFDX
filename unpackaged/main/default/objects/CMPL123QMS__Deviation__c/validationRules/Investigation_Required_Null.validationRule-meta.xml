@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Investigation_Required_Null</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( Complete_Review_Reached__c = False, NOT((ISPICKVAL( Investigation_Required__c , ""))&amp;&amp; ISPICKVAL( Contributing_Factors__c , "")&amp;&amp; ISPICKVAL( Investigation_Completed__c , "") &amp;&amp;ISBLANK( CMPL123QMS__Investigation_Summary__c ) ))</errorConditionFormula>
+        <errorMessage>Cannot select Investigation section fields before complete review</errorMessage>
+    </ValidationRule>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- No.Of Devices To Recall/Review In Foreign --></help>
+        <label><!-- No.Of DevicesTo Recall/Review In Foreign --></label>
+        <name>CMPL123CME__Devices_To_Recall_Review_In_Foreign__c</name>
+    </CustomFieldTranslation>

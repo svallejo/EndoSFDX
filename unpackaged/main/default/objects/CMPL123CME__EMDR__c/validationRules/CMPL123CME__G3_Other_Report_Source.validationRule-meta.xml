@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__G3_Other_Report_Source</fullName>
+        <active>true</active>
+        <description>Validation on G3 Other Report Source field value by providing more than 40 characters for EMDR 2018 version only.</description>
+        <errorConditionFormula>ISPICKVAL( CMPL123CME__EMDR_Form_Version__c , "2018") &amp;&amp; LEN( CMPL123CME__G3_Report_Source_Other__c ) &gt; 40</errorConditionFormula>
+        <errorDisplayField>CMPL123CME__G3_Report_Source_Other__c</errorDisplayField>
+        <errorMessage>G3 - Other Report Source max value is 40</errorMessage>
+    </ValidationRule>

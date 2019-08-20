@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <caseValues>
+        <plural>false</plural>
+        <value>Quality Event</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Quality Events</value>
+    </caseValues>
+    <nameFieldLabel>Quality Event No</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <layouts>
+        <layout>Deviation Layout</layout>
+        <sections>
+            <label><!-- Action --></label>
+            <section>Action</section>
+        </sections>
+        <sections>
+            <label><!-- Event Identification --></label>
+            <section>Event Identification</section>
+        </sections>
+        <sections>
+            <label><!-- Investigation --></label>
+            <section>Investigation</section>
+        </sections>
+        <sections>
+            <label><!-- Risk Analysis --></label>
+            <section>Risk Analysis</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- If Action Required? is Yes, Action Completed checkbox must be checked before performing the Submit Final Review – Action Complete action. --></errorMessage>
+        <name>Action_Completed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Submit Final Review - No Action Required&quot; action cannot be performed if Action Completed checkbox is checked. --></errorMessage>
+        <name>Action_completed_not_required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill the field investigation completed? after completing investigation --></errorMessage>
+        <name>Investigation_Completed_check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot select Investigation section fields before complete review --></errorMessage>
+        <name>Investigation_Required_Null</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Investigation Required? field should not be blank to perform the action Complete Investigation - Quality Event --></errorMessage>
+        <name>Investigation_required_is_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Action Required? is Yes, should not select “Submit Final Review - No Action Required” action. --></errorMessage>
+        <name>No_action_Required</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Print_QE --></label>
+        <name>Print_QE</name>
+    </webLinks>
+</CustomObjectTranslation>

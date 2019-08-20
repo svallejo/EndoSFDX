@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Importer Phone Number --></help>
+        <label><!-- UF Phone Number --></label>
+        <name>CMPL123CME__UF_Phone_Number__c</name>
+    </CustomFieldTranslation>

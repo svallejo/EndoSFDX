@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- User Support --></help>
+        <label><!-- User Support --></label>
+        <name>CMPL123TMS__User_Support__c</name>
+    </CustomFieldTranslation>

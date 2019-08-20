@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Health_Conseq_due_to_defective_device__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Describe the Immediate and Long Range Health Consequences (Injuries or Illnesses) That May Result from
+Use of or Exposure to the Defective Device. (Include Known Off Label Uses)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe the Immediate and Long Range Health Consequences (Injuries or Illnesses) That May Result from
+Use of or Exposure to the Defective Device. (Include Known Off Label Uses)</inlineHelpText>
+        <label>Unused Health Conseq. due to defective</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

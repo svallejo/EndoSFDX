@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- C3 - #2 Dose Units --></help>
+        <label><!-- C3 - #2 Dose Units --></label>
+        <name>CMPL123CME__C3_Dose_Units2__c</name>
+        <picklistValues>
+            <masterLabel>% percent</masterLabel>
+            <translation><!-- % percent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ASKU</masterLabel>
+            <translation><!-- ASKU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bq becquerel</masterLabel>
+            <translation><!-- Bq becquerel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ci curie</masterLabel>
+            <translation><!-- Ci curie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DF Dosage form</masterLabel>
+            <translation><!-- DF Dosage form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GBq gigabecquerel</masterLabel>
+            <translation><!-- GBq gigabecquerel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gtt drop</masterLabel>
+            <translation><!-- Gtt drop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Iu international unit</masterLabel>
+            <translation><!-- Iu international unit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kbq kilobecquerel</masterLabel>
+            <translation><!-- Kbq kilobecquerel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kiu Iu (1000s)</masterLabel>
+            <translation><!-- Kiu Iu (1000s) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBq megabecquerel</masterLabel>
+            <translation><!-- MBq megabecquerel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meq milliequivalent</masterLabel>
+            <translation><!-- Meq milliequivalent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Miu Iu (1,000,000s)</masterLabel>
+            <translation><!-- Miu Iu (1,000,000s) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mol mole</masterLabel>
+            <translation><!-- Mol mole --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation><!-- NA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NI</masterLabel>
+            <translation><!-- NI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>g gram</masterLabel>
+            <translation><!-- g gram --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iu/kg iu/kilogram</masterLabel>
+            <translation><!-- iu/kg iu/kilogram --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>kg kilogram</masterLabel>
+            <translation><!-- kg kilogram --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>l litre</masterLabel>
+            <translation><!-- l litre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>mCi millicurie</masterLabel>
+            <translation><!-- mCi millicurie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>mg milligram</masterLabel>
+            <translation><!-- mg milligram --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>mg/kg milligram/kilogram</masterLabel>
+            <translation><!-- mg/kg milligram/kilogram --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>mg/m2 milligram/sq. meter</masterLabel>
+            <translation><!-- mg/m2 milligram/sq. meter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ml millilitre</masterLabel>
+            <translation><!-- ml millilitre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>mmol millimole</masterLabel>
+            <translation><!-- mmol millimole --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>nCi nanocurie</masterLabel>
+            <translation><!-- nCi nanocurie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ng nanogram</masterLabel>
+            <translation><!-- ng nanogram --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>pg picogram</masterLabel>
+            <translation><!-- pg picogram --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>μCi microcurie</masterLabel>
+            <translation><!-- μCi microcurie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>μg microgram</masterLabel>
+            <translation><!-- μg microgram --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>μg/ m2 microgram/sq. meter</masterLabel>
+            <translation><!-- μg/ m2 microgram/sq. meter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>μg/kg microgram/kilogram</masterLabel>
+            <translation><!-- μg/kg microgram/kilogram --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>μg/m2 microgram/sq. meter</masterLabel>
+            <translation><!-- μg/m2 microgram/sq. meter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>μl microlitre</masterLabel>
+            <translation><!-- μl microlitre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>μmol micromole</masterLabel>
+            <translation><!-- μmol micromole --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

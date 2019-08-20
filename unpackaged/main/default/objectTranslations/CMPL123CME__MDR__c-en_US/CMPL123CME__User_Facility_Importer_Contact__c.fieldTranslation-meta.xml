@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- User Facility/Importer Contact --></label>
+        <name>CMPL123CME__User_Facility_Importer_Contact__c</name>
+        <relationshipLabel><!-- MDR (User Facility/Importer Contact) --></relationshipLabel>
+    </CustomFieldTranslation>

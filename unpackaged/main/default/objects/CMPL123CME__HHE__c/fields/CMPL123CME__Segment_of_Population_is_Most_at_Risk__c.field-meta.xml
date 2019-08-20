@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__Segment_of_Population_is_Most_at_Risk__c</fullName>
+        <deprecated>false</deprecated>
+        <description>What Segment of the Population is Most at Risk? (e.g. Infants, Elderly, Pregnant Women, Critically Ill
+Patients, Immunocompromised, etc.)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What Segment of the Population is Most at Risk? (e.g. Infants, Elderly, Pregnant Women, Critically Ill
+Patients, Immunocompromised, etc.)</inlineHelpText>
+        <label>Unused Segment of Population is Most</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

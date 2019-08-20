@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Sharing Reason must be the same on target and child objects.  If the object has a namespace, append to the front. --></help>
+        <label><!-- Apex Sharing Reason --></label>
+        <name>CMPL123__Apex_Sharing_Reason__c</name>
+    </CustomFieldTranslation>

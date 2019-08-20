@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification to author when the file version is restored by DMS Admin</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>DMSAdmin FileRestore Template</name>
+    <style>none</style>
+    <subject>Document Sent Back for Work</subject>
+    <textOnly>Hello,
+
+The DMS Admin restored the file on the following document and as a result the document was rejected:
+Document Name: {0}
+Document Number: {1}
+Rejected by: {2}
+
+Please login to the Document Management System using this link to take further action.
+LINK: {3}
+
+Thank you!</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

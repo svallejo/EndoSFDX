@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Approved Document Number --></help>
+        <label><!-- Approved Document Number --></label>
+        <name>SPARTADMS__Approved_Document_Number__c</name>
+    </CustomFieldTranslation>

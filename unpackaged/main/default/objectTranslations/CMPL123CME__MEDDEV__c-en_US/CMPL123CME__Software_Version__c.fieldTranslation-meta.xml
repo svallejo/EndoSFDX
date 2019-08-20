@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Software version number --></help>
+        <label><!-- Software version number (if applicable) --></label>
+        <name>CMPL123CME__Software_Version__c</name>
+    </CustomFieldTranslation>

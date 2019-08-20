@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123__Allow_Task_Auto_Promotion_Update__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Allow Task Auto Promotion Update</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Allow Task Auto Promotion Update</inlineHelpText>
+        <label>Allow Task Auto Promotion Update</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </CustomField>

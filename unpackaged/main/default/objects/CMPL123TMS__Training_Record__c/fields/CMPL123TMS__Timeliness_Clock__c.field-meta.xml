@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123TMS__Timeliness_Clock__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>if(CMPL123TMS__Training_Status__c = "Completed" || CMPL123TMS__Training_Status__c = "Completed - No Impact" || CMPL123TMS__Training_Status__c ="Assigned" || CMPL123TMS__Training_Status__c ="In Progress", if(CMPL123TMS__Due_Date__c &lt; DATEVALUE(IF ( ISNULL(CMPL123TMS__Completed_Date__c),NOW(), CMPL123TMS__Completed_Date__c)), "Late", "On Time"), "Not Applicable")</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Timeliness Clock</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

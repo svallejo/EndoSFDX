@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Employee Status1 --></help>
+        <label><!-- Employee Status Available --></label>
+        <name>CMPL123TMS__Available__c</name>
+    </CustomFieldTranslation>

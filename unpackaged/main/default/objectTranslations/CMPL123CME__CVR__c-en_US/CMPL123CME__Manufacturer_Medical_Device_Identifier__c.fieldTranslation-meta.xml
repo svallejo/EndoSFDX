@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Manufacturer’s Medical Device Identifier --></help>
+        <label><!-- Manufacturer’s Medical Device Identifier --></label>
+        <name>CMPL123CME__Manufacturer_Medical_Device_Identifier__c</name>
+    </CustomFieldTranslation>

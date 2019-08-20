@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Name of Health Care Facility (if applic) --></help>
+        <label><!-- Name of Health Care Facility (if applic) --></label>
+        <name>CMPL123CME__Name_of_Health_Care_Facility__c</name>
+    </CustomFieldTranslation>

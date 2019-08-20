@@ -1,0 +1,35 @@
+/*
+	Custom styles to overwrite BootStrap applied to ui:inputDateTime 
+*/
+
+h2.monthYear {
+	margin-top: 0px;
+}
+
+/*
+	Custom styles to overwrite BootStrap styles applied to DataTable
+*/
+
+.dataTables_filter label {
+	font-weight: normal;
+}	
+.dataTables_length label {
+	font-weight: normal;
+}
+
+.dataTables_filter [input[type='search']] {
+	display: inline-block;
+	width: auto;
+	font-weight: normal;
+}
+
+.dataTables_length select  {
+	display: inline-block;
+	width: auto;
+	font-weight: normal;
+}
+	
+	
+.dataTables_wrapper .dataTables_paginate .paginate_button, .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+	font-size: 9pt;
+}

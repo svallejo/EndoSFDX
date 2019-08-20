@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Tell what naarative type you are providing, you can select both if you are providing both narratives --></help>
+        <label><!-- Narrative Type --></label>
+        <name>CMPL123CME__Narrative_Type__c</name>
+        <picklistValues>
+            <masterLabel>Additional Manufacturer Narrative</masterLabel>
+            <translation><!-- Additional Manufacturer Narrative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corrected Data</masterLabel>
+            <translation><!-- Corrected Data --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

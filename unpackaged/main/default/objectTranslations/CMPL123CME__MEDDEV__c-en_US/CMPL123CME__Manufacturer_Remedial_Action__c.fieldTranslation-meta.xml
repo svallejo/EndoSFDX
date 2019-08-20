@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Remedial action/corrective action/preventive action/Field Safety Corrective Action --></help>
+        <label><!-- RA/CA/PA/FSCA --></label>
+        <name>CMPL123CME__Manufacturer_Remedial_Action__c</name>
+    </CustomFieldTranslation>

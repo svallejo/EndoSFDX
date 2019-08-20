@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <layouts>
+        <layout>CVR Layout</layout>
+        <sections>
+            <label><!-- A. REPORTER INFORMATION --></label>
+            <section>A. REPORTER INFORMATION</section>
+        </sections>
+        <sections>
+            <label><!-- B. INCIDENT INFORMATION --></label>
+            <section>B. INCIDENT INFORMATION</section>
+        </sections>
+        <sections>
+            <label><!-- C. MEDICAL DEVICE INFORMATION --></label>
+            <section>C. MEDICAL DEVICE INFORMATION</section>
+        </sections>
+        <sections>
+            <label><!-- D. COMPLAINANT INFORMATION --></label>
+            <section>D. COMPLAINANT INFORMATION</section>
+        </sections>
+        <sections>
+            <label><!-- E. INVESTIGATION INFORMATION --></label>
+            <section>E. INVESTIGATION INFORMATION</section>
+        </sections>
+    </layouts>
+    <webLinks>
+        <label><!-- Print --></label>
+        <name>CMPL123CME__Print</name>
+    </webLinks>
+</CustomObjectTranslation>

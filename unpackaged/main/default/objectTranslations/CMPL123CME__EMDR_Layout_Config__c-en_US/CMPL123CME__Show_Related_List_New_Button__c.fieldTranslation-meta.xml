@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Uncheck to hide the Related List New Button --></help>
+        <label><!-- Show Related List New Button --></label>
+        <name>CMPL123CME__Show_Related_List_New_Button__c</name>
+    </CustomFieldTranslation>

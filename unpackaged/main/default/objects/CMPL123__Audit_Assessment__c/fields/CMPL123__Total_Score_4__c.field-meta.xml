@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123__Total_Score_4__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( CMPL123__Question31_Text__c) ,0 , CMPL123__Question_31_Score__c ) +
+IF( ISBLANK( CMPL123__Question32_Text__c) ,0 , CMPL123__Question_32_Score__c ) +
+IF( ISBLANK( CMPL123__Question33_Text__c) ,0 , CMPL123__Question_33_Score__c ) +
+IF( ISBLANK( CMPL123__Question34_Text__c) ,0 , CMPL123__Question_34_Score__c ) +
+IF( ISBLANK( CMPL123__Question35_Text__c) ,0 , CMPL123__Question_35_Score__c ) +
+IF( ISBLANK( CMPL123__Question36_Text__c) ,0 , CMPL123__Question_36_Score__c ) +
+IF( ISBLANK( CMPL123__Question37_Text__c) ,0 , CMPL123__Question_37_Score__c ) +
+IF( ISBLANK( CMPL123__Question38_Text__c) ,0 , CMPL123__Question_38_Score__c ) +
+IF( ISBLANK( CMPL123__Question39_Text__c) ,0 , CMPL123__Question_39_Score__c ) +
+IF( ISBLANK( CMPL123__Question40_Text__c) ,0 , CMPL123__Question_40_Score__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Score 4</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </CustomField>

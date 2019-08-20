@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Investigation_not_completed</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED( CMPL123CME__CMPL123_WF_Action__c ) &amp;&amp; CMPL123CME__CMPL123_WF_Action__c = "Close Complaint" &amp;&amp; ISPICKVAL( Investigation_Status__c , "")</errorConditionFormula>
+        <errorMessage>Please fill Investigation Status field</errorMessage>
+    </ValidationRule>

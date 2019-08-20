@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Related Quality Event --></help>
+        <label><!-- Related Quality Event --></label>
+        <name>SPARTADMS__Related_Quality_Event__c</name>
+        <picklistValues>
+            <masterLabel>CAPA</masterLabel>
+            <translation><!-- CAPA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change Control</masterLabel>
+            <translation><!-- Change Control --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deviation</masterLabel>
+            <translation><!-- Deviation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Investigation</masterLabel>
+            <translation><!-- Investigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Conformance</masterLabel>
+            <translation><!-- Non Conformance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OOS</masterLabel>
+            <translation><!-- OOS --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- No (Attach Code to Explain why not) or Provide code --></help>
+        <label><!-- Device Provide Code --></label>
+        <name>CMPL123CME__Device_Provide_Code__c</name>
+    </CustomFieldTranslation>

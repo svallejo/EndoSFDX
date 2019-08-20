@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Document Status --></help>
+        <label><!-- Document Status --></label>
+        <name>SPARTADMS__Document_Status__c</name>
+        <picklistValues>
+            <masterLabel>APPROVED</masterLabel>
+            <translation><!-- APPROVED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DRAFT</masterLabel>
+            <translation><!-- DRAFT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EFFECTIVE</masterLabel>
+            <translation><!-- EFFECTIVE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OBSOLETE</masterLabel>
+            <translation><!-- OBSOLETE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>REVIEWED</masterLabel>
+            <translation><!-- REVIEWED --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__BOX_Previewer_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>BOX Previewer Id</description>
+        <externalId>false</externalId>
+        <inlineHelpText>BOX Previewer Id</inlineHelpText>
+        <label>BOX Previewer Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

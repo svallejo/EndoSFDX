@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Population at Greatest Risk --></help>
+        <label><!-- Population at Greatest Risk --></label>
+        <name>CMPL123CME__Population_at_Greatest_Risk_Reversible__c</name>
+        <picklistValues>
+            <masterLabel>Every Time</masterLabel>
+            <translation><!-- Every Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Likely that Use will Cause Any AE</masterLabel>
+            <translation><!-- Not Likely that Use will Cause Any AE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reasonable Prob. that Use will Cause</masterLabel>
+            <translation><!-- Reasonable Prob. that Use will Cause --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remote Probability that Use will Cause</masterLabel>
+            <translation><!-- Remote Probability that Use will Cause --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Mfr/Sponsor aware of other similar events? ( number or rate) --></help>
+        <label><!-- Mfr/Sponsor aware of other similar event --></label>
+        <name>CMPL123CME__Mfr_Sponsor_aware_of_other_similar_event__c</name>
+    </CustomFieldTranslation>

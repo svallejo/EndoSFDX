@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Select Parent Step (if applicable) --></help>
+        <label><!-- Parent Step --></label>
+        <name>CMPL123__Parent_Step__c</name>
+        <relationshipLabel><!-- Workflow Steps --></relationshipLabel>
+    </CustomFieldTranslation>

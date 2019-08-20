@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__MFR_Report_Ref__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(OR(ISNULL(CMPL123CME__Mfr_Report_Number__c),ISBLANK(CMPL123CME__Mfr_Report_Number__c)),'',CMPL123CME__Mfr_Report_Number__c &amp; "-" &amp; IF( OR(RecordType.Name = 'Initial',CMPL123CME__Follow_up_No__c == 'NA'), '00', IF(LEN(CMPL123CME__Follow_up_No__c) &lt; 2,'0'&amp;CMPL123CME__Follow_up_No__c,CMPL123CME__Follow_up_No__c) ))</formula>
+        <label>MFR Report Ref #</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

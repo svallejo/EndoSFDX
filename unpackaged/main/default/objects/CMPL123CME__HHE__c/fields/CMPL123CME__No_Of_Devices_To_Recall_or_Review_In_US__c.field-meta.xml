@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__No_Of_Devices_To_Recall_or_Review_In_US__c</fullName>
+        <deprecated>false</deprecated>
+        <description>No. Of Devices To Recall or Review In US</description>
+        <externalId>false</externalId>
+        <inlineHelpText>No. Of Devices To Recall or Review In US</inlineHelpText>
+        <label>No. Of Devices To Recall or Review In US</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </CustomField>

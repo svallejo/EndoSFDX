@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>SPARTADMS__Obsolete</fullName>
+        <availability>online</availability>
+        <description>To process the corporate document as obsolete</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Obsolete</masterLabel>
+        <openType>replace</openType>
+        <page>SPARTADMS__DMSDocObsolete</page>
+        <protected>false</protected>
+    </WebLink>

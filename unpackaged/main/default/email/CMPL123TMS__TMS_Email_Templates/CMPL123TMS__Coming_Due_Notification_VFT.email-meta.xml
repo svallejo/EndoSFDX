@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>41.0</apiVersion>
+    <available>true</available>
+    <description>Coming Due Notification using visual-force templates</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Coming Due Notification</name>
+    <packageVersions>
+        <majorNumber>2</majorNumber>
+        <minorNumber>36</minorNumber>
+        <namespace>CMPL123</namespace>
+    </packageVersions>
+    <style>none</style>
+    <type>visualforce</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

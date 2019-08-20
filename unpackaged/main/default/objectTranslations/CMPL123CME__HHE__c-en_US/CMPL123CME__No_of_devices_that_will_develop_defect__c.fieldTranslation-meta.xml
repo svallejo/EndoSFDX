@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Firm’s Estimate of Number of Devices that will Develop the Defect and/or Fail : --></help>
+        <label><!-- Defective Devices in Affected Lots --></label>
+        <name>CMPL123CME__No_of_devices_that_will_develop_defect__c</name>
+    </CustomFieldTranslation>

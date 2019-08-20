@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Related Training Record --></label>
+        <name>CMPL123TMS__Related_Training_Record__c</name>
+        <relationshipLabel><!-- Quiz Audit Histories --></relationshipLabel>
+    </CustomFieldTranslation>

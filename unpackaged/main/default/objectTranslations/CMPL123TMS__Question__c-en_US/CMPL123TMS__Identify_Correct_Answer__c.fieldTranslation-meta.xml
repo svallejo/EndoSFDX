@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Identify Correct Answer --></help>
+        <label><!-- Identify Correct Answer --></label>
+        <name>CMPL123TMS__Identify_Correct_Answer__c</name>
+        <picklistValues>
+            <masterLabel>Answer1</masterLabel>
+            <translation><!-- Answer1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Answer2</masterLabel>
+            <translation><!-- Answer2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Answer3</masterLabel>
+            <translation><!-- Answer3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Answer4</masterLabel>
+            <translation><!-- Answer4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Answer5</masterLabel>
+            <translation><!-- Answer5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Answer6</masterLabel>
+            <translation><!-- Answer6 --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

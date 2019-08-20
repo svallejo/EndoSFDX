@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>SPARTADMS__Dashboard</defaultLandingTab>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>DMS</label>
+    <tabs>SPARTADMS__Setup</tabs>
+    <tabs>SPARTADMS__DMS_Group__c</tabs>
+    <tabs>SPARTADMS__Corporate_Document__c</tabs>
+    <tabs>SPARTADMS__Dashboard</tabs>
+    <tabs>KnownAlias__c</tabs>
+    <tabs>POC__c</tabs>
+</CustomApplication>

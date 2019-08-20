@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>Effect_Check_Required_is_No</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED( CMPL123_WF_Action__c ) &amp;&amp; CMPL123_WF_Action__c =="Verify Effectiveness - CAPA Action Plan" &amp;&amp; ISPICKVAL( Effectiveness_Check_Required__c,"No")</errorConditionFormula>
+        <errorMessage>Cannot perform Verify Effectiveness - CAPA Action Plan action while Effectiveness Check Required? field is set to No. Please change it to Yes and perform action again.</errorMessage>
+    </ValidationRule>
