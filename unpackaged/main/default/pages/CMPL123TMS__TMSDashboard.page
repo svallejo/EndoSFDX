@@ -1,0 +1,13 @@
+<apex:page >
+    
+   <script>
+       window.onload = function(){loadTMSApp()};
+       
+       function loadTMSApp(){
+           var domain = "{!JSENCODE($Setup.CMPL123TMS__TMS_App_Settings__c.CMPL123TMS__Lightning_Domain__c)}";
+           window.location.href = 'https://'+domain+'.lightning.force.com/CMPL123TMS/TMS.app';
+       }
+        
+    </script>
+    
+</apex:page>

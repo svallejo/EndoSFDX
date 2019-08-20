@@ -1,0 +1,1612 @@
+<apex:page standardStylesheets="true" showHeader="true" applyBodyTag="false" sideBar="false" 
+controller="SPARTADMS.DMSConfigController">
+   <html ng-app="DMSSetup">
+       <head>
+            <apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Bootstrap/css/bootstrap.min.css')}" />
+            <apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'css/custom.css')}" />
+            <apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'css/extend/DMSSetupConfig.css')}" />
+			<apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Bootstrap/css/spartabootstrap.min.css')}"/>
+            
+            
+		    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Jquery/js/jquery.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Angular-material/js/Angular.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Angular-material/js/Route.js')}"  />
+            <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Angular-material/js/pagination.js')}" />
+            
+            
+            <style type="text/css">
+            
+            	.sparta-btn {
+            		margin: 0px;
+            	}
+            
+            </style>
+            
+            <script>
+             
+		     $(function() {
+		     
+		     
+		     
+				$("h1, h2").removeClass().addClass("main-header");
+       
+				$(".main-header").css({
+			      	fontSize: "18px",
+			      	color: "#222",
+			      	marginTop: "13px",
+			      	marginLeft: "10px"
+			      });
+			      
+				$("#tabContainer > .main-header").remove();
+				
+				$("ul#tabBar > li > a").css({fontSize: "13px"});
+	        });
+             
+             
+               window.onscroll = function() {onScrollHandle()};
+                function onScrollHandle() {
+                    if(document.body.scrollTop < 75){
+                         document.getElementById("progressBar").style.position = 'relative';
+                    }else{
+                        document.getElementById("progressBar").style.position = 'fixed';
+                        document.getElementById("progressBar").style.top = 0;
+                    }
+                  
+                }
+                
+                var disableDMSSetup = {!disableDMSSetup};
+                var app = angular.module('DMSSetup', ["ngRoute", "angularUtils.directives.dirPagination"]);
+                var showScheduledBTN = {!showScheduledBTN};
+                app.config(function($routeProvider) {
+                     $routeProvider.when('/', {
+                       templateUrl:  'Home.html',
+                       controller: 'HomeController'
+                     }).when('/DMSDocumentType', {
+                       templateUrl:  'DMSDocumentType.html',
+                       controller: 'DMSDocumentTypeController'
+                     }).when('/AddDMSDocumentType/:param', {
+                       templateUrl:  'AddDMSDocumentType.html',
+                       controller: 'AddDMSDocumentTypeController'
+                     }).when('/DMSDocumentDepartment', {
+                       templateUrl:  'DMSDocumentDepartment.html',
+                       controller: 'DMSDocumentDepartmentController'
+                     }).when('/ManageAutoNumber', {
+                       templateUrl:  'ManageAutoNumber.html',
+                       controller  : 'ManageAutoNumberController'
+                     }).when('/manageDocLevel', {
+                       templateUrl:  'manageDocLevel.html',
+                       controller  : 'manageDocLevelController'
+                     }).when('/AddDMSDocumentLevel/:param' , {
+                       templateUrl:  'AddDMSDocumentLevel.html',
+                       controller  : 'AddDMSDocumentLevelController'
+                     }).when('/Flexfields' , {
+                       templateUrl:  'Flexfields.html',
+                       controller  : 'FlexfieldsController'
+                     });
+                });
+                
+                app.factory('storeData', function(){
+                    var data = {};
+                    data.setData = function(obj){
+                        data = obj;
+                    }; 
+                    data.getData = function(){
+                       return data;
+                    }; 
+                    return data;
+                });
+                
+                app.factory('storeLevel', function(){
+                    var data = {};
+                    data.setData = function(obj){
+                        data = obj;
+                    }; 
+                    data.getData = function(){
+                       return data;
+                    }; 
+                    return data;
+                    
+                });
+                
+                app.service("remoteCall", function($q, $rootScope){
+                    return  function(remoteAction){
+                        var deferred = $q.defer();
+                        Visualforce.remoting.Manager.invokeAction(remoteAction, function(result, event){
+                        if(event.status){
+                            deferred.resolve(result);
+                            
+                        }else{
+                            deferred.reject(event);
+                        }
+                        
+                        }, {escape:true, timeout:120000});
+                        return deferred.promise;     
+                    }
+                 });
+                 
+                 app.service("remoteParameterCall", function($q, $rootScope){
+                    return  function(remoteAction, obj){
+                        var deferred = $q.defer();
+                        Visualforce.remoting.Manager.invokeAction(remoteAction, obj, function(result, event){
+                        if(event.status){
+                            deferred.resolve(result);
+                            
+                        }else{
+                            deferred.reject(event);
+                        }
+                        
+                        }, {escape:true, timeout:120000});
+                        return deferred.promise;     
+                    }
+                    
+                 });
+                
+                app.controller('DMSSetupController', function($scope, $location, remoteCall) {
+                   $scope.callController = false;
+                   $scope.createDocTypeOnRetry;
+                   $scope.showRetry = false;
+                   $location.path("/");
+                   $scope.disableDMSSetup = disableDMSSetup;
+                   $scope.showScheduledBTN = showScheduledBTN;
+                   $scope.show = false;
+                   $scope.dmsSetupStatus = "";
+                   $scope.dmsReconcileStatus = '';
+                   $scope.showSuccessMsg = false;
+                   
+                   $scope.showLoading = function(res){
+                       $scope.show = res;
+                   };
+                   
+                   $scope.diabledLink =  function(val){
+                       $scope.disable = val;
+                   };
+                   
+                   $scope.showStatus = function(result){
+                      $scope.statusMessage = result;
+                      $scope.showRetry = false;
+                      var modal = document.getElementById('myModal');
+                      modal.style.display = "block";
+                   };
+                   
+                   $scope.showStatus = function(result,callMethod){   
+                      $scope.statusMessage = result;    
+                      $scope.showRetry = true;    
+                      $scope.createDocTypeOnRetry = callMethod;   
+                      var modal = document.getElementById('myModal');   
+                      modal.style.display = "block";    
+                   };   
+                   $scope.createDocType = function() {   
+                       $scope.createDocTypeOnRetry();   
+                       var modal = document.getElementById('myModal');    
+                       modal.style.display = "none";          
+                   };
+                   $scope.showSuccessMessage = function(show, result) {
+                       $scope.statusMessage = result;
+                       $scope.showSuccessMsg = show;
+                       if(show){
+                           setTimeout(function(){
+                                $scope.showSuccessMsg = false;
+                                $scope.$apply();
+                           },3000);
+                       }
+                   };
+
+					$scope.setPageTitle = function(pageTitle) {
+						$("#pageTitle").text(pageTitle);
+					};
+					
+					$scope.setPageTitle("Setup");
+
+                   $scope.closeModal = function(){
+                        var modal = document.getElementById('myModal');
+                        modal.style.display = "none";
+                   };
+                   
+                   $scope.callDMSSetup = function(){
+                         $scope.callController = true;
+                         $scope.showLoading(true);
+                         remoteCall('{!$RemoteAction.DMSConfigController.startDMSSetup}').then(function(result){
+                              $scope.showLoading(false);
+                              if(result != null && result == 'NoDMSAdmin'){
+                                 $scope.dmsSetupStatus = '{!$Label.DMS_NO_ADMIN_FOUND}';
+                              }
+                              else{
+                                 $scope.dmsSetupStatus = '{!$Label.DMS_SETUP_COMPLETED_SUCCESSFULLY}';
+                                 $scope.disableDMSSetup = true;
+                              }
+                              $scope.callController = false;
+                              
+                         }, function(result){
+                             $scope.showStatus(result.message);
+                             $scope.showLoading(false);
+                             $scope.callController = false;
+                         });
+                   };
+               
+                   $scope.reconcileUser = function(){
+                           $scope.diabledLink(true);
+                           $scope.dmsReconcileStatus = '';
+                           $scope.callController = true;
+                           $scope.showLoading(true);
+                           remoteCall('{!$RemoteAction.DMSConfigController.reconcileUser}').then(function(result){
+                                $scope.showLoading(false);
+                                if(result != null && result == 'NoDMSAdmin'){
+                                    $scope.dmsReconcileStatus = '{!$Label.DMS_NO_ADMIN_FOUND}';
+                                }
+                                else{
+                                    $scope.dmsReconcileStatus = '{!$Label.DMS_RECONCILED_SUCCESSFULLY}';
+                                }
+                                 $scope.diabledLink(false);
+                                 $scope.callController = false;
+                           }, function(result){
+                                $scope.showStatus(result.message);
+                                $scope.showLoading(false);
+                                $scope.diabledLink(false);
+                                $scope.callController = false;
+                           });
+                     };
+                     
+                     $scope.scheduleProcess = function(){
+                          $scope.callController = true;
+                          $scope.showLoading(true);
+                          $scope.diabledLink(true);
+                          remoteCall('{!$RemoteAction.DMSConfigController.scheduleBackgroundJobs}').then(function(result){
+                                $scope.callController = false;
+                                $scope.showLoading(false);
+                                $scope.showScheduledBTN  = true;
+                                $scope.diabledLink(false);
+                              
+                           }, function(result){
+                                $scope.showStatus(result.message);
+                                $scope.showLoading(false);
+                                $scope.diabledLink(false);
+                                $scope.callController = false;
+                           });
+                     };
+                  
+                });
+                
+                app.controller('HomeController', function($scope){
+					$scope.setPageTitle("Setup");                
+                });
+              
+                app.controller('DMSDocumentTypeController', function($scope, $location, remoteCall, remoteParameterCall, storeData, storeLevel){
+                     $scope.showSuccessMessage(false, "");
+                     $scope.callController = true;
+                     $scope.showLoading(true);
+                     $scope.diabledLink(true);
+                     $scope.currentIndex = '';    
+                     $scope.isRecordType = false;
+                     $scope.showRetry = false;
+                     remoteCall('{!$RemoteAction.DMSConfigController.manageDocType}').then(function(result){
+                        $scope.docType = JSON.parse(htmlDecode(result));
+                        storeLevel.setData($scope.docType);
+                        $scope.totalItems = $scope.docType.length;
+                        $scope.numPerPage = 10;
+                        $scope.predicate = 'createdDate';  
+                        $scope.reverse = true;  
+                        $scope.currentPage = 1;  
+                        $scope.showLoading(false);
+                        $scope.callController = false;
+                        $scope.diabledLink(false);
+						$scope.setPageTitle("{!$Label.DMS_DOCUMENT_TYPE}");                
+                     }, function(result){
+                          $scope.showStatus(result.message);
+                          $scope.showLoading(false);
+                          $scope.callController = false;
+                          $scope.diabledLink(false);
+                     });
+
+                     $scope.editDocType = function(index){
+                         var obj = $scope.docType[index];
+                         storeData.setData(obj);
+                         $location.path("/AddDMSDocumentType/edit");
+                         
+                     };
+
+                     $scope.manageDocTypeStatus = function(index){
+                         var modal = document.getElementById('deactivateDocType');
+                         modal.style.display = "block";
+                         $scope.currentIndex = index;
+                     };
+  
+                     $scope.confirmYes = function(val){
+                        var obj  = $scope.docType[$scope.currentIndex];
+                          if(val == "Ok"){
+                              $scope.saveDocType(obj);
+                          }else{
+                             $scope.closePopUpDocType();
+                          }
+                      };
+  
+                     $scope.closePopUpDocType = function(){  
+                          var obj  = $scope.docType[$scope.currentIndex];
+                          obj.isActive = !obj.isActive;                                        
+                          var modal = document.getElementById('deactivateDocType');
+                          modal.style.display = "none";
+                    };
+                          
+                    $scope.saveDocType = function(obj){
+                          var modal = document.getElementById('deactivateDocType');
+                          modal.style.display = "none";
+                          $scope.callController = true;
+                          $scope.showSuccessMessage(false, "");
+                          $scope.showLoading(true);
+                          $scope.diabledLink(true);
+                          remoteParameterCall('{!$RemoteAction.DMSConfigController.controlDocTypesAvailablity}',
+                            JSON.stringify(obj)).then(function(result){
+                              $scope.showLoading(false);
+                              $scope.callController = false;
+                              $scope.diabledLink(false);
+                              $scope.showSuccessMessage(true, "{!$Label.DMS_DOCUMENTTYPE_STATUS_UPDATED_SUCCESSFULLY}");
+                         }, function(result){
+                              $scope.showLoading(false);     
+                              $scope.callController = false;
+                              $scope.showStatus(result.message);
+                              $scope.diabledLink(false);
+                         });
+                     }; 
+                    
+                    $scope.htmlDecodeTable = function(val){        
+                            var e = document.createElement('div');      
+                            e.innerHTML = String(val).replace(/</g, '&lt;').replace(/>/g, '&gt;');       
+                            return e.childNodes.length === 0 ? '' : e.childNodes[0].nodeValue;      
+                     };
+
+                    $scope.order = function (predicate) {  
+                           $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;  
+                           $scope.predicate = predicate;  
+                     }; 
+                     
+                     $scope.paginate = function (value) {  
+                           var begin, end, index;  
+                           begin = ($scope.currentPage - 1) * $scope.numPerPage;  
+                           end = begin + $scope.numPerPage;  
+                           index = $scope.obj.creditCard.indexOf(value);  
+                           return (begin <= index && index < end);  
+                     };
+                });
+                
+                app.controller('AddDMSDocumentTypeController', function($scope, $timeout, remoteParameterCall, storeData, storeLevel, $routeParams, $filter){
+                    var docTypeList = [];
+                    $scope.filterDocType = [];
+                    var docTypeList = storeLevel.getData();
+                    $scope.param = $routeParams.param;
+                    if($scope.param == 'edit'){
+						$scope.setPageTitle("{!$Label.DMS_EDIT_DOCUMENT_TYPE}");                
+                        $scope.documentTypeObj = storeData.getData();
+                    }else{
+						$scope.setPageTitle("{!$Label.DMS_ADD_DOCUMENT_TYPE}");                
+                        $scope.documentTypeObj = {
+                                                  "docTypeEffectiveDays": 0,
+                                                  "periodicReviewCycle": 0,
+                                                  "periodicReviewNotification": 0,
+                                                  "docRetetionPeriod": 0
+                                                };
+                    }
+                    $scope.callController = false;
+                    $scope.showSuccessMessage(false, "");
+                    
+                    $scope.createDocType = function(reqForm){
+                        $scope.filterDocType = [];
+                        $scope.diabledLink(true);
+                        $scope.docDuplicateValidation = "";
+                        if($scope.param != 'edit'){
+                              $scope.filterDocType = $filter('filter')(docTypeList, {docTypeName:$scope.documentTypeObj.docTypeName}, true);
+                        }
+                        $scope.showSuccessMessage(false, "");
+                        if($scope.filterDocType.length == 0){
+                            $scope.showLoading(true);
+                            $scope.callController = true;
+                            remoteParameterCall('{!$RemoteAction.DMSConfigController.createDocumentTypes}',
+                                JSON.stringify($scope.documentTypeObj)).then(function(result){
+                                    
+                                    if(result.errorMessage != undefined && result.errorMessage != null){
+                                        val = htmlDecode(result.errorMessage);    
+                                        $scope.showStatus(val, $scope.createDocType);    
+                                    } else {    
+                                         $scope.documentTypeObj.docTypeId = result.documentTypeId;   
+                                         $scope.showSuccessMessage(true, $scope.param == 'edit'    
+                                                  ? "{!$Label.DMS_SUCCESSFULLY_UPDATED}"    
+                                                  : "{!$Label.DMS_SUCCESSFULLY_INSERTED}");   
+                                         if (reqForm != undefined) {
+                                             reqForm.$setPristine();
+                                             reqForm.$setUntouched();
+                                         }
+                                    }
+                                    $scope.documentTypeObj = angular.copy($scope.documentTypeObj);
+                                    var closeLabel = '{!JSENCODE($Label.DMS_CLOSE)}';
+                                    closeLabel =  closeLabel.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+                                    document.getElementById("docTypeCancel").innerHTML = closeLabel;
+                                    $scope.showLoading(false);
+                                    $scope.callController = false;
+                                    $scope.diabledLink(false);
+                                    $scope.param = 'edit';
+                            },function(result){
+                                $scope.showStatus(result.message);
+                                $scope.showLoading(false);
+                                $scope.diabledLink(false);
+                                $scope.callController = false;
+                            });
+                        }else{
+                            var customLabel = "{!$Label.DMS_DOC_TYPE_DUPLICATE_ERROR}";
+                            if(customLabel.indexOf("{0}") > -1){
+                                var validationLabel = customLabel.split("{0}");
+                                $scope.docDuplicateValidation = validationLabel[0]+$scope.documentTypeObj.docTypeName+validationLabel[1];
+                            }else{
+                                 $scope.docDuplicateValidation = customLabel;
+                            }
+                        }
+                    };
+                    
+                    $scope.resetDocField = function(){
+                         $scope.filterDocType = $scope.filterDocType.length  > 0 ?  [] : $scope.filterDocType;
+                    };
+                });
+                
+                app.controller('DMSDocumentDepartmentController',
+                     function($scope, remoteCall, storeLevel, $filter, remoteParameterCall){
+                    $scope.documentList = [];
+                    $scope.newAdded = [];
+                    $scope.docStatus = "";
+                    $scope.DMSDepartment = '';
+                    $scope.callController = true;
+                    $scope.showLoading(true);
+                    $scope.diabledLink(true);
+                    $scope.index = 0;
+                    $scope.isActiveCount = 0;
+                    remoteCall('{!$RemoteAction.DMSConfigController.getAllDocumentDepartments}').then(function(result){
+                        $scope.documentList = result;
+                        storeLevel.setData(result);
+                        $scope.showLoading(false);
+                        $scope.callController = false;
+                        $scope.diabledLink(false);
+                     }, function(result){
+                          $scope.showStatus(result.message);
+                          $scope.showLoading(false);
+                          $scope.callController = false;
+                          $scope.diabledLink(false);
+                    });
+                    
+                    $scope.addDocumentDepartment = function(){
+                        $scope.docStatus = "";
+                        if($scope.DMSDepartment.trim().length > 0){
+                            var filterList = $filter('filter')($scope.documentList, {deptLabel: $scope.DMSDepartment.trim()},true);
+                            if(filterList.length == 0){
+                                var obj = new Object();
+                                obj.deptLabel = $scope.DMSDepartment.trim();
+                                obj.deptName = $scope.DMSDepartment.trim();
+                                obj.isActive = true;
+                                obj.status = 'pending';
+                                $scope.documentList.unshift(obj);
+                                $scope.DMSDepartment = "";
+                                $scope.newAdded = $filter('filter')($scope.documentList, {status:'pending'});
+                            }else{
+                                $scope.docStatus = "{!$Label.DMS_DOCUMENT_DEPARTMENT_ALREDY_ADDED}";
+                            }
+                        }
+                    };
+                    
+                    $scope.removeDMSDocument = function(index){
+                         $scope.documentList.splice(index, 1);
+                         $scope.newAdded = $filter('filter')($scope.documentList, {status:'pending'});
+                    };
+                    
+                    $scope.addDocumentDepartmentDatabase = function(){
+                        $scope.docStatus = "";
+                        if($scope.newAdded.length > 0){
+                            $scope.showSuccessMessage(false, "");
+                            $scope.showLoading(true);
+                            $scope.callController = true;
+                            $scope.diabledLink(true);
+                            remoteParameterCall('{!$RemoteAction.DMSConfigController.createDocumentDepartments}',
+                                JSON.stringify($scope.newAdded)).then(function(result){
+                                $scope.documentList = result;
+                                for(var key = 0; key<$scope.newAdded.length; key++){
+                                    delete $scope.newAdded[key].status;
+                                    $scope.newAdded =[];
+                                }
+                                $scope.showSuccessMessage(true, "{!$Label.DMS_DOC_TYPE_INSERT}");
+                                $scope.callController = false;
+                                $scope.showLoading(false);
+                                $scope.diabledLink(false);
+                            }, function(result){
+                                $scope.callController = false;
+                                $scope.showStatus(result.message);
+                                $scope.showLoading(false);
+                                $scope.diabledLink(false);
+                            });
+                       }
+                    
+                    };
+                    
+                    $scope.canceDocumentDepartment = function(){
+                       $scope.docStatus = "";
+                       if($scope.newAdded.length > 0){
+                           $scope.documentList.splice(0, $scope.newAdded.length);
+                           $scope.newAdded = $filter('filter')($scope.documentList, {status:'pending'});
+                       }
+                    };
+                    
+                    $scope.manageDocDept = function(index){
+                            var modal = document.getElementById('deactivateDocDept');
+                            modal.style.display = "block";
+                            $scope.currentIndex = index;
+                    };
+                      
+                    $scope.confirmYes = function(val){
+                        var obj  = $scope.documentList[$scope.currentIndex];
+                        $scope.isActiveCount = 0;
+                        for(var i = 0; i <  $scope.documentList.length; i++){
+                            if($scope.documentList[i].isActive){
+                                $scope.isActiveCount++;
+                            }
+                        }
+                        if(val == "Ok" && !$scope.documentList[$scope.currentIndex].isActive && $scope.isActiveCount == 0){
+                            $scope.closePopUpDocDept();
+                            $scope.showStatus('{!$Label.DMS_CANNOT_DEACTIVATE_ONLY_DEPARTMENT}');
+                        }
+                        else if(val == "Ok"){
+                            $scope.saveDocDept(obj);
+                        }else{
+                           $scope.closePopUpDocDept(); 
+                        }
+                    };
+                    
+                     $scope.closePopUpDocDept = function(){  
+                          var obj  = $scope.documentList[$scope.currentIndex];
+                          obj.isActive = !obj.isActive;                                         
+                          var modal = document.getElementById('deactivateDocDept');
+                          modal.style.display = "none"; 
+                    };
+
+                    $scope.saveDocDept = function(obj){ 
+                           var modal = document.getElementById('deactivateDocDept');
+                           modal.style.display = "none";
+                           $scope.callController = true;
+                           $scope.showSuccessMessage(false, "");
+                           $scope.showLoading(true);
+                           $scope.diabledLink(true);
+                           remoteParameterCall('{!$RemoteAction.DMSConfigController.activateOrDeactivateDocDeptPickList}',
+                                JSON.stringify(obj)).then(function(result){
+                                $scope.showLoading(false);
+                                $scope.callController = false;
+                                $scope.diabledLink(false);
+                                $scope.showSuccessMessage(true, "{!$Label.DMS_DOCUMENT_DEPARTMENT_STATUS_UPDATED_SUCCESSFULLY}");
+                           }, function(result){
+                                $scope.showLoading(false);
+                                $scope.callController = false;
+                                $scope.showStatus(result.message);
+                                $scope.diabledLink(false);
+                           });
+                     };
+
+                     $scope.htmlDecodeTable = function(val){     
+                            var e = document.createElement('div');      
+                            e.innerHTML = String(val).replace(/</g, '&lt;').replace(/>/g, '&gt;');      
+                            return e.childNodes.length === 0 ? '' : e.childNodes[0].nodeValue;      
+                      };
+					$scope.setPageTitle("{!$Label.DMS_DOCUMENTS_DEPARTMENT}");
+                 });
+
+                 app.controller('ManageAutoNumberController', function($scope, remoteParameterCall, remoteCall){
+                      var cancelLabel = '{!JSENCODE($Label.DMS_CANCEL)}';
+                      cancelLabel =  cancelLabel.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+                      document.getElementById("mngAutoNo").innerHTML = cancelLabel;
+                      $scope.autoNoObj = {};
+                      $scope.showLoading(true);
+                      $scope.callController = true;
+                      $scope.autoNoTypeExist = false;
+                      $scope.autoNoObjCopy = {}
+                      $scope.diabledLink(true);
+                      remoteCall('{!$RemoteAction.DMSConfigController.getDocumentNumberFormatPosition}').then(function(result){
+                           $scope.autoNoObj = JSON.parse(htmlDecode(result));
+                           if($scope.autoNoObj.documentNumberPosition == null){
+                               $scope.autoNoObj.documentNumberPosition = "1";
+                           }
+                           $scope.autoNoObjCopy = angular.copy($scope.autoNoObj);
+                           $scope.autoNoTypeExist = $scope.autoNoObj.documentNumberType != null 
+                               ? true 
+                               : false;
+                           $scope.showLoading(false);
+                           $scope.diabledLink(false);
+                           $scope.callController = false;
+                      }, function(result){
+                           $scope.showLoading(false);
+                           $scope.diabledLink(false);
+                           $scope.callController = false;
+                           $scope.showStatus(result.message);
+                      });
+                      
+                      $scope.saveDocNo = function(){
+                           $scope.closePopUp();
+                           $scope.callController = true;
+                           $scope.showSuccessMessage(false, "");
+                           $scope.showLoading(true);
+                           $scope.diabledLink(true);
+                           remoteParameterCall('{!$RemoteAction.DMSConfigController.saveDocumentNumberPosition}',
+                               JSON.stringify($scope.autoNoObj)).then(function(result){
+                                $scope.showLoading(false);
+                                $scope.autoNoObjCopy = angular.copy($scope.autoNoObj);
+                                $scope.autoNoTypeExist = true;
+                                $scope.callController = false;
+                                $scope.diabledLink(false);
+                                var closeLabel = '{!JSENCODE($Label.DMS_CLOSE)}';
+                                closeLabel =  closeLabel.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+                                document.getElementById("mngAutoNo").innerHTML = closeLabel;
+                                $scope.showSuccessMessage(true, "{!$Label.DMS_SEQUENCE_NUMBER_CONFIG_STATUS}");
+                           }, function(result){
+                                $scope.showLoading(false);
+                                $scope.callController = false;
+                                $scope.showStatus(result.message);
+                                $scope.diabledLink(false);
+                           });
+                       };
+                      
+                      $scope.saveAutoNoConfig = function(){
+                           if($scope.autoNoObjCopy.documentNumberType == null || $scope.autoNoObjCopy.documentNumberType == undefined || $scope.autoNoObjCopy.documentNumberType.length == 0){
+                                var modal = document.getElementById('confirmModal');
+                                modal.style.display = "block";
+                          }else{
+                                $scope.saveDocNo();
+                          }
+                      };
+                      
+                      $scope.closePopUp = function(){
+                            var modal = document.getElementById('confirmModal');
+                            modal.style.display = "none";
+                      
+                      };
+                      
+                      $scope.confirmOk = function(val){
+                          if(val == "Ok"){
+                              $scope.saveDocNo();
+                          }else{
+                             $scope.autoNoObj = angular.copy($scope.autoNoObjCopy);
+                             $scope.closePopUp();
+                          }
+                      };
+                 });
+                 
+                 app.controller("manageDocLevelController", 
+                     function($scope, $location, remoteCall, remoteParameterCall, storeData, storeLevel){
+                      $scope.showLoading(true);
+                      $scope.callController = true;
+                      $scope.docLevel = [];
+                      $scope.currentIndex= '';
+                      $scope.diabledLink(true);
+                      remoteCall('{!$RemoteAction.DMSConfigController.getDocumentNumberFormats}').then(function(result){
+                            $scope.docLevel = result;
+                            $scope.callController = false;
+                            storeLevel.setData(result);
+                            $scope.totalItems = $scope.docLevel.length;
+                            $scope.numPerPage = 10;
+                            $scope.predicate = 'name';  
+                            $scope.reverse = true;  
+                            $scope.currentPage = 1;  
+                            $scope.showLoading(false);
+                            $scope.diabledLink(false);
+                      }, function(result){
+                           $scope.showLoading(false);
+                           $scope.showStatus(result.message);
+                           $scope.callController = false;
+                           $scope.diabledLink(false);
+                      });
+                      
+                      $scope.order = function (predicate) {  
+                           $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;  
+                           $scope.predicate = predicate;  
+                      }; 
+                      $scope.deactivate = function(index, status){
+                           var obj = $scope.docLevel[index];
+                             if(status){
+                                $scope.diabledLink(true);
+                                $scope.showLoading(true);
+                                var param = {"recordId":obj.recordId, isActive :obj.isActive};
+                                remoteParameterCall('{!$RemoteAction.DMSConfigController.activateORDeactvateDocNumberFormat}',
+                                     JSON.stringify(param)).then(function(result){
+                                    $scope.showLoading(false);
+                                    $scope.diabledLink(false);
+                                },function(result){
+                                    $scope.showLoading(false);
+                                    $scope.diabledLink(false);
+                                    $scope.showStatus(result.message);
+                                });
+                            }else{
+                                obj.isActive = !obj.isActive;
+                           }
+                      };
+                     
+                     $scope.paginate = function (value) {  
+                           var begin, end, index;  
+                           begin = ($scope.currentPage - 1) * $scope.numPerPage;  
+                           end = begin + $scope.numPerPage;  
+                           index = $scope.obj.creditCard.indexOf(value);  
+                           return (begin <= index && index < end);  
+                      };
+                      
+                      $scope.editDocLevel = function(index){
+                          var obj = $scope.docLevel[index];
+                          storeData.setData(obj);
+                          $location.path("/AddDMSDocumentLevel/edit");
+                      
+                      };
+                      
+                      $scope.manageDocLevelStataus = function(index){
+                            var modal = document.getElementById('deactivateDocFormat');
+                            modal.style.display = "block";
+                            $scope.currentIndex = index;
+                      };
+                      
+                      $scope.confirmOk = function(val){
+                          if(val == 'Ok'){
+                               var modal = document.getElementById('deactivateDocFormat');
+                               modal.style.display = "none";
+                               $scope.deactivate($scope.currentIndex, true);
+                          }else{
+                              $scope.deactivate($scope.currentIndex, false);
+                              var modal = document.getElementById('deactivateDocFormat');
+                              modal.style.display = "none";
+                          }
+                      };
+                      
+                      $scope.closeModal = function(){
+                            $scope.deactivate($scope.currentIndex,false);
+                            var modal = document.getElementById('deactivateDocFormat');
+                            modal.style.display = "none";
+                      };
+					$scope.setPageTitle("{!$Label.DMS_DOCUMENT_NUMBER_FORMAT}");                
+                 });
+                 
+                 app.controller("AddDMSDocumentLevelController", function($scope, $filter, $routeParams, 
+                     remoteCall, storeData, remoteParameterCall, storeLevel){
+                     $scope.filterParentLevel = function(objName,val){
+                        $scope.filterLevelList = [];
+                        if(objName.level != 'Level 1'){
+                            if(objName.level == 'Level 2'){
+                                if(val){
+                                    $scope.filterLevelList = $filter('filter')($scope.levelList, {level: 'Level 1', isActive: val}, true);
+                                 }else{
+                                    $scope.filterLevelList = $filter('filter')($scope.levelList, {level: 'Level 1'}, true);
+                                 }
+                            }
+                            else if(objName.level == 'Level 3'){
+                                 if(val){
+                                    $scope.filterLevelList = $filter('filter')($scope.levelList, {level: 'Level 2', isActive: val}, true);
+                                 }else{
+                                    $scope.filterLevelList = $filter('filter')($scope.levelList, {level: 'Level 2'}, true);
+                                 }
+                            }
+                            else if(objName.level == 'Level 4'){
+                                if(val){
+                                    $scope.filterLevelList = $filter('filter')($scope.levelList, {level: 'Level 3', isActive: val}, true);
+                                 }else{
+                                    $scope.filterLevelList = $filter('filter')($scope.levelList, {level: 'Level 3'}, true);
+                                 }
+                            }
+                        }
+                    };
+                    var reqObj = storeData.getData();
+                    $scope.levelList = storeLevel.getData();
+                    $scope.docLevel = {};
+                    $scope.docLevel.level = 'Level 1';
+                    $scope.param = $routeParams.param;
+                    $scope.filterDocTypeAbbrivation = [];
+                    $scope.callController = false;
+                    $scope.abbrivationMessage = {};
+                    if($scope.param == 'edit'){
+                        $scope.docLevel =  reqObj;
+                        $scope.filterParentLevel($scope.docLevel, '');
+						$scope.setPageTitle("{!$Label.DMS_EDIT_DOCUMENT_NUMBER_FIELD}");                
+                    }
+                    else {
+						$scope.setPageTitle("{!$Label.DMS_ADD_DOCUMENT_NUMBER_FIELD}");                
+                    }
+                    
+                    $scope.filterDocLevel = function(objName){
+                        if(objName.level == 'Level 1'){
+                            objName.parentId = null;
+                            objName.parentName = null;
+                        }else{
+                             $scope.docLevel.parentId = "";
+                        }
+                        $scope.filterParentLevel(objName, true);
+                       
+                    };
+                    
+                    $scope.createDocLevel = function(reqForm){
+                           if($scope.param != 'edit'){
+                                $scope.docLevel.isActive = true;
+                                $scope.filterDocTypeAbbrivation = $filter('filter')($scope.levelList, {abbreviation: $scope.docLevel.abbreviation}, true);
+                           }
+                           $scope.showSuccessMessage(false, "");
+                           if($scope.filterDocTypeAbbrivation.length == 0){
+                               $scope.callController = true;
+                               $scope.diabledLink(true);
+                               $scope.showLoading(true);
+                               remoteParameterCall('{!$RemoteAction.DMSConfigController.saveDocumentNumberFormat}',
+                                    JSON.stringify($scope.docLevel)).then(function(result){
+                                    $scope.showLoading(false);
+                                    $scope.callController = false;
+                                    $scope.showSuccessMessage(true,$scope.param == 'edit' ? "{!$Label.DMS_DOCUMENT_FIELD_UPDATE}" : "{!$Label.DMS_DOCUMENT_FIELD_INSERT}");
+                                    reqForm.$setPristine();
+                                    reqForm.$setUntouched();
+                                    $scope.docLevel = angular.copy(result);
+                                    var closeLabel = '{!JSENCODE($Label.DMS_CLOSE)}';
+                                    closeLabel =  closeLabel.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+                                    document.getElementById("docFormat").innerHTML = closeLabel;
+                                    $scope.param = 'edit';
+                                    $scope.diabledLink(false);
+                                   
+                               }, function(result){
+                                    $scope.callController = false;
+                                    $scope.showLoading(false);
+                                    $scope.diabledLink(false);
+                                    $scope.showStatus(result.message);
+                               });
+                           }else{
+                             
+                             $scope.abbrivationMessage = "{!$Label.DMS_ABBREVIATION_EXIST}";
+                           }
+                     };
+                     
+                     $scope.resetDocFormatAbbr = function(){
+                         if($scope.filterDocTypeAbbrivation.length > 0){
+                             $scope.filterDocTypeAbbrivation = [];
+                         }
+                     };
+                     
+                     $scope.removeParent = function(val){
+                         if(val.length == 0){
+                             delete $scope.docLevel.parentId;
+                         }
+                     };
+                 });
+
+                app.controller("FlexfieldsController", function($scope,remoteCall, remoteParameterCall){
+                      $scope.selectedFields = {};
+                      $scope.callController = true;
+                      $scope.fieldList = [];
+                      $scope.showLoading(true);
+                      remoteCall('{!$RemoteAction.DMSConfigController.getUnmanagedFields}').then(function(result){
+                          $scope.fieldList = result.flexList;
+                          $scope.selectedFields  = result.flexFieldMap;
+                          $scope.callController = false;
+                          $scope.showLoading(false);
+                          $scope.diabledLink(false);
+                      }, function(result){
+                         $scope.callController = false;
+                         $scope.showStatus(result.message);
+                         $scope.showLoading(false);
+                         $scope.diabledLink(false);
+                      });
+                      
+                      $scope.saveFields = function(){ 
+                           $scope.diabledLink(true);
+                           var list = [];
+                           $scope.showLoading(true);
+                           $scope.callController = true;
+                           for(var key in  $scope.selectedFields){
+                               list.push($scope.selectedFields[key]);
+                           }
+                           remoteParameterCall('{!$RemoteAction.DMSConfigController.saveUnmanagedFields}',list.toString()).then(function(result){
+                               $scope.callController = false;
+                               $scope.showLoading(false);
+                               $scope.diabledLink(false);
+                               $scope.showSuccessMessage(true,'{!$Label.DMS_SUCCCESSFULLY}');
+                           }, function(result){
+                                $scope.callController = false;
+                                $scope.diabledLink(false);
+                                $scope.showStatus(result.message);
+                                $scope.showLoading(false);
+                           });
+                      }
+						$scope.setPageTitle("{!$label.DMS_FLEXI_FIELDS_HEADING}");                    
+                 });
+               
+               
+               function htmlDecode(result){
+                   var div = document.createElement("div");
+                   div.innerHTML = result;
+                   return div.textContent;
+               }
+            </script>
+          
+       </head>
+       <body ng-controller="DMSSetupController" ng-cloak=" ">
+          <nav class="navbar" style="margin-bottom:1px;">
+            <div class="container-fluid">
+                <div class="navbar-header" style="margin-top:20px">
+                	<h1 id="pageTitle">Setup</h1>
+               </div>
+            </div>
+        </nav>
+           
+            <div id="myModal" class="modal-custom">
+                <!-- Modal content -->
+                <div class="modal-content" style="width: 50%;">
+                    <div class="container-fluid">
+                        <span ng-click="closeModal()" class="close">x</span>
+                        <p><span  style="font-size:20px;vertical-align:-3px;color:#a94442;" class="glyphicon glyphicon-exclamation-sign"></span> {{statusMessage}}</p>
+                        <div ng-if="showRetry" style="text-align:center;">    
+                            <button class="sparta-btn sparta-btn-default" ng-click="createDocType();" id="docTypeRetry" >   
+                                    {!$Label.DMS_RETRY}   
+                            </button>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert alert-info" ng-show="showSuccessMsg">
+                 <p><span  class="glyphicon glyphicon-ok"></span> {{statusMessage}}</p>
+            </div>
+           
+            <div class="linear_progress" style="position:fixed;z-index:9999;" ng-show="show" id="progressBar">
+                    <div class="indeterminate"></div>
+            </div>
+            <div class="controller" style="margin-top:1.5%;">
+                <div class="ng-view container" style="width:1020px;margin:auto"></div>
+            </div>
+       </body>
+       
+       
+       <script type = "text/ng-template" id ="Home.html">
+           <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">{!$Label.DMS_PERMISSION_SETS}</div>
+                         <div class="panel-body">
+                            <p>
+                                 {!$Label.DMS_SETUP_PERMISSIONSET}
+                            </p>
+                         </div>
+                          <div class="panel-footer">
+                                <a href="/0PS" target="_blank" class="sparta-btn sparta-btn-default">
+                                  {!$Label.DMS_GO}
+                                </a>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-md-6" ng-hide="disableDMSSetup">
+                     <div class="panel panel-default">
+                         <div class="panel-heading">{!$Label.DMS_SETUP}</div>
+                         <div class="panel-body">
+                              <div class="alert alert-info" style="margin-bottom:10px;" ng-show="dmsSetupStatus.length>0">
+                                     <span class="glyphicon glyphicon-info-sign" style="font-size:17px;vertical-align:-3px;"></span>
+                                     {{dmsSetupStatus}}
+                              </div>
+                             <p>
+                               {!$Label.DMS_INSTALL_DMS_SETUP_OPTION}
+                            </p>
+                         </div>
+                          <div class="panel-footer">
+                                <button ng-disabled="disableDMSSetup || callController" ng-click="callDMSSetup();"  class="sparta-btn sparta-btn-default">
+                                  {!$Label.DMS_Go}
+                                </button>
+                          </div>
+                    </div>
+                </div>
+                 <div class="col-md-6" ng-show="disableDMSSetup">
+                    <div class="panel panel-default">
+                         <div class="panel-heading">{!$Label.DMS_DOCUMENT_TYPE}</div>
+                         <div class="panel-body">
+                             <p>
+                                {!$Label.DMS_DOCUMENTS_TYPE_MESSAGE}
+                            </p>
+                         </div>
+                          <div class="panel-footer">
+                                <a href="#DMSDocumentType"  ng-disabled="!disableDMSSetup" class="sparta-btn sparta-btn-default">
+                                    {!$Label.DMS_GO}
+                                </a>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                         <div class="panel-heading">{!$Label.DMS_RECONCILE_USER}</div>
+                         <div class="panel-body">
+                             <div class="alert alert-info" style="margin-bottom:10px;" ng-show="dmsReconcileStatus.length > 0">
+                                 <span class="glyphicon glyphicon-info-sign" style="font-size:20px;vertical-align:-3px;"></span>&nbsp;
+                                     {{dmsReconcileStatus}}
+                             </div>
+                             <p>
+                               {!$Label.DMS_RECONCILE_USER_MESSAGE}
+                            </p>
+                         </div>
+                          <div class="panel-footer">
+                                <button ng-disabled="!disableDMSSetup || callController" ng-click="reconcileUser();" class="sparta-btn sparta-btn-default">
+                                    {!$Label.DMS_GO}
+                                </button>
+                          </div>
+                    </div>
+                </div>
+                 <div class="col-md-6">
+                     <div class="panel panel-default">
+                         <div class="panel-heading">{!$Label.DMS_CUSTOM_SETTING}</div>
+                         <div class="panel-body">
+                             <p>
+                               {!$Label.DMS_CUSTOM_SETTING_MESSAGE}
+                             </p>
+                         </div>
+                          <div class="panel-footer">
+                                <a href="/setup/ui/listCustomSettings.apexp?setupid=CustomSettings" target="_blank"   class="sparta-btn sparta-btn-default">
+                                    {!$Label.DMS_GO}
+                                </a>
+                          </div>
+                    </div>
+                </div>
+                
+            
+             <div class="col-md-6" ng-hide="disableDMSSetup">
+                    <div class="panel panel-default">
+                         <div class="panel-heading">{!$Label.DMS_DOCUMENT_TYPE}</div>
+                         <div class="panel-body">
+                             <p>
+                                {!$Label.DMS_DOCUMENTS_TYPE_MESSAGE}
+                            </p>
+                         </div>
+                          <div class="panel-footer">
+                                <a href="#DMSDocumentType"  ng-disabled="!disableDMSSetup" class="sparta-btn sparta-btn-default">
+                                    {!$Label.DMS_GO}
+                                </a>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-md-6" ng-show="disableDMSSetup">
+                    <div class="panel panel-default">
+                         <div class="panel-heading">{!$Label.DMS_DOCUMENT_NUMBER_FORMAT}</div>
+                         <div class="panel-body">
+                             <p>
+                               {!$Label.DMS_DOCUMENT_NUMBER_FORMAT_MESSAGE}
+                            </p>
+                         </div>
+                          <div class="panel-footer">
+                               <a  href="#manageDocLevel" class="sparta-btn sparta-btn-default">
+                                    {!$Label.DMS_GO}
+                                </a>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                         <div class="panel-heading">{!$Label.DMS_DOCUMENTS_DEPARTMENT}</div>
+                         <div class="panel-body">
+                             <p>
+                                {!$Label.DMS_DOCUMENT_DEPARTMENT_MESSAGE}
+                             </p>
+                         </div>
+                          <div class="panel-footer">
+                                <a href="#DMSDocumentDepartment" class="sparta-btn sparta-btn-default" ng-disabled="!disableDMSSetup">
+                                    {!$Label.DMS_GO}
+                                </a>
+                          </div>
+                    </div>
+                </div>
+               <div class="col-md-6">
+                     <div class="panel panel-default">
+                         <div class="panel-heading">{!$Label.DMS_CONNECTEDAPP}</div>
+                         <div class="panel-body">
+                              <p>
+                                 {!$Label.DMS_CONNECTEDAPP_SETTING_MESSAGE}
+                             </p>
+                         </div>
+                          <div class="panel-footer">
+                                <a target="_blank" href="/app/mgmt/forceconnectedapps/forceAppEdit.apexp"  class="sparta-btn sparta-btn-default">
+                                    {!$Label.DMS_GO}
+                                </a>
+                          </div>
+                    </div>
+                </div>
+                 <div class="col-md-6">
+                    <div class="panel panel-default">
+                         <div class="panel-heading">{!$Label.DMS_BACKGROUND_PROCESS_HEADER}</div>
+                         <div class="panel-body">
+                             <p>
+                                 {{showScheduledBTN ? '{!$Label.DMS_BACKGROUND_PROCESS}' : '{!$Label.DMS_SCHEDULE_BACKGROUND_PROCESS_MESSAGE}'}}
+                            </p>
+                         </div>
+                          <div class="panel-footer">
+                                <button  ng-disabled="!disableDMSSetup || showScheduledBTN || callController" ng-click="scheduleProcess();" class="sparta-btn sparta-btn-default">
+                                    {!$Label.DMS_GO}
+                                </button>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-md-6" ng-hide="disableDMSSetup">
+                    <div class="panel panel-default">
+                         <div class="panel-heading">{!$Label.DMS_DOCUMENT_NUMBER_FORMAT}</div>
+                         <div class="panel-body">
+                             <p>
+                               {!$Label.DMS_DOCUMENT_NUMBER_FORMAT_MESSAGE}
+                            </p>
+                         </div>
+                          <div class="panel-footer">
+                               <a  href="#manageDocLevel" ng-disabled="!disableDMSSetup" class="sparta-btn sparta-btn-default">
+                                    {!$Label.DMS_GO}
+                                </a>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-md-6" ng-show="disableDMSSetup">
+                    <div class="panel panel-default">
+                         <div class="panel-heading">{!$Label.DMS_SETUP}</div>
+                         <div class="panel-body">
+                              <div class="alert alert-info" style="margin-bottom:10px;" ng-show="dmsSetupStatus.length>0">
+                                     <span class="glyphicon glyphicon-info-sign" style="font-size:17px;vertical-align:-3px;"></span>
+                                     {{dmsSetupStatus}}
+                              </div>
+                             <p>
+                               {!$Label.DMS_INSTALL_DMS_SETUP_OPTION}
+                            </p>
+                         </div>
+                          <div class="panel-footer">
+                                <button ng-disabled="disableDMSSetup || callController" ng-click="callDMSSetup();"  class="sparta-btn sparta-btn-default">
+                                  {!$Label.DMS_GO}
+                                </button>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                         <div class="panel-heading">{!$label.DMS_FLEXI_FIELDS_HEADING}</div>
+                         <div class="panel-body">
+                             <p>
+                               {!$label.DMS_FLEXI_FIELDS_BODY}
+                            </p>
+                         </div>
+                          <div class="panel-footer">
+                                <a href="#Flexfields"  ng-disabled="!disableDMSSetup" class="sparta-btn sparta-btn-default">
+                                    {!$Label.DMS_GO}
+                                </a>
+                          </div>
+                    </div>
+                </div>
+             </div>
+        </script>
+        
+       <script type = "text/ng-template" id ="DMSDocumentType.html">
+                <div><h5></h5></div>
+                <div style="text-align:Center;">
+                    <a class="sparta-btn sparta-btn-default" ng-hide="callController" href="#AddDMSDocumentType/new">
+                        {!$Label.DMS_ADD_BUTTON}&nbsp;<span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-xs-push-8" style="margin-top: -32px;">
+                        <input type="text" placeholder="{!$Label.DMS_SEARCH_DOCUMENT_TYPE}"  ng-model="search" class="form-control" />
+                    </div>
+                </div>
+                <table class="table" style="margin-bottom:0;">
+                    <thead>
+                        <tr>
+                            <th><a style="white-space:normal" href="" ng-click="order('docTypeName')">{!$Label.DMS_SETUP_DOCUMENT_TYPE} <span class="glyphicon glyphicon-sort"></span></a></th>
+                            <th><a style="white-space:normal" href="" ng-click="order('docTypeEffectiveDays')">{!$Label.DMS_DOCUMENT_AUTO_EFFECTIVE_DAYS}<span class="glyphicon glyphicon-sort"></span><a/></th>
+                            <th><a style="white-space:normal" href="" ng-click="order('periodicReviewCycle')">{!$Label.DMS_PERIODIC_REVIEW_CYCLE_MONTHS}<span class="glyphicon glyphicon-sort"></span><a/></th>
+                            <th><a style="white-space:normal" href="" ng-click="order('periodicReviewNotification')">{!$Label.DMS_PERIODIC_REVIEW_NOTIFICATION_DAYS} <span class="glyphicon glyphicon-sort"></span></a></th>
+                            <th><a style="white-space:normal" href="" ng-click="order('docRetetionPeriod')">{!$Label.DMS_DOCUMENT_RETENTION_PERIOD_Years} <span class="glyphicon glyphicon-sort"></span></a></th>
+                            <th><a style="white-space:normal" href="">{!$Label.DMS_IS_ACTIVE}</a></th>
+                            <th><span style="color:#337ab7;">{!$Label.DMS_ACTION}</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <tr  dir-paginate="key in obj = docType | orderBy:predicate:reverse | filter:search | itemsPerPage:10">
+                            <td><div style="word-wrap:break-word; width:350px">{{htmlDecodeTable(key.docTypeName)}}</div></td>
+                            <td>{{key.docTypeEffectiveDays}}</td>
+                            <td>{{key.periodicReviewCycle}}</td>
+                            <td>{{key.periodicReviewNotification}}</td>
+                            <td>{{key.docRetetionPeriod}}</td>
+                            <td>
+                              <label class="switch" id="isDocActive" ng-if="!(key.docTypeName == 'Record (RCD)' || key.docTypeName == 'Form (FRM)' || key.docTypeName == 'Template (TPT)')">
+                                  <input type="checkbox" ng-model="key.isActive" ng-click="manageDocTypeStatus(key.index)" >
+                                  <div id="activedoctype" class="slider round" data-on="{!$Label.DMS_SWITCH_ON}" data-off="{!$Label.DMS_SWITCH_OFF}"></div>
+                              </label>
+                            </td>
+                            <td><a ng-click="editDocType(key.index);" href="javascript:void(0)">{!$Label.DMS_EDIT}</a></td>
+                        <tr>
+                    </tbody>
+                </table>
+                
+                <div id="deactivateDocType" class="modal-custom">
+                    <!-- Modal content -->
+                    <div class="modal-content" style="width:30%;">
+                        <span ng-click="closePopUpDocType()" class="close">x</span>
+                        <div class="container-fluid" style="margin-top:4%;">
+                             {!$Label.DMS_ARE_YOU_SURE}
+                        </div>
+                        <div class="row" style="text-align:center;margin-top:1%;">
+                            <input type="button" value="{!$Label.DMS_OK}" class="sparta-btn sparta-btn-default" ng-click="confirmYes('Ok')" />
+                            <input type="button" value="{!$Label.DMS_CANCEL}" class="sparta-btn sparta-btn-default" ng-click="confirmYes('Cancel')" />
+                        </div>
+                    </div>
+                </div>
+                
+                <div ng-hide="callController">
+                    <dir-pagination-controls  style="float:right;"
+                        max-size="5"
+                        direction-links="true"
+                        boundary-links="true" >
+                   </dir-pagination-controls> 
+               </div>
+               <div class="row" ng-show="docType.length == 0" style="text-align:center;">
+                   {!$Label.DMS_No_RECORD_FOUND}
+                </div>
+            
+       </script>
+       <script type = "text/ng-template" id ="AddDMSDocumentType.html">
+          
+            <div style="margin:auto;width:50%;">
+                <div><h5>{{param != 'edit' ? '{!$Label.DMS_NEW_DOCUMENT_TYPE}' : '{!$Label.DMS_EDIT}'+' '+documentTypeObj.docTypeName}}</h5></div>
+                <form name="docTypeForm" style="margin-top:2%;">
+                    <div class="form-group">
+                          <label for="docType">{!$Label.DMS_DOCUMENT_TYPE_E_G_DOCUMENT_NAME_FORMAT_DNF}</label>
+                          <input id="docType" class="form-control" ng-pattern='/^[^"!\\/\t]+$/' ng-change="resetDocField()" placeholder="{!$Label.DMS_ENTER_DOCUMENT_TYPE}" ng-disabled="param == 'edit'"  name="docType" ng-model="documentTypeObj.docTypeName" type="text" ng-maxlength="100" ng-required="true">
+                          <span  class="validationMessage" ng-show="docTypeForm.docType.$dirty && docTypeForm.docType.$error.required">{!$Label.DMS_THIS_IS_REQUIRED}</span>
+                          <span  class="validationMessage" ng-show="docTypeForm.docType.$dirty && docTypeForm.docType.$error.maxlength && docTypeForm.docType.$invalid">{!$Label.DMS_DOC_TYPE_FILE_LENGTH_ERROR}</span>
+                          <span class="validationMessage"  ng-show="filterDocType.length > 0 && param != 'edit'">{{docDuplicateValidation}}</span>
+                          <span class="validationMessage" ng-show="docTypeForm.docType.$dirty && docTypeForm.docType.$error.pattern">{!$Label.DMS_DOCTYPE_NAME_VALIDATION_ERROR }</span>
+                    </div>
+                    <div class="form-group">
+                         <label for="autoEffective">{!$Label.DMS_DOCUMENT_AUTO_EFFECTIVE_DAYS}</label>
+                         <input class="form-control" min="0" ng-required="true"  name="docTypeEffectiveDays" ng-max="999" placeholder="{!$Label.DMS_Enter_Document_Auto_Effective}" id="autoEffective" type="number" ng-model="documentTypeObj.docTypeEffectiveDays" class="validate" />
+                         <span class="validationMessage" ng-show="docTypeForm.docTypeEffectiveDays.$dirty && docTypeForm.docTypeEffectiveDays.$error.max">{!$Label.DMS_REQUIRED_THREE_DIGIT_ONLY}</span>
+                         <span  class="validationMessage" ng-show="docTypeForm.docTypeEffectiveDays.$dirty && docTypeForm.docTypeEffectiveDays.$error.required">{!$Label.DMS_THIS_IS_REQUIRED}</span>
+                    </div>
+                    <div class="form-group">
+                         <label for="periodicReview">{!$Label.DMS_PERIODIC_REVIEW_CYCLE_MONTHS}</label>
+                         <input id="periodicReview" name="revCyleMonth" min="0" max- placeholder="{!$label.DMS_ENTER_PERIODIC_REVIEW_CYCLE}" class="form-control" type="number" ng-model="documentTypeObj.periodicReviewCycle" class="validate" ng-required="true">
+                         <span  class="validationMessage" ng-show="docTypeForm.revCyleMonth.$dirty && docTypeForm.revCyleMonth.$error.required">{!$Label.DMS_THIS_IS_REQUIRED}</span>
+                    </div>
+                    <span style="display:none;">{{documentTypeObj.periodicReviewNotification = (documentTypeObj.periodicReviewCycle == 0 || documentTypeObj.periodicReviewCycle == null) ? 0 : documentTypeObj.periodicReviewNotification}}</span>
+                    <div class="form-group" style="margin-left:8%;">
+                         <label for="periodicReviewNot">{!$Label.DMS_PERIODIC_REVIEW_NOTIFICATION_DAYS}</label>
+                         <input class="form-control" min="0" ng-disabled="documentTypeObj.periodicReviewCycle == 0 || documentTypeObj.periodicReviewCycle == null"  name="reCyleDays" placeholder="{!$Label.DMS_ENTER_PERIODIC_REVIEW_NOTIFICATION}"  id="periodicReviewNot" type="number" ng-model="documentTypeObj.periodicReviewNotification"  class="validate" ng-required="true">
+                         <span  class="validationMessage" ng-show="docTypeForm.reCyleDays.$dirty &&  docTypeForm.reCyleDays.$error.required">{!$Label.DMS_THIS_IS_REQUIRED}</span>  
+                       
+                    </div>
+                    <div class="form-group">
+                         <label>{!$Label.DMS_DOCUMENT_RETENTION_PERIOD_Years}</label>
+                         <input class="form-control" min="0" max="20" name="retentionPeriod" placeholder="{!$Label.DMS_ENTER_DOCUMENT_RETENTION_PERIOD}"  type="number" ng-model="documentTypeObj.docRetetionPeriod"  class="validate" ng-required="true">
+                         <span  class="validationMessage" ng-show="docTypeForm.retentionPeriod.$dirty && docTypeForm.retentionPeriod.$error.max">{!$Label.DMS_RETENTION_YEAR_RANGE}</span>
+                         <span  class="validationMessage" ng-show="docTypeForm.retentionPeriod.$dirty &&  docTypeForm.retentionPeriod.$error.required">{!$Label.DMS_THIS_IS_REQUIRED}</span>  
+                    </div>
+                    
+                    <button class="sparta-btn sparta-btn-default" ng-disabled="docTypeForm.$invalid || !docTypeForm.$dirty  || callController" ng-click="createDocType(docTypeForm);">
+                        {!$Label.DMS_SAVE}
+                    </button>&nbsp;
+                    <a class="sparta-btn sparta-btn-default" ng-disabled="callController" id="docTypeCancel" href="#DMSDocumentType">
+                       {!$Label.DMS_CANCEL}
+                    </a>
+                </form>
+            </div>
+       </script>
+       <script type = "text/ng-template" id ="DMSDocumentDepartment.html">
+           <div style="margin:auto;width:65%;">
+               <div class="row">
+                    <div class="col-md-6">
+                        <h5></h5>
+                    </div>
+                    <div class="col-md-6">
+                        <form name="deptForm">
+                          <div class="input-group" style="margin-top: 3%;">
+                              <input class="form-control" ng-disabled="callController"  maxlength="55" name="department" ng-pattern='/^[^!]+$/' placeholder="{!$Label.DMS_ENTER_DOCUMENT_DEPARTMENT_E_G_QUALITY_Q}"  ng-model="DMSDepartment" type="text" class="validate">
+                              <a href="javascript:void(0)" ng-click="addDocumentDepartment();" class="input-group-addon"><span  style="font-size:20px;" class="glyphicon glyphicon-plus-sign"></span></a>
+                          </div>
+                          <span class="validationMessage" ng-show="deptForm.department.$dirty && deptForm.department.$error.pattern">{!$Label.DMS_DOCUMENT_DEPARTMENT_VALIDATION_ERROR}</span>
+                          <div class="validationMessage">{{docStatus}}</div>
+                        </form>
+                    </div>
+             </div>
+            
+             <div style="text-align:Center;margin-top:2%;margin-bottom:2%;">
+                <button class="sparta-btn sparta-btn-default" ng-hide="newAdded.length == 0" ng-disabled="newAdded.length >5 || callController"  ng-click="addDocumentDepartmentDatabase()">
+                    {!$Label.DMS_SAVE}
+                </button>
+                 <button class="sparta-btn sparta-btn-default" ng-hide="newAdded.length == 0" ng-disabled="callController"  ng-click="canceDocumentDepartment();">
+                   {!$Label.DMS_CANCEL}
+                </button>
+            </div>
+            <ul style="padding-left: 0;">
+                <li class="list-group-item" style="padding: 17px 15px;background: whitesmoke;">
+                    <div class="col-md-10" >
+                        <div class="row">
+                            <div class="col-xs-9" style="line-height: 0px;">
+                                <label>{!$Label.DMS_DEPARTMENT}</Label>
+                            </div>
+                            <div class="col-xs-3" style="line-height: 0px;">
+                                 <label>{!$Label.DMS_IS_ACTIVE}</Label>
+                            </div>
+                        </div>
+                   </div>
+                </li>
+            </ul>
+
+           <ul class="list-group" >
+                <li class="list-group-item" ng-repeat="key in documentList">
+                    <div class="col-xs-10" >
+                        <div class="row">
+                            <div class="col-xs-9" style="line-height: 30px;">{{htmlDecodeTable(key.deptLabel)}}</div>
+                            <div class="col-xs-3">
+                                 <label class="switch" id="isDocActive" ng-hide ="(key.status == 'pending')">
+                                        <input type="checkbox" ng-model="key.isActive" ng-click="manageDocDept($index)">
+                                        <div id="activedocdept" class="slider round" data-on="{!$Label.DMS_SWITCH_ON}" data-off="{!$Label.DMS_SWITCH_OFF}"></div>
+                                 </label>
+                             </div>
+                         </div>
+                    </div>
+                    <div id="deactivateDocDept" class="modal-custom">
+                    <div class="modal-content" style="width:30%;">
+                        <span ng-click="closePopUpDocDept()" class="close">x</span>
+                        <div class="container-fluid" style="margin-top:4%;">
+                             {!$Label.DMS_ARE_YOU_SURE}
+                        </div>
+                        <div class="row" style="text-align:center;margin-top:1%;">
+                            <input type="button" value="{!$Label.DMS_OK}" class="sparta-btn sparta-btn-default" ng-click="confirmYes('Ok')" />
+                            <input type="button" value="{!$Label.DMS_CANCEL}" class="sparta-btn sparta-btn-default" ng-click="confirmYes('Cancel')" />
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-xs-2">
+                        <a href="javascript:void(0)" ng-show="key.status != 'pending'" class="secondary-content">
+                            <span class="glyphicon glyphicon-ok-circle"></span>
+                        </a>
+                         <a href="javascript:void(0)" title="Cancel" ng-click="removeDMSDocument($index)" ng-show="key.status == 'pending' && !callController" class="secondary-content">
+                            <span  class="glyphicon glyphicon-minus-sign"></span>
+                        </a>
+                    </div>
+                    <div style="clear:both;"></div>
+                </li>
+                <li class="list-group-item" style="text-align:center;"  ng-show="documentList.length == 0 && callController == false">
+                     {!$Label.DMS_NO_RECORD_FOUND}
+                </li>
+            </ul>
+          </div>
+       </script>
+       <script type = "text/ng-template" id ="ManageAutoNumber.html">
+            <div style="margin:auto;width:50%;">
+                <div><h5>{!$Label.DMS_SEQUENCE_NUMBER_CONFIG}</h5></div>
+                <form style="margin-top:3%;">
+                    <div class="form-group">
+                        <label class="form-check-inline">
+                            <input class="form-check-input name="autoNo" ng-disabled="autoNoTypeExist" ng-model="autoNoObj.documentNumberType" type="radio" value="AUTOMATIC">  {!$lABEL.DMS_AUTOMATIC}
+                        </label>&nbsp;&nbsp;
+                        <label class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="autoNo" ng-disabled="autoNoTypeExist" ng-model="autoNoObj.documentNumberType" value="MANUAL"> {!$lABEL.DMS_MANUAL_ENTRY}
+                        </label>
+                    </div>
+                    <div class="form-group" style="margin-top:1%;">
+                        <label for="periodicReviewNot">{!$Label.DMS_POSITION_OF_AUTO_NUMBER}</label>
+                         <select class="form-control" ng-model="autoNoObj.documentNumberPosition" style="width:15%;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                         </select>
+                         
+                    </div>
+                    <div class="form-group" style="border-top:1px solid #e7e7e7;margin-bottom:10px;color:grey;">
+                        <label style="margin-top:2%;">{!$Label.DMS_FIELD_POSITION_REFERENCE}</label>
+                    </div>
+                    <div class="prewSequence">
+                        <div style="display:inline-block" class="{{autoNoObj.documentNumberPosition == '1' ? 'activeNo': ''}}">
+                             1
+                        </div>
+                        <div style="display:inline-block">
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </div>
+                        <div style="display:inline-block" class="{{autoNoObj.documentNumberPosition == '2' ? 'activeNo': ''}}">
+                              2
+                        </div>
+                        <div style="display:inline-block" >
+                           <span class="glyphicon glyphicon-minus"></span>
+                        </div>
+                        <div style="display:inline-block" class="{{autoNoObj.documentNumberPosition == '3' ? 'activeNo': ''}}">
+                               3
+                        </div>
+                        <div style="display:inline-block">
+                           <span class="glyphicon glyphicon-minus"></span>
+                        </div>
+                        <div style="display:inline-block" class="{{autoNoObj.documentNumberPosition == '4' ? 'activeNo': ''}}">
+                               4
+                        </div>
+                        <div style="display:inline-block">
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </div>
+                        <div style="display:inline-block" class="{{autoNoObj.documentNumberPosition == '5' ? 'activeNo': ''}}">
+                              5
+                        </div>
+                        
+                    </div>
+                    <div style="margin-top:4%;">
+                         <button class="sparta-btn sparta-btn-default" ng-disabled="autoNoObj.documentNumberType == null || autoNoObj.documentNumberType.length ==0 || callController" ng-click="saveAutoNoConfig();">
+                                {!$Label.DMS_Save}
+                         </button>
+                         <a class="sparta-btn sparta-btn-default" href="#manageDocLevel" id="mngAutoNo" ng-disabled="callController">
+                                {!$Label.DMS_Cancel}
+                         </a>
+                     </div>
+                </form>
+            </div>
+            <div id="confirmModal" class="modal-custom">
+                <!-- Modal content -->
+                <div class="modal-content" style="width:50%;">
+                    <span ng-click="closePopUp();" class="close">x</span>
+                     <div class="container-fluid" style="margin-top:4%;">
+                        <span style="font-size:20px;vertical-align:-3px;" class="glyphicon glyphicon-info-sign"></span>
+                         {!$Label.DMS_DOC_NUMBER_FORMAT_MESSAGE}
+                     </div>
+                     <div class="row" style="text-align:center;margin-top:1%;">
+                         <input type="button" value="{!$Label.DMS_OK}" class="sparta-btn sparta-btn-default" ng-click="confirmOk('Ok')" />
+                         <input type="button" value="{!$Label.DMS_CANCEL}" class="sparta-btn sparta-btn-default" ng-click="confirmOk('Cancel')" />
+                     </div>
+                </div>
+            </div>
+        </script>
+        <script type = "text/ng-template" id ="manageDocLevel.html">
+              <div><h5></h5></div>
+              <div style="text-align:Center;">
+                    <a class="sparta-btn sparta-btn-default" ng-hide="callController" href="#AddDMSDocumentLevel/new">
+                        {!$Label.DMS_ADD_BUTTON}&nbsp;<span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-xs-push-8" style="margin-top: -32px;">
+                         <input type="text" placeholder="{!$LABEL.DMS_SEARCH_DOCUMENT_NUMBER}"  ng-model="search" class="form-control" />
+                    </div>
+                </div>
+                <table class="table" style="margin-bottom:0;margin-top:2%;">
+                    <thead>
+                        <tr>
+                            <th><a href="" ng-click="order('name')">{!$Label.DMS_FIELD_DESCRIPTION} <span class="glyphicon glyphicon-sort"></span></a></th>
+                            <th><a href="" ng-click="order('abbreviation')">{!$Label.DMS_FIELD_VALUE} <span class="glyphicon glyphicon-sort"></span><a/></th>
+                            <th><a href="" ng-click="order('level')">{!$Label.DMS_LEVEL}  <span class="glyphicon glyphicon-sort"></span><a/></th>
+                            <th><a href="" ng-click="order('parentName')">{!$Label.DMS_PARENT}  <span class="glyphicon glyphicon-sort"></span></a></th>
+                            <th><a href="">{!$Label.DMS_IS_ACTIVE}</a></th>
+                            <th><a href="">{!$Label.DMS_Action}</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="key in docLevel | orderBy:predicate:reverse | filter:search | itemsPerPage:10">
+                            <td style="width:30%;">{{key.name}}</td>
+                            <td>{{key.abbreviation}}</td>
+                            <td>{{key.level}}</td>
+                            <td>{{key.parentName}}</td>
+                            <td>
+                                <label class="switch">
+                                    <input type="checkbox" ng-model="key.isActive" ng-click="manageDocLevelStataus(key.index)">
+                                    <div class="slider round" data-on="{!$Label.DMS_SWITCH_ON}" data-off="{!$Label.DMS_SWITCH_OFF}"></div>
+                                </label>
+                            </td>
+                            <td><a ng-click="editDocLevel(key.index);" href="javascript:void(0)">{!$Label.DMS_EDIT}</a></td>
+                        </tr>
+                    </tbody>
+               </table>
+                <div class="row" style="padding: 10px 0;" ng-hide="callController">
+                    <div class="col-md-4">
+                        <a href="#ManageAutoNumber" class="sparta-btn sparta-btn-default">{!$Label.DMS_MANAGE_SEQUENCE_NUMBER}</a>
+                    </div>
+                    <div class="col-md-8" style="text-align: right;">
+                        <dir-pagination-controls   max-size="5" direction-links="true"  boundary-links="true" >
+                        </dir-pagination-controls> 
+                    </div>
+                </div>
+                
+               <div style="clear:both;"></div>
+                <div class="row" style="padding:2px;text-align:center;"  ng-show="docLevel.length == 0 && !callController">
+                   {!$Label.DMS_NO_RECORD_FOUND}
+                </div>
+                
+                <div id="deactivateDocFormat" class="modal-custom">
+                <!-- Modal content -->
+                    <div class="modal-content" style="width:30%;">
+                        <span ng-click="closeModal()" class="close">x</span>
+                        <div class="container-fluid" style="margin-top:4%;">
+                             {!$Label.DMS_ARE_YOU_SURE}
+                        </div>
+                        <div class="row" style="text-align:center;margin-top:1%;">
+                            <input type="button" value="{!$Label.DMS_OK}" class="sparta-btn sparta-btn-default" ng-click="confirmOk('Ok')" />
+                            <input type="button" value="{!$Label.DMS_CANCEL}" class="sparta-btn sparta-btn-default" ng-click="confirmOk('Cancel')" />
+                        </div>
+                    </div>
+                </div>
+               
+        </script>
+        <script type = "text/ng-template" id ="AddDMSDocumentLevel.html">
+             <div style="margin:auto;width:50%;">
+                 <div><h5>{{param != 'edit' ? '{!$Label.DMS_NEW_DOCUMENT_LEVEL}' : '{!$Label.DMS_EDIT}'+' '+docLevel.name}}</h5></div>
+                 <form name="docNoFormat" style="margin-top:2%;">
+                       <div class="form-group">
+                            
+                            <label>{!$Label.DMS_LEVEL}</label>
+                            <select class="form-control" ng-disabled="param=='edit'" ng-model="docLevel.level" ng-required="true" name="level" ng-change="filterDocLevel(docLevel);">
+                                <option value="Level 1">Level 1</option>
+                                <option value="Level 2">Level 2</option>
+                                <option value="Level 3">Level 3</option>
+                                <option value="Level 4">Level 4</option>
+                            </select>
+                            <span class="validationMessage" ng-show="docNoFormat.level.$dirty && docNoFormat.level.$invalid">{!$Label.DMS_THIS_IS_REQUIRED}</span>
+                        
+                        </div>
+                        <div class="form-group">
+                            <label for="periodicReview">{!$Label.DMS_FIELD_DESCRIPTION}</label>
+                            <input  class="form-control"  maxlength="48" placeholder="{!$Label.DMS_TYPE_FIELD_DESCRIPTION}"  name="levelName" ng-model="docLevel.name" class="validate">
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="periodicReview">{!$Label.DMS_FIELD_VALUE}</label>
+                            <input class="form-control" maxlength="10" ng-disabled="param == 'edit'" ng-pattern="/^[a-zA-Z0-9]*$/" type="text" placeholder="{!$Label.DMS_TYPE_FIELD_VALUE}" ng-required="true" name="abbr" ng-model="docLevel.abbreviation" ng-change="resetDocFormatAbbr()" class="validate">
+                            <span class="validationMessage" ng-show="docNoFormat.abbr.$dirty && docNoFormat.abbr.$error.required">{!$Label.DMS_THIS_IS_REQUIRED}</span>
+                            <span class="validationMessage" ng-show="filterDocTypeAbbrivation.length > 0">{{abbrivationMessage}}</span>
+                            <span class="validationMessage" ng-show="docNoFormat.abbr.$dirty && docNoFormat.abbr.$error.pattern">{!$Label.DMS_SPECIAL_CHARACTER_NOT_ALLOWED}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="periodicReview">{!$Label.DMS_PARENT}</label>
+                            <select class="form-control"  ng-model="docLevel.parentId" ng-disabled="docLevel.level == 'Level 1'" ng-change="removeParent(docLevel.parentId);">
+                                <option value="">-{!$Label.DMS_NONE}-</option>
+                                <option  ng-repeat="key in filterLevelList" value="{{key.recordId}}">{{key.name}} - {{key.abbreviation}}</option>
+                            </select>
+                        </div>
+                        <button class="sparta-btn sparta-btn-default" ng-disabled="!docNoFormat.$dirty || docNoFormat.$invalid ||  callController" ng-click="createDocLevel(docNoFormat);">
+                            {!$Label.DMS_SAVE}
+                        </button>&nbsp;
+                        <a class="sparta-btn sparta-btn-default" ng-disabled="callController" id="docFormat"  href="#manageDocLevel">
+                           {!$Label.DMS_CANCEL}
+                        </a>
+                 </form>
+             </div>
+        </script>
+         <script type = "text/ng-template" id ="Flexfields.html">
+            <div><h5></h5></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>{!$lABEL.DMS_FIELD_1}</label>
+                        <select class="form-control" ng-model="selectedFields.field1" ng-options="item.value as item.label for item in fieldList"></select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>{!$lABEL.DMS_FIELD_2}</label>
+                        <select class="form-control" ng-model="selectedFields.field2" ng-options="item.value as item.label for item in fieldList"></select>
+                    </div>
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>{!$lABEL.DMS_FIELD_3}</label>
+                        <select class="form-control" ng-model="selectedFields.field3" ng-options="item.value as item.label for item in fieldList"></select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>{!$lABEL.DMS_FIELD_4}</label>
+                        <select class="form-control" ng-model="selectedFields.field4" ng-options="item.value as item.label for item in fieldList"></select>
+                    </div>
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>{!$lABEL.DMS_FIELD_5}</label>
+                        <select class="form-control" ng-model="selectedFields.field5" ng-options="item.value as item.label for item in fieldList"></select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>{!$lABEL.DMS_FIELD_6}</label>
+                        <select class="form-control" ng-model="selectedFields.field6" ng-options="item.value as item.label for item in fieldList"></select>
+                    </div>
+                </div>
+             </div>
+             <div class="row" style="text-align:center;">
+                    <button class="sparta-btn sparta-btn-default" ng-disabled="callController" ng-click="saveFields();">
+                        {!$Label.DMS_SAVE}
+                    </button>&nbsp;
+                    <a class="sparta-btn sparta-btn-default" ng-disabled="callController"  href="#/">
+                        {!$Label.DMS_CANCEL}
+                    </a>
+               </div>
+        </script>
+   </html>
+</apex:page>

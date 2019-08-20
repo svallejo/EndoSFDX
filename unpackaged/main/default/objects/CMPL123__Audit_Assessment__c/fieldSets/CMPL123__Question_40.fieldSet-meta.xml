@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123__Question_40</fullName>
+        <availableFields>
+            <field>CMPL123__Question40_Comment__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>CMPL123__Question40_Text__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>FieldSet for Question 40</description>
+        <displayedFields>
+            <field>CMPL123__Question40_Answer__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CMPL123__Question40_Create_Finding__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CMPL123__Question40_Captured_Evidence__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Question 40</label>
+    </FieldSet>

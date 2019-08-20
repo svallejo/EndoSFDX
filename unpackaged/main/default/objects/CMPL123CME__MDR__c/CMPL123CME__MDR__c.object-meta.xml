@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <label>MDR</label>
+    <nameField>
+        <displayFormat>MDR-{00000}</displayFormat>
+        <label>SL No</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>MDR</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <searchLayouts>
+        <customTabListAdditionalFields>CMPL123CME__Complaint__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CMPL123CME__Type_of_Report__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CMPL123CME__Date_Due__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CMPL123CME__Initial_Report_Date_and_Time__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>CMPL123CME__Date_Due__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CMPL123CME__Complaint__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CMPL123CME__Contact_Person__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

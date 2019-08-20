@@ -1,0 +1,481 @@
+<apex:page standardController="SPARTADMS__Document_Reviewer__c" STandardStylesheets="false" sidebar="false" extensions="SPARTADMS.DMSManageGroupController">
+   <html ng-app="DMS_Reviewer">
+       <head>
+           <apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'css/extend/DMSSetupConfig.css')}" />
+           <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Angular-material/js/Angular.js')}" />
+          
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+                a{
+                    text-decoration:none;
+                }
+                .DMS_list-group>a:hover{
+                     text-decoration:none;
+                     color:black;
+                }
+                .DMS_list-group>a:visited{
+                     text-decoration:none;
+                }
+                .DMS_list-group>a:active{
+                     text-decoration:none;
+                }
+                
+                [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                    display: none !important;
+                }
+                .row::after {
+                    content: "";
+                    clear: both;
+                    display: table;
+                }
+                [class*="col-"] {
+                    float: left;
+                    padding: 5px;
+                    padding-bottom: 0px;
+                    padding-top: 0px;
+                
+                }
+                .col-1 {width: 8.33%;}
+                .col-2 {width: 16.66%;}
+                .col-3 {width: 25%;}
+                .col-4 {width: 33.33%;}
+                .col-5 {width: 41.66%;}
+                .col-6 {width: 50%;}
+                .col-7 {width: 58.33%;}
+                .col-8 {width: 66.66%;}
+                .col-9 {width: 75%;}
+                .col-10 {width: 83.33%;}
+                .col-11 {width: 91.66%;}
+                .col-12 {width: 100%;}
+                .DMS_panel-default {
+                    border-color: #ddd;
+                }
+                .DMS_container{
+                    width:95%;
+                    margin:auto;
+                }
+                .DMS_panel{
+                    margin-bottom: 0px;
+                    background-color: #fff;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+                    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+                }
+                .DMS_panel-default>.DMS_panel-heading {
+                    color: #333;
+                    background-color: #f5f5f5;
+                    border-color: #ddd;
+                }
+                .DMS_panel-heading{
+                    padding: 10px 15px;
+                    border-bottom: 1px solid #ddd;
+                    border-top-left-radius: 3px;
+                    border-top-right-radius: 3px
+                }
+                .DMS_panel-default>.DMS_panel-heading {
+                    color: #333;
+                    background-color: #f5f5f5;
+                    border-color: #ddd;
+                    font-size: 17px;
+                }
+                .DMS_panel-body {
+                    padding: 10px;
+                    padding-bottom:0px;
+                    padding-top: 3px;
+                }
+                .DMS_list-group-item:first-child {
+                    border-top-left-radius: 4px;
+                    border-top-right-radius: 4px;
+                }
+                .DMS_list-group {
+                    padding-left: 0;
+                    margin-bottom: 20px;
+                }
+                
+                .DMS_list-group-item {
+                    position: relative;
+                    display: block;
+                    padding: 5px;
+                    margin-bottom: -1px;
+                    background-color: #fff;
+                    border: 1px solid #ddd;
+                }
+                .selectdGroup{
+                     background-color:#54698D;
+                     color:white;
+                }
+                .DMS_heading{
+                    font-size:15px;
+                    padding-bottom: 10px;
+                }
+                .blankList{
+                    border: 1px solid #ddd;
+                    padding: 10px;
+                    text-align: center;
+                    background-color:#f5f5f5;
+                }
+                .DMS_Scroll{
+                    height: 250px;
+                    overflow: scroll;
+                    box-shadow: 0px 1px 2px rgba(102, 102, 102, 0.87);
+                }
+               .DMS_ScrollReviewer{
+                    height: 550PX;
+                    overflow: scroll;
+                    box-shadow: 0px 1px 2px rgba(102, 102, 102, 0.87);
+                }
+                button:focus { outline: none; }
+                .DMS_alert {
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    border: 1px solid transparent;
+                    border-radius: 4px;
+                    font-size: 15PX;
+                }
+                .DMS_alert-info {
+                    color: #31708f;
+                    background-color: #d9edf7;
+                    border-color: #bce8f1;
+                }
+               
+                 .DMS_container{
+                    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                    font-size: 14px;
+                    line-height: 1.42857143;
+                    color: #333;
+                    background-color: #fff;
+                    
+                }
+                .searchBox{
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    padding-right: 4px;
+                    outline: none;
+                    width:100%;
+                }
+               
+            </style>
+            <script>
+               
+                var index = window.location.search.search("_lkid")+6;
+                var corpId =  window.location.search.substring(index,index+15);
+                var disableSave = {!isAccessible};
+               
+                var app = angular.module("DMS_Reviewer", []);
+                app.filter('unique', function() {
+                    return function(collection, keyname) {
+                        var output = [], 
+                        keys = [];
+                        angular.forEach(collection, function(item) {
+                         
+                            var key = item[keyname];
+                          
+                            if(keys.indexOf(key) === -1) {
+                                 keys.push(key); 
+                                 output.push(item);
+                            }
+                        });
+                        return output;
+                    };
+                });
+                
+                app.service("remoteParameterCall", function($q, $rootScope){
+                    return  function(remoteAction, obj, corpId){
+                        var deferred = $q.defer();
+                        Visualforce.remoting.Manager.invokeAction(remoteAction, obj, corpId, function(result, event){
+                        if(event.status){
+                            deferred.resolve(result);
+                            
+                        }else{
+                            deferred.reject(event);
+                        }
+                        
+                        }, {escape:true, timeout:120000});
+                        return deferred.promise;     
+                    }
+                    
+                });
+                
+                app.service("remoteTripleParameterCall", function($q, $rootScope){
+                    return  function(remoteAction, obj1, obj2, data){
+                        var deferred = $q.defer();
+                        Visualforce.remoting.Manager.invokeAction(remoteAction, obj1, obj2, data, function(result, event){
+                        if(event.status){
+                            deferred.resolve(result);
+                            
+                        }else{
+                            deferred.reject(event);
+                        }
+                        
+                        }, {escape:true, timeout:120000});
+                        return deferred.promise;     
+                    }
+                });
+                
+                app.controller("DMS_Reviewer_Controller",function($scope, $filter, remoteParameterCall, remoteTripleParameterCall){
+                    $scope.disableSave = disableSave;
+                    $scope.openDmsModal = function(){
+                        var modal = document.getElementById('dmsPermission');
+                        modal.style.display = "block";
+                    };
+                    $scope.removeDmsModal = function(){
+                       window.location.href = "/apex/SPARTADMS__CorporateDocumentViewPage?id="+corpId;
+                    };
+                    if(!$scope.disableSave){
+                        $scope.openDmsModal();
+                    }
+                    $scope.openModal = function(){
+                        var modal = document.getElementById('myModal');
+                        modal.style.display = "block";
+                    };
+                    
+                    $scope.closeModal = function(){
+                        var modal = document.getElementById('myModal');
+                        modal.style.display = "none";
+                    };
+                   
+                    $scope.corpId = corpId;
+                    $scope.assignedGroup = [];
+                    $scope.exception = "";
+                    $scope.listOfUser = [];
+                    $scope.orgGroup = [];
+                    $scope.individualGroup = [];
+                    $scope.assignedUser = [];
+                    $scope.individualGroup = [];
+                    if($scope.disableSave){
+                        $scope.callController = true;
+                        remoteParameterCall('{!$RemoteAction.DMSManageGroupController.fetchGroupInfo}', 'Reviewer', $scope.corpId).then(function(result){
+                             $scope.finalJSON = JSON.parse(htmlDecode(result));
+                             $scope.orgGroup = angular.copy($filter('filter')($scope.finalJSON, {groupType : '!Individual'}, true));
+                             $scope.finalOrgFroup = angular.copy($scope.orgGroup);
+                             $scope.indGroup = angular.copy($filter('filter')($scope.finalJSON, {groupType : 'Individual'}, true));
+                             if($scope.indGroup  != null && $scope.indGroup .length > 0){
+                                  $scope.individualGroup = $scope.indGroup [0].groupMemberList;
+                             }
+                             $scope.callController = false;
+                         },function(result){
+                            $scope.callController = false;
+                            $scope.exception = result.message;
+                            $scope.openModal();
+                         });
+                     }
+                    
+                     $scope.assignGroup = function(){
+                       
+                        var selectedItem = angular.copy($filter('filter')($scope.orgGroup, {isSelected : true}, true));
+                        for(var key in selectedItem){
+                            selectedItem[key].isSelected = false;
+                        }
+                        $scope.assignedGroup = $scope.assignedGroup.concat(selectedItem);
+                        $scope.orgGroup = angular.copy($filter('filter')($scope.orgGroup, {isSelected : false}, true));
+                        for(var key in $scope.assignedGroup){
+                             if($scope.assignedGroup[key].groupMemberList != undefined)
+                                 $scope.listOfUser = $scope.listOfUser.concat($scope.assignedGroup[key].groupMemberList);
+                        }
+                     }; 
+                     
+                     $scope.unAssignGroup  = function(){
+                        $scope.listOfUser = [];
+                        var selectedItem = angular.copy($filter('filter')($scope.assignedGroup, {isSelected : true}, true));
+                        for(var key in selectedItem){
+                          selectedItem[key].isSelected = false;
+                        }
+                        $scope.orgGroup = $scope.orgGroup.concat(selectedItem);
+                        $scope.assignedGroup  = $filter('filter')($scope.assignedGroup, {isSelected : false}, false);
+                        for(var key in $scope.assignedGroup){
+                            if($scope.assignedGroup[key].groupMemberList != undefined)
+                                 $scope.listOfUser =  $scope.listOfUser.concat($scope.assignedGroup[key].groupMemberList);
+                        }
+                        $scope.assignUsers();
+                     };
+                     
+                     $scope.assignUsers = function(){
+                       
+                        var selectedUser = angular.copy($filter('filter')($scope.individualGroup, {isSelected : true}, true));
+                        for(var key in selectedUser){
+                            selectedUser[key].isSelected = false;
+                        }
+                       
+                        $scope.assignedUser = $scope.assignedUser.concat(selectedUser);
+                        $scope.individualGroup = angular.copy($filter('filter')($scope.individualGroup, {isSelected : false}, true));
+                        for(var key in $scope.assignedUser){
+                            if(key != 'remove')
+                                $scope.listOfUser =  $scope.listOfUser.concat($scope.assignedUser[key]);
+                        }
+                     };
+                     
+                     $scope.unAssignUsers = function(){
+                         $scope.listOfUser = [];
+                        var selectedUser = angular.copy($filter('filter')($scope.assignedUser, {isSelected : true}, true));
+                        for(var key in selectedUser){
+                            selectedUser[key].isSelected = false;
+                        }
+                        $scope.individualGroup = $scope.individualGroup.concat(selectedUser);
+                        $scope.assignedUser = angular.copy($filter('filter')($scope.assignedUser, {isSelected : false}, true));
+                        for(var key in $scope.assignedUser){
+                              if(key != 'remove')
+                                $scope.listOfUser =  $scope.listOfUser.concat($scope.assignedUser[key]);
+                        }
+                        $scope.assignGroup();
+                       
+                     };
+                     
+                     $scope.addReviewerGroup = function(){
+                         $scope.exception = "";
+                         $scope.callSaveController = true;
+                         remoteTripleParameterCall('{!$RemoteAction.DMSManageGroupController.insertGroups}', 'Reviewer', corpId, JSON.stringify($scope.reqListOfUser)).then(function(result){
+                            $scope.callSaveController = false;
+                            if(result)
+                            window.location.href = "/apex/SPARTADMS__CorporateDocumentViewPage?id="+corpId;
+                         },function(result){
+                            $scope.exception = result.message;
+                            $scope.callSaveController = false;
+                            $scope.openModal();
+                         });
+                     };
+                });
+                function htmlDecode(result){
+                   var div = document.createElement("div");
+                   div.innerHTML = result;
+                   return div.textContent;
+               }
+            </script>
+       </head>
+       <body ng-controller="DMS_Reviewer_Controller" class="ng-cloak" ng-cloak=" ">
+            <div class="DMS_container" ng-hide="!disableSave">
+                 <div id="myModal" class="modal-custom" >
+                    <div class="modal-content" style="width:700px;border-radius:5px;padding: 0px 9px;" >
+                        <div class="modal-header" style="padding:0;border:0;">
+                            <span ng-click="closeModal()" class="closeCustom">x</span>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div style="padding-bottom:20px;text-align:center;">
+                                {{exception}}
+                        </div>
+                     </div>
+                 </div>
+                 <div class="DMS_panel DMS_panel-default">
+                    <div class="DMS_panel-heading">{!$Label.DMS_ADD_REVIEWER_GROUPS}</div>
+                    <div class="linear_progress" style="z-index:9999;" ng-show="callController || callSaveController" id="progressBar">
+                        <div class="indeterminate"></div>
+                    </div>
+                    <div class="DMS_panel-body">
+                       <div class="row" style="text-align:center;" ng-hide="corpId.length==0 || callController">
+                            <button ng-disabled="reqListOfUser.length == 0 || callSaveController" class="customBtn customBtn-default" ng-click="addReviewerGroup();">{!$Label.DMS_SAVE}</button>
+                            <a style="text-decoration:none;margin:1px;" ng-disabled="callSaveController" class="customBtn customBtn-default" href="/apex/SPARTADMS__CorporateDocumentViewPage?id={{corpId}}">{!$Label.DMS_CANCEL}</a>
+                       </div>
+                      <div class="row">
+                           <div class="col-7">
+                               <div class="row" ng-hide="callController">
+                                   <div class="col-5">
+                                        <div class="DMS_heading">{!$Label.DMS_AVAILABLE_GROUPS}</div>
+                                            <div style="box-shadow:0px 1px 2px rgba(102, 102, 102, 0.87);">
+                                                <input type="text" class="searchBox" placeholder="{!$Label.DMS_SEARCH_GROUP}" ng-model="serchGroup" />
+                                            </div>
+                                            <div class="DMS_list-group DMS_Scroll" style="margin-top:2%;">
+                                                <a href="javascript:void(0)"  class="DMS_list-group-item {{key.isSelected ? 'selectdGroup' : ''}}"  ng-click="key.isSelected =! key.isSelected"   ng-repeat="key in orgGroup |  filter : {groupName : serchGroup } | orderBy : 'groupName'">
+                                                    <span>{{key.groupName}}</span>
+                                                </a>
+                                            <div ng-show="orgGroup.length == 0" class="blankList" style="margin-top:2%;">
+                                                {!$Label.DMS_GROUPS_NOT_AVAILABLE}
+                                            </div>
+                                        </div>
+                                   </div>
+                                   <div class="col-2" style="text-align:center;margin-top:150px;">
+                                      <div><button style="width:40%;" ng-disabled="!disableSave ||callSaveController" class="customBtn customBtn-default" ng-click="assignGroup();"><span style="color:#54698D;">&#10095;</span></button></div>
+                                      <div><button style="width:40%;" ng-disabled="!disableSave  || callSaveController" class="customBtn customBtn-default" ng-click="unAssignGroup();"><span style="color:#54698D;">&#10094;</span></button></div>
+                                   </div>
+                                   <div class="col-5">
+                                        <div class="DMS_heading">{!$Label.DMS_SELECTED_GROUPS}</div>
+                                         <div style="box-shadow:0px 1px 2px rgba(102, 102, 102, 0.87);">
+                                                 <input type="text" class="searchBox"  placeholder="{!$Label.DMS_SEARCH_GROUP}" ng-model="selectedGroup" />
+                                         </div>
+                                        <div class="DMS_list-group DMS_Scroll" style="margin-top:2%;">
+                                            <a href="javascript:void(0)" class="DMS_list-group-item {{key.isSelected ? 'selectdGroup' : ''}}"  ng-click="key.isSelected =! key.isSelected"  ng-repeat="key in assignedGroup  |  filter : {groupName : selectedGroup } | orderBy : 'groupName'">
+                                                {{key.groupName}}
+                                            </a>
+                                            <div ng-show="assignedGroup.length == 0" class="blankList">
+                                                {!$Label.DMS_NO_GROUP_SELECTED}
+                                            </div>
+                                        </div>
+                                   </div>
+                               </div>
+                               <div class="row ng-cloak" ng-hide="callController">
+                                   <div class="col-5">
+                                        <div class="DMS_heading">{!$Label.DMS_AVAILABLE_USERS}</div>
+                                        <div style="box-shadow:0px 1px 2px rgba(102, 102, 102, 0.87);">
+                                            <input type="text" class="searchBox"  placeholder="{!$Label.DMS_SEARCH_USER}" ng-model="searchUser" />
+                                        </div>
+                                        <div class="DMS_list-group DMS_Scroll" style="margin-top:2%;">
+                                            <a href="javascript:void(0)"  class="DMS_list-group-item {{key.isSelected ? 'selectdGroup' : ''}}"  ng-click="key.isSelected =! key.isSelected"   ng-repeat="key in individualGroup | filter : {memberName : searchUser } | orderBy : 'memberName'">
+                                            <span>{{key.memberName}}</span>
+                                            </a>
+                                            <div ng-show="individualGroup.length == 0" class="blankList">
+                                              {!$Label.DMS_USER_NOT_AVAILABLE}
+                                            </div>
+                                        </div>
+                                   </div>
+                                   <div class="col-2" style="text-align:center;margin-top:125px;">
+                                        <div><button style="width:40%;" ng-disabled="!disableSave || callSaveController" class="customBtn customBtn-default"  ng-click="assignUsers();"><span style="color:#54698D;">&#10095;</span></button></div>
+                                        <div><button style="width:40%;" ng-disabled="!disableSave || callSaveController" class="customBtn customBtn-default"  ng-click="unAssignUsers();"><span style="color:#54698D;">&#10094;</span></button></div>
+                                   </div>
+                                   <div class="col-5">
+                                        <div class="DMS_heading">{!$Label.DMS_SELECTED_USERS}</div>
+                                        <div style="box-shadow:0px 1px 2px rgba(102, 102, 102, 0.87);">
+                                            <input type="text" class="searchBox"  placeholder="{!$Label.DMS_SEARCH_USER}" ng-model="searchSelectedUserUser" />
+                                        </div>
+                                        <div class="DMS_list-group DMS_Scroll" style="margin-top:2%;">
+                                            <a href="javascript:void(0)" class="DMS_list-group-item {{key.isSelected ? 'selectdGroup' : ''}}"  ng-click="key.isSelected =! key.isSelected"  ng-repeat="key in assignedUser | filter : {memberName : searchSelectedUserUser } | orderBy : 'memberName'">
+                                                {{key.memberName}}
+                                            </a>
+                                            <div ng-show="assignedUser.length == 0" class="blankList">
+                                                {!$Label.DMS_NO_USER_SELECTED}
+                                            </div>
+                                        </div>
+                                   </div>
+                               </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="row" ng-hide="callController">
+                                    <div class="col-2" style="text-align:center;margin-top:270px;">
+                                         <div><span style="font-size:30px;color:#54698D">&#10095;</span></div>
+                                    </div>
+                                    <div class="col-10"> 
+                                        <div class="DMS_heading">{!$Label.DMS_SELECTED_REVIEWERS}</div>
+                                         <div style="box-shadow:0px 1px 2px rgba(102, 102, 102, 0.87);">
+                                                <input type="text" class="searchBox"  placeholder="{!$Label.DMS_SEARCH_USER}" ng-model="searchFinalUser" />
+                                         </div>
+                                        <div class="DMS_list-group DMS_ScrollReviewer" style="margin-top:2%;">
+                                            <a  class="DMS_list-group-item" ng-repeat="key1 in reqListOfUser = (listOfUser | orderBy : 'memberName' | filter : {memberName : searchFinalUser } | unique : 'relatedUser')">
+                                                {{key1.memberName}}
+                                            </a>
+                                            <div  class="blankList" ng-show="listOfUser.length == 0">
+                                                {!$Label.DMS_NO_REVIEWER_SELECTED}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+                       </div>
+                    </div>
+                 </div>
+            </div>
+            <div id="dmsPermission" class="modal-custom">
+                <div class="modal-content" style="width:700px;border-radius:5px;" >
+                    <div style="margin-top:2%;">
+                        <div style="font-weight:normal;font-size:14px;"  class="custom-alert custom-alert-info">
+                            <strong>{!$Label.DMS_INFO}</strong> {!$Label.DMS_DO_NOT_HAVE_LEVEL_OF_PERMISSION}
+                        </div>
+                    </div>
+                    <div class="footer" style="margin-top:2%;">
+                        <button type="button" style="padding: 6px;" ng-click="removeDmsModal()" id="cancelBtn" class="customBtn customBtn-default">{!$Label.DMS_CLOSE}</button>
+                    </div>
+                </div>
+            </div>
+            
+       </body>
+   </html>
+</apex:page>

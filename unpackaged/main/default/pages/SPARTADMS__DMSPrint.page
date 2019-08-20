@@ -1,0 +1,580 @@
+<apex:page controller="SPARTADMS.DMSPrintController" showHeader="false" standardStylesheets="false">
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Jquery/js/jquery.js')}"/> 
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/PDFJS/pdf.js')}"/>
+        
+        <style> 
+        @media print
+        {    
+            .no-print
+            {
+                display: none !important;
+            }
+        }
+    table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+        background-color: transparent;
+    }
+    .table-bordered {
+        border: 1px solid #ddd;
+    }   
+    tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+    }       
+    tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+    }
+    .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+        border: 1px solid #ddd;
+    }       
+    
+    body {
+        padding:0;
+        margin: 0;
+       
+        
+    }
+    .page {
+        text-align: center;
+        margin: 0 auto;
+        page-break-after: always;
+        position: relative;
+    }
+    
+    .page img {
+        display:inline-block;
+        max-width: 95%;
+    }
+    p.pdfwatermark {
+        position: absolute;
+        color:rgba(100, 100, 100, 0.5);
+        background:transparent;
+        transform:translate(-50%, -50%) rotate(-45deg);
+        font-size:100px;
+        top:50%;
+        left:50%;
+    }
+     p.watermark {
+        position: absolute;
+        color:rgba(100, 100, 100, 0.5);
+        background:transparent;
+        transform:translate(-50%, -50%) rotate(-45deg);
+        font-size:100px;
+        top:50%;
+        left:50%;
+    }
+    
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        font-size:15px;
+        text-align:center;
+        
+    }
+    .alert-info {
+        color: #31708f;
+        background-color: #d9edf7;
+        border-color: #bce8f1;
+    }
+    .loading{
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        line-height:50px;
+        font-weight:bold;
+        margin:auto;
+        display:inline-block;
+        font-size: 20px;
+        text-align:center;
+        color:rgba(100, 100, 100, 0.5);
+        transition:0.5s;
+    }
+    .animateLoading{
+        animation: spin 2s linear infinite;
+        -webkit-animation:spin 2s linear infinite;
+    }
+    
+    @-moz-keyframes spin {
+        from { -moz-transform: rotate(0deg); }
+        to { -moz-transform: rotate(360deg); }
+    }
+    @-webkit-keyframes spin {
+        from { -webkit-transform: rotate(0deg); }
+        to { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    </style>
+    
+    
+    <script>
+    var accessToken = '{!JSENCODE(accessToken)}';
+    var boxFileDownloadURL =  '{!JSENCODE(boxFileDownloadURL)}';
+    var fileName =  '{!JSENCODE(fileName)}';
+    var recordId = "{!$CurrentPage.parameters.id}";
+    var baseURL = '{!JSENCODE(baseUrl)}';
+    var ContentData;
+    var pdfDoc = null;
+    var index = 1;
+    var pageNum = 1;
+    var pageRendering = false;
+    var pageNumPending = null;
+    var scale = 1.5;
+    var textMsg  = "{!JSENCODE(corpDocRecord.Document_Status__c)}";
+    var fileId  = "{!JSENCODE(fileId)}";
+    var feedId = '';
+    
+    //PDFJS worker js file
+    PDFJS.workerSrc = '{!URLFOR($Resource.DMS123)}/lib/PDFJS/pdf.worker.js';
+    var jq = jQuery.noConflict();
+    
+    jq( document ).ready(function() {
+        if(boxFileDownloadURL != ''){
+            //Process Non Record type corporate document files print and view version print
+            downloadFile(boxFileDownloadURL,'','box_rep');
+        }else{
+            //Process Record type corporate document files print
+            var nonRecTypeElement = document.getElementById('nonRecType');
+            nonRecTypeElement.style.display = 'none';
+            feedId = "{!JSENCODE(feedItemId)}";
+
+            var feedIterval = setInterval(function(){
+                    Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.DMSPrintController.checkFeedFileAvailablity}',feedId,function(result, event){
+                        var result = JSON.parse(htmlDecode(result));
+                        if(result.svg == 'true' || result.pdf == 'true'){
+                           clearInterval(feedIterval);
+                        }
+                        if(result.pdf == 'true'){
+                           downloadSFPDFContent(fileId);
+                        }else if(result.svg == 'true'){
+                             renderSVG(result);
+                        }
+                    }, {escape: true});
+            },1000);
+           
+        }
+    });
+    
+    
+    function downloadFile(filedownLoadURL,header, flag){
+        if (boxFileDownloadURL != '') {
+            document.getElementById("coverpage").innerHTML = textMsg;
+        } else {  
+            document.getElementById("coverpage").innerHTML = '';
+            var nonRecTypeElement = document.getElementById('nonRecType');
+            nonRecTypeElement.style.display = 'none';  
+        }
+      
+        var b64encoded;
+        var req = new XMLHttpRequest();
+        req.open('GET', filedownLoadURL, true);
+        if(header != ''){
+            req.setRequestHeader("Authorization", header); 
+        }
+		if(flag === 'box_rep')
+        {
+            req.setRequestHeader("Authorization", ("Bearer " + accessToken));
+            req.setRequestHeader("x-rep-hints", "pdf");
+        }
+        req.responseType = 'arraybuffer';
+        req.onreadystatechange = function() {
+           
+            if (req.readyState == 4 && req.status == 200) {
+                var strings = [], chunksize = 0xffff;
+                var uInt8Array = new Uint8Array(this.response);
+                var len = uInt8Array.length;
+                for (var i = 0; i * chunksize < len; i++){
+                    strings.push(String.fromCharCode.apply(null, uInt8Array.subarray(i * chunksize, (i + 1) * chunksize)));
+                }
+                var base64Encoded = btoa(strings.join(''));
+                if(header != ''){
+                  
+                    pdfJsViewer(base64Encoded);
+                }else{
+                   
+				   pdfJsViewer(base64Encoded);
+
+                }
+            }
+        };
+        req.send();
+    }
+    
+    
+    function uploadFeedFile(base64EncodedData,fileName,cdId) {
+        fileName = encodeURIComponent(fileName);
+        var jsonData = 
+            {
+                "feedElementType" : "FeedItem"
+            };
+        jsonData.subjectId = cdId;
+        jsonData.capabilities =
+            {
+            "content" :
+            {
+                "title": fileName
+            }
+        };
+        var boundary = 'boundary_string_' + Date.now().toString();
+        var attachmentContentType = 'application/octet-stream';
+        // Serialize the object, excluding the body, which will be placed in the second partition of the multipart/form-data request
+        var 
+        serializedObject = JSON.stringify(jsonData);
+        
+        var requestBodyBeginning = '--' + boundary
+        + '\r\n'
+        + 'Content-Disposition: form-data; name="json";'
+        + '\r\n'
+        + 'Content-Type: application/json'
+        + '\r\n\r\n'
+        + serializedObject
+        + '\r\n\r\n' +
+            '--' + boundary
+        + '\r\n'
+        + 'Content-Type: ' + attachmentContentType
+        + '\r\n'
+        + 'Content-Disposition: form-data; name="feedElementFileUpload"; filename="'+fileName+'"'
+        + '\r\n\r\n';
+        
+        var requestBodyEnd =
+            '\r\n\r\n'
+        + '--' + boundary + '--';
+        
+        // The atob function will decode a base64-encoded string into a new string with a character for each byte of the binary data.
+        var byteCharacters = atob(base64EncodedData);
+        
+        // Each character's code point (charCode) will be the value of the byte.
+        // We can create an array of byte values by applying .charCodeAt for each character in the string.
+        var byteNumbers = new Array(byteCharacters.length);
+        
+        for (var i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        
+        // Convert into a real typed byte array. (Represents an array of 8-bit unsigned integers)
+        var byteArray = new Uint8Array(byteNumbers);
+        
+        var totalRequestSize = requestBodyBeginning.length + byteArray.byteLength + requestBodyEnd.length;
+        
+        var uint8array = new Uint8Array(totalRequestSize);
+        var i;
+        
+        // Append the beginning of the request
+        for (i = 0; i < requestBodyBeginning.length; i++) {
+            uint8array[i] = requestBodyBeginning.charCodeAt(i) & 0xff;
+        }
+        
+        // Append the binary attachment
+        for (var j = 0; j < byteArray.byteLength; i++, j++) {
+            uint8array[i] = byteArray[j]; 
+        }
+        
+        // Append the end of the request
+        for (var j = 0; j < requestBodyEnd.length; i++, j++) {
+            uint8array[i] = requestBodyEnd.charCodeAt(j) & 0xff;
+        }
+        
+        var uploadUrl = baseURL+'/services/data/v35.0/chatter/feed-elements';
+        var headers = {
+            "Authorization": 'OAuth {!$Api.Session_Id}'
+        }; 
+        
+        jq.ajax({
+            url: uploadUrl,
+            headers: headers,
+            type: 'POST',
+            // This prevents JQuery from trying to append the form as a querystring
+            processData: false,
+            contentType: 'multipart/form-data' + "; boundary=\"" + boundary + "\"",
+            data: uint8array
+        }).complete(function(data) { 
+            feedId = JSON.parse(data.responseText).id; 
+            var feedIterval = setInterval(function(){
+                Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.DMSPrintController.checkFeedFileAvailablity}',feedId, function(result, event){
+                    var result = JSON.parse(htmlDecode(result));
+                    if(result.svg == 'true' || result.pdf == 'true'){
+                       clearInterval(feedIterval);
+                    }
+                    if(result.pdf == 'true'){
+                       downloadSFPDFContent(result.fileId);
+                    }else if(result.svg == 'true'){
+                         renderSVG(result);
+                    }
+                }, {escape: true});
+            
+            },1000);
+        }); 
+    }
+    
+    function htmlDecode(st){
+        var div = document.createElement("div");
+        div.innerHTML = st;
+        return div.textContent;
+    
+    };
+    
+   
+    function downloadSFPDFContent(fileId){
+        if(fileId != ''){
+            var fileUrl = baseURL+'/services/data/v36.0/connect/files/'+fileId+'/rendition?type=PDF';
+            downloadFile(fileUrl,'OAuth {!$Api.Session_Id}', '');
+        }else{
+            var isViewerAvailable = jq( "input[id$='isViewerAvailable']" ).val(); 
+            if(isViewerAvailable == 'true'){
+               // renderSVG();
+            }
+        }
+    }
+    
+    
+    //=== PDF.js Code ===
+    
+    function getEncodedValue(labelData){
+        return labelData.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");    
+    }
+    
+    function pdfJsViewer(b64encoded) {
+      
+        document.getElementById("percentageCom").innerHTML  = "0%";
+        var previewGeneratingLabel = "{!JSENCODE($Label.SPARTADMS__DMS_PRINT_PREVIEW_GENERATING)}";
+        document.getElementById("feedStatus").innerHTML = getEncodedValue(previewGeneratingLabel);
+        var pdfData = base64ToUint8Array(b64encoded) ;
+        PDFJS.getDocument(pdfData).then(function (pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            document.getElementById("totalpage").innerHTML = pdfDoc.numPages;
+            var canvas = document.createElement("CANVAS");
+            var ctx = canvas.getContext('2d');
+            if(feedId.length > 0){
+                deleteFeedItem(feedId);
+            }
+            renderPage(index,canvas,ctx);
+        });
+    }
+    
+    function base64ToUint8Array(base64) {
+        var raw = atob(base64);
+        var uint8Array = new Uint8Array(raw.length);
+        for (var i = 0; i < raw.length; i++) {
+            uint8Array[i] = raw.charCodeAt(i);
+        }
+        return uint8Array;
+    }
+    
+    function renderPage(num,canvas,ctx) {
+        var parentDiv = document.createElement("div");
+        if(boxFileDownloadURL != '') {
+            parentDiv.className ='pdfCanvas';
+            parentDiv.style.position = "relative";
+            parentDiv.style.textAlign = "center";
+            
+            var childDiv = document.createElement("p");
+            childDiv.style.color= "rgba(100, 100, 100, 0.5)";
+            childDiv.style.fontSize = "100px";
+            childDiv.style.background = "transparent";
+            childDiv.style.transform  = "translate(-50%, -50%) rotate(-45deg)";
+            childDiv.style.position = "absolute";
+            childDiv.style.top = "40%";
+            childDiv.style.left = "50%";
+            
+            var text = document.createTextNode(textMsg);
+            childDiv.appendChild(text);
+            parentDiv.appendChild(childDiv);
+        }
+
+        parentDiv.appendChild(canvas);
+        document.getElementById("canvas-div").appendChild(parentDiv);
+        pageRendering = true;
+        
+        pdfDoc.getPage(num).then(function(page) {
+            var viewport = page.getViewport(scale);
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            var renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+            var renderTask = page.render(renderContext);
+            renderTask.promise.then(function () {
+               pageNumPending = num;
+                if(num == 1){
+                    document.getElementById("loadingAnim").classList.remove("animateLoading");
+                }
+                document.getElementById("percentageCom").innerHTML = Math.round((num/pdfDoc.numPages)*100)+"%"; 
+                var canvas = document.createElement("CANVAS");
+                var ctx = canvas.getContext('2d');
+               
+                if(index != pdfDoc.numPages){
+                    index++;
+                    renderPage(index,canvas,ctx);
+                }else{
+                    if(index == pdfDoc.numPages){
+                        var printLoc = '{!JSENCODE(printLoc)}';
+                        var isEnableControlledPrint = '{!isEnableControlledPrint}';
+                        Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.DMSPrintController.insertControlPrintingAuditLog}',recordId,printLoc,isEnableControlledPrint,
+                          function(result, event){
+                              window.print();
+                              window.close();
+                            }
+                        ,{escape: true}
+                        );
+                    }
+                }
+            });
+        });
+    }
+    
+    function printSVG(imgCount){
+        if(feedId != null && feedId != undefined && feedId.length > 0)
+            deleteFeedItem(feedId);
+        document.getElementById("totalpage").innerHTML = imgCount;
+        document.getElementById("coverpage").innerHTML = ''; 
+        var i=0;
+        var imageLoadingLabel = "{!JSENCODE($Label.SPARTADMS__DMS_IMAGE_LOADING)}";
+        jq("[id$='info-msg']").find("span").not("#percentageCom").html(getEncodedValue(imageLoadingLabel));
+        jq(".printImage").load(function(){
+            jq(this).prev().html(textMsg);
+            i++
+            if(i == 1){
+                document.getElementById("loadingAnim").classList.remove("animateLoading");
+            }
+            
+            document.getElementById("percentageCom").innerHTML = Math.round((i/imgCount)*100)+"%";
+            if(i == imgCount){
+               var printLoc = '{!JSENCODE(printLoc)}';
+               var isEnableControlledPrint = '{!isEnableControlledPrint}';
+               Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.DMSPrintController.insertControlPrintingAuditLog}',recordId,printLoc,isEnableControlledPrint,
+                      function(result, event){
+                          window.print();
+                          window.close();
+                        }
+                    ,{escape: true}
+                    );
+            }
+        });
+    }   
+    
+   
+    function renderSVG(result) {
+            
+        result = JSON.parse(result.fileViewerJson).FileViewerInfoList;
+        var dom = '';
+        for(var i=0;i<result.length;i++){
+           dom += '<div class="page"><img class="printImage" src="'+result[i].url+'" alt="" /></div>'
+        }
+        document.getElementById("svg").innerHTML = dom;
+        printSVG(result.length);
+      
+    } 
+    function deleteFeedItem(feedItemId){
+          Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.DMSPrintController.deleteFeedItem}',recordId,feedItemId,function(result, event){
+            
+          }, {escape: true});
+    
+    } 
+    
+    </script>
+    
+<apex:outputPanel layout="block" id="printPanel">
+        <apex:outputPanel layout="block" id="previewNotAvailable">
+        <div class="alert no-print" id="info-msg">
+            <div style="vertical-align:14px;font-weight:bold;font-size:20px;" id="feedStatus"> 
+            	{!$Label.DMS_PREVIEW_RENDERING}    
+            </div> 
+            <div class="loading animateLoading" id="loadingAnim">
+                <div id="percentageCom"></div>
+            </div>
+        </div>
+    </apex:outputPanel>
+        <apex:outputPanel id="previewAvailable" layout="block">
+            <apex:outputPanel layout="block"  >
+                <div style="position:relative;margin:auto;">
+                    <div class="page" id="nonRecType">
+                        <p class="pdfwatermark" id="coverpage"></p>
+                        <div style="text-align:center;">
+                            <span style="font-size:20px;font-weight:bold">
+                                {!$Label.DMS_PRINTED_CONTROLLED_DOCUMENT}<br/>
+                                 {!$Label.DMS_DOCUMENT_EXPIRE_ON}&nbsp;&nbsp; 
+                                <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                    <apex:param value="{!today()}"/>
+                                </apex:outputText>
+                                <br/><br/>
+                                {!$Label.spartadms__dms_document_printed_from}<br/>
+                                <span>
+                                    <apex:image width="300" url="{!if(logoApiNameOrURL != null || logoApiNameOrURL != '', logoApiNameOrURL, 
+                                    URLFOR($Resource.DMS123, 'image/123ComplianceLogo.png'))}" styleClass="img-responsive" />
+                                </span>
+                                <br/>{!$Label.DMS_CONTROLLED_DOCUMENT}<br/><br/><br/>
+                            </span>
+                            <table id="corpDocTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>{!$Label.DMS_DOCUMENT_NUMBER}<br/><b><span style="font-size:20px;">{!corpDocRecord.Alphanumeric_Sequence__c}</span></b></td>
+                                    <td>{!$Label.DMS_DOCUMENT_NAME}<br/><b><span style="font-size:20px;">{!corpDocRecord.Name}</span></b></td>
+                                </tr>
+                                <tr>
+                                    <td>{!$Label.DMS_DOCUMENT_VERSION}<br/><b><span style="font-size:20px;">{!corpDocRecord.Document_Version__c}</span></b></td>
+                                    <!-- Start Compliance-98 -->
+                                    <td>{!$Label.DMS_DOCUMENT_STATUS}<br/><b><span style="font-size:20px;">{!corpDocRecord.Document_Status__c}
+                                    <apex:outputpanel rendered="{!CorpDocRecord.SPARTADMS__Document_Status__c != 'APPROVED'}" > 
+                                        <apex:outputText value="("></apex:outputText>
+                                        <apex:outputText value="{0,date,dd/MM/yyyy h:mm:ss a}">
+                                            <apex:param value="{!corpDocRecord.SPARTADMS__Effective_DT__c + offset}"/>
+                                        </apex:outputText> 
+                                        <apex:outputText value=")"></apex:outputText>
+                                    </apex:outputpanel></span></b></td>
+                                    <!-- End Compliance-98 -->
+                                </tr>
+                                
+                            </table><br/><br/>
+                            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                            <apex:outputPanel >
+                                <table id="approverTable" class="table table-striped table-bordered" cellspacing="0" width="100%" >
+                                    <thead >
+                                        <tr>
+                                            <th>{!$Label.DMS_APPROVER}</th>
+                                            <th>{!$Label.DMS_DATE_OF_APPROVAL}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <apex:repeat value="{!approverList}" var="item">
+                                            <tr>
+                                                <td><span style="font-size:20px;font-weight:bold">{!item.SPARTADMS__Related_Box_User__r.Name}</span></td>
+                                                <td><span style="font-size:20px;font-weight:bold">
+                                                    <apex:outputpanel >
+                                                        <apex:outputText value="{0,date,dd/MM/yyyy h:mm:ss a}">
+                                                            <apex:param value="{!item.SPARTADMS__Approval_Completed_Date__c + offset}"/>
+                                                        </apex:outputText>
+                                                    </apex:outputpanel>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </apex:repeat>
+                                    </tbody>
+                                </table>
+                            </apex:outputPanel><br/><br/> 
+                            <span style="text-align:left">{!$Label.DMS_CONTROLLED_DOC_INCLUDES} <span id="totalpage"></span>&nbsp;&nbsp;{!$Label.DMS_PAGES_AND_THIS_COVER_PAGE}</span>
+                        </div> 
+                    </div>
+                    <!--<apex:repeat value="{!FileViewerJson.FileViewerInfoList}" var="item">
+                        <div class="page">
+                            <p class="watermark"></p>
+                            <img class="printImage" src="{!item.url}" alt="" />
+                        </div>
+                    </apex:repeat>-->    
+                    <div id="svg"></div>           
+                    
+                    <div id="canvas-div"></div>
+                </div>
+            </apex:outputPanel>
+        </apex:outputPanel> 
+    </apex:outputPanel>
+</apex:page>

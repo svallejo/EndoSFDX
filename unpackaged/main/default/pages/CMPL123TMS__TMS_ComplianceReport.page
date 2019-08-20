@@ -1,0 +1,182 @@
+<apex:page controller="CMPL123TMS.TMSComplianceReportController"  sidebar="false" standardStylesheets="false" showHeader="false">
+    <apex:stylesheet value="{!URLFOR($Resource.CMPL123TMS__TMS123, 'lib/Bootstrap/css/bootstrap.min.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.CMPL123TMS__TMS123, 'lib/Jquery/js/jQuery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.CMPL123TMS__TMS123, 'lib/Bootstrap/js/bootstrap.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.CMPL123TMS__TMS123,'lib/datatable/js/datatable.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.CMPL123TMS__TMS123,'lib/datatable/css/datatable.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.CMPL123TMS__TMS123,'lib/datatable/js/button.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.CMPL123TMS__TMS123,'lib/datatable/js/print.js')}"/>
+	<apex:stylesheet value="{!URLFOR($Resource.CMPL123TMS__TMS123,'css/custom.css')}" /> 
+
+    <style>
+        select[size]{
+            height:35px;
+        }
+       .modal-dialog{
+            width:170px;
+        }
+        .paginate_button{
+            padding:10px;
+            border:1px solid #ddd;
+            text-decoration:none;
+        }
+        .dt-buttons a{
+            font-weight:bold;
+            cursor:pointer;
+        }
+    </style>
+    <script>
+    
+        $(function(){
+            $("[id$='reportTable']").hide();
+            $("[id$='submit']").attr("disabled",true);
+        });
+       
+        function callController(){
+           console.log('======inside=====');
+           $("[id$='reportTable']").hide();
+           $("#loading").modal("show");
+        }
+        
+        /*
+        function disabledSubmit(obj){
+            obj.value.length > 0 ?  $("[id$='submit']").attr("disabled",false) : $("[id$='submit']").attr("disabled",true);
+        }
+        */
+        
+        function chooseCriteriaValue(obj){
+            var show = false;
+            $("select").each(function(){
+                if($(this).val().length > 0){
+                    show = true;
+                }
+           });
+           if($("[id$='libraryName']").val().length > 0){
+               show = true;
+           }
+           show ?  $("[id$='submit']").attr("disabled",false) :  $("[id$='submit']").attr("disabled",true);
+        }
+        
+        function hideLoading(){
+           $("#loading").modal("hide");
+           $("[id$='reportTable']").show(function(){
+               $("[id$='report']").dataTable({
+                  "pagingType": "full_numbers",
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'print'
+                    ],
+                   "oLanguage": {
+                        "sZeroRecords":"{!$Label.CMPL123TMS__tms_no_matching_records_found}",
+
+                        "sLengthMenu": "{!$Label.CMPL123TMS__tms_search}"+
+                            "&nbsp;&nbsp;<select>" +
+						       "<option value='10'>10</option>"+
+						       "<option value='25'>25</option>"+
+						       "<option value='50'>50</option>"+
+						       "<option value='100'>100</option>"+
+						    "</select>&nbsp;&nbsp;"  +
+                        	"{!$Label.CMPL123TMS__tms_entries}",
+                            "sSearch" : "{!$Label.CMPL123TMS__tms_search}","sInfo" : "{!$Label.CMPL123TMS__TMS_Showing}"+" "+ "_START_" +" "+ "{!$Label.CMPL123TMS__TMS_Datatable_to}"+" "+ "_END_" +" "+ "{!$Label.CMPL123TMS__TMS_of}"+" "+ "_TOTAL_" +" "+ "{!$Label.CMPL123TMS__TMS_entries}","sInfoEmpty" : "{!$Label.CMPL123TMS__TMS_Showing}"+" "+ "_START_" +" "+ "{!$Label.CMPL123TMS__TMS_Datatable_to}"+" "+ "_END_" +" "+ "{!$Label.CMPL123TMS__TMS_of}"+" "+ "_TOTAL_" +" "+ "{!$Label.CMPL123TMS__TMS_entries}",
+                        "oPaginate": {
+                            "sPrevious": "<",
+                            "sNext":">",
+                            "sFirst":"<<",
+                            "sLast":">>"
+                        },
+                    },
+               });
+               $("input[type='search']").addClass("form-control").css({display: "inline-block", width: "auto"});
+                $(".buttons-print >span").html('{!$Label.CMPL123TMS__tms_print}');
+               $(".dataTables_length select").addClass("form-control");
+           });
+        }
+    </script>
+    <div class="container page-header" style="padding:0;margin:auto;">
+        <h3>{!$Label.CMPL123TMS__tms_compliance_report}</h3>
+    </div>
+    <div class="container well" style="padding:8px 70px 14px;">
+        <apex:form >
+            <div class="row">
+                <!-- <h5>Filter By</h5> -->
+                <div class="col-md-6">
+                    <label>{!$Label.TMS_Users}</label>
+                    <div class="form-group">
+                        <apex:selectList value="{!selectedUsers}" styleClass="form-control" size="1" onchange="chooseCriteriaValue(this);">
+                            <apex:selectOption itemLabel="--{!$Label.cmpl123tms__tms_none}--" itemValue=""></apex:selectOption>
+                            <apex:selectOption itemLabel="{!$Label.cmpl123tms__tms_all}" itemValue="All"></apex:selectOption>
+                            <apex:selectOption itemLabel="{!$Label.cmpl123tms__tms_my_reportees}" itemValue="Manager"></apex:selectOption>
+                        </apex:selectList>  
+                    </div>
+                </div>
+                 <div class="col-md-6">
+                    <label>{!$Label.cmpl123tms__tms_training_plan}</label>
+                    <div class="form-group">
+                       <apex:selectList styleClass="form-control" value="{!trainingPlanId}" size="1" onchange="chooseCriteriaValue(this);">
+                            <apex:selectOptions value="{!TrainingPlans}"></apex:selectOptions>
+                        </apex:selectList>  
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label>{!$Label.cmpl123tms__tms_department}</label>
+                    <div class="form-group">
+                        <apex:selectList value="{!userDepartmentName}" size="1" styleClass="form-control" onchange="chooseCriteriaValue(this);">
+                            <apex:selectOptions value="{!Departments}"></apex:selectOptions>
+                        </apex:selectList>
+                    </div>
+                </div>
+                 <div class="col-md-6">
+                    <label>{!$Label.cmpl123tms__tms_training_name}</label>
+                    <div class="form-group">
+                          <apex:inputText styleClass="form-control" id="libraryName" onkeyup="chooseCriteriaValue(this);" value="{!trainingName}" html-placeholder="{!$Label.cmpl123tms__tms_type_library_name}"  />
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="text-align:center;">
+                <apex:commandButton action="{!getCompletedTrainingsStatistics}" styleClass="btn btn-primary" onclick="callController();" value="{!$Label.cmpl123tms__tms_submit}"  id="submit" reRender="reportTable" oncomplete="hideLoading();" />
+            </div>
+        </apex:form>
+    </div>
+    <div class="container">
+         <apex:outputPanel id="reportTable" styleClass="container" >
+            <table  class="table table-bordered" id="report">
+                <thead style="background:#54698D;color:white;">
+                      <tr>
+                          <th>{!$Label.TMS_Name}</th>
+                          <th>{!$Label.TMS_Completed_Trainings} </th>
+                          <th>{!$Label.TMS_Completed_Late_Trainings} </th>
+                          <th>{!$Label.TMS_Completed_Ontime_Trainings} </th>
+                      </tr>
+                </thead>
+                <tbody>
+                    <apex:repeat value="{!CompletedTrainingsInnerList}" var="completedTraining">
+                        <tr>
+                            <td style="width:30%">{!completedTraining['userName']}</td>
+                            <td>{!completedTraining['percentageCompleted']}</td>
+                            <!-- <td>
+                               <apex:outputText value="{0, number}"> 
+                                    <apex:outputText value="{!If(completedTraining['percentageCompleted'] != 0 ,completedTraining['percentageCompleted']+'%',completedTraining['percentageCompleted'])}"/>
+                                </apex:outputText> 
+                            </td> -->
+                            <td>{!completedTraining['percentageCompletedLate']}</td>
+                            <td>{!completedTraining['percentageCompletedOntime']}</td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </apex:outputPanel>      
+    
+   </div> 
+    <div id="loading" class="TMSloading modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div style="text-align:center;">
+                        <img src="/resource/CMPL123TMS__TMS123/image/ajax-loader.gif" alt="Loading..." />
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </div>
+    
+</apex:page>

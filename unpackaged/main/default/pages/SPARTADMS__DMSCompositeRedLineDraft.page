@@ -1,0 +1,15 @@
+<apex:page controller="SPARTADMS.DMSCompositeRedLineDraftController" showHeader="false"  standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" >
+    <html>  
+        <body>
+            <apex:outputPanel layout="block" id="idRender">
+                <apex:outputPanel rendered="{!if(boxIframeURL != null && boxIframeURL != '', true, false)}" layout="block">
+                    <div><iframe src="{!boxIframeURL}" width="100%" height="600px;" ></iframe></div>                
+                </apex:outputPanel>
+                
+                <apex:outputPanel rendered="{!!if(boxIframeURL != null && boxIframeURL != '', true, false)}" layout="block">
+                    <div style="align-center">{!$Label.spartadms__dms_file_preview_not_available}</div>
+                </apex:outputPanel>
+            </apex:outputPanel>
+        </body>
+    </html>
+</apex:page>

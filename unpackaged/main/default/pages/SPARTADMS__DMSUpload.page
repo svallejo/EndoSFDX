@@ -1,0 +1,563 @@
+<apex:page showHeader="false" standardController="SPARTADMS__Corporate_Document__c" extensions="SPARTADMS.DMSUploadController" standardStylesheets="false" sidebar="false" applyHtmlTag="false" >
+    <apex:stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Bootstrap/css/bootstrap.min.css')}"/>
+    <apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Bootstrap/css/spartabootstrap.min.css')}"/>
+    
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Jquery/js/jquery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Bootstrap/js/bootstrap.min.js')}"/>
+    <apex:includeScript value="../../soap/ajax/32.0/connection.js" />
+    
+    <style>
+        input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+        .btn-file {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        var recordId;var baseURL;var uploadFormat='';
+        var uploadFileAccess;
+        var idWithBtn;
+        var feedId;
+        var IsAttachmentUploaded = false;
+        var versionStatus,isAuthor;
+        var documentType, templateExtension;
+        //Start Compliance-24
+        var latestFileName;
+        //End Compliance-24
+        //Start Compliance-44
+        var filename;
+        //End Compliance-44
+        $(function(){
+            $("#uploadDoc").modal("show");
+            $("#uploadDoc").modal({backdrop: "static"});
+            $("[id*='closeBtn']").attr("style", "display:none;");
+            var url = window.location.href.toString();
+            baseURL = '{!JSENCODE(baseUrl)}';
+            if(url.indexOf('id') != -1){
+                idWithBtn = url.substr(url.indexOf('id')+3 , 18);
+                var currentpageparameters = idWithBtn.split("&");
+                recordId = currentpageparameters[0];
+            }
+            uploadFileAccess = '{!uploadFileAccess}';
+            //Start Compliance-24
+            latestFileName = '{!JSENCODE(latestFileName)}';
+            //End Compliance-24
+            //Start Compliance-82
+            versionStatus = '{!JSENCODE(docVersionStatus)}';
+            documentType = '{!JSENCODE(docType)}';
+            templateExtension = '{!JSENCODE(templateExtension)}';
+            isAuthor = '{!isAuthor}';
+            //End Compliance-82
+            if(uploadFileAccess == "false"){
+                $("#frm").attr("style", "display:none;");
+                $("#UploadError2").attr("style", "display:block;");
+            }
+             $("#selectedFile").val("");
+        });
+        
+        function getQuery(name){
+            var search = window.location.search;
+            if(name=(new RegExp('[?&amp;]'+encodeURIComponent(name)+'=([^&amp;]*)')).exec(location.search))
+            return decodeURIComponent(name[1]);
+        } 
+
+        function closepopup(){
+            $("#uploadDoc").modal("hide");
+		}
+
+        function uploadFile(){
+            $("#exception").css("display","none");
+            $("#errorMessage").html("");
+            var b64encoded;
+            $("#UploadError").attr("style", "display:none;");
+            $("#UploadError2").attr("style", "display:none;");
+            $("#UploadError3").attr("style", "display:none;");
+            //Start Compliance-24
+            $("#UploadError4").attr("style", "display:none;");
+            //Start Compliance-82
+           	$("#UploadError5").attr("style", "display:none;");
+            //End Compliance-82
+            $("#UploadError6").attr("style", "display:none;");
+            $("#UploadSuccessMsg1").attr("style", "display:none;");
+            var file = $("#inputFile")[0].files[0];
+            filename = $("#inputFile")[0].files[0].name;
+            var fileExt;
+            if(latestFileName != "null" && latestFileName.length >0 && filename.length >0){
+                if(!documentType.match(/record/i)){
+                    var ext1=latestFileName.substring(latestFileName.lastIndexOf('.')+1,latestFileName.length);
+                    var ext2=filename.substring(filename.lastIndexOf('.')+1,filename.length);
+                    fileExt = ext2; 
+                    if(ext1 != ext2 && !((ext1 == 'doc' || ext1 == 'docx') && (ext2 == 'doc' || ext2 == 'docx'))){
+                            $("#uploaderStatus").css("display", "none");                        
+                            $("#UploadError4").attr("style", "display:block;");
+                            $("#DMS_FILE_EXTENSION_NOTMATCHING_MSG_ID").html("{!$Label.DMS_FILE_EXTENSION_NOTMATCHING}" + " " + ext1);  
+                             return false;  
+                    }else{
+                         $("#uploaderStatus").css("display", "none");
+                         $("#UploadError4").attr("style", "display:none;");
+                    }
+                }
+            }
+
+            if (filename.length >0 ) {
+                $("#uploaderStatus").css("display","block");
+                $("#uploadBtn").attr("disabled",true);
+                $("[id*='cancelBtn']").attr("disabled",true);
+                $("#inputFile").attr("disabled",true);
+            }
+
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.DMSUploadController.getDocumentType}',
+                recordId,function(result, event){
+                    if (event.status) {
+                        var data1 = result.split('~');
+                        var docType = data1[0];
+                        feedId = data1[1];
+                        var isUpload = data1[2];
+                        var fileSize = ($("#inputFile")[0].files[0].size)/(1024*1024);
+                        if (docType.match(/record/i)) {
+                            if (feedId == 'null' && isUpload == 'false' && fileSize <= 2048) {                               
+                                var reader = new FileReader();
+                                reader.onloadend = 
+                                    (function(file) { 
+                                        return function(evt) {
+                                            b64encoded = getFileContent(evt.target.result);
+                                            uploadAttachment('',b64encoded,filename,recordId);
+                                            IsAttachmentUploaded = true;
+                                        };
+                                    })(file);
+                                reader.readAsDataURL(file); 
+                            }
+                            else {
+                                $("#uploaderStatus").css("display", "none");
+                                $("#UploadError6").attr("style", "display:block;");
+                                return false;
+                            }
+                        }
+                        else {
+                            //Removing one tab space for proper indentation and Removed upload limit threshold for controlled documents 
+                             var ext2;
+                             if (filename != null && filename !='' && templateExtension != null && templateExtension != '' ) {
+                                ext2 = filename.substring(filename.lastIndexOf('.')+1,filename.length);
+                                if (templateExtension != ext2 && !((templateExtension == 'doc' || templateExtension == 'docx') && (ext2 == 'doc' || ext2 == 'docx'))){
+                                   $("#uploaderStatus").css("display", "none");
+                                   $("#UploadError4").attr("style", "display:block;");
+                                   $("#DMS_FILE_EXTENSION_NOTMATCHING_MSG_ID").html("{!$Label.DMS_FILE_EXTENSION_NOTMATCHING}"+" "+templateExtension);  
+                                   return false;
+                               } else {
+                                   if(templateExtension != ext2 && ((templateExtension == 'doc' || templateExtension == 'docx') && (ext2 == 'doc' || ext2 == 'docx'))){
+                                       showConfirmPopup(templateExtension);
+                                   }else{
+                                        if(ext1 != fileExt && ((ext1 == 'doc' || ext1 == 'docx') && (fileExt == 'doc' || fileExt == 'docx'))){
+                                            showConfirmPopup(ext1);     
+                                        }else{      
+                                           doBeforeUpload(recordId, filename);      
+                                        }
+                                   }
+                               }
+                           } else {
+                                if(ext1 != fileExt && ((ext1 == 'doc' || ext1 == 'docx') && (fileExt == 'doc' || fileExt == 'docx'))){
+                                    showConfirmPopup(ext1);
+                                }else{
+                                    doBeforeUpload(recordId, filename);
+                                }
+                           } 
+                        }  
+                    }
+                }, 
+                {escape: true}
+            );
+        }
+        
+        function doBeforeUpload(recId, fName) {
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.DMSUploadController.onBeforeUpload}',
+                recId,fName, 
+                function(result, event) {
+                    if (event.status) {
+                        if (result.folderId === undefined ) {
+                            uploadFormat = 'NewVersion';
+                            uploadNewFileVersionToBox(result.accessToken,result.fileId,result.etag);
+                        } else {
+                            uploadFileToBox(result.accessToken,result.folderId);
+                        } 
+                    } 
+                }, 
+                {escape: true}
+            );
+        }
+
+        function getFileContent(fileData) {
+            var fileContent = String(fileData);
+            return fileContent.substr(fileContent.indexOf(',') + 1);
+        }
+    
+        function uploadAttachment (jsonData,base64EncodedData,fileName,cdId) {
+            jsonData = 
+                {
+                "feedElementType" : "FeedItem"
+            };
+            jsonData.subjectId = cdId;
+            jsonData.capabilities =
+                {
+                "content" :
+                {
+                    "title": fileName
+                }
+            };
+            // Define a boundary
+            var boundary = 'boundary_string_' + Date.now().toString();
+            var attachmentContentType = 'application/octet-stream';
+            
+            // Serialize the object, excluding the body, which will be placed in the second partition of the multipart/form-data request
+            var serializedObject = JSON.stringify(jsonData);
+            
+            var requestBodyBeginning = '--' + boundary
+            + '\r\n'
+            + 'Content-Disposition: form-data; name="json";'
+            + '\r\n'
+            + 'Content-Type: application/json'
+            + '\r\n\r\n'
+            + serializedObject
+            + '\r\n\r\n' +
+                '--' + boundary
+            + '\r\n'
+            + 'Content-Type: ' + attachmentContentType
+            + '\r\n'
+            + 'Content-Disposition: form-data; name="feedElementFileUpload"; filename="'+fileName+'"'
+            + '\r\n\r\n';
+            
+            var requestBodyEnd =
+                '\r\n\r\n'
+            + '--' + boundary + '--';
+            
+            // The atob function will decode a base64-encoded string into a new string with a character for each byte of the binary data.
+            var byteCharacters = atob(base64EncodedData);
+            
+            // Each character's code point (charCode) will be the value of the byte.
+            // We can create an array of byte values by applying .charCodeAt for each character in the string.
+            var byteNumbers = new Array(byteCharacters.length);
+            
+            for (var i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            
+            // Convert into a real typed byte array. (Represents an array of 8-bit unsigned integers)
+            var byteArray = new Uint8Array(byteNumbers);
+            
+            var totalRequestSize = requestBodyBeginning.length + byteArray.byteLength + requestBodyEnd.length;
+            //var totalRequestSize = requestBodyBeginning.length + contentLength + requestBodyEnd.length;
+            
+            var uint8array = new Uint8Array(totalRequestSize);
+            var i;
+            
+            // Append the beginning of the request
+            for (i = 0; i < requestBodyBeginning.length; i++) {
+                uint8array[i] = requestBodyBeginning.charCodeAt(i) & 0xff;
+            }
+            
+            // Append the binary attachment
+            for (var j = 0; j < byteArray.byteLength; i++, j++) {
+                uint8array[i] = byteArray[j]; 
+            }
+            
+            // Append the end of the request
+            for (var j = 0; j < requestBodyEnd.length; i++, j++) {
+                uint8array[i] = requestBodyEnd.charCodeAt(j) & 0xff;
+            }
+            
+            var uploadUrl = baseURL+'/services/data/v35.0/chatter/feed-elements';
+            var headers = {
+                "Authorization": 'OAuth {!$Api.Session_Id}'
+            }; 
+            
+            $.ajax({
+                url: uploadUrl,
+                headers: headers,
+                type: 'POST',
+                // This prevents JQuery from trying to append the form as a querystring
+                processData: false,
+                contentType: 'multipart/form-data' + "; boundary=\"" + boundary + "\"",
+                data: uint8array
+            }).complete(function ( data ) {
+                var feedItemId = JSON.parse(data.responseText).id;
+                $("#uploaderStatus").css("display", "none");
+               
+                sforce.connection.sessionId='{!$Api.Session_ID}';
+                var cd = new sforce.SObject("SPARTADMS__Corporate_Document__c");
+                cd.Id = cdId;
+                cd.SPARTADMS__FeedItemId__c  = feedItemId;
+                //As per the request of clientcode added Line : 225 as a fix of JIRA Ticket COMPLIANCE-32
+                cd.SPARTADMS__New_Feed_Item_Id__c  = feedItemId;
+                cd.SPARTADMS__Is_File_Uploaded__c = true;
+                //Start JIRA Ticket - Compliance-44 code changed on 26-04-2016
+                cd.SPARTADMS__Latest_file_name__c  = fileName;
+                //End JIRA Ticket - Compliance-44
+                var result = sforce.connection.update([cd]);
+                if(result[0].getBoolean("success"))
+                {
+                    $("#UploadSuccessMsg1").attr("style", "display:block;");                       
+                     $("[id*='closeBtn']").attr("style", "display:inline;");
+                     $("[id*='cancelBtn']").attr("style", "display:none;");
+                     $("#uploadBtn").attr("disabled", false);
+                }
+                else{
+                    $("#uploaderStatus").css("display", "none");
+                    $("#UploadError3").attr("style", "display:block;");
+                }            
+            });
+        }
+        function uploadNewFileVersionToBox(accessToken,fileId,etag){
+            var form = new FormData();
+            
+            // Add the file to the form
+            form.append('file', $("#inputFile")[0].files[0]);
+            var uploadUrl = 'https://upload.box.com/api/2.0/files/'+fileId+'/content';
+            
+            // The Box OAuth 2 Header. Add your access token.
+            var headers = {
+                "Authorization": 'Bearer '+accessToken,
+                "If-Match" : etag
+            }; 
+            
+            $.ajax({
+                url: uploadUrl,
+                headers: headers,
+                type: 'POST',
+                // This prevents JQuery from trying to append the form as a querystring
+                processData: false,
+                contentType: false,
+                data: form
+            }).complete(function ( data ) {
+                console.log('upload fileId = ' + fileId + '; tag = ' + etag);
+                console.log('data returned after upload: ' + data);
+                // Log the JSON response to prove this worked
+                saveFileData(data.responseText);
+            });        
+        }
+        
+        function uploadFileToBox(accessToken,folderId){
+            var form = new FormData();
+            
+            // Add the file to the form
+            form.append('file', $("#inputFile")[0].files[0]);
+            
+            // Add the destination folder for the upload to the form
+            form.append('parent_id', folderId);
+            
+            var uploadUrl = 'https://upload.box.com/api/2.0/files/content';
+            
+            // The Box OAuth 2 Header. Add your access token.
+            var headers = {
+                Authorization: 'Bearer '+accessToken
+            };
+            
+            $.ajax({
+                url: uploadUrl,
+                headers: headers,
+                type: 'POST',
+                // This prevents JQuery from trying to append the form as a querystring
+                processData: false,
+                contentType: false,
+                data: form
+            }).complete(function ( data ) {
+                // Log the JSON response to prove this worked
+                saveFileData(data.responseText);
+            });
+        }
+        
+        function saveFileData(data){
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.DMSUploadController.saveFileData}',
+                //Start Compliance-44
+                data,recordId,filename, 
+                //End Compliance-44 
+                function(result, event){
+                   $("#uploaderStatus").css("display", "none");
+                    if (event.status) {
+                        $("#uploaderStatus").attr("style", "display:none;text-align:center;");
+                        $("#UploadSuccessMsg1").attr("style", "display:block;");                       
+                        $("[id*='closeBtn']").attr("style", "display:inline;");
+                        $("[id*='cancelBtn']").attr("style", "display:none;");
+                        $("#uploadBtn").attr("disabled", false);
+                        $("#inputFile").attr("disabled", false);
+                        latestFileName = filename;
+                    }else{
+                        $("#uploaderStatus").css("display", "none");
+                        $("#exception").css("display", "block");
+                        $("#errorMessage").html(event.message);
+                    }
+                    
+                }, 
+                {escape: true}
+            );    
+        }
+        
+        function selectFile(obj) {
+           $("#UploadError").attr("style", "display:none;");
+           $("#UploadError2").attr("style", "display:none;");
+           $("#UploadError3").attr("style", "display:none;");
+           $("#exception").attr("style", "display:none;");
+           $("#UploadError4").attr("style", "display:none;");
+           $("#UploadError6").attr("style", "display:none;");
+           $("#UploadError7").attr("style", "display:none;");
+           $("#UploadSuccessMsg1").attr("style", "display:none;");
+           $("[id*='closeBtn']").attr("style", "display:none;");
+           $("[id*='cancelBtn']").attr("style", "display:inline;");
+           $("[id*='cancelBtn']").attr("disabled",false);
+           $("#selectedFile").val(obj.value);
+           var fileSize = ($("#inputFile")[0].files[0].size)/(1024*1024);
+            //Removing one tab space for proper indentation and Removed upload limit threshold for controlled documents
+            if (documentType != 'Record (RCD)') {
+                filename = $("#inputFile")[0].files[0].name;
+                if (filename.includes('"')) {
+                    $("#UploadError7").attr("style",  "display:block;");
+                    $("#uploadBtn").attr("disabled", true);    
+                } else if(filename.includes('\\')) {
+                     $("#UploadError7").attr("style",  "display:block;");
+                    $("#uploadBtn").attr("disabled", true); 
+                } else {
+                    $("#UploadError").attr("style",  "display:none;");
+                    $("#uploadBtn").attr("disabled", false);
+                }
+            } else {
+                $("#UploadError").attr("style",  "display:none;");
+                $("#uploadBtn").attr("disabled", false);
+            }
+       }
+        function closeConfirmPopup(){
+           $("#confirmModal").modal("hide");
+           $("#uploadDoc").modal("show");
+           $("#uploaderStatus").css("display", "none");
+           $("#uploadBtn").attr("disabled",false);
+           $("[id*='cancelBtn']").attr("disabled",false);
+           $("#inputFile").attr("disabled",false);
+        }
+       
+        function confirmedPopup(){
+           $("#confirmModal").modal("hide");
+           $("#uploadDoc").modal("show");
+           doBeforeUpload(recordId, filename);
+        }
+       
+        function showConfirmPopup(ext){
+           var mismatchExtMsg = '{!JSENCODE($Label.DMS_UPLOAD_EXTENSION_MISMATCH)}';  
+           mismatchExtMsg =  mismatchExtMsg.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+           var doContinueMsg = '{!JSENCODE($Label.DMS_WISH_TO_CONTINUE)}';
+           doContinueMsg =  doContinueMsg.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+           $("#confirmMessageMsg").html(mismatchExtMsg + ' ' + ext + '. ' + doContinueMsg);
+           $("#uploadDoc").modal("hide");
+           $("#confirmModal").modal("show");
+        }
+    </script>
+
+	<apex:form >
+	    <div id="uploadDoc" class="modal fade" role="dialog">
+	            <div class="modal-dialog">
+	                <div class="modal-content">
+	                    <div class="modal-header">
+	                    
+							<apex:commandButton action="{!doCancelUpload}" value="x" styleClass="close" onclick="closepopup();" html-data-dismiss="modal" style="border: none; background-color:transparent" />
+	                        
+	                        <h4 class="modal-title">{!$Label.DMS_UPLOAD_FILE}</h4>
+	                    </div>
+	                    <div class="modal-body">
+	                       <div class="alert alert-danger" id="exception" style="display:none;">
+	                            <strong><span class="glyphicon glyphicon-info-sign" style="font-size:20px;vertical-align:-4px;"></span></strong>
+	                             &nbsp;<span id="errorMessage"></span>  
+	                        </div>
+	                            <div id="uploaderStatus" style="display:none;text-align:center;">
+	                                   <img src="/img/loading32.gif" />   
+	                            </div>
+	                            <div class="alert alert-info" id="UploadError" style="display:none;" >
+	                                <strong><span class="glyphicon glyphicon-info-sign" style="font-size:20px;vertical-align:-4px;"></span></strong>&nbsp;&nbsp;{!$Label.DMS_FILE_EXCEEDS_15MB}
+	                            </div>
+	                            <div class="alert alert-info" id="UploadError2" style="display:none;" >
+	                                <strong><span class="glyphicon glyphicon-info-sign" style="font-size:20px;vertical-align:-4px;"></span></strong>&nbsp;&nbsp;{!errorMsg}
+	                            </div>
+	                            <div class="alert alert-info"  id="UploadError3" style="display:none;" >
+	                                 <strong><span class="glyphicon glyphicon-info-sign" style="font-size:20px;vertical-align:-4px;"></span></strong>&nbsp;&nbsp;{!$Label.DMS_FILE_UPLOAD_CD_UPDATE_ERROR}
+	                            </div>
+	                            <div class="alert alert-danger"  id="UploadError4" style="display:none;" >
+	                                 <strong>
+	                                     <span class="glyphicon glyphicon-info-sign" style="font-size:20px;vertical-align:-4px;"></span>
+	                                 </strong>
+	                                 <span id="DMS_FILE_EXTENSION_NOTMATCHING_MSG_ID">
+	                                 </span>
+	                            </div>
+	                            <div class="alert alert-info"  id="UploadError6" style="display:none;" >
+	                                 <strong><span class="glyphicon glyphicon-info-sign" style="font-size:20px;vertical-align:-4px;"></span></strong>&nbsp;&nbsp;{!$Label.DMS_CANNOT_UPLOAD_MORE_THAN_2GB_FILE_FOR_RECORD_TYPE_DOC}
+	                            </div>
+	                            <div class="alert alert-info"  id="UploadSuccessMsg1" style="display:none;" >
+	                                 <strong><span class="glyphicon glyphicon-info-sign" style="font-size:20px;vertical-align:-4px;"></span></strong>&nbsp;&nbsp;{!$Label.DMS_FILE_UPLOADED_SUCCESSFULLY}
+	                            </div>
+	                            <div class="alert alert-danger"  id="UploadError7" style="display:none;" >
+	                                 <strong><span class="glyphicon glyphicon-info-sign" style="font-size:20px;vertical-align:-4px;"></span></strong>&nbsp;
+	                                 &nbsp;{!$Label.DMS_UPLOAD_WITHOUT_SLASH_MESSAGE}
+	                            </div>
+	
+	                        <form role="form" id="frm" style="margin-top:1%;">
+	                            <div class="form-group">
+	                                <div class="input-group">
+	                                    <span class="input-group-btn">
+	                                        <span class="btn btn-primary btn-file" style="margin-top:0;">
+	                                            {!$Label.DMS_UPLOAD_BROWSE}&hellip;
+	                                              <input type="file" class="file" id="inputFile" onchange="selectFile(this);" />
+	                                        </span>
+	                                    </span>
+	                                    <input type="text" id="selectedFile" class="form-control" readonly="true" />
+	                                </div>
+	                            </div>
+	                        </form>
+	                    </div>
+	                    
+	                    <div class="modal-footer">
+	                        <apex:outputpanel layout="block" rendered="{!!showAuthPopup}">
+	                        
+	                            <button type="button" id="uploadBtn" onclick="uploadFile()" style="{! 'display:' + if(uploadFileAccess,'inline','none') + ';margin-right:5px'}" data-loading-text="Uploading..." class="btn btn-default btn-primary" >{!$Label.DMS_UPLOAD}</button>
+								<apex:commandButton action="{!doCancelUpload}" value="{!$Label.spartadms__dms_cancel}" id="cancelBtn" onclick="closepopup()" styleClass="sparta-btn sparta-btn-default" />
+								<apex:commandButton action="{!doCancelUpload}" value="{!$Label.spartadms__dms_close}" id="closeBtn" onclick="closepopup()" styleClass="sparta-btn sparta-btn-default" />
+	                        </apex:outputpanel>
+	                    </div>
+	                </div>
+	            </div>
+	            
+	        </div>
+	    <div id="confirmModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" onclick="closeConfirmPopup();" html-data-dismiss="modal" style="border: none; background-color:transparent" >x</button>
+                      <h4 class="modal-title">{!$Label.DMS_UPLOAD_FILE}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-info" id="confirmMessageDiv" style="display:block;" >
+                          <strong>
+                            <span class="glyphicon glyphicon-info-sign" style="font-size:20px;vertical-align:-4px;"></span>
+                          </strong>
+                          <span id="confirmMessageMsg"></span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="yesBtn" onclick="confirmedPopup();" class="btn btn-primary">{!$Label.DMS_YES}</button>
+                        <button type="button"  id="noBtn" onclick="closeConfirmPopup();" class="btn btn-primary">{!$Label.DMS_NO}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </apex:form>
+</apex:page>

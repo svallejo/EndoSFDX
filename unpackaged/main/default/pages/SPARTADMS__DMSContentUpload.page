@@ -1,0 +1,183 @@
+<apex:page showHeader="false" controller="SPARTADMS.DMSContentUploadController">
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/jquery-ui-1.8.20/js/jquery-1.7.2.min.js')}"/>
+    <apex:includeScript value="../../soap/ajax/32.0/connection.js" />
+   
+    <script>
+    var recordId;
+    var baseURL;
+    var versionStatus;
+    Visualforce.remoting.timeout = 120000;
+    $(document).ready(function() {
+        var url = window.location.href.toString();
+        baseURL = '{!JSENCODE(baseUrl)}';
+        if(url.indexOf('id') != -1){
+            recordId = url.substr(url.indexOf('id')+3,18);
+        }
+        downloadFile();
+    });
+    function doClick(){
+    }
+    function downloadFile(){
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.DMSContentUploadController.onBeforeDownload}',
+            recordId, 
+            function(result, event){
+                if (event.status) {
+                    if(result === undefined || JSON.stringify(result) === '{}'){
+                       window.top.location='/apex/SPARTADMS__DMSDocViewer?id='+recordId;
+                    }else{
+                        //Start Compliance-98
+                        versionStatus = result.versionStatus;
+                        //End Compliance-98
+                        getBoxFile(result.accessToken,result.BoxDocId,result.fileDownloadURL,result.ContentFileName,result.corpDocId);
+                    }                    
+                } 
+            }, 
+            {escape: true}
+        );  
+    }
+    function getBoxFile(accessToken,fileId,downloadLink,ContentFileName,corpDocId){
+        var headers = {
+            "Authorization": 'Bearer '+accessToken
+        };
+        
+        var req = new XMLHttpRequest();
+        req.open('GET', downloadLink, true);
+        req.responseType = 'arraybuffer';
+        req.onload = function(e) {
+            if (this.status == 200) {
+                var strings = [], chunksize = 0xffff;
+                var uInt8Array = new Uint8Array(this.response);
+                var len = uInt8Array.length;
+                for (var i = 0; i * chunksize < len; i++){
+                    strings.push(String.fromCharCode.apply(null, uInt8Array.subarray(i * chunksize, (i + 1) * chunksize)));
+                }
+                var b64encoded = btoa(strings.join(''));
+                uploadAttachment('',b64encoded,ContentFileName,corpDocId);
+            }
+        }
+        req.send();
+    }   
+    function uploadAttachment (jsonData,base64EncodedData,fileName,cdId) {
+        jsonData = 
+            {
+            "feedElementType" : "FeedItem"
+        };
+        jsonData.subjectId = cdId;
+        jsonData.capabilities =
+            {
+            "content" :
+            {
+                "title": fileName
+            }
+        };
+        // Define a boundary
+        var boundary = 'boundary_string_' + Date.now().toString();
+        var attachmentContentType = 'application/octet-stream';
+        
+        // Serialize the object, excluding the body, which will be placed in the second partition of the multipart/form-data request
+        var serializedObject = JSON.stringify(jsonData);
+        
+        var requestBodyBeginning = '--' + boundary
+        + '\r\n'
+        + 'Content-Disposition: form-data; name="json";'
+        + '\r\n'
+        + 'Content-Type: application/json'
+        + '\r\n\r\n'
+        + serializedObject
+        + '\r\n\r\n' +
+            '--' + boundary
+        + '\r\n'
+        + 'Content-Type: ' + attachmentContentType
+        + '\r\n'
+        + 'Content-Disposition: form-data; name="feedElementFileUpload"; filename="'+fileName+'"'
+        + '\r\n\r\n';
+        
+        var requestBodyEnd =
+            '\r\n\r\n'
+        + '--' + boundary + '--';
+        
+        // The atob function will decode a base64-encoded string into a new string with a character for each byte of the binary data.
+        var byteCharacters = atob(base64EncodedData);
+        
+        // Each character's code point (charCode) will be the value of the byte.
+        // We can create an array of byte values by applying .charCodeAt for each character in the string.
+        var byteNumbers = new Array(byteCharacters.length);
+        
+        for (var i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        
+        // Convert into a real typed byte array. (Represents an array of 8-bit unsigned integers)
+        var byteArray = new Uint8Array(byteNumbers);
+        
+        var totalRequestSize = requestBodyBeginning.length + byteArray.byteLength + requestBodyEnd.length;
+        
+        var uint8array = new Uint8Array(totalRequestSize);
+        var i;
+        
+        // Append the beginning of the request
+        for (i = 0; i < requestBodyBeginning.length; i++) {
+            uint8array[i] = requestBodyBeginning.charCodeAt(i) & 0xff;
+        }
+        
+        // Append the binary attachment
+        for (var j = 0; j < byteArray.byteLength; i++, j++) {
+            uint8array[i] = byteArray[j]; 
+        }
+        
+        // Append the end of the request
+        for (var j = 0; j < requestBodyEnd.length; i++, j++) {
+            uint8array[i] = requestBodyEnd.charCodeAt(j) & 0xff;
+        }
+        
+        var uploadUrl = baseURL+'/services/data/v35.0/chatter/feed-elements';
+        var headers = {
+            "Authorization": 'OAuth {!$Api.Session_Id}'
+        }; 
+        
+        $.ajax({
+            url: uploadUrl,
+            headers: headers,
+            type: 'POST',
+            // This prevents JQuery from trying to append the form as a querystring
+            processData: false,
+            contentType: 'multipart/form-data' + "; boundary=\"" + boundary + "\"",
+            data: uint8array
+        }).complete(function ( data ) {
+            var feedItemId = JSON.parse(data.responseText).id;
+            sforce.connection.sessionId='{!$Api.Session_ID}';
+            var cd = new sforce.SObject("SPARTADMS__Corporate_Document__c");
+            cd.Id = cdId;
+            //Start Compliance-98
+            if(versionStatus == 'Approved'){
+                cd.SPARTADMS__New_Feed_Item_Id__c = feedItemId;
+            }else{
+            	cd.SPARTADMS__FeedItemId__c  = feedItemId;
+                cd.SPARTADMS__New_Feed_Item_Id__c = '';
+            }
+            //End Compliance-98
+            var result = sforce.connection.update([cd]);
+            if(result[0].getBoolean("success"))
+            {
+                window.top.location='/apex/SPARTADMS__DMSDocViewer?id='+recordId;
+            }
+            else{
+                alert('Error : '+result);
+            }
+            
+        });
+    }    
+    </script>
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">  
+        <head>
+            <apex:stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/SLDS0120/css/salesforce-lightning-design-system-vf.css')}" />
+        </head>
+        <body>
+            <div class="slds-spinner--medium" id="uploaderStatus" style="text-align:center;">
+                <apex:image value="{!URLFOR($Resource.SPARTADMS__DMS123,'/lib/SLDS0120/image/slds_spinner_brand.gif')}" alt="{!$Label.spartadms__dms_wait}" height="50px " width="50px"/><br/>
+                <apex:outputText >{!$Label.spartadms__dms_wait_message}</apex:outputText>
+            </div>
+        </body>
+    </html>
+</apex:page>
