@@ -1,0 +1,710 @@
+<apex:page standardController="SPARTADMS__Corporate_Document__c" extensions="SPARTADMS.DMSDetailEditLayoutController,SPARTADMS.DMSManageGroupController" sidebar="false" showheader="true" tabStyle="SPARTADMS__Corporate_Document__c">
+
+
+    <apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'css/extend/DMSSetupConfig.css')}" />
+    <apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'css/custom.css')}" />
+    <apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Bootstrap/css/bootstrap.min.css')}"/>
+	<apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Bootstrap/css/spartabootstrap.min.css')}"/>
+
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123,'lib/Angular-material/js/Angular.js')}" /> 
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Jquery/js/jquery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123,'lib/Bootstrap/js/bootstrap.min.js')}"/>
+    
+    <script>
+    
+    
+     $(function() {
+         $("h1, h2").removeClass().addClass("main-header");
+         $(".errorM3 ul").css({"margin-top": "-20px"});
+		 $("a").addClass("a-link");
+         $("h3").addClass("sparta-subheader");
+         $("select").addClass("testSelect").addClass("form-control");
+		 $("#calMonthPicker, #calYearPicker").removeClass("form-control");
+         $(".pbSubsection").removeClass("pbSubsection").addClass("sparta-pbSubsection");
+         $(".pbSubheader").removeClass().addClass("sparta-pbSubheader");
+         $(".dateOnlyInput").removeClass("dateOnlyInput").addClass("sparta-dateOnlyInput");
+         $("#field1 select, #field2 select, #field3 select, #field4 select").removeClass("form-control").addClass("textControl");
+          $(".bPageBlock").css({
+                border: "none",
+                backgroundColor: "white"
+            });
+         $("label").addClass("testlabel");
+         $("ul#tabBar > li > a").css({fontSize: "13px"});
+         $(".btn")
+                .removeClass("btn")
+                .addClass("sparta-btn sparta-btn-default");
+         if($("#outerContainer").attr("theme") === 'Theme4d'){
+         	$(".cmd-buttons-top").hide();
+         }
+          var errorText = $(".dataCol a .requiredInput .errorMsg").text();
+		  if(errorText === ""){
+			 $(".dataCol a .requiredInput").hide();
+		  }
+			
+        	$(".ownerValueHidden").hide();
+        	
+        	
+        	$("img.pageTitleIcon").remove();
+        	$("#tabContainer > .main-header").remove();
+        	
+        	$(".bPageTitle").css({
+		        		marginTop: "-8px",
+		        		padding: "0px 0px 2px 0px",
+		        		backgroundColor:"transparent",
+		        		border:"none"
+		        	});
+        	
+		    $(".main-header").css({
+	        	fontSize: "18px",
+	        	color: "#222",
+	        	marginTop: "13px",
+	        	marginLeft: "10px"
+	        });    	
+            $("#outerContainer").show();
+             
+        });
+     
+        var app = angular.module('EditCorp', []);
+        var finalKeyString = null;
+        var generatedArray = [];
+        var generatedArrayf1 = [];
+        var generatedArrayf2 ="";
+        var generatedArrayf3 ="";
+        var generatedArrayf4 ="";
+        var autonumber_backup = "";
+        var documentVersion = "{!documentVersion}";
+        var versionStatus = "{!JSEncode(versionStatus)}";
+        var documentStatus = "{!JSEncode(documentStatus)}";
+        var retentionPeriodEditAccess = {!retentionPeriodEditAccess};
+        var docId = "{!$CurrentPage.parameters.id}";
+        var enableRequestDate = {!enableRequestDate};
+       
+        app.service("remoteCall", function($q, $rootScope){
+            return  function(remoteAction, parameter){
+                var deferred = $q.defer();
+                Visualforce.remoting.Manager.invokeAction(remoteAction, parameter, function(result, event){
+                    if(event.status){
+                        deferred.resolve(result);
+                    }else{
+                        deferred.reject(event);
+                    }
+                }, {escape:true});
+                return deferred.promise;     
+            }
+        });
+        
+         app.service("remoteCallParam", function($q, $rootScope){
+            return  function(remoteAction, parameter, level){
+                var deferred = $q.defer();
+                Visualforce.remoting.Manager.invokeAction(remoteAction, parameter, level, function(result, event){
+                    if(event.status){
+                        deferred.resolve(result);
+                    }else{
+                        deferred.reject(event);
+                    }
+                }, {escape:true});
+                return deferred.promise;     
+            }
+        });
+       
+      
+        app.controller("CorporateDoc", function($scope, remoteCall, remoteCallParam) {
+            $(".SPARTADMS__To_Be_Retained_Until__c").prop("disabled", true);
+            if (retentionPeriodEditAccess) {
+                $(".SPARTADMS__Retention_Period_Years__c").prop("disabled", false);
+            }
+            else {
+                $(".SPARTADMS__Retention_Period_Years__c").prop("disabled", true);
+            }
+            if(versionStatus == 'Working' && documentStatus == 'DRAFT' && enableRequestDate){
+                $(".SPARTADMS__Request_Date__c").prop("disabled", false);  
+            }else{
+                if(docId.length > 0){
+                    $(".SPARTADMS__Request_Date__c").prop("disabled", true);  
+                }
+            }   
+            if (documentVersion != null && documentVersion > 0 ) {
+                $(".SPARTADMS__Document_Revision_At_Approval__c").prop("disabled", true);
+            }
+            $scope.levels = {};
+            $scope.autoNoText = "";
+            $scope.levels_backup = {};
+            $scope.showOld = false;
+            $scope.callController = true;
+            $scope.obj = {}
+            $scope.obj_backup = {};
+            $scope.obj.level1 = '- ' + '{!$Label.SPARTADMS__DMS_SELECT}' + ' -';
+            $scope.obj.level2 = '- ' + '{!$Label.SPARTADMS__DMS_SELECT}' + ' -';
+            $scope.obj.level3 = '- ' + '{!$Label.SPARTADMS__DMS_SELECT}' + ' -';
+            $scope.obj.level4 = '- ' + '{!$Label.SPARTADMS__DMS_SELECT}' + ' -';
+            var documentNumberSequence = '';
+            $scope.preview = {};
+            $scope.preview_backup = {};
+            $scope.preview.abbreviation1 = "";
+            $scope.preview.abbreviation2 = "";
+            $scope.preview.abbreviation3 = "";
+            $scope.preview.abbreviation4 = "";
+            $scope.preview.abbreviation5 = "";
+            var position = '{!JSENCODE(TEXT($Setup.SPARTADMS__DMS_App_Protected_Setting__c.SPARTADMS__Document_Number_Position__c))}'; 
+            $scope.autoNumberPosition = position == '' ? 1 : parseInt(position) ;
+            $scope.textType = '{!HTMLENCODE($Setup.SPARTADMS__DMS_App_Protected_Setting__c.SPARTADMS__Document_Number_Type__c)}';
+            $scope.abbreviationtxt = $scope.textType == 'AUTOMATIC' ? "XXXXXX"   :  "" ;
+            autonumber_backup = $scope.textType == 'AUTOMATIC' ? "XXXXXX"   :  "" ;
+            remoteCall('{!$RemoteAction.DMSDetailEditLayoutController.getDocumentNumber}', 'Level 1').then(function(result){
+                 $scope.levels.level1 = JSON.parse(htmlDecode(result));
+                 $scope.callController = false;
+                 $scope.preview[$scope.autoNumberPosition] = {abbreviation : "XXXXXX"};
+                 $scope.buttonDisable = true;
+            }, function(result){
+                alert(result.message);
+                $scope.callController = false;
+            });
+            $scope.IsInputDisabledAuto = !$scope.abbreviationtxt  ? false  : true;
+            $scope.IsInputDisabled = true;
+            
+            $scope.getParentLabel = function(cls){
+                $scope.callController = true;
+                var id = $('.clslevel'+cls+' option:selected').data('id');
+                var val = $('.clslevel'+cls+' option:selected').val();
+                var selVal = '- ' + '{!$Label.SPARTADMS__DMS_SELECT}' + ' -';
+                if(val != selVal){
+                    $scope.stringGeneration(cls, val);
+                } else {                                
+                    var elementabbtxt = "abbreviation" + cls;
+                    $scope.preview[elementabbtxt] = '';
+                    $scope.obj[innerElement] = '- ' + '{!$Label.SPARTADMS__DMS_SELECT}' + ' -';  
+                }
+                
+                for(i= cls + 1; i <= 4; i++){
+                    var innerElement='level' + (i);
+                    $scope.levels[innerElement]={};
+                    var elementabbtxt="abbreviation" + i;
+                    $scope.preview[elementabbtxt] = '';
+                    $scope.obj[innerElement] = '- ' + '{!$Label.SPARTADMS__DMS_SELECT}' + ' -';
+                    var localdiselement="isField" + (i) + "Disabled";
+                }
+                var element='level'+(cls+1);
+                var diselement="isField" + (cls + 1) + "Disabled";
+                if (val != selVal) {
+                    $scope[diselement] = false;
+                }
+                if (cls < 4 && val != selVal) {
+                    remoteCallParam('{!$RemoteAction.DMSDetailEditLayoutController.getDocumentNumberFormatById}', id, cls).then(function(result){
+                        $scope.levels[element] = JSON.parse(htmlDecode(result));
+                        $scope.callController = false;
+                    }, function(result){
+                         $scope.callController = false;
+                         alert(result.message);
+                    });
+                }else {
+                    $scope.callController = false;
+                }
+                localStorage.setItem('tempData', JSON.stringify($scope.levels));
+                localStorage.setItem('tempHtml', $('.modal-content').html());
+            };
+           
+            $scope.resetForm = function(){
+                $scope.levels.level2 = [];
+                $scope.levels.level3 = [];
+                $scope.levels.level4 = [];
+                $scope.isExist  = false;
+                $scope.callController = false;
+                $scope.obj = {}
+                $scope.obj.level1 = '- ' + '{!$Label.SPARTADMS__DMS_SELECT}' + ' -';
+                $scope.obj.level2 = '- ' + '{!$Label.SPARTADMS__DMS_SELECT}' + ' -';
+                $scope.obj.level3 = '- ' + '{!$Label.SPARTADMS__DMS_SELECT}' + ' -';
+                $scope.obj.level4 = '- ' + '{!$Label.SPARTADMS__DMS_SELECT}' + ' -';
+                $scope.preview = {};
+                $scope.preview.abbreviation1 = "";
+                $scope.preview.abbreviation2 = "";
+                $scope.preview.abbreviation3 = "";
+                $scope.preview.abbreviation4 = "";
+                $scope.preview.abbreviation5 = "";
+                $scope.isField3Disabled = true;
+                autonumber_backup = $scope.textType == 'AUTOMATIC' ? "XXXXXX"   :  "" ;;
+                $('.generatedNumber').html("");
+                if($scope.textType != 'AUTOMATIC'){
+                    $('.autotxt').val("");
+                }
+                $("[id$=hiddenDocumentNumber]").val("")
+            };
+            
+            $scope.removeModal = function(){
+                $scope.isExist  = false;
+                var modal = document.getElementById('myModal');
+                modal.style.display = "none";
+                if($("[id$=hiddenDocumentNumber]").val().length == 0){
+                    $scope.resetForm();
+                }
+                if($('.generatedNumber').html()!=""){
+                    $scope.levels = angular.copy($scope.levels_backup);
+                    $scope.obj = angular.copy($scope.obj_backup);
+                    $scope.preview = angular.copy($scope.preview_backup);
+                    
+                    if($('.clslevel2 option').length > 1) {
+                        $scope.isField2Disabled = false;
+                    } 
+                    if($('.clslevel3 option').length > 1){
+                        $scope.isField3Disabled = false;
+                    }
+                    if($('.clslevel4 option').length > 1){
+                        $scope.isField4Disabled = false;
+                    } 
+               }
+               
+            };
+            
+            $scope.stringGeneration = function(level, value){
+                   var abbtxt = "abbreviation" + level;
+                   $scope.preview[abbtxt] = value;
+                   $('.displayNone').remove();
+                   setTimeout(concatString, 1000);
+             };
+           
+             $scope.generateNumber = function(){
+			 
+                var appElement = document.querySelector('[ng-app=EditCorp]');
+                var $scope = angular.element(appElement).scope();
+                $scope.isExist  = false;
+                if($('.autotxt').val().trim() != ""){
+                    var autotxt = $('.autotxt').val();
+                    var autotxtSize = autotxt.length;
+                    if(autotxtSize>6){
+                        $('.autotxt').focus();
+                        return false;
+                    }
+                    var prefixtxt = '';
+                    for(i=6; i > autotxtSize; i--){
+                       prefixtxt += "0";
+                    }
+                    
+                    autotxt = prefixtxt + autotxt;
+                    $('.autotxt').val(autotxt);
+                    autonumber_backup = autotxt;
+                    var finalString = concatString();
+                    $scope.levels_backup = angular.copy($scope.levels);
+                    $scope.obj_backup = angular.copy($scope.obj);
+                    $scope.preview_backup = angular.copy($scope.preview);
+                    if($('.autotxt').val().trim() == 'XXXXXX'){
+                        $('.generatedNumber').html(finalKeyString);
+                        $("[id$=hiddenDocumentNumber]").val(finalKeyString)
+                        $('#myModal').hide();
+                    }else{
+                       $scope.callController = true;
+                       remoteCall('{!$RemoteAction.DMSDetailEditLayoutController.isManualDocNoExist}', finalString).then(function(result){
+                            $scope.callController = false;
+                            if(result){
+                                $scope.isExist = result;
+                                $scope.autoNoText = $('.autotxt').val();
+                            }else{
+                                $scope.isExist = result;
+                                $('.generatedNumber').html(finalKeyString);
+                                $("[id$=hiddenDocumentNumber]").val(finalKeyString)
+                                $('#myModal').hide();
+                            }
+                           
+                        }, function(result){
+                            $scope.callController = false;
+                            alert(result.message);
+                        });
+                    }
+                }else{
+                    $('.autotxt').focus();
+                }
+            };
+        });
+        
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+    
+        function concatString(){
+            $('.autotxt.displayNone').remove();
+            var count = 0;
+            finalKeyString = "";
+            $('.keytxt').each(function(){
+                if($(this).val().trim() != ""){
+                    finalKeyString = (finalKeyString == "")?$(this).val():finalKeyString + "-" + $(this).val();
+                }
+                count++;
+            });
+            return finalKeyString;
+        }
+        
+       function htmlDecode(result){
+           var div = document.createElement("div");
+           div.innerHTML = result;
+           return div.textContent;
+       }
+       
+       var arrayReData = [];
+       function openmodel(){
+           var appElement = document.querySelector('[ng-app=EditCorp]');
+           var $scope = angular.element(appElement).scope();
+           
+       
+            $('.autotxt').val(autonumber_backup);
+           
+           
+           
+           $('#myModal').show();
+           if($('.generatedNumber').html()!=""){
+                $scope.levels = angular.copy($scope.levels_backup);
+                $scope.obj = angular.copy($scope.obj_backup);
+                $scope.preview = angular.copy($scope.preview_backup);
+                if($('.clslevel2 option').length > 1) {
+                    $scope.isField2Disabled = false;
+                } 
+                if($('.clslevel3 option').length > 1){
+                    
+                } else {
+                    $scope.isField3Disabled = true;
+                }
+                if($('.clslevel4 option').length > 1){
+                    $scope.isField4Disabled = false;
+                } 
+           }
+            if($('.clslevel2 option').length > 1) {
+                $scope.isField2Disabled = false;
+            } 
+            if($('.clslevel3 option').length > 1){
+                $scope.isField3Disabled = false;
+            } 
+            if($('.clslevel4 option').length > 1){
+                $scope.isField4Disabled = false;
+            } 
+       }
+       
+       function callRemoteMethod(j){
+            var appElement = document.querySelector('[ng-app=EditCorp]');
+            var $scope = angular.element(appElement).scope();
+            level = "level"+j;
+            disabled = "isField"+j+"Disabled";
+            abbreviation = "abbreviation"+j;
+            $('.clslevel'+j).trigger('change');
+            if(j<=4){
+                setTimeout(function() {
+                $scope.$apply(function() {
+                    $scope.obj[level] = arrayReData[(j-1)];
+                    $scope.preview[abbreviation] = arrayReData[(j-1)];
+                    $scope[disabled] = false;
+                });
+                j++;
+                callRemoteMethod(j); },3000);
+            }
+       } 
+    
+     function showOwnerModal(){
+            $("#ownerModal").show();
+            showAuthorList();
+        
+        }
+    
+    	function removeOwnerModal(){
+            $("#ownerModal").hide();
+            }
+            
+        /*
+		*	Adds the options to the Change Owner Select List by grabbing the author group 
+		*/
+        function showAuthorList(){
+    	    var selectList = $("#selOwnerList");
+    					
+			Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.DMSManageGroupController.getAuthors}',
+				function(result,event){
+                    debugger;
+				if (event.status) {
+				 var memberList = JSON.parse(htmlDecode(result));
+				 selectList.empty();
+				 
+
+				 for(var i = 0; i < memberList.length; i++){
+                     var member = memberList[i];
+                     var memberName = member.SPARTADMS__Related_User__r.SPARTADMS__Related_Salesforce_User__r.Name;
+				 	 var memberId = member.SPARTADMS__Related_User__r.SPARTADMS__Related_Salesforce_User__r.Id;
+
+				selectList.append($("<option>", {
+					value: memberId,
+					text: memberName }));
+				}}}
+				,
+
+				{escape: true}
+				
+				); 
+        }
+            
+       function changeOwner()  
+       {
+       	
+
+       		var selected = $("#selOwnerList").find(":selected").text();
+           $(".ownerValueHidden").val(selected);
+       		$("a[id^='lookup'").text(selected);
+       		$("a[id^='lookup'").val(selected);
+       		removeOwnerModal();
+           
+   			
+       }   
+
+    </script>
+    
+    <div id="outerContainer" hidden="true" theme="{!$User.UITheme}">
+        
+	 
+    <apex:form rendered="{!!hideEditPage}"> 
+    <apex:inputText styleClass="ownerValueHidden" value="{!ownerValue}"/>
+    <apex:inputHidden value="{!SPARTADMS__Corporate_Document__c.SPARTADMS__Related_Document__c}" />
+
+      <apex:sectionHeader title="{!if((SPARTADMS__Corporate_Document__c.Id == null || SPARTADMS__Corporate_Document__c.Id == ''),$Label.spartadms__dms_new_corporate_document, $Label.spartadms__dms_corporate_doc_edit)}" />
+       <apex:pageBlock mode="edit" tabStyle="Corporate_Document__c" >
+            
+            <apex:pageMessages ></apex:pageMessages>
+
+			<div class="cmd-buttons cmd-buttons-top">
+                <apex:commandButton value="{!$Label.spartadms__dms_save}" action="{!save}"/>
+                <apex:commandButton value="{!$Label.spartadms__dms_save_and_new}" action="{!saveAndNew}" />
+                <apex:commandButton value="{!$Label.spartadms__dms_cancel}" action="{!cancel}" immediate="true"/>
+			</div>
+
+             <apex:pageBlockSection title="{!$Label.spartadms__dms_information}" columns="2" collapsible="false" showHeader="true"> 
+                <apex:repeat value="{!$ObjectType.SPARTADMS__Corporate_Document__c.FieldSets.SPARTADMS__CDFieldSet}"  var="field">               
+
+                    <apex:pageblockSectionItem rendered="{!if(field == 'CreatedById', false, true)}" >
+                        
+                        <apex:outputPanel rendered="{!if(field == 'SPARTADMS__Document_Number__c' || field == 'SPARTADMS__Version_Status__c' || field == 'SPARTADMS__Submission_Type__c' || (SPARTADMS__Corporate_Document__c.Id == null && field == 'CreatedById' ) || (SPARTADMS__Corporate_Document__c.Id == null && field == 'OwnerId') , false, true)}"><br/>
+                        <apex:outputLabel styleClass="testlabel" value="{!if(field == 'CreatedDate', $Label.DMS_CREATED_BY, if(field == 'OwnerId', $Label.DMS_OWNER, field.label)) }" rendered="{!if(field == 'SPARTADMS__Document_Number__c' || field == 'SPARTADMS__Version_Status__c' || field == 'SPARTADMS__Submission_Type__c' || (SPARTADMS__Corporate_Document__c.Id == null && (field == 'CreatedById' || field == 'OwnerId')), false, true)}"/><br/>
+                            
+                            <apex:commandLink value="{!SPARTADMS__Corporate_Document__c.CreatedBy.Name + ' '}" action="{!redirectToUserProfile}" rendered="{!if(
+                                field == 'CreatedDate', true, false)}" />
+     
+							 	<apex:inputField styleClass="{!field +' form-control '}"  value="{!SPARTADMS__Corporate_Document__c[field]}" rendered="{!if(
+                                field == 'SPARTADMS__Document_Number__c' || field == 'CreatedById' || field == 'CreatedById' || field == 'OwnerId'  || field == 'SPARTADMS__Document_Version__c' || field == 'SPARTADMS__Document_Status__c'  
+                                || (field == 'SPARTADMS__Document_Revision_At_Approval__c' && documentVersion != null && documentVersion > 0) 
+                                || ((periodicAuto || !enableRequestDate) && !enableAutoEffective) && (field == 'SPARTADMS__Document_Auto_Effective_Days__c' || field == 'SPARTADMS__Periodic_Review_Cycle_months__c' 
+                                || field == 'SPARTADMS__Periodic_Review_Notification_days__c') || field =='SPARTADMS__Document_Type__c' || field =='SPARTADMS__Document_Department__c', false, true)}" required="{!if(field == 'Name' || field == 'SPARTADMS__Document_Type__c' || field == 'SPARTADMS__Document_Department__c', true, false) }"/>         
+                           <apex:outputField styleClass="{!field}" value="{!SPARTADMS__Corporate_Document__c[field]}" rendered="{!if(Corporate_Document__c.Id != null 
+                            && (field == 'CreatedById' || field == 'OwnerId'|| field == 'SPARTADMS__Document_Version__c' 
+                                || field == 'SPARTADMS__Document_Status__c' || field = 'SPARTADMS__Document_Type__c' || field == 'SPARTADMS__Document_Department__c'), true, false)}"/>
+                            <apex:outputText rendered="{!if(Corporate_Document__c.Id == null && (field == 'SPARTADMS__Document_Version__c' 
+                                || field == 'SPARTADMS__Document_Status__c'), true, false)}">
+                                {!if(field == 'SPARTADMS__Document_Version__c',0,'DRAFT')}
+                            </apex:outputText>
+                            <apex:outputText rendered="{!if((documentVersion != null && documentVersion > 0) && (field == 'SPARTADMS__Document_Revision_At_Approval__c'), true, false)}">{!documentVersionAtApproval}</apex:outputText>
+          			        <apex:outputLink onClick="showOwnerModal(); return false;" rendered="{!SPARTADMS__Corporate_Document__c.Id != null && field == 'OwnerId'}" ><span>[{!$Label.spartadms__dms_change}]</span></apex:outputLink>
+							<apex:outputPanel styleClass="requiredInput" layout="block" rendered="{!SPARTADMS__Corporate_Document__c.Id == null && (field == 'SPARTADMS__Document_Type__c' || field == 'SPARTADMS__Document_Department__c' )}"> 
+                                
+                            <apex:outputPanel styleClass="requiredBlock" layout="block"/>  
+                            <apex:selectList styleClass="testSelect" value="{!SPARTADMS__Corporate_Document__c['SPARTADMS__Document_Type__c']}" size="1" rendered="{!SPARTADMS__Corporate_Document__c.Id == null && field == 'SPARTADMS__Document_Type__c'}" required="true"  style="display:block">
+                                <apex:selectOptions value="{!options}"/>
+                             </apex:selectList>
+                             <apex:selectList value="{!SPARTADMS__Corporate_Document__c['SPARTADMS__Document_Department__c']}" size="1" rendered="{!SPARTADMS__Corporate_Document__c.Id == null && field == 'SPARTADMS__Document_Department__c'}" required="true"  style="display:block">
+                                <apex:selectOptions value="{!deptOptions}"/>
+                             </apex:selectList>
+                             </apex:outputPanel>  
+                        </apex:outputPanel>          
+                    </apex:pageblockSectionItem>
+                </apex:repeat>
+                <apex:pageblockSectionItem >
+                    <apex:outputPanel >
+                    <apex:outputLabel style="{!if(SPARTADMS__Corporate_Document__c.Id == null,'margin-top:0px;display:block;','margin-top:-20px;display:block;')}" value="{!$Label.spartadms__dms_document_number}"/>
+                        <apex:outputPanel layout="block" styleClass="requiredInput docNumberRequiredInput"  rendered="{!SPARTADMS__Corporate_Document__c.Id == null}">
+                            <div class="requiredBlock"></div>
+                            <span class="generatedNumber"></span> 
+                            <apex:commandLink onclick="openmodel(); return false;">
+                                <span>[{!$Label.spartadms__dms_set_document_number}]</span>
+                                <apex:inputField id="hiddenDocumentNumber" value="{!record['SPARTADMS__Alphanumeric_Sequence__c']}" rendered="{!SPARTADMS__Corporate_Document__c.Id == null}" required="true"  style="display:none" />
+                            </apex:commandLink>
+                        </apex:outputPanel>
+                        <apex:outputText value="{!documentNumberSequence}" rendered="{!SPARTADMS__Corporate_Document__c.Id  != null}"/>
+                    </apex:outputPanel>
+                </apex:pageblockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="{!$Label.spartadms__dms_scheduled_activities}" columns="2" collapsible="false" showHeader="true">
+                    <apex:repeat value="{!$ObjectType.SPARTADMS__Corporate_Document__c.FieldSets.SPARTADMS__Scheduled_Activities}"  var="field">                     
+
+                        <apex:pageblockSectionItem >                            
+                            <apex:outputPanel id="corpDocinfo" rendered="{!if((SPARTADMS__Corporate_Document__c.Id == null && field == 'CreatedById' ) || (SPARTADMS__Corporate_Document__c.Id == null && field == 'OwnerId') , false, true)}"><br/>
+                                    
+                            <apex:outputLabel value="{!field.label}" rendered="{!if((SPARTADMS__Corporate_Document__c.Id == null && field == 'OwnerId'), false, true)}"/>
+                                       <apex:inputField styleClass="{!field +' form-control '}"  value="{!SPARTADMS__Corporate_Document__c[field]}" rendered="{!if( periodicAuto 
+                                                    && (field == 'SPARTADMS__Document_Auto_Effective_Days__c' 
+                                                    || field == 'SPARTADMS__Periodic_Review_Cycle_months__c' 
+                                                    || field == 'SPARTADMS__Periodic_Review_Notification_days__c' 
+                                                    || field = 'SPARTADMS__Retention_Period_Years__c')
+                                                    || field == 'SPARTADMS__To_Be_Retained_Until__c', false, true)}"/>   
+                                       <apex:outputField value="{!SPARTADMS__Corporate_Document__c[field]}" 
+                                                   rendered="{!if((periodicAuto) && (field == 'SPARTADMS__Document_Auto_Effective_Days__c' 
+                                                    || field == 'SPARTADMS__Periodic_Review_Cycle_months__c' 
+                                                    || field == 'SPARTADMS__Periodic_Review_Notification_days__c' 
+                                                    || field = 'SPARTADMS__Retention_Period_Years__c'
+                                                    || (field == 'SPARTADMS__To_Be_Retained_Until__c' && (Corporate_Document__c[field] != null || Corporate_Document__c[field] != ''))
+                                                    ) , true, false)}"/>                                           
+                                       <apex:outputText rendered="{!if((toBeRetainedUntil == 'N/A' || toBeRetainedUntil == '' || toBeRetainedUntil == null) && (field == 'SPARTADMS__To_Be_Retained_Until__c'), true, false)}">{!toBeRetainedUntil}</apex:outputText>
+                                   </apex:outputPanel>
+                           </apex:pageblockSectionItem>
+
+                    </apex:repeat>     
+            </apex:pageBlockSection>
+             <apex:pageBlockSection title="{!$Label.spartadms__dms_additional_information}" columns="2" collapsible="false" showHeader="true" rendered="{!if(flexFieldWrapperList.size > 0, true, false)}">
+                     <apex:repeat value="{!flexFieldWrapperList}" var="field">
+                        <apex:pageblockSectionItem >
+                            <apex:outputPanel >
+                                <apex:outputLabel value="{!field.fieldLabel}" />
+                            </apex:outputPanel>
+                            <apex:outputPanel > 
+                                <apex:inputField rendered="{!isFlexfieldEditable}" value="{!SPARTADMS__Corporate_Document__c[field.fieldName]}" required="{!field.isRequired}"/>
+                                <apex:outputField rendered="{!!isFlexfieldEditable}" value="{!SPARTADMS__Corporate_Document__c[field.fieldName]}" />
+                            </apex:outputPanel> 
+                        </apex:pageblockSectionItem>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+           <br/>
+           <div class="cmd-buttons">
+                <apex:commandButton value="{!$Label.spartadms__dms_save}" action="{!save}"/>
+                <apex:commandButton value="{!$Label.spartadms__dms_save_and_new}" action="{!saveAndNew}" />
+                <apex:commandButton value="{!$Label.spartadms__dms_cancel}" action="{!cancel}" immediate="true"/>
+            </div>
+           
+        </apex:pageBlock>
+    </apex:form>
+    </div>
+
+ 
+
+<div id="ownerModal" class="modal-custom" hidden="true">
+	<apex:form >
+		<div class="modal-content" style="width: 700px; border-radius: 5px;">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">{!$Label.SPARTADMS__DMS_CHANGE_OWNER}</h4>
+				<span  onClick="removeOwnerModal()"
+					class="closeCustom">x</span>
+				<div style="clear: both;"></div>
+			</div>
+            <select id="selOwnerList" styleClass="testSelect"  size="1"  required="true"  style="display:block">
+                     <option value= "{!optionsAuthorList}" />
+            </select>
+
+			<div class="footer">
+				<button type="button" 
+					style="padding: 6px;" onClick="removeOwnerModal()" id="_cancelBtn"
+					class="customBtn customBtn-default">{!$Label.SPARTADMS__DMS_CANCEL}</button>
+				<button type="button" 
+					style="padding: 6px;" onClick="changeOwner()" id="_cancelBtn"
+					class="customBtn customBtn-default">{!$Label.SPARTADMS__DMS_OK}</button>
+			</div>
+			
+
+		</div>
+
+	</apex:form>
+</div>
+
+
+
+
+    <apex:outputPanel rendered="{!hideEditPage}">
+        <div style="margin-top:2%;">
+            <div style="font-weight:normal;font-size:14px;"  class="custom-alert custom-alert-info">
+                {!errorMsg}
+            </div>
+        </div>
+    </apex:outputPanel>
+
+   	<div ng-app="EditCorp" ng-controller="CorporateDoc">
+       <div  class="modal-custom" id="myModal">
+          <div class="modal-content" style="width:700px;border-radius:5px;" >
+             {{angular.JSON($scope.levels_backup)}}
+             <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">{!$Label.DMS_GENERATE_DOCUMENT_NUMBER}</h4>
+                <span  ng-hide="callController"  ng-click="removeModal()" class="closeCustom">x</span>
+                <div style="clear:both;"></div>
+             </div>
+             <div class="linear_progress" ng-show="callController" style="z-index:9999;margin-top:2px;" id="progressBar">
+                <div class="indeterminate"></div>
+             </div>
+             <div ng-show="isExist"  style="font-weight:normal;font-size:14px;"  class="custom-alert custom-alert-info">
+                   <strong>{!$Label.DMS_INFO}</strong>  {{autoNoText}} {!$Label.DMS_IS_EXIST_PROVIDE_DIFF_NUMBER}
+             </div>
+              <div ng-show="textType.length == 0" style="font-weight:normal;font-size:14px;"  class="custom-alert custom-alert-info">
+                  <strong>{!$Label.DMS_INFO}</strong>  {!$Label.DMS_SEQUENCE_NUM_CONFIG_MISSING}
+             </div>
+             <div ng-hide="textType.length == 0">
+                 <div class="form-div">
+                    <form>
+                       <div ng-show="true" id="field1">
+                          <label for="Field1">{!$Label.DMS_FIELD1}</label>
+                          <select ng-model="obj.level1" class="clslevel1" ng-change="getParentLabel(1)">
+                             <option value="">- {!$Label.DMS_SELECT} -</option>
+                             <option ng-repeat="item in levels.level1" value="{{item.abbreviation}}" data-id="{{item.recordId}}">
+                                {{item.levelWithAbbreviation}}
+                             </option>
+        
+                          </select>
+                       </div>
+                       <div ng-show="true" id="field2">
+                          <label for="Field2">{!$Label.DMS_FIELD2}</label>
+                          <select ng-model="obj.level2" class="clslevel2" ng-change="getParentLabel(2)" >
+                             <option value="">- {!$Label.DMS_SELECT} -</option>
+                             <option ng-repeat="item in levels.level2" value="{{item.abbreviation}}" data-id="{{item.recordId}}">
+                                {{item.levelWithAbbreviation}}
+                             </option>
+        
+                          </select>
+                       </div>
+        
+                       <div ng-show="true" id="field3">
+                          <label for="Field3">{!$Label.DMS_FIELD3}</label>
+                          <select ng-model="obj.level3" class="clslevel3" ng-change="getParentLabel(3)" >
+                             <option value="">- {!$Label.DMS_SELECT} -</option>
+                             <option ng-repeat="item in levels.level3" value="{{item.abbreviation}}" data-id="{{item.recordId}}">
+                                {{item.levelWithAbbreviation}}
+                             </option>
+        
+                          </select>
+                       </div>
+                      <div ng-show="true" id="field4">
+                          <label for="Field4">{!$Label.DMS_FIELD4}</label>
+                          <select ng-model="obj.level4" class="clslevel4" ng-change="getParentLabel(4)" >
+                             <option value="">- {!$Label.DMS_SELECT} -</option>
+                             <option ng-repeat="item in levels.level4" value="{{item.abbreviation}}" data-id="{{item.recordId}}">
+                                {{item.levelWithAbbreviation}}
+                             </option>
+        
+                          </select>
+                       </div>
+                     </form>
+               </div>
+               <div class="docNoDiv">
+                    
+                    <input type="text" class="textControl keytxt autotxt" maxlength="6" placeholder="{!$Label.DMS_ENTER_NUMBER}" ng-model="abbreviationtxt" ng-disabled="IsInputDisabledAuto" style="text-align:center;" ng-class="{'displayNone': autoNumberPosition != 1}" onkeypress="return isNumber(event)" />
+                    <input type="text" class="textControl keytxt" ng-model="preview.abbreviation1" ng-disabled="IsInputDisabled" style="text-align:center;" />
+        
+                    <input type="text" class="textControl keytxt autotxt" maxlength="6" placeholder="{!$Label.DMS_ENTER_NUMBER}"  ng-model="abbreviationtxt" ng-disabled="IsInputDisabledAuto" style="text-align:center;" ng-class="{'displayNone': autoNumberPosition != 2}" onkeypress="return isNumber(event)" />
+                    <input type="text" class="textControl keytxt" ng-model="preview.abbreviation2" ng-disabled="IsInputDisabled" style="text-align:center;" />
+        
+                    <input type="text" class="textControl keytxt autotxt" maxlength="6" placeholder="{!$Label.DMS_ENTER_NUMBER}"  ng-model="abbreviationtxt" ng-disabled="IsInputDisabledAuto" style="text-align:center;" ng-class="{'displayNone': autoNumberPosition != 3}" onkeypress="return isNumber(event)" />
+                    <input type="text" class="textControl keytxt" ng-model="preview.abbreviation3" ng-disabled="IsInputDisabled" style="text-align:center;" />
+        
+                    <input type="text" class="textControl keytxt autotxt" maxlength="6" placeholder="{!$Label.DMS_ENTER_NUMBER}"  ng-model="abbreviationtxt" ng-disabled="IsInputDisabledAuto" style="text-align:center;" ng-class="{'displayNone': autoNumberPosition != 4}" onkeypress="return isNumber(event)" />
+                    <input type="text" class="textControl keytxt" ng-model="preview.abbreviation4" ng-disabled="IsInputDisabled" style="text-align:center;" />
+        
+                    <input type="text" class="textControl keytxt autotxt" maxlength="6" placeholder="{!$Label.DMS_ENTER_NUMBER}"  ng-model="abbreviationtxt" ng-disabled="IsInputDisabledAuto" style="text-align:center;" ng-class="{'displayNone': autoNumberPosition != 5}" onkeypress="return isNumber(event)" />
+                    
+                 </div>
+        
+                 <div class="footer">
+                    <button type="button"  ng-disabled="callController || textType.length == 0" style="padding: 6px;" id="generateBtn" class="customBtn customBtn-default" ng-click="generateNumber()">{!$Label.DMS_GENERATE}</button>
+                    <button type="button"  ng-disabled="callController"  style="padding: 6px;" ng-click="resetForm()" id="cancelBtn" class="customBtn customBtn-default">{!$Label.DMS_RESET}</button>
+                    <button type="button"  ng-disabled="callController"  style="padding: 6px;" ng-click="removeModal()" id="cancelBtn" class="customBtn customBtn-default">{!$Label.DMS_CLOSE}</button>
+                </div>
+            </div>  
+          </div>
+       </div>
+    </div>  
+</apex:page>

@@ -1,0 +1,159 @@
+<apex:page standardStylesheets="false" showHeader="false"  controller="CMPL123TMS.TMSDocumentViewerController">
+    <apex:stylesheet value="{!URLFOR($Resource.CMPL123TMS__TMS123, '/lib/Bootstrap/css/bootstrap.min.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.CMPL123TMS__TMS123, '/lib/Jquery/js/jQuery.js')}"/>
+    
+    <script type="text/javascript"> 
+        var __sfdcSessionId = '{!GETSESSIONID()}';
+    </script>
+    <script src="../../soap/ajax/34.0/connection.js" type="text/javascript"></script>
+    <script>
+           
+           $(function(){    
+               document.getElementById("file").value = '';
+               document.getElementById("j_id0:attachmentFileForm:successmessage").innerHTML = '';
+               $("[id$=uploadButton]").attr("disabled",true);
+               setTimeout(function(){
+                    $(".loading").hide(function(){
+                         $("#upload").show();
+                    });
+               },1000);
+           });
+           
+    
+            function checkFile(){        
+               var file = document.getElementById("file");
+               var fileSize = file.files[0].size;
+               if(fileSize < (25 * 1024 * 1024)){
+                  $("[id$=uploadButton]").attr("disabled",false);
+                  document.getElementById("j_id0:attachmentFileForm:successmessage").innerHTML = '{!$Label.TMS_Please_click_on_upload_button}'; 
+                  document.getElementById("j_id0:attachmentFileForm:successmessage").style.color = "green"; 
+                }
+               else{
+                  document.getElementById("j_id0:attachmentFileForm:successmessage").innerHTML = '{!$Label.TMS_File_Size_Limit_of_25mb}';
+                  document.getElementById("j_id0:attachmentFileForm:successmessage").style.color = "red";
+                    $("[id$=uploadButton]").attr("disabled",true);
+               }
+            };
+       
+            var param1var = getQueryVariable("parentId");
+            var param2var = getQueryVariable("id");
+            function getQueryVariable(variable) {
+              var query = window.location.search.substring(1);
+              var vars = query.split("&");
+              for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) {
+                  return pair[1];
+                }
+              }
+            }
+            
+            function uploadAttachment(filecontent, filename, filetype, parentId,attachId) {
+                var attachment         = new sforce.SObject('Attachment');
+                attachment.Name        = filename;              
+                attachment.ContentType = filetype;
+                attachment.Body        = filecontent;
+                attachment.Description = filename;
+               
+                if(attachId == 'undefined'){
+                    attachment.ParentId    = parentId;   
+                    sforce.connection.create([attachment]);
+                }
+                else{
+                    attachment.Id = attachId;
+                    var result = sforce.connection.update([attachment]);  
+                  
+                }
+            }
+ 
+            function uploadFile(obj) {
+                $("[id$=uploadButton]").attr("disabled",true);
+                obj.value= "{!$Label.TMS_Uploading}.....";
+                document.getElementById("j_id0:attachmentFileForm:successmessage").innerHTML = '';      
+                var file = document.getElementById('file').files[0];
+                var reader = new FileReader();
+                reader.onload = function(event){
+                    loaded(event,obj);
+                };
+                  
+                reader.onerror = function(event){
+                    errorHandler(event,obj);
+                }; 
+                reader.readAsDataURL(file); 
+                
+            }
+    
+            function loaded(evt,obj) {
+                var filename = document.getElementById('file').files[0].name;
+                var filetype = document.getElementById('file').files[0].type;
+                var fileContent = String(evt.target.result);
+                var parentId    = String(param1var);
+                var attachId = String(param2var);
+                fileContent = fileContent.substr(fileContent.indexOf(',') + 1);
+                uploadAttachment(fileContent,filename,filetype,parentId,attachId);
+                document.getElementById("j_id0:attachmentFileForm:successmessage").innerHTML = '{!$Label.TMS_File_successfully_uploaded}';
+                document.getElementById("file").value = ''; 
+                obj.value= "{!$Label.TMS_Upload}";
+                //hideMsg();
+            }
+    
+            function errorHandler(evt,obj) {
+                if (evt.target.error.name == 'NotReadableError') {
+                    alert('{!$Label.TMS_File_could_not_be_read}');
+                }
+                else {
+                    alert(evt.target.error);
+                }
+                obj.value= "Upload";
+                //hideMsg();
+            }
+           function hideMsg(){
+             setTimeout(function(){
+                  document.getElementById("j_id0:attachmentFileForm:successmessage").innerHTML = '';
+             },10000);
+           }
+    </script>
+    <style>
+        body{
+            overflow:hidden;
+        }
+        label {
+            -moz-appearance: button;
+            appearance: button;
+            line-height: 16px;
+            padding: .3em .9em;
+            margin: .2em;
+            color: #fff;
+            background-color: #337ab7;
+            border-color: #2e6da4;
+        } 
+         #file{
+            display:none;
+        }
+    </style>
+    
+    <div class="well" id="reqDiv" style="background-color: #FFFFFF;">
+        <div style="margin:auto;width:90%;" >
+            <div style="text-align:center;"><img class="loading"  src="{!URLFOR($Resource.CMPL123TMS__TMS123, '/image/ajax-loader.gif')}" /></div>
+            <div id="upload" style="display:none;">
+                 <apex:form styleClass="form-inline" id="attachmentFileForm">                    
+                        <div style="text-align:center;color:green;margin-bottom: 5px;">
+                            <apex:outputText value="{!msg}" id="frm"/>
+                            <apex:outputText id="successmessage" />
+                        </div>
+                        <div>
+                        <label for="file">{!$Label.tms_select_a_file}
+                            <input type="file" onchange="checkFile();" id="file" title="{!$Label.TMS_Upload_Attachment}"/>
+                        </label>
+                        </div>
+                        <hr style="margin-top: 5px;margin-bottom: 5px;"/>
+                        <div style="text-align: right;">       
+                            <input type="button" style="margin-top:1%;" onclick="uploadFile(this)" value="{!$Label.TMS_Upload}" id="uploadButton" 
+                            class="btn btn-primary"/>                          
+                       </div>                          
+               </apex:form>
+            </div>
+        </div>
+    </div>
+    
+</apex:page>

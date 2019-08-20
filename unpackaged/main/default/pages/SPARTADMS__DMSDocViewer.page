@@ -1,0 +1,72 @@
+<apex:page standardStylesheets="false" standardController="SPARTADMS__Corporate_Document__c" extensions="SPARTADMS.DMSMainController" showHeader="false" showQuickActionVfHeader="false">
+    <script>
+         top.location='/SPARTADMS/DMS.app?id='+'{!$CurrentPage.parameters.id}';
+    </script>
+    
+    <!-- 
+    <apex:includeLightning />
+    <apex:includeScript value="{!URLFOR($Resource.DMS123, '/lib/jquery-ui-1.8.20/js/jquery-1.7.2.min.js')}"/>
+    <div id="header" />
+    <div id="panel" /><br/>
+    <div id="viewer" />
+    <div id="relatedDocuments" />
+    <div id="esign" />
+    <script>
+    var recId;var corpDoc,st='';
+    Visualforce.remoting.timeout = 120000;
+    $(document).ready(function() {
+        var url = window.location.href.toString();
+        if(url.indexOf('id') != -1){
+            recId = url.substr(url.indexOf('id')+3,15); 
+           Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.DMSMainController.getCorpDocument}',
+                recId,function(result, event){
+                    if (event.status) {
+                        corpDoc = result;  
+                        st=corpDoc.SPARTADMS__Document_Status__c+'~'+corpDoc.Name+'~'+corpDoc.SPARTADMS__Checkin_Status__c+'~'+corpDoc.SPARTADMS__Document_Status__c;
+                    }
+                }, 
+                {escape: true}
+            );
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.DMSMainController.getUserInfo}',
+                 function(result, event){
+                    if (event.status) {
+                        st=st+'~'+result;
+                    }
+                }, 
+                {escape: true}
+            );
+        }
+    });
+     $Lightning.use("SPARTADMS:DMSActions",function(){
+          $Lightning.createComponent("SPARTADMS:DMSDashboardHeader",'',"header",function(component){
+              if(myExternalEvent = $A.get("e.SPARTADMS:DocumentViewerEvent")) {
+                myExternalEvent.setParams({recordId:recId, status:st});
+                myExternalEvent.fire();
+            }
+        });
+         
+          $Lightning.createComponent("SPARTADMS:DMSWorkflow",'',"panel",function(component){
+            if(myExternalEvent = $A.get("e.SPARTADMS:DocumentViewerEvent")) {
+                myExternalEvent.setParams({recordId:recId, status:st});
+                myExternalEvent.fire();
+            }
+        
+        });
+    
+          $Lightning.createComponent("SPARTADMS:DMSDashboardViewer",'',"viewer",function(component){
+            
+            var myExternalEvent;
+            if(myExternalEvent = $A.get("e.SPARTADMS:DocumentViewerEvent")) {
+                myExternalEvent.setParams({recordId:recId, status:st});
+                myExternalEvent.fire();
+            }
+        });
+        
+         $Lightning.createComponent("SPARTADMS:DMSRelatedDocuments",'',"relatedDocuments",function(component){});
+         $Lightning.createComponent("SPARTADMS:DMSEsign",'',"esign",function(component){}); 
+    });
+    </script>
+    -->
+</apex:page>

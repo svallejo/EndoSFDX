@@ -1,0 +1,135 @@
+<apex:page showHeader="false" standardController="SPARTADMS__Corporate_Document__c" extensions="SPARTADMS.DMSMainController" standardStylesheets="false" sidebar="false"  docType="html-5.0">   
+    <apex:stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Bootstrap/css/bootstrap.min.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Jquery/js/jquery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, '/lib/Bootstrap/js/bootstrap.min.js')}"/>
+    <style>
+        .btnTest{
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid #999;
+            border-radius: 4px;
+        }
+    </style>
+    <script>
+    var recordId,url;
+    Visualforce.remoting.timeout = 120000;
+    $(document).ready(function() {
+       
+        $("#CheckoutModal").modal("show");
+        $("#errorMessage").html("");
+        $("#ProcessingStatus").css("display","block");
+        url = window.location.href.toString();
+        if(url.indexOf('id') != -1){
+            recordId = url.substr(url.indexOf('id')+3,18);
+        }
+        doCheckout();
+    });
+
+    function doCheckout(){
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.DMSMainController.doCorpDocCheckout}',
+            recordId,function(result, event){
+                if (event.status) {
+                    var jsonResult = JSON.parse(result.replace(/(&quot\;)/g, '"'));
+                    $("#Msg").html(jsonResult.msg);
+                    checkAndShowMsg(jsonResult.doWaitAndPoll);
+                }
+                else{
+                    $("#ProcessingStatus").css("display","none");
+                    $("#exception").css("display","block");
+                    $("#errorMessage").html(event.message);
+                    stopPolling();
+                }
+            });
+    }
+    function closepopup(){
+        $("#CheckoutModal").modal("hide");
+        window.top.location = '/'+recordId;
+    }
+
+    function checkAndShowMsg(doWaitAndPoll){
+        if(!doWaitAndPoll){
+            $("#ProcessingStatus").css("display","none");
+            $("#ResultMsg").css("display","block");
+            stopPolling();
+        }
+        else{
+            $("#ProcessingStatus").css("display","block");
+            $("#ResultMsg").css("display","none");
+        }
+    }
+
+
+    function stopPolling(){
+        var actionContainerForm = document.getElementById("actionPollerContainer").children[0];
+        while(actionContainerForm.children.length>0){
+            actionContainerForm.children[0].remove();
+        }
+    }
+
+    function processCheckoutStatus(checkoutStatus, pollerCounter, maxPollerCount){
+        if(checkoutStatus){
+            checkAndShowMsg(false);
+        } else if (pollerCounter >= maxPollerCount) {
+            $("#ProcessingStatus").css("display","none");
+            $("#ResultMsg").css("display","none");
+            $("#exception").css("display","block");
+
+            $("#errorMessage").html("{!$Label.DMS_CANNOT_CHECKOUT}");
+        }
+    }
+
+    </script>
+    <div id="CheckoutModal" class="modal fade" role="dialog" >
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" onclick="closepopup();">&times;</button>
+                    <h4 class="modal-title">{!$Label.DMS_DOCUMENT_CHECKOUT}</h4>
+                </div>
+                <div class="modal-body" style="font-size: 14px;">
+                    <div class="alert alert-danger" id="exception" style="display:none;">
+                        <strong><span class="glyphicon glyphicon-info-sign" style="font-size:20px;vertical-align:-4px;"></span></strong>
+                        &nbsp;<span id="errorMessage"></span>
+                    </div>
+                    <div layout="block" id="ResultMsg" style="display:none;">
+                        <div class="alert alert-info">
+                            <strong><span class="glyphicon glyphicon-info-sign"></span></strong>&nbsp;&nbsp;<span id="Msg"></span>
+                        </div>
+                    </div>
+                    <div id="ProcessingStatus" style="text-align:center;display:block;">
+                        <img src="/img/loading32.gif" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <apex:outputpanel layout="block" >
+                        <button type="button" class="btnTest btn-default" onclick="closepopup()">{!$Label.DMS_CLOSE}</button>
+                    </apex:outputpanel>
+                    <div id = "actionPollerContainer">
+                        <apex:form id="actionPollForm">
+                            <apex:actionPoller rendered="{!IF(pollerCounter >= maxPollerCount, false, true)}"
+                                               action="{!isCheckoutComplete}" interval="5" timeout="60000" reRender="actionPollForm"
+                                               onComplete="{processCheckoutStatus({!checkoutStatus}, {!pollerCounter}, {!maxPollerCount});}"/>
+                        </apex:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</apex:page>

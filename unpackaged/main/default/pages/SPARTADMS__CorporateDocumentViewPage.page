@@ -1,0 +1,962 @@
+<apex:page standardController="SPARTADMS__Corporate_Document__c" extensions="SPARTADMS.DMSCorporateDocumentViewExtension" tabStyle="SPARTADMS__Corporate_Document__c" sidebar="false" showheader="true" >
+  <html ng-app="DocViewer">
+      <head>
+            <apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'css/extend/DMSSetupConfig.css')}" />
+            <apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'css/custom.css')}" />
+		    <apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Bootstrap/css/bootstrap.min.css')}"/>
+			<apex:Stylesheet value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Bootstrap/css/spartabootstrap.min.css')}"/>
+            
+            
+		    <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Jquery/js/jquery.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123, 'lib/Angular-material/js/Angular.js')}" />
+	        <apex:includeScript value="{!URLFOR($Resource.SPARTADMS__DMS123,'lib/Bootstrap/js/bootstrap.min.js')}"/>
+	            
+            
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+                a{
+                    text-decoration:none;
+                }
+                .DMS_list-group>a:hover{
+                     text-decoration:none;
+                     color:black;
+                }
+                .DMS_list-group>a:visited{
+                     text-decoration:none;
+                }
+                .DMS_list-group>a:active{
+                     text-decoration:none;
+                }
+                
+                [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                    display: none !important;
+                }
+                .row::after {
+                    content: "";
+                    clear: both;
+                    display: table;
+                }
+                [class*="col-"] {
+                    float: left;
+                    padding: 5px;
+                    padding-bottom:1px;
+                
+                }
+               
+                .col-1 {width: 8.33%;}
+                .col-2 {width: 16.66%;}
+                .col-3 {width: 25%;}
+                .col-4 {width: 33.33%;}
+                .col-5 {width: 41.66%;}
+                .col-6 {width: 50%;}
+                .col-7 {width: 58.33%;}
+                .col-8 {width: 66.66%;}
+                .col-9 {width: 75%;}
+                .col-10 {width: 83.33%;}
+                .col-11 {width: 91.66%;}
+                .col-12 {width: 100%;}
+            
+                .DMS_panel-default {
+                    border-color: #ddd;
+                }
+                .DMS_container{
+                    width:95%;
+                    margin:auto;
+                }
+                .DMS_panel{
+                    margin-bottom: 10px;
+                    background-color: #fff;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+                    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+                }
+                .DMS_panel-default>.DMS_panel-heading {
+                    color: #333;
+                    background-color: #f5f5f5;
+                    border-color: #ddd;
+                }
+                .DMS_panel-heading{
+                    padding: 10px 15px;
+                    border-bottom: 1px solid #ddd;
+                    border-top-left-radius: 3px;
+                    border-top-right-radius: 3px
+                }
+                .DMS_panel-default>.DMS_panel-heading {
+                    color: #333;
+                    background-color: #f5f5f5;
+                    border-color: #ddd;
+                    font-size: 17px;
+                }
+                .DMS_panel-body {
+                    padding: 15px;
+                    padding-bottom:3px;
+                    padding-top:2px;
+                   
+                }
+                .DMS_list-group-item:first-child {
+                    border-top-left-radius: 4px;
+                    border-top-right-radius: 4px;
+                }
+                .DMS_list-group {
+                    padding-left: 0;
+                    margin-bottom: 5px;
+                    margin-top:5px;
+                   
+                }
+                .printTxtBoX{
+                    width: 70px;
+                    padding: 5px;
+                    border-radius: 4px;
+                    border:1px solid rgba(102, 102, 102, 0.87);
+                    
+                }
+                
+                .DMS_list-group-item {
+                    position: relative;
+                    display: block;
+                    padding:5px;
+                    margin-bottom: -1px;
+                    background-color: #fff;
+                    //box-shadow: 0px 1px 2px rgb(221, 221, 221);
+                    //border: 1px solid rgba(102, 102, 102, 0.87);
+                    border-top: 1px solid #ddd;
+                    border-bottom: 1px solid #ddd;
+                }
+                .selectdGroup{
+                     background-color:#54698D;
+                     color:white;
+                }
+                .DMS_heading{
+                    font-size:15px;
+                    padding-bottom: 10px;
+                }
+                .blankList{
+                    border: 1px solid #ddd;
+                    padding: 10px;
+                    text-align: center;
+                    background-color:#f5f5f5;
+                }
+                .DMS_Scroll{
+                    height: 200px;
+                    overflow: scroll;
+                    box-shadow: 0px 1px 2px rgba(102, 102, 102, 0.87);
+                }
+                .DMS_Scroll > a{
+                  word-wrap: break-word;
+                }
+                button:focus { outline: none; }
+                .DMS_alert {
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    border: 1px solid transparent;
+                    border-radius: 4px;
+                    font-size: 15PX;
+                }
+                .DMS_alert-info {
+                    color: #31708f;
+                    background-color: #d9edf7;
+                    border-color: #bce8f1;
+                }
+                
+                .DMS_Danger{
+                    color: #a94442;
+                    background-color: #f2dede;
+                    border-color: #ebccd1;
+                    font-size: 14px;
+                    margin-top: 20px;
+                }
+                
+                .customBtn {
+                   width: 75px;
+                   height: 35px;
+                   display: inline-block;
+                   padding: 6px 6px;
+                   margin-bottom: 0;
+                   font-size: 14px;
+                   font-weight: 400;
+                   line-height: 1.42857143;
+                   text-align: center;
+                   white-space: nowrap;
+                   vertical-align: middle;
+                   -ms-touch-action: manipulation;
+                   touch-action: manipulation;
+                   cursor: pointer;
+                   -webkit-user-select: none;
+                   -moz-user-select: none;
+                   -ms-user-select: none;
+                   user-select: none;
+                   background-image: none;
+                   border: 1px solid transparent;
+                   border-radius: 4px;
+                }
+
+                .savecustomBtn {
+                   height: 35px;
+                   display: inline-block;
+                   padding: 6px 6px;
+                   margin-bottom: 0;
+                   font-size: 14px;
+                   font-weight: 400;
+                   line-height: 1.42857143;
+                   text-align: center;
+                   white-space: nowrap;
+                   vertical-align: middle;
+                   -ms-touch-action: manipulation;
+                   touch-action: manipulation;
+                   cursor: pointer;
+                   -webkit-user-select: none;
+                   -moz-user-select: none;
+                   -ms-user-select: none;
+                   user-select: none;
+                   background-image: none;
+                   border: 1px solid transparent;
+                   border-radius: 4px;
+                }
+                
+                .customBtn-default {
+                   color: #0070d2 ;
+                   background-color: #fff;
+                   border-color: #ccc;
+                }
+                
+                .customBtn-default:hover {
+                   background-color: rgba(204, 204, 204, 0.38);
+                   color: black;
+                }
+               
+                 .DMS_container{
+                    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                    font-size: 14px;
+                    line-height: 1.42857143;
+                    color: #333;
+                    background-color: #fff;
+                    
+                }
+                fieldset{
+                    border-top-right-radius: 10px;
+                    border-top-left-radius: 10px;
+                    border-left:0px;
+                    border-right:0px;
+                    border-bottom:0px;
+                }
+                fieldset legend{
+                    text-align:center;
+                    font-weight:normal;
+                    font-size: 15px;
+                }
+
+                .btn-disable {
+                    cursor: not-allowed;
+                    pointer-events: none;
+            
+                    /*Button disabled - CSS color class*/
+                    color: #c0c0c0;
+                    background-color: #ffffff;
+        
+                }
+                .recurrenceDiv >div{
+                    margin-top:3%;
+                }
+                .searchBox{
+                   outline: none;
+                   width:100%; 
+                   padding:4px;
+               }
+			   
+			   .messageText{
+               		font-size: 14px;
+               }
+               
+            </style>
+
+            <script>
+
+		     $(function() {
+		
+		         $("h1, h2").removeClass().addClass("main-header");
+		         $("h3").addClass("sparta-subheader");
+		         $("select").addClass("testSelect").addClass("form-control");
+		         $(".pbSubsection").removeClass("pbSubsection").addClass("sparta-pbSubsection");
+		         $(".pbSubheader").removeClass().addClass("sparta-pbSubheader");
+		         $(".dateOnlyInput").removeClass("dateOnlyInput").addClass("sparta-dateOnlyInput");
+		         $("#field1 select, #field2 select, #field3 select, #field4 select").removeClass("form-control").addClass("textControl");
+		          $(".bPageBlock").css({
+		                border: "none",
+		                backgroundColor: "white"
+		            });
+		         $("label").addClass("testlabel");
+		         $(".btn")
+		                .removeClass("btn")
+		                .addClass("sparta-btn sparta-btn-default")
+		                .css({
+		                	marginLeft: "3px"
+		                });
+		            
+		        
+					$(".dataCol").css({
+						borderBottom: "1px solid lightgray",
+						width: "50%",
+						padding: "3px 0px 20px 35px"
+					});
+					
+					$(".detailList").css({
+						width: "100%",
+						marginTop: "30px"
+					});					
+		        
+		        	$(".bPageTitle").css({
+		        		marginTop: "-8px",
+		        		padding: "0px 0px 2px 0px"
+		        	});
+		            
+		            $(".dataCol.last, .dataCol.empty").css({
+						border: "none"
+					});		            
+		            
+		            $(".pbHeader, .pbHeader table").css({
+		            	border: "none"
+		            });
+		            
+		            
+					$("fieldset").css({
+						borderTop: "1px solid black",
+						borderTopRightRadius: "10px",
+						borderTopLeftRadius: "10px",
+						borderLeft: "0px",
+						borderRight: "0px",
+						borderBottom: "0px"
+					});
+					
+		            $("legend").css({
+		            	width: "auto",
+		            	border: "0px",
+		            	padding: "0px 5px"
+					});
+
+					if ("{!$User.UITheme}" === "Theme4d" || "{!$User.UITheme}" === "Theme4t") {
+	
+						
+						$(".listRelatedObject, .searchBox, .DMS_list-group, .printTxtBoX").css({
+							fontSize: "200%"
+						});
+						
+						$("#limitForm").css({
+							fontSize: "13px"
+						});
+						
+						
+					}
+
+					$("[name='noofprint']").css({
+						width: "75px",
+						display: "inline-block"
+					});
+
+
+					$("img.pageTitleIcon").remove();
+					
+					$("#tabContainer > .main-header").remove();
+					
+					$(".bPageTitle").css({
+		        		marginTop: "-8px",
+		        		padding: "0px 0px 2px 0px",
+		        		backgroundColor:"transparent",
+		        		border:"none"
+		        	});
+		        	
+					$(".main-header").css({
+			        	fontSize: "18px",
+			        	color: "#222",
+			        	marginTop: "13px",
+			        	marginLeft: "10px"
+			        });
+					
+					$("ul#tabBar > li > a").css({fontSize: "13px"});
+		            $("#outerContainer").show();
+		             
+		        });
+
+                var recordId = "{!$CurrentPage.parameters.id}";
+                var enablePrint = {!enablePrint};
+                var isAccessible = {!isControlPrintingSectionAccessible};
+                var printJson = JSON.parse('{!JSENCODE(printJson)}');
+                var app = angular.module("DocViewer",[]);
+                app.service("remoteParameterCall", function($q, $rootScope){
+                    return  function(remoteAction, obj, corpId){
+                        var deferred = $q.defer();
+                        Visualforce.remoting.Manager.invokeAction(remoteAction, obj, corpId, function(result, event){
+                        if(event.status){
+                            deferred.resolve(result);
+                        }else{
+                            deferred.reject(event);
+                        }
+                        
+                        }, {escape:true, timeout:120000});
+                        return deferred.promise;     
+                    }
+                    
+                });
+                
+                app.filter('unique', function() {
+                    return function(collection, keyname) {
+                        var output = [], 
+                        keys = [];
+                        angular.forEach(collection, function(item) {
+                         
+                            var key = item[keyname];
+                          
+                            if(keys.indexOf(key) === -1) {
+                                 keys.push(key); 
+                                 output.push(item);
+                            }
+                        });
+                        return output;
+                    };
+                });
+
+                app.service("remoteSingleParameterCall", function($q, $rootScope){
+                    return  function(remoteAction, corpId){
+                        var deferred = $q.defer();
+                        Visualforce.remoting.Manager.invokeAction(remoteAction, corpId, function(result, event){
+                        if(event.status){
+                            deferred.resolve(result);
+                            
+                        }else{
+                            deferred.reject(event);
+                        }
+                        
+                        }, {escape:true, timeout:120000});
+                        return deferred.promise;     
+                    }
+                    
+                });
+                
+                app.controller("DocViewerController", function($scope, $filter, remoteParameterCall, remoteSingleParameterCall){
+                     $scope.disabledBtn = true;
+                     $scope.finalUsers = [];
+                     $scope.finalUser = [];
+                     $scope.finalUserList = [];
+                     $scope.isAccessible = isAccessible;
+                     $scope.obj = {};
+                     $scope.saveStatus = false;
+                     $scope.obj.enableControlPrinting = enablePrint ? "true" : "false";
+                     $scope.enableAllPrintBtn = '{!!enableAllPrintButtons}';
+                     
+                     $scope.obj.type = printJson.type != undefined ? printJson.type : 'each user';
+                     $scope.obj.totalNoOfCopies = printJson.totalNoOfCopies != undefined ? printJson.totalNoOfCopies : 0;
+                     $scope.obj.isLimit = printJson.isLimit;
+                     $scope.obj.isRecurrence = printJson.isRecurrence;
+                     $scope.obj.recurrenceType = printJson.recurrenceType != null ? printJson.recurrenceType : '';
+                     $scope.finalPrintUser = printJson.docPrint;
+                     $scope.PrintGroup = angular.copy($filter('filter')($scope.finalPrintUser, {isSelected : false, type:'group'}, true));
+                      
+                     $scope.assignedGroup = angular.copy($filter('filter')($scope.finalPrintUser, {isSelected : true, type:'group'}, true));
+                     for(var a in $scope.assignedGroup){
+                         if($scope.assignedGroup[a].publicGroupUserSet != null && $scope.assignedGroup[a].publicGroupUserSet.length > 0){
+                             if($scope.assignedGroup[a].publicGroupUserSet != null){
+                                for(var key=0; key < $scope.assignedGroup[a].publicGroupUserSet.length; key++){
+                                   $scope.finalUserList.push($scope.assignedGroup[a].publicGroupUserSet[key]);
+                                }
+                             }
+                         }
+                     }
+                     $scope.PrintUser = angular.copy($filter('filter')($scope.finalPrintUser, {isSelected : false, type: 'user'}, true));
+                     $scope.assignedUser= angular.copy($filter('filter')($scope.finalPrintUser, {isSelected : true, type: 'user'}, true));
+                     
+                     for(var i=0;i< $scope.assignedUser.length;i++){
+                        var obj = new Object();
+                        obj.userName = $scope.assignedUser[i].name;
+                        obj.userId = $scope.assignedUser[i].id;
+                        $scope.finalUser.push(obj);
+                     }
+                     $scope.finalUsers = $scope.finalUserList.concat($scope.finalUser);
+                     $scope.disableDeleteBtn = "{!isDeleteActive}";
+                     $scope.disableBtns = false;
+                     alertMsg = '{!JSENCODE($Label.DMS_DOC_RETENTION_ALERT_MESSAGE)}';
+                     $scope.statusMessage = alertMsg;
+                     $scope.hideProceedCancelBtn = false;
+                     $scope.isDocExpired = "{!isDocExpired}";
+                     
+                     $scope.closeModal = function(){
+                        var modal = document.getElementById('myModal');
+                        modal.style.display = "none";
+                        $scope.hideProceedCancelBtn = false;
+                        $scope.statusMessage = alertMsg;
+                     };
+                     
+                     $scope.openModal = function(){
+                         var modal = document.getElementById('myModal');
+                         modal.style.display = "block";
+                     };
+                     
+                    $scope.deleteRecords = function(){
+                        $scope.disableBtns = true;
+                        remoteSingleParameterCall('{!$RemoteAction.DMSCorporateDocumentViewExtension.doDelete}', recordId).then(function(result){
+                            $scope.closeModal();
+                            $scope.hideProceedCancelBtn = true;
+                            $scope.statusMessage = result;
+                            
+                            if($scope.statusMessage==null || $scope.statusMessage=="") {
+                                $scope.closeModal();
+                                window.location.href = '/'+recordId.substring(0,3)+'/o';
+                            } else {
+                                $scope.openModal();
+                                $scope.disableBtns = false;
+                                return false;
+                            }
+                        },function(result){
+                        
+                        });
+                    };
+                     
+                     if($scope.obj.enableControlPrinting =='true' && ($scope.assignedGroup.length > 0 || $scope.assignedUser.length > 0)){
+                         $scope.obj.printedBy = 'Selected Users';
+                     }else{
+                         $scope.obj.printedBy = 'No Users';
+                     }
+                     $scope.assignGroup = function(){
+                        $scope.finalUserList = [];
+                        var selectedGroup = angular.copy($filter('filter')($scope.PrintGroup, {isAssigned : true}, true));
+                        for(var key in selectedGroup){
+                            if(key != 'remove'){
+                                selectedGroup[key].isAssigned = false;
+                            }
+                        }
+                        $scope.assignedGroup = $scope.assignedGroup.concat(selectedGroup);
+                        $scope.PrintGroup = angular.copy($filter('filter')($scope.PrintGroup, {isAssigned : false}, true));
+                        
+                        for(var a in $scope.assignedGroup){
+                             if($scope.assignedGroup[a].publicGroupUserSet != null && $scope.assignedGroup[a].publicGroupUserSet.length > 0){
+                                 if($scope.assignedGroup[a].publicGroupUserSet != null){
+                                    for(var key=0; key < $scope.assignedGroup[a].publicGroupUserSet.length; key++){
+                                       $scope.finalUserList.push($scope.assignedGroup[a].publicGroupUserSet[key]);
+                                    }
+                                 }
+                             }
+                        }
+                        $scope.finalUsers = $scope.finalUserList.concat($scope.finalUser);
+                        $scope.disabledBtn = false;
+                     };
+                     
+                     $scope.unAssignGroup = function(){
+                          $scope.finalUserList = [];
+                          var selectedGroup = angular.copy($filter('filter')($scope.assignedGroup, {isAssigned : true}, true));
+                          for(var key in selectedGroup){
+                            if(key != 'remove'){
+                                selectedGroup[key].isAssigned = false;
+                            }
+                          }
+                          $scope.PrintGroup = $scope.PrintGroup.concat(selectedGroup);
+                          $scope.assignedGroup = angular.copy($filter('filter')($scope.assignedGroup, {isAssigned : false}, true));
+                          for(var a in $scope.assignedGroup){
+                             if($scope.assignedGroup[a].publicGroupUserSet != null && $scope.assignedGroup[a].publicGroupUserSet.length > 0){
+                                 if($scope.assignedGroup[a].publicGroupUserSet != null){
+                                    for(var key=0; key < $scope.assignedGroup[a].publicGroupUserSet.length; key++){
+                                        $scope.finalUserList.push($scope.assignedGroup[a].publicGroupUserSet[key]);
+                                    }
+                                 }
+                             }
+                             
+                         }
+                         $scope.finalUsers = $scope.finalUserList.concat($scope.finalUser);
+                         $scope.disabledBtn = false;
+                     };
+                     
+                     $scope.assignUser = function(){
+                            $scope.finalUser = [];
+                            var selectedGroup = angular.copy($filter('filter')($scope.PrintUser, {isAssigned : true}, true));
+                            for(var key in selectedGroup){
+                                if(key != 'remove'){
+                                    selectedGroup[key].isAssigned = false;
+                                }
+                            }
+                            $scope.assignedUser = $scope.assignedUser.concat(selectedGroup);
+                            $scope.PrintUser = angular.copy($filter('filter')($scope.PrintUser, {isAssigned : false}, true));
+                            for(var i=0;i< $scope.assignedUser.length;i++){
+                                var obj = new Object();
+                                obj.userName = $scope.assignedUser[i].name;
+                                obj.userId = $scope.assignedUser[i].id;
+                                $scope.finalUser.push(obj);
+                            }
+                            $scope.finalUsers = $scope.finalUserList.concat($scope.finalUser);
+                            $scope.disabledBtn = false;
+                     };
+                     
+                     $scope.unAssignUser = function(){
+                          $scope.finalUser = [];
+                          var selectedGroup = angular.copy($filter('filter')($scope.assignedUser, {isAssigned : true}, true));
+                          for(var key in selectedGroup){
+                            if(key != 'remove'){
+                                selectedGroup[key].isAssigned = false;
+                            }
+                          }
+                          $scope.disabledBtn = false;
+                          $scope.PrintUser = $scope.PrintUser.concat(selectedGroup);
+                          $scope.assignedUser = angular.copy($filter('filter')($scope.assignedUser, {isAssigned : false}, true));
+                          for(var i=0;i< $scope.assignedUser.length;i++){
+                                var obj = new Object();
+                                obj.userName = $scope.assignedUser[i].name;
+                                obj.userId = $scope.assignedUser[i].id;
+                                $scope.finalUser.push(obj);
+                           }
+                           $scope.finalUsers = $scope.finalUserList.concat($scope.finalUser);
+                     };
+                    
+                     $scope.saveControlPrinting = function(){
+                        $scope.saveStatus = false;
+                        $scope.userSelected = false;
+                        var assignedusers = $scope.assignedGroup.concat($scope.assignedUser);
+                        $scope.obj.docPrint = assignedusers.length == 0 ? '' : assignedusers;
+                        if($scope.obj.printedBy == 'No Users'){
+                            $scope.controlPrintObj = {};
+                            $scope.finalPrintUser = printJson;
+                            for(var key in $scope.finalPrintUser.docPrint){
+                                $scope.finalPrintUser.docPrint[key].isSelected = false;
+                            }
+                            $scope.PrintGroup = angular.copy($filter('filter')($scope.finalPrintUser.docPrint, {isSelected : false, type:'group'}, true));
+                            $scope.assignedGroup = [];
+                            $scope.PrintUser = angular.copy($filter('filter')($scope.finalPrintUser.docPrint, {isSelected : false, type: 'user'}, true));
+                            $scope.assignedUser= [];
+                            $scope.controlPrintObj.printedBy = 'No Users';
+                            $scope.controlPrintObj.enableControlPrinting = $scope.obj.enableControlPrinting;
+                            $scope.controlPrintObj.type = 'each user';
+                            $scope.controlPrintObj.totalNoOfCopies = 0;
+                
+                            $scope.obj = {};
+                            $scope.obj = angular.copy($scope.controlPrintObj);
+                            $scope.finalUserList = [];
+                            $scope.finalUsers = [];
+                          
+                        }
+                        if($scope.obj.printedBy == 'Selected Users' && $scope.obj.docPrint.length == 0){
+                                $scope.userSelected = true;
+                                setTimeout(function(){
+                                      $scope.userSelected = false;
+                                      $scope.$apply();
+                                 },2000);
+                        }else{
+                            $scope.callController = true;
+                            remoteParameterCall('{!$RemoteAction.DMSCorporateDocumentViewExtension.saveControlPrint}', recordId, angular.toJson($scope.obj)).then(function(result){
+                                 $scope.callController = false;
+                                 $scope.saveStatus = true;
+                                 setTimeout(function(){
+                                      $scope.saveStatus = false;
+                                      $scope.$apply();
+                                 },2000);
+                                 $scope.disabledBtn = true;
+                            },function(result){
+                                  $scope.callController = false;
+                                  $scope.saveStatus = false;
+                            });
+                        }
+                        
+                    };
+               
+                });
+            </script>
+      </head>
+      <body ng-controller="DocViewerController" class="ng-cloak">
+        <div id="outerContainer" style="display:none;">
+            <apex:sectionheader title="{!$Label.spartadms__dms_corporate_document_detail}" ></apex:sectionheader>
+            <apex:form >
+                <apex:pageMessages ></apex:pageMessages>
+                <div id="myModal" class="modal-custom">
+                    <div class="modal-dialog">
+                        <div class="modal-content" style="width: 600px; margin: 30px auto; margin-top: 150px; position: relative; border-radius: 6px; outline: 0; border: 1px solid rgba(0,0,0,.2);">
+                            <div class="modal-header" >
+                                <button class="close" type="button" ng-click="closeModal();" ng-disabled="{{disableBtns}}" ng-class="disableBtns == true ? 'btn-disable' : ''" 
+                                style="background: 0 0;border:0; float:right; font-size: 21px; font-weight: 700; color: #000;opacity: .2;margin-top:-15px;">×</button>
+                                <h4 class="modal-title" data-aura-rendered-by="386:0">{!$Label.DMS_DELETE_CD_HEADER}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="DMS_alert DMS_Danger"> 
+                                    <strong data-aura-rendered-by="397:0">
+                                        <span > &#10071; </span>
+                                    </strong>
+                                    {{statusMessage}}
+                                </div>
+                            </div>
+                            <div style="background: 0 0; border-top: 1px solid #e5e5e5;">
+                                <div ng-hide="hideProceedCancelBtn" style="text-align: center; margin-top:20px;"> 
+                                    <button type="button" ng-disabled="{{disableBtns}}" ng-class="disableBtns == true ? 'customBtn customBtn-default customBtn-default:hover btn-disable' : 'customBtn customBtn-default customBtn-default:hover'" ng-click="deleteRecords();">{!$Label.DMS_YES}</button> 
+                                    
+                                    <button type="button" ng-disabled="{{disableBtns}}" ng-class="disableBtns == true ? 'customBtn customBtn-default customBtn-default:hover btn-disable btn-disable' : 'customBtn customBtn-default customBtn-default:hover'" style="padding:4px 3px; margin:0 2px;" ng-click="closeModal();">{!$Label.DMS_NO}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <apex:pageBlock tabStyle="Corporate_Document__c" >
+                    <apex:pageBlockButtons location="top">
+                        <apex:commandButton action="{!edit}" value="{!$Label.spartadms__dms_edit}" style="margin-right:2px;" />
+                        <button type="button" style="cursor:pointer;padding:6px 12px;margin:1px 0px 1px -1px" ng-disabled="!{{disableDeleteBtn}}" class="sparta-btn sparta-btn-default" ng-class="disableDeleteBtn == 'false' ? 'btn-disable' : ''" ng-click="openModal();">{!$Label.DMS_DELETE}</button>
+                        <apex:commandButton value="{!$Label.spartadms__dms_upload_file}" action="{!doUpload}"/>
+                        <apex:commandButton value="{!$Label.spartadms__dms_obsolete}" action="{!doObsolete}"/>
+                        <apex:commandButton value="{!$Label.spartadms__dms_checkout}" action="{!doCheckout}"/>
+                        <apex:commandButton value="{!$Label.spartadms__dms_preview}" action="{!doPreview}"/>
+                        <apex:commandButton value="{!$Label.spartadms__dms_cancel_workflow}" action="{!doCancelWorkflow}"/>
+                    </apex:pageBlockButtons>
+                
+                    <apex:pageBlockSection title="{!$Label.spartadms__dms_information}" columns="2" collapsible="false" showHeader="true">
+                        <apex:repeat value="{!$ObjectType.SPARTADMS__Corporate_Document__c.FieldSets.SPARTADMS__CDFieldSet}"  var="field">
+                           <apex:pageblockSectionItem rendered="{!if((field == 'CreatedById' || field == 'spartadms__Submission_Type__c' || field == 'spartadms__Version_Status__c'), false, true)}">
+                             
+                               <apex:outputPanel >
+                               <apex:outputLabel value="{!if(field == 'CreatedDate', $Label.DMS_CREATED_BY, if(field == 'OwnerId', $Label.DMS_OWNER, field.label)) }" rendered="{!if(field == 'spartadms__Version_Status__c' || (field == 'spartadms__To_Be_Retained_Until__c' && SPARTADMS__Corporate_Document__c[field] == null) || field == 'spartadms__Submission_Type__c', false, true)}"/>
+                                   <br/>
+                                   <apex:commandLink value="{!SPARTADMS__Corporate_Document__c.CreatedBy.Name + ' '}" action="{!redirectToUserProfile}" rendered="{!if(field == 'CreatedDate', true, false)}"/>
+                                   <apex:outputField value="{!SPARTADMS__Corporate_Document__c[field]}" rendered="{!if(field == 'spartadms__Version_Status__c' || (field == 'spartadms__To_Be_Retained_Until__c' && SPARTADMS__Corporate_Document__c[field] == null)  || field == 'spartadms__Submission_Type__c', false, true)}"/>
+                               </apex:outputPanel>
+                           </apex:pageblockSectionItem>
+                        </apex:repeat>
+                        <apex:pageblockSectionItem >
+                        	<apex:outputPanel >
+                           		<apex:outputLabel value="{!$Label.spartadms__dms_document_number}" style="{!if(SPARTADMS__Corporate_Document__c.Id == null,'display:block;','display:block;')}"/>
+                           		<br/>
+                           		<apex:outputText style="margin-top:-20px;display:block;" value="{!documentNumberSequence}"/>
+                           </apex:outputPanel>
+                        </apex:pageblockSectionItem>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection title="{!$Label.spartadms__dms_scheduled_activities}" columns="2" collapsible="false" showHeader="true">
+                        <apex:repeat value="{!$ObjectType.SPARTADMS__Corporate_Document__c.FieldSets.SPARTADMS__Scheduled_Activities}"  var="field">
+                           <apex:pageblockSectionItem >
+                               
+                               <apex:outputPanel >
+                               		<apex:outputLabel value="{!field.label}" />
+                               		<br/>
+                                    <apex:outputField value="{!SPARTADMS__Corporate_Document__c[field]}"  rendered="{!if(field == 'spartadms__To_Be_Retained_Until__c' && ((SPARTADMS__Corporate_Document__c[field] == null || SPARTADMS__Corporate_Document__c[field] == '') || (toBeRetainedUntil == 'N/A' || toBeRetainedUntil == '' || toBeRetainedUntil == null)), false, true)}" />
+                                    <apex:outputText rendered="{!if(((toBeRetainedUntil == 'N/A' || toBeRetainedUntil == '' || toBeRetainedUntil == null) && field == 'spartadms__To_Be_Retained_Until__c'), true, false)}">{!toBeRetainedUntil}</apex:outputText>
+                               </apex:outputPanel>
+                           </apex:pageblockSectionItem>
+                        </apex:repeat>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection title="{!$Label.spartadms__dms_additional_information}" columns="2" collapsible="false" showHeader="true" rendered="{!if(flexFieldList.size > 0, true, false)}" >
+                        <apex:repeat value="{!flexFieldList}"  var="field">
+                            <apex:pageblockSectionItem >
+                                <apex:outputLabel value="{!flexFieldMap[field]}" style="display:block" />
+                                <apex:outputField value="{!SPARTADMS__Corporate_Document__c[field]}"/>
+                            </apex:pageblockSectionItem>
+                        </apex:repeat>
+                    </apex:pageBlockSection>
+              </apex:pageBlock>
+            </apex:form>
+            
+            <div style="width:1020px;margin:auto">
+            <div  class="DMS_panel DMS_panel-default" ng-cloak=" " ng-if="isAccessible" ng-hide="{{isDocExpired}}">
+                <div class="DMS_panel-heading">{!$Label.DMS_CONTROLLED_PRINTING}</div>
+                <div class="linear_progress" style="z-index:9999;" ng-show="callController || callSaveController" id="progressBar">
+                    <div class="indeterminate"></div>
+                </div>
+                <div class="DMS_panel-body" style="padding:30px">
+                    <div style="font-weight:normal;font-size:14px;margin-bottom:30px;margin-left:-10px"  ng-show="saveStatus" class="custom-alert custom-alert-info">
+                        {!$Label.DMS_SUCCESSFULLY_INSERTED_PRINT}
+                    </div>
+                    
+                    <div style="font-weight:normal;font-size:14px;margin-bottom:30px;margin-left:-10px"  ng-show="userSelected" class="custom-alert custom-alert-info">
+                      {!$Label.DMS_SELECT_USER_GROUP}
+                    </div>
+                    <div class="row">
+                        <div class="col-4" style="margin-top:-2%;">
+                            <label style="font-weight:bold;">{!$Label.DMS_ENABLED_CONTROLLED_PRINTING}</label>&nbsp;&nbsp;
+                            <select ng-disabled="(enableAllPrintBtn == 'true')" ng-model="obj.enableControlPrinting" ng-change="disabledBtn = false">
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+
+
+	                    <div style="padding-left:50%">
+	                       <button style="margin-top:10px" ng-disabled="(enableAllPrintBtn == 'true') || (callController || !obj.printedBy || printForm.$invalid)" class="savecustomBtn customBtn-default" ng-click="saveControlPrinting();">{!$Label.DMS_SAVE}</button> 
+	                    </div>
+
+                    </div>
+                    
+                    
+                    <div style="margin-top:10px" class="row" ng-show="obj.enableControlPrinting == 'true'">
+                        <div class="col-md-2">
+                             <label style="font-weight:bold;">{!$Label.DMS_CAN_BE_PRINTED_BY}</label>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="custom-control custom-radio">
+                                    <input ng-disabled="(enableAllPrintBtn == 'true')" name="radio-stacked" type="radio" value="No Users" class="custom-control-input" ng-model="obj.printedBy" />
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">{!$Label.DMS_NO_USERS}</span>
+                                </label>
+                             </div>
+                             <div class="form-group" style="margin-top:-16px">
+                                <label class="custom-control custom-radio">
+                                    <input ng-disabled="(enableAllPrintBtn == 'true')" name="radio-stacked" type="radio" value="Selected Users"  class="custom-control-input" ng-model="obj.printedBy"  />
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">{!$Label.DMS_SELECTED_USER}</span>
+                                </label>
+                              </div>
+                       </div>
+                    </div>
+                    <div class="row" ng-show="obj.printedBy == 'Selected Users' && obj.enableControlPrinting == 'true'">
+                           <div class="col-6">
+                               <div class="row">
+                                <div class="col-12">
+                                    <fieldset>
+                                        <legend class="DMS_heading" align="center" >{!$Label.DMS_SELECT_GROUPS}</legend>
+                                        <div class="row">
+                                        	<div class="col-1" />
+                                            <div class="col-4">
+                                                <div class="DMS_heading">{!$Label.DMS_AVAILABLE_GROUPS}</div>
+                                                 <div style="box-shadow:0px 1px 2px rgba(102, 102, 102, 0.87);">
+                                                     <input type="text" class="searchBox" placeholder="{!$Label.DMS_SEARCH_GROUP}" ng-model="serchGroup" />
+                                                 </div>
+                                                 <div class="DMS_list-group DMS_Scroll">
+                                                    <a href="javascript:void(0)"  class="DMS_list-group-item {{key.isAssigned ? 'selectdGroup' : ''}}"  ng-click="key.isAssigned =! key.isAssigned"   ng-repeat="key in PrintGroup | filter : serchGroup : 'name' | orderBy : 'name'">
+                                                        <span>{{key.name}}</span>
+                                                    </a>
+                                                    <div ng-show="PrintGroup.length == 0" class="blankList">
+                                                        {!$Label.DMS_GROUPS_NOT_AVAILABLE}
+                                                    </div>       
+                                                </div>
+                                             </div>
+                                             <div class="col-2" style="text-align:center;margin-top:100px;padding-bottom:0px">
+                                                  <div><button style="width:50%;" ng-disabled="callController || (enableAllPrintBtn == 'true')" class="customBtn customBtn-default" ng-click="assignGroup();"><span style="color:#54698D;">&#10095;</span></button></div>
+                                                  <div><button style="width:50%;" ng-disabled="callController || (enableAllPrintBtn == 'true')" class="customBtn customBtn-default" ng-click="unAssignGroup();"><span style="color:#54698D;">&#10094;</span></button></div>
+                                             </div>
+                                             <div class="col-4">
+                                                <div class="DMS_heading">{!$Label.DMS_ALLOWED_TO_PRINT}</div>
+                                                <div style="box-shadow:0px 1px 2px rgba(102, 102, 102, 0.87);">
+                                                    <input type="text" class="searchBox" ng-model="serchSelectedGroup" placeholder="{!$Label.DMS_SEARCH_GROUP}" />
+                                                </div>
+                                                <div class="DMS_list-group DMS_Scroll">
+                                                    <a href="javascript:void(0)"  class="DMS_list-group-item {{key.isAssigned ? 'selectdGroup' : ''}}"  ng-click="key.isAssigned =! key.isAssigned"   ng-repeat="key in assignedGroup | filter : serchSelectedGroup : 'name' | orderBy : 'name'">
+                                                        <span>{{key.name}}</span>
+                                                    </a>
+                                                    <div ng-show="assignedGroup.length == 0" class="blankList">
+                                                        {!$Label.DMS_GROUPS_NOT_AVAILABLE}
+                                                    </div>
+                                                </div>
+                                                <div class="col-1" />
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                          </div>
+                          <div class="row">
+                                <div class="col-12">
+                                    <fieldset>
+                                        <legend class="DMS_heading" align="center">{!$Label.DMS_SELECT_USERS}</legend>
+                                        <div class="row">
+                                        	<div class="col-1" />
+                                            <div class="col-4">
+                                                 <div class="DMS_heading">{!$Label.DMS_AVAILABLE_USERS}</div>
+                                                  <div style="box-shadow:0px 1px 2px rgba(102, 102, 102, 0.87);">
+                                                     <input type="text" class="searchBox"  ng-model="searchUser" placeholder="{!$Label.DMS_SEARCH_USER}" />
+                                                 </div>
+                                                 <div class="DMS_list-group DMS_Scroll">
+                                                    <a href="javascript:void(0)"  class="DMS_list-group-item {{key.isAssigned ? 'selectdGroup' : ''}}"  ng-click="key.isAssigned =! key.isAssigned"   ng-repeat="key in PrintUser | filter : searchUser : 'name' | orderBy : 'name'">
+                                                        <span>{{key.name}}</span>
+                                                    </a>
+                                                    <div ng-show="PrintUser.length == 0" class="blankList">
+                                                        {!$Label.DMS_USER_NOT_AVAILABLE}
+                                                    </div>
+                                                 </div>
+                                            </div>
+                                             <div class="col-2" style="text-align:center;margin-top:100px;padding-bottom:0px">
+                                                  <div><button style="width:50%;" ng-disabled="callController || (enableAllPrintBtn == 'true')" class="customBtn customBtn-default" ng-click="assignUser();"><span style="color:#54698D;">&#10095;</span></button></div>
+                                                  <div><button style="width:50%;" ng-disabled="callController || (enableAllPrintBtn == 'true')" class="customBtn customBtn-default" ng-click="unAssignUser();"><span style="color:#54698D;">&#10094;</span></button></div>
+                                             </div>
+                                             <div class="col-4">
+                                                  <div class="DMS_heading">{!$Label.DMS_ALLOWED_TO_PRINT}</div>
+                                                    <div style="box-shadow:0px 1px 2px rgba(102, 102, 102, 0.87);">
+                                                       <input type="text" class="searchBox"  placeholder="{!$Label.DMS_SEARCH_USER}" ng-model="searchSelectedUser" />
+                                                    </div>
+                                                   <div class="DMS_list-group DMS_Scroll">
+                                                        <a href="javascript:void(0)"  class="DMS_list-group-item {{key.isAssigned ? 'selectdGroup' : ''}}"  ng-click="key.isAssigned =! key.isAssigned"   ng-repeat="key in assignedUser | filter : searchSelectedUser : 'name'  | orderBy : 'name'">
+                                                            <span>{{key.name}}</span>
+                                                        </a>
+                                                        <div ng-show="assignedUser.length == 0" class="blankList">
+                                                            {!$Label.DMS_USER_NOT_AVAILABLE}
+                                                        </div>
+                                                   </div>
+                                            </div>
+                                            <div class="col-1" />
+                                        </div>
+                                    </fieldset>
+                                </div>
+                             </div>
+                           </div>
+                           <div class="col-6">
+                               <div class="row">
+                                   <div class="col-1" style="margin-top:290px;">
+                                       <div><span style="color:#54698D;font-size:20px;">&#10095;</span></div>
+                                   </div>
+                                   <div class="col-4">
+                                        <legend class="DMS_heading">{!$Label.DMS_ALLOWED_TO_PRINT}</legend>
+                                        <div style="box-shadow:0px 1px 2px rgba(102, 102, 102, 0.87);">
+                                            <input type="text" ng-model="searchFinalUser" class="searchBox" style="width:100%" placeholder="{!$Label.DMS_SEARCH_USER}"  />
+                                        </div>
+                                        <div class="DMS_list-group DMS_Scroll" style="height:530px;">
+                                             <a href="javascript:void(0)" class="DMS_list-group-item" ng-repeat="key in listOfUser  = (finalUsers | orderBy : 'userName' | filter : searchFinalUser : 'name' | unique : 'userId')">
+                                                <span>{{key.userName}}</span>
+                                            </a>
+                                            <div ng-show="finalUsers.length == 0"  class="blankList">
+                                                {!$Label.DMS_USER_NOT_AVAILABLE}
+                                            </div>
+                                        </div>
+                                   </div>
+                                   <div  class="col-5">
+                                       <div id="limitForm" style="margin:auto;width:100%;">
+                                                <div>
+                                                    <input type="checkbox" ng-disabled="(enableAllPrintBtn == 'true')" ng-model="obj.isLimit" /> <label style="font-weight:bold;">{!$Label.DMS_LIMIT_NUMBER_OF_PRINTS}</label>
+                                                       
+                                                </div>
+                                                <div ng-show="obj.isLimit" style="margin-left:6%;">
+                                                    {!$Label.DMS_ALLOW} <select ng-disabled="(enableAllPrintBtn == 'true')" ng-model="obj.type" style="margin-bottom:4px" ><option value="each user">{!$Label.DMS_EACH_USER}</option><option value="all users">{!$Label.DMS_ALL_USERS}</option></select>
+                                                    {!$Label.DMS_TO_PRINT}&nbsp;
+                                                    <form name="printForm" style="display:inline">
+                                                        <input style="text-align:center" class="form-control" min="0" ng-disabled="(enableAllPrintBtn == 'true')" ng-required="true"   name="noofprint" type="number" ng-pattern="/^\d+$/" ng-model="obj.totalNoOfCopies" /> 
+                                                        &nbsp;{!$Label.DMS_COPIES_OF_THE_DOCUMENT}
+                                                        <div>
+                                                             <span  class="validationMessage" ng-show="printForm.noofprint.$dirty && printForm.noofprint.$error.pattern">{!$Label.DMS_INVALID_NUMBER}</span>
+                                                           
+                                                            <span  class="validationMessage" ng-show="printForm.noofprint.$dirty && printForm.noofprint.$error.required">{!$Label.DMS_THIS_IS_REQUIRED}</span>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                 <div class="recurrenceDiv">
+                                                   <div ng-show="obj.isLimit" style="margin-top: 25px">
+                                                      <input type="checkbox" ng-disabled="(enableAllPrintBtn == 'true')" ng-model="obj.isRecurrence" /><label style="font-weight:bold;">&nbsp;{!$Label.DMS_RECCURENCE}</label>
+                                                    </div>
+                                                    <div ng-show="obj.isRecurrence && obj.isLimit" style="margin-left:5%;margin-top:1%;">
+                                                        <div style="margin-bottom:5px"><input ng-disabled="(enableAllPrintBtn == 'true')" type="radio" value="Day" ng-model="obj.recurrenceType" name="a" />&nbsp;&nbsp;{!$Label.DMS_DAY}</div> 
+                                                        <div style="margin-bottom:5px"><input ng-disabled="(enableAllPrintBtn == 'true')" type="radio" value="Week" ng-model="obj.recurrenceType" name="a" />&nbsp;&nbsp;{!$Label.DMS_WEEK}</div>
+                                                        <div style="margin-bottom:5px"><input ng-disabled="(enableAllPrintBtn == 'true')" type="radio" value="Month" ng-model="obj.recurrenceType" name="a" />&nbsp;&nbsp;{!$Label.DMS_MONTH}</div>
+                                                    </div>
+                                                </div>
+                                           </div>
+                                      
+                                    </div>
+                               </div>
+                           </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <apex:relatedList list="Review_Justifications__r" rendered="{!!isDocExpired}"/>
+            <apex:relatedList list="Document_Reviewers__r" rendered="{!!isDocExpired}"/>
+            <apex:relatedList list="Document_Users__r" rendered="{!!isDocExpired}"/>
+            <apex:relatedList list="Related_Documents__r" rendered="{!!isDocExpired}"/>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            
+		</div>
+		</div>
+		        
+        </body>
+  </html>
+</apex:page>

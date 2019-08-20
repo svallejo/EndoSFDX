@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+        <fullName>CMPL123CME__MEDDRA_CODES</fullName>
+        <columns>CMPL123CME__Name__c</columns>
+        <columns>NAME</columns>
+        <columns>CMPL123CME__Sub_Type__c</columns>
+        <columns>CMPL123CME__Version__c</columns>
+        <columns>CMPL123CME__ParentCCode__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CMPL123CME__Type__c</field>
+            <operation>equals</operation>
+            <value>MEDDRA CODE</value>
+        </filters>
+        <label>MEDDRA CODES</label>
+    </ListView>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>36.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>This page displays both Audit history and workflow history. As per requirement dms admin can view both audit history and dms users can view only workflow history.</description>
+    <label>DMSCompositeRedLineDraft</label>
+</ApexPage>
